@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { AppShell, type AppNavItem } from "@/components/app/AppShell";
+import { translateRole } from "@/components/app/shell-utils";
 import { activeSchoolCookieName } from "@/lib/auth/cookies";
 import { getCurrentSession } from "@/lib/auth/current-session";
 import {
@@ -18,24 +19,28 @@ const navItems = [
     label: "Cố vấn & Gia sư",
     icon: "mentoring",
     permission: permissions.mentorDirectoryRead,
+    available: false,
   },
   {
     href: "/dashboard/resources",
     label: "Kho tài liệu",
     icon: "resources",
     permission: permissions.resourceRead,
+    available: false,
   },
   {
     href: "/dashboard/appointments",
     label: "Lịch hẹn & Đơn từ",
     icon: "appointments",
     permission: permissions.calendarEventRead,
+    available: false,
   },
   {
     href: "/dashboard/clubs-events",
     label: "CLB & Sự kiện",
     icon: "clubs",
     permission: permissions.clubRead,
+    available: false,
   },
 ] satisfies readonly (AppNavItem & { permission?: Permission })[];
 
@@ -89,8 +94,9 @@ export default async function AppLayout({
       hasPermission(effectivePermissions, item.permission),
   );
   const scopeDescription = activeSchool
-    ? activeSchool.roles.join(", ")
-    : "Quản trị nền tảng";
+    ? activeSchool.roles.map(translateRole).join(" · ")
+    : session.platformRoles.map(translateRole).join(" · ") ||
+      "Quản trị nền tảng";
 
   return (
     <AppShell

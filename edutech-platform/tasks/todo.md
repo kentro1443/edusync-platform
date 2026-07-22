@@ -43,91 +43,91 @@
 
 ### Nội dung và thương hiệu
 
-- [ ] Lập inventory toàn bộ copy/route user-facing.
-- [ ] Chuyển toàn bộ metadata và copy sang tiếng Việt tự nhiên.
-- [ ] Xoá mọi thương hiệu cũ; chuẩn hoá EduTech.
-- [ ] Chuẩn hoá thuật ngữ Việt cho role, status và action.
-- [ ] Hoàn thiện navigation map marketing/app theo vai trò.
+- [x] Lập inventory toàn bộ copy/route user-facing.
+- [x] Chuyển toàn bộ metadata và copy sang tiếng Việt tự nhiên.
+- [x] Xoá mọi thương hiệu cũ; chuẩn hoá EduTech.
+- [x] Chuẩn hoá thuật ngữ Việt cho role, status và action.
+- [x] Hoàn thiện navigation map marketing/app theo vai trò.
 
 ### Token và nền truy cập
 
-- [ ] Xây token màu semantic, typography, spacing, radius, border, elevation và motion.
-- [ ] Xây breakpoint/content-width responsive.
-- [ ] Thêm global reset và baseline typography.
-- [ ] Thêm skip link và semantic landmarks.
-- [ ] Chuẩn hoá `:focus-visible`.
-- [ ] Thêm reduced-motion rules.
-- [ ] Kiểm tra contrast của text/control/status.
-- [ ] Thêm utility cho visually-hidden và screen-reader status.
+- [x] Xây token màu semantic, typography, spacing, radius, border, elevation và motion.
+- [x] Xây breakpoint/content-width responsive.
+- [x] Thêm global reset và baseline typography.
+- [x] Thêm skip link và semantic landmarks.
+- [x] Chuẩn hoá `:focus-visible`.
+- [x] Thêm reduced-motion rules.
+- [x] Kiểm tra contrast của text/control/status.
+- [x] Thêm utility cho visually-hidden và screen-reader status.
 
 ### Component library
 
-- [ ] Hoàn thiện Button và IconButton với variants/loading/disabled.
-- [ ] Hoàn thiện Link và navigation link.
-- [ ] Hoàn thiện Input, Textarea và Field.
-- [ ] Thêm Select/Combobox.
-- [ ] Thêm Checkbox, Radio và Switch.
-- [ ] Hoàn thiện Badge/Status indicator không phụ thuộc màu.
-- [ ] Thêm Alert và inline feedback.
-- [ ] Hoàn thiện Card chỉ cho hierarchy phù hợp.
-- [ ] Thêm responsive Table và row actions.
-- [ ] Thêm Tabs.
-- [ ] Thêm Breadcrumb.
-- [ ] Thêm Pagination.
-- [ ] Thêm Dialog với focus trap/restore.
-- [ ] Thêm Drawer/Sheet responsive.
-- [ ] Thêm Menu/Dropdown.
-- [ ] Thêm Tooltip cho supplementary content.
-- [ ] Thêm Toast/live-region feedback.
-- [ ] Thêm Skeleton/loading state.
-- [ ] Thêm EmptyState/ErrorState/ForbiddenState.
-- [ ] Thêm Avatar.
-- [ ] Thêm Timeline/Activity item.
-- [ ] Thêm file upload primitive.
-- [ ] Thêm date/time and calendar primitives cần thiết.
+- [x] Hoàn thiện Button và IconButton với variants/loading/disabled.
+- [x] Hoàn thiện Link và navigation link.
+- [x] Hoàn thiện Input, Textarea và Field.
+- [x] Thêm Select/Combobox.
+- [x] Thêm Checkbox, Radio và Switch.
+- [x] Hoàn thiện Badge/Status indicator không phụ thuộc màu.
+- [x] Thêm Alert và inline feedback.
+- [x] Hoàn thiện Card chỉ cho hierarchy phù hợp.
+- [x] Thêm responsive Table và row actions.
+- [x] Thêm Tabs.
+- [x] Thêm Breadcrumb.
+- [x] Thêm Pagination.
+- [x] Thêm Dialog với focus trap/restore.
+- [x] Thêm Drawer/Sheet responsive.
+- [x] Thêm Menu/Dropdown.
+- [x] Thêm Tooltip cho supplementary content.
+- [x] Thêm Toast/live-region feedback.
+- [x] Thêm Skeleton/loading state.
+- [x] Thêm EmptyState/ErrorState/ForbiddenState.
+- [x] Thêm Avatar.
+- [x] Thêm Timeline/Activity item.
+- [x] Thêm file upload primitive.
+- [x] Thêm date/time and calendar primitives cần thiết.
 
 ### Marketing UI
 
-- [ ] Rebuild responsive header và accessible mobile menu.
-- [ ] Rebuild footer với sitemap và support links.
-- [ ] Hoàn thiện trang chủ với hero, product preview, modules, roles, trust và CTA.
-- [ ] Hoàn thiện trang Cố vấn.
-- [ ] Hoàn thiện trang Tài nguyên.
-- [ ] Hoàn thiện trang Lịch hẹn.
-- [ ] Thêm trang Quy trình.
-- [ ] Hoàn thiện trang Câu lạc bộ & sự kiện.
-- [ ] Hoàn thiện Bảng giá.
-- [ ] Hoàn thiện Bảo mật.
-- [ ] Hoàn thiện Câu chuyện khách hàng.
-- [ ] Hoàn thiện Trung tâm trợ giúp.
-- [ ] Hoàn thiện form Đăng ký tư vấn với validation/success/error.
-- [ ] Thêm SEO/social metadata, sitemap và robots.
+- [x] Rebuild responsive header và accessible mobile menu.
+- [x] Rebuild footer với sitemap và support links.
+- [x] Hoàn thiện trang chủ với hero, product preview, modules, roles, trust và CTA.
+- [x] Hoàn thiện trang Cố vấn.
+- [x] Hoàn thiện trang Tài nguyên.
+- [x] Hoàn thiện trang Lịch hẹn.
+- [x] Thêm trang Quy trình.
+- [x] Hoàn thiện trang Câu lạc bộ & sự kiện.
+- [x] Hoàn thiện Bảng giá.
+- [x] Hoàn thiện Bảo mật.
+- [x] Hoàn thiện Câu chuyện khách hàng.
+- [x] Hoàn thiện Trung tâm trợ giúp.
+- [x] Hoàn thiện form Đăng ký tư vấn với validation/success/error.
+- [x] Thêm SEO/social metadata, sitemap và robots.
 
 ### Authenticated shell
 
-- [ ] Xây sidebar desktop responsive/collapsible.
+- [x] Xây sidebar desktop responsive/collapsible.
 - [x] Xây mobile navigation drawer.
-- [ ] Xây top bar, breadcrumb, search trigger, quick action, notification và user menu.
+- [x] Xây top bar, breadcrumb, search trigger, quick action, notification và user menu.
 - [x] Xây active-school presentation/switcher slot.
 - [x] Lọc navigation theo role/permission.
-- [ ] Xây page header và content layouts.
-- [ ] Xây loading, error, not-found và forbidden boundaries.
-- [ ] Xây mobile table/list adaptation.
-- [ ] Xây dashboard visual foundation theo vai trò.
+- [x] Xây page header và content layouts.
+- [x] Xây loading, error, not-found và forbidden boundaries.
+- [x] Xây mobile table/list adaptation.
+- [x] Xây dashboard visual foundation theo vai trò.
 
 ### Gate Phase 1
 
-- [ ] Unit/component tests cho primitives quan trọng.
-- [ ] E2E marketing/app shell desktop.
-- [ ] E2E mobile navigation.
-- [ ] Keyboard-only menu/dialog/form checks.
-- [ ] Reduced-motion check.
-- [ ] Responsive check 320/375/768/1024/1440 px.
-- [ ] Không còn copy tiếng Anh ngoài ngoại lệ có chủ ý.
-- [ ] Không còn horizontal overflow bất ngờ.
-- [ ] Lint, typecheck, tests và build xanh.
-- [ ] Cập nhật docs giao diện.
-- [ ] Đóng gate Phase 1.
+- [x] Unit/component tests cho primitives quan trọng.
+- [x] E2E marketing/app shell desktop.
+- [x] E2E mobile navigation.
+- [x] Keyboard-only menu/dialog/form checks.
+- [x] Reduced-motion check.
+- [x] Responsive check 320/375/768/1024/1440 px.
+- [x] Không còn copy tiếng Anh ngoài ngoại lệ có chủ ý.
+- [x] Không còn horizontal overflow bất ngờ.
+- [x] Lint, typecheck, tests và build xanh.
+- [x] Cập nhật docs giao diện.
+- [x] Đóng gate Phase 1.
 
 ## Phase 2 — Danh tính, tenant và quản trị
 

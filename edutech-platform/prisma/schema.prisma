@@ -98,6 +98,23 @@ model User {
   emailOutboxItems         EmailOutbox[]             @relation("EmailRecipient")
 }
 
+model DemoRequest {
+  id           String   @id @default(uuid()) @db.Uuid
+  fullName     String
+  role         String
+  schoolName   String
+  email        String
+  phone        String?
+  studentCount Int?
+  module       String
+  message      String?
+  status       String   @default("NEW")
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([status, createdAt])
+  @@index([email, createdAt])
+}
+
 model PlatformRoleAssignment {
   id               String       @id @default(uuid()) @db.Uuid
   userId           String       @db.Uuid

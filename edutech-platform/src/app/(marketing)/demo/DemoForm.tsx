@@ -1,39 +1,56 @@
 "use client";
 
-import { useState } from "react";
-import { Card } from "@/components/ui/Card";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
+
+import {
+  submitDemoRequest,
+  type DemoRequestState,
+} from "@/app/(marketing)/demo/actions";
 import { Button } from "@/components/ui/Button";
-import { Label, Input, Textarea, Select } from "@/components/ui/Field";
+import { Card } from "@/components/ui/Card";
+import { Alert } from "@/components/ui/Feedback";
+import { Field, Input, Select, Textarea } from "@/components/ui/Field";
 import { CheckIcon } from "@/components/ui/icons";
 
 const moduleOptions = [
   { value: "mentoring", label: "Cố vấn & Gia sư" },
   { value: "resources", label: "Kho tài liệu" },
   { value: "appointments", label: "Lịch hẹn & Đơn từ" },
+  { value: "workflows", label: "Quy trình số" },
   { value: "clubs-events", label: "CLB, Sự kiện & Cơ sở vật chất" },
-  { value: "all", label: "Cả 4 mô-đun" },
+  { value: "all", label: "Toàn bộ 5 mô-đun" },
 ];
 
+const initialState: DemoRequestState = { status: "idle" };
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" size="lg" className="w-full" loading={pending}>
+      Gửi yêu cầu tư vấn
+    </Button>
+  );
+}
+
 export function DemoForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, formAction] = useActionState(submitDemoRequest, initialState);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
-
-  if (submitted) {
+  if (state.status === "success") {
     return (
-      <Card className="mx-auto flex max-w-xl flex-col items-center gap-4 py-14 text-center">
+      <Card
+        role="status"
+        aria-live="polite"
+        className="mx-auto flex max-w-xl flex-col items-center gap-4 py-14 text-center"
+      >
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-success-50)] text-[var(--color-success-600)]">
-          <CheckIcon width={28} height={28} />
+          <CheckIcon width={28} height={28} aria-hidden="true" />
         </span>
         <h2 className="text-xl font-semibold text-[var(--color-ink-900)]">
-          Cảm ơn bạn đã đăng ký!
+          Yêu cầu đã được ghi nhận
         </h2>
-        <p className="max-w-sm text-sm text-[var(--color-ink-500)]">
-          Đội ngũ của EduTech sẽ liên hệ với bạn trong vòng 24 giờ làm
-          việc để sắp xếp buổi demo phù hợp.
+        <p className="max-w-sm text-sm leading-6 text-[var(--color-ink-500)]">
+          Đội ngũ EduTech sẽ kiểm tra thông tin và liên hệ trong vòng 24 giờ làm việc.
         </p>
       </Card>
     );
@@ -41,82 +58,67 @@ export function DemoForm() {
 
   return (
     <Card className="mx-auto max-w-xl">
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form action={formAction} className="space-y-5" noValidate>
+        <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+          <label htmlFor="website">Website</label>
+          <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
+
+        {state.formError ? (
+          <Alert tone="danger" title="Chưa gửi được yêu cầu">
+            {state.formError}
+          </Alert>
+        ) : null}
+
         <div className="grid gap-5 sm:grid-cols-2">
-          <div>
-            <Label htmlFor="fullName" required>
-              Họ và tên
-            </Label>
-            <Input id="fullName" name="fullName" required placeholder="Nguyễn Văn A" />
-          </div>
-          <div>
-            <Label htmlFor="role" required>
-              Vai trò
-            </Label>
-            <Select id="role" name="role" required defaultValue="">
-              <option value="" disabled>
-                Chọn vai trò
-              </option>
+          <Field id="fullName" label="Họ và tên" required error={state.fieldErrors?.fullName}>
+            <Input id="fullName" name="fullName" autoComplete="name" placeholder="Nguyễn Văn An" />
+          </Field>
+          <Field id="role" label="Vai trò" required error={state.fieldErrors?.role}>
+            <Select id="role" name="role" defaultValue="">
+              <option value="" disabled>Chọn vai trò</option>
               <option value="principal">Ban giám hiệu</option>
-              <option value="it">Phòng CNTT</option>
+              <option value="it">Phòng công nghệ thông tin</option>
               <option value="teacher">Giáo viên</option>
-              <option value="other">Khác</option>
+              <option value="other">Vai trò khác</option>
             </Select>
-          </div>
+          </Field>
         </div>
+
         <div className="grid gap-5 sm:grid-cols-2">
-          <div>
-            <Label htmlFor="school" required>
-              Tên trường
-            </Label>
-            <Input id="school" name="school" required placeholder="THPT ..." />
-          </div>
-          <div>
-            <Label htmlFor="email" required>
-              Email công vụ
-            </Label>
-            <Input id="email" name="email" type="email" required placeholder="ban@truong.edu.vn" />
-          </div>
+          <Field id="school" label="Tên trường" required error={state.fieldErrors?.schoolName}>
+            <Input id="school" name="school" autoComplete="organization" placeholder="THPT Minh Khai" />
+          </Field>
+          <Field id="email" label="Email công vụ" required error={state.fieldErrors?.email}>
+            <Input id="email" name="email" type="email" autoComplete="email" placeholder="ban@truong.edu.vn" />
+          </Field>
         </div>
+
         <div className="grid gap-5 sm:grid-cols-2">
-          <div>
-            <Label htmlFor="phone">Số điện thoại</Label>
-            <Input id="phone" name="phone" type="tel" placeholder="09xx xxx xxx" />
-          </div>
-          <div>
-            <Label htmlFor="studentCount">Quy mô học sinh</Label>
-            <Input id="studentCount" name="studentCount" placeholder="VD: 1500" />
-          </div>
+          <Field id="phone" label="Số điện thoại" error={state.fieldErrors?.phone}>
+            <Input id="phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" placeholder="0901 234 567" />
+          </Field>
+          <Field id="studentCount" label="Quy mô học sinh" error={state.fieldErrors?.studentCount}>
+            <Input id="studentCount" name="studentCount" type="number" inputMode="numeric" min={1} max={100000} placeholder="1500" />
+          </Field>
         </div>
-        <div>
-          <Label htmlFor="modules" required>
-            Mô-đun quan tâm
-          </Label>
-          <Select id="modules" name="modules" required defaultValue="">
-            <option value="" disabled>
-              Chọn mô-đun
-            </option>
-            {moduleOptions.map((m) => (
-              <option key={m.value} value={m.value}>
-                {m.label}
-              </option>
+
+        <Field id="modules" label="Mô-đun quan tâm" required error={state.fieldErrors?.modules}>
+          <Select id="modules" name="modules" defaultValue="">
+            <option value="" disabled>Chọn mô-đun</option>
+            {moduleOptions.map((module) => (
+              <option key={module.value} value={module.value}>{module.label}</option>
             ))}
           </Select>
-        </div>
-        <div>
-          <Label htmlFor="message">Vấn đề bạn đang gặp phải</Label>
-          <Textarea
-            id="message"
-            name="message"
-            placeholder="Chia sẻ ngắn gọn thách thức mà nhà trường đang đối mặt..."
-          />
-        </div>
-        <Button type="submit" size="lg" className="w-full">
-          Gửi yêu cầu demo
-        </Button>
-        <p className="text-center text-xs text-[var(--color-ink-400)]">
-          Bằng việc gửi biểu mẫu này, bạn đồng ý cho EduTech liên hệ để
-          sắp xếp lịch demo.
+        </Field>
+
+        <Field id="message" label="Vấn đề nhà trường cần giải quyết" error={state.fieldErrors?.message}>
+          <Textarea id="message" name="message" maxLength={2000} placeholder="Chia sẻ ngắn gọn thách thức mà nhà trường đang đối mặt..." />
+        </Field>
+
+        <SubmitButton />
+        <p className="text-center text-xs leading-5 text-[var(--color-ink-400)]">
+          Khi gửi biểu mẫu, bạn đồng ý để EduTech sử dụng thông tin này nhằm liên hệ tư vấn triển khai.
         </p>
       </form>
     </Card>

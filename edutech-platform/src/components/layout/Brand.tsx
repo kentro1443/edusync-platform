@@ -5,15 +5,17 @@ import { cn } from "@/lib/cn";
 export function Brand({
   compact = false,
   inverse = false,
+  href = "/",
   className,
 }: {
   compact?: boolean;
   inverse?: boolean;
+  href?: string;
   className?: string;
 }) {
   return (
     <Link
-      href="/"
+      href={href}
       aria-label="EduTech - Trang chủ"
       className={cn("group inline-flex items-center gap-3", inverse ? "text-white" : "text-[var(--color-ink-900)]", className)}
     >
