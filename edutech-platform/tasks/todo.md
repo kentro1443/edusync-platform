@@ -144,18 +144,18 @@
 
 ### Auth service và route
 
-- [ ] Xây login service với Argon2id và generic error.
-- [ ] Xây secure session creation/cookie.
-- [ ] Xây logout current session.
+- [x] Xây login service với Argon2id và generic error.
+- [x] Xây secure session creation/cookie.
+- [x] Xây logout current session.
 - [ ] Xây revoke other/all sessions.
-- [ ] Xây current-session resolver.
-- [ ] Xây active-school context persistence.
+- [x] Xây current-session resolver.
+- [x] Xây active-school context persistence.
 - [ ] Xây forced first-login password change.
 - [ ] Xây forgot-password request với non-enumerating response.
 - [ ] Xây reset-password consume-once flow.
 - [ ] Xây invitation create/send/resend/revoke/accept/expire flow.
 - [ ] Thêm auth rate limits.
-- [ ] Thêm route guards cho anonymous/authenticated/school/platform.
+- [ ] Thêm route guards cho anonymous/authenticated/school/platform (đã bảo vệ shell authenticated; còn school/platform guard dùng chung).
 - [ ] Thêm CSRF-safe mutation approach.
 - [ ] Thêm audit cho auth/admin actions.
 
@@ -171,12 +171,12 @@
 
 ### UI auth
 
-- [ ] Trang đăng nhập hoạt động thật.
+- [x] Trang đăng nhập hoạt động thật.
 - [ ] Trang đổi mật khẩu lần đầu.
 - [ ] Trang quên mật khẩu.
 - [ ] Trang đặt lại mật khẩu.
 - [ ] Trang chấp nhận lời mời.
-- [ ] Trang chọn/đổi trường.
+- [x] Trang chọn/đổi trường.
 - [ ] Trang membership inactive.
 - [ ] Trang 403.
 - [ ] Profile và security settings.

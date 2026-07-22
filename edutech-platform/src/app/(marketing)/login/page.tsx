@@ -1,17 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
+import { redirect } from "next/navigation";
+
+import { loginAction } from "@/app/(marketing)/login/actions";
 import { Button } from "@/components/ui/Button";
-import { Label, Input } from "@/components/ui/Field";
+import { Card } from "@/components/ui/Card";
+import { Container } from "@/components/ui/Container";
+import { Input, Label } from "@/components/ui/Field";
 import { MentorIcon } from "@/components/ui/icons";
+import { getCurrentSession } from "@/lib/auth/current-session";
+import {
+  getAuthenticatedLandingPath,
+  sanitizeReturnPath,
+} from "@/lib/auth/navigation";
 
 export const metadata: Metadata = {
   title: "Đăng nhập",
-  description: "Đăng nhập vào tài khoản LiênKếtHọc của bạn.",
+  description: "Đăng nhập vào tài khoản EduTech của bạn.",
 };
 
-export default function LoginPage() {
+type LoginPageProps = Readonly<{
+  searchParams: Promise<{
+    error?: string;
+    returnTo?: string;
+  }>;
+}>;
+
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const [params, session] = await Promise.all([
+    searchParams,
+    getCurrentSession(),
+  ]);
+  const returnTo = sanitizeReturnPath(params.returnTo);
+
+  if (session) {
+    redirect(returnTo ?? getAuthenticatedLandingPath(session));
+  }
+
   return (
     <section className="flex min-h-[calc(100vh-64px)] items-center bg-[var(--color-surface-muted)] py-16">
       <Container className="flex justify-center">
@@ -22,7 +47,7 @@ export default function LoginPage() {
                 <MentorIcon width={20} height={20} />
               </span>
               <span className="text-lg font-bold text-[var(--color-ink-900)]">
-                LiênKếtHọc
+                EduTech
               </span>
             </Link>
             <h1 className="mt-6 text-xl font-semibold text-[var(--color-ink-900)]">
@@ -32,35 +57,61 @@ export default function LoginPage() {
               Dành cho học sinh, phụ huynh, giáo viên và quản trị viên nhà trường
             </p>
           </div>
-          <form className="space-y-5">
+
+          {params.error === "invalid" ? (
+            <div
+              role="alert"
+              className="mb-5 rounded-[var(--radius-md)] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+            >
+              Email hoặc mật khẩu không đúng. Vui lòng thử lại.
+            </div>
+          ) : null}
+
+          <form action={loginAction} className="space-y-5">
+            {returnTo ? (
+              <input type="hidden" name="returnTo" value={returnTo} />
+            ) : null}
             <div>
               <Label htmlFor="email" required>
                 Email
               </Label>
-              <Input id="email" name="email" type="email" required placeholder="ban@truong.edu.vn" />
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="username"
+                required
+                placeholder="ban@truong.edu.vn"
+              />
             </div>
             <div>
               <Label htmlFor="password" required>
                 Mật khẩu
               </Label>
-              <Input id="password" name="password" type="password" required placeholder="••••••••" />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                required
+                placeholder="••••••••"
+              />
             </div>
-            <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2 text-[var(--color-ink-600)]">
-                <input type="checkbox" className="h-4 w-4 rounded border-[var(--color-ink-300)]" />
-                Ghi nhớ đăng nhập
-              </label>
-              <a href="#" className="font-medium text-[var(--color-brand-700)] hover:underline">
-                Quên mật khẩu?
-              </a>
+            <div className="flex justify-end text-sm">
+              <span className="text-[var(--color-ink-500)]">
+                Quên mật khẩu? Liên hệ quản trị viên trường.
+              </span>
             </div>
             <Button type="submit" size="lg" className="w-full">
               Đăng nhập
             </Button>
           </form>
           <p className="mt-6 text-center text-sm text-[var(--color-ink-500)]">
-            Trường bạn chưa sử dụng LiênKếtHọc?{" "}
-            <Link href="/demo" className="font-medium text-[var(--color-brand-700)] hover:underline">
+            Trường bạn chưa sử dụng EduTech?{" "}
+            <Link
+              href="/demo"
+              className="font-medium text-[var(--color-brand-700)] hover:underline"
+            >
               Yêu cầu demo
             </Link>
           </p>

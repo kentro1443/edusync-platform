@@ -1,6 +1,6 @@
 # EduTech Platform
 
-EduTech is a multi-tenant school operations platform built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. The current foundation includes strict environment validation, identity and tenancy models, a typed authorization registry, database-session and credentials primitives, local file/email adapters, and policy/adapter tests.
+EduTech is a multi-tenant school operations platform built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. The current implementation includes strict environment validation, identity and tenancy models, a typed authorization registry, database-backed credentials/session authentication, active-school selection, protected application routes, local file/email adapters, and policy/adapter tests.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ The seed creates two schools (`Minh Khai` and `Nguyễn Du`) and every foundatio
 EduTech-Demo-2026!
 ```
 
-Seeded users are required to change that password.
+Seeded users currently carry the `mustChangePassword` flag. The first-login password-change screen is the next authentication slice; until it is implemented, authenticated seeded users are redirected to `/doi-mat-khau`.
 
 | Scope | Role | Email |
 | --- | --- | --- |
@@ -106,17 +106,20 @@ npm test
 npm run build
 ```
 
-The unit/integration suite covers permission evaluation, tenant isolation, parent/student privacy links, local file-storage containment, and durable email-outbox behavior.
+The unit/integration suite covers permission evaluation, tenant isolation, parent/student privacy links, authentication navigation safety, local file-storage containment, and durable email-outbox behavior. The Playwright smoke suite verifies public routes, login, and the authenticated-route redirect behavior.
+
+## Authentication behavior
+
+- Credentials are verified with Argon2id and failures return a generic Vietnamese message.
+- Successful login creates an opaque database session and an `HttpOnly`, `SameSite=Lax` cookie.
+- Logout revokes the current database session and clears both session and active-school cookies.
+- `/dashboard` requires a valid, unrevoked session.
+- Users with multiple active school memberships select a school at `/chon-truong`; the selected slug is stored in a protected cookie and validated against the current session on every use.
+- `returnTo` values are restricted to local application paths to prevent open redirects.
 
 ## Verification status
 
-On July 22, 2026, Prisma schema validation, ESLint, TypeScript, all 18 Vitest tests, and the production build passed. Clean-database migration and seed execution could not be run on the verification machine because neither Docker nor a native PostgreSQL client was installed. The schema, initial migration, deterministic seed, and Compose definitions are present; complete that remaining gate in an environment with Docker by running:
-
-```bash
-npm run services:up
-npm run db:migrate:deploy
-npm run db:seed
-```
+On July 23, 2026, ESLint, TypeScript, all 28 Vitest tests, the four-test Playwright smoke suite, and the production build passed. The Phase 0 database migration and deterministic seed were also verified against the local Compose services.
 
 ## Architecture documentation
 
