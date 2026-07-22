@@ -106,10 +106,10 @@
 ### Authenticated shell
 
 - [ ] Xây sidebar desktop responsive/collapsible.
-- [ ] Xây mobile navigation drawer.
+- [x] Xây mobile navigation drawer.
 - [ ] Xây top bar, breadcrumb, search trigger, quick action, notification và user menu.
-- [ ] Xây active-school presentation/switcher slot.
-- [ ] Lọc navigation theo role/permission.
+- [x] Xây active-school presentation/switcher slot.
+- [x] Lọc navigation theo role/permission.
 - [ ] Xây page header và content layouts.
 - [ ] Xây loading, error, not-found và forbidden boundaries.
 - [ ] Xây mobile table/list adaptation.
