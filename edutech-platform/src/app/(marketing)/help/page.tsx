@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -13,28 +15,58 @@ const categories = [
   {
     title: "Dành cho Học sinh",
     items: [
-      "Cách đặt lịch với mentor",
-      "Cách tìm và tải tài liệu ôn tập",
-      "Cách đặt lịch hẹn với giáo viên",
-      "Cách nộp đơn từ trực tuyến",
+      { label: "Cách đặt lịch với mentor", href: "/modules/mentoring" },
+      {
+        label: "Cách tìm và tải tài liệu ôn tập",
+        href: "/modules/resources",
+      },
+      {
+        label: "Cách đặt lịch hẹn với giáo viên",
+        href: "/modules/appointments",
+      },
+      {
+        label: "Cách nộp đơn từ trực tuyến",
+        href: "/modules/appointments",
+      },
     ],
   },
   {
     title: "Dành cho Phụ huynh",
     items: [
-      "Cách xác nhận đồng ý cho con tham gia cố vấn",
-      "Cách theo dõi lịch sử buổi học của con",
-      "Cách báo cáo vấn đề an toàn",
-      "Câu hỏi về thanh toán và hóa đơn",
+      {
+        label: "Cách xác nhận đồng ý cho con tham gia cố vấn",
+        href: "/modules/mentoring",
+      },
+      {
+        label: "Cách theo dõi lịch sử buổi học của con",
+        href: "/modules/mentoring",
+      },
+      { label: "Cách báo cáo vấn đề an toàn", href: "/security" },
+      {
+        label: "Câu hỏi về thanh toán và hóa đơn",
+        href: "/modules/mentoring",
+      },
     ],
   },
   {
     title: "Dành cho Giáo viên & Ban quản trị",
     items: [
-      "Cách thiết lập khung giờ tư vấn",
-      "Cách cấu hình luồng phê duyệt CLB/sự kiện",
-      "Cách duyệt hồ sơ mentor mới",
-      "Cách xuất báo cáo hoạt động toàn trường",
+      {
+        label: "Cách thiết lập khung giờ tư vấn",
+        href: "/modules/appointments",
+      },
+      {
+        label: "Cách cấu hình luồng phê duyệt CLB/sự kiện",
+        href: "/modules/clubs-events",
+      },
+      {
+        label: "Cách duyệt hồ sơ mentor mới",
+        href: "/modules/mentoring",
+      },
+      {
+        label: "Cách xuất báo cáo hoạt động toàn trường",
+        href: "/demo",
+      },
     ],
   },
 ];
@@ -69,10 +101,16 @@ export default function HelpPage() {
                 </h2>
                 <ul className="mt-4 space-y-3">
                   {cat.items.map((item) => (
-                    <li key={item} className="text-sm text-[var(--color-ink-600)]">
-                      <a href="#" className="hover:text-[var(--color-brand-700)] hover:underline">
-                        {item}
-                      </a>
+                    <li
+                      key={item.label}
+                      className="text-sm text-[var(--color-ink-600)]"
+                    >
+                      <Link
+                        href={item.href}
+                        className="hover:text-[var(--color-brand-700)] hover:underline"
+                      >
+                        {item.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
