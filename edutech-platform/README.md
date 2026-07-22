@@ -1,6 +1,6 @@
 # EduTech Platform
 
-EduTech is a multi-tenant school operations platform built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. The current implementation includes strict environment validation, identity and tenancy models, a typed authorization registry, database-backed credentials/session authentication, active-school selection, protected application routes, local file/email adapters, and policy/adapter tests.
+EduTech is a multi-tenant school operations platform built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. Phases 1–2 provide the production foundation: a responsive Vietnamese design system and marketing site, database-backed identity and session security, tenant-safe authorization, school membership administration, and platform tenant provisioning.
 
 ## Prerequisites
 
@@ -78,6 +78,7 @@ Seeded users carry the `mustChangePassword` flag. On first login, enter the shar
 | Nguyễn Du | Parent/guardian | `parent.nguyendu@edutech.local` |
 | Nguyễn Du | Club leader | `club.nguyendu@edutech.local` |
 | Nguyễn Du | Approver/reviewer | `approver.nguyendu@edutech.local` |
+| Minh Khai + Nguyễn Du | Multi-school admin (school switching) | `admin.multischool@edutech.local` |
 
 These credentials are development fixtures only and must not be used in production.
 
@@ -152,20 +153,39 @@ npm run test:e2e     # Playwright browser tests
 
 Before running the E2E suite, ensure PostgreSQL and Redis are running and the database has been migrated and seeded. To test manually, run `npm run dev`, open <http://localhost:3000>, and use one of the demo accounts listed above.
 
-The unit/integration suite covers permission evaluation, tenant isolation, parent/student privacy links, authentication navigation safety, password-change validation, local file-storage containment, and durable email-outbox behavior. The Playwright smoke suite verifies public routes, login, authenticated-route redirects, and the forced first-login password-change flow.
+The unit/integration suite covers permission evaluation, tenant isolation, parent/student privacy links, opaque/consume-once tokens, durable rate limiting, session revocation, invitation/reset flows, authentication navigation safety, local file-storage containment, and durable email-outbox behavior. Playwright verifies the public site and responsive shell plus every school role, the platform role, forced password change, password reset, invitation acceptance, school switching, and school/platform administration.
 
 ## Authentication behavior
 
 - Credentials are verified with Argon2id and failures return a generic Vietnamese message.
 - Successful login creates an opaque database session and an `HttpOnly`, `SameSite=Lax` cookie.
-- Logout revokes the current database session and clears both session and active-school cookies.
+- Login, password-reset requests, and invitation delivery use durable HMAC-keyed rate limits.
+- Logout revokes the current database session and clears both session and active-school cookies; users can also revoke one, other, or every active session from `/dashboard/security`.
 - `/dashboard` requires a valid, unrevoked session.
 - Users with multiple active school memberships select a school at `/chon-truong`; the selected slug is stored in a protected cookie and validated against the current session on every use.
+- First-login password changes and completed password resets revoke other active sessions.
+- Forgot-password responses do not reveal whether an account exists. Reset and invitation links store only HMAC token hashes, expire, and can be consumed once.
+- School routes use shared active-membership and permission guards. Platform routes require a separate platform role and never inherit school-content access.
+- Mutations use same-origin Next.js Server Actions; authorization and tenant scope are re-evaluated on the server for every action.
+- Security-sensitive auth and administration changes are recorded in the append-only audit event store.
 - `returnTo` values are restricted to local application paths to prevent open redirects.
+
+## Phase 2 administration routes
+
+| Route | Purpose | Required scope |
+| --- | --- | --- |
+| `/dashboard/profile` | Personal profile | Authenticated user |
+| `/dashboard/security` | Session list/revocation and security history | Authenticated user |
+| `/dashboard/admin/members` | Search, filter, invite, role, status, and parent links | School admin |
+| `/dashboard/admin/settings` | Tenant display/contact settings | School admin |
+| `/dashboard/platform/schools` | Tenant directory and provisioning | Platform super-admin |
+| `/quen-mat-khau` | Non-enumerating reset request | Public |
+| `/dat-lai-mat-khau` | Consume-once password reset | Valid token |
+| `/chap-nhan-loi-moi` | Consume-once school invitation | Valid token |
 
 ## Verification status
 
-On July 23, 2026, Prisma schema validation, ESLint, TypeScript, all 33 Vitest tests, the five-test Playwright smoke suite, and the production build passed. The Phase 0 database migration and deterministic seed were also verified against the local Compose services.
+On July 23, 2026, Phase 1 and Phase 2 passed their complete verification gates: 77 unit/integration tests, lint, typecheck, production build, 22 Playwright scenarios, and Git whitespace validation all pass. Re-run `npm run verify` after future changes.
 
 ## Architecture documentation
 
@@ -173,4 +193,5 @@ On July 23, 2026, Prisma schema validation, ESLint, TypeScript, all 33 Vitest te
 - [`docs/architecture.md`](docs/architecture.md)
 - [`docs/data-model.md`](docs/data-model.md)
 - [`docs/permissions-matrix.md`](docs/permissions-matrix.md)
+- [`docs/decisions/ADR-001-database-backed-identity-and-tenant-context.md`](docs/decisions/ADR-001-database-backed-identity-and-tenant-context.md)
 - [`tasks/todo.md`](tasks/todo.md)

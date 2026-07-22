@@ -4,6 +4,11 @@
 
 This matrix defines the initial capability baseline for server-side authorization. It is not a substitute for resource ownership, school policy, privacy rules, or workflow state validation.
 
+Phase 2 enforces platform and school administration only through shared
+server-side guards. UI visibility is derived from the same typed registry and is
+never treated as an authorization boundary. Later-domain capabilities remain a
+design baseline until their services ship.
+
 A check succeeds only when:
 
 1. The actor has the capability through an active role in the current school.
@@ -46,19 +51,33 @@ Platform capabilities do not grant unrestricted school-content access. Support a
 
 | Capability | School admin | Teacher/staff | Mentor | Approver | Club leader | Student | Parent |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `school:settings:read` | Yes | Limited | Limited | Limited | Limited | Limited | Limited |
+| `school:settings:read` | Yes | No | No | No | No | No | No |
 | `school:settings:update` | Yes | No | No | No | No | No | No |
 | `school:academic-structure:manage` | Yes | No | No | No | No | No | No |
 | `school:policy:manage` | Yes | No | No | No | No | No | No |
 | `school:retention:manage` | Yes | No | No | No | No | No | No |
-| `school:user:read` | Yes | Assigned users | Relevant users | Assigned users | Club users | Self/allowed peers | Linked users |
-| `school:user:invite` | Yes | Policy-dependent | No | No | No | No | No |
+| `school:user:read` | Yes | No | No | No | No | No | No |
+| `school:user:invite` | Yes | No | No | No | No | No | No |
 | `school:user:import` | Yes | No | No | No | No | No | No |
-| `school:user:update` | Yes | Assigned users, limited | Own profile | No | Club members, limited | Own profile | Own profile |
+| `school:user:update` | Yes | No | No | No | No | No | No |
 | `school:user:suspend` | Yes | No | No | No | No | No | No |
 | `school:role:assign` | Yes | No | No | No | No | No | No |
-| `school:report:read` | Yes | Assigned scope | Own workload | Queue scope | Club scope | Own data | Linked student scope |
-| `school:audit:read` | Yes | Assigned scope | No | Relevant decisions | Relevant club scope | Own activity | Own/linked scope |
+| `school:report:read` | Yes | No | No | No | No | No | No |
+| `school:audit:read` | Yes | No | No | No | No | No | No |
+
+### Phase 2 enforcement invariants
+
+- Platform roles do not inherit school permissions.
+- School roles do not inherit platform permissions.
+- Every school service receives an authorization context containing `schoolId`;
+  every target query includes that tenant key.
+- Every school route requires an active membership in an active school.
+- School A identifiers return a safe not-found/validation result when used from
+  School B, rather than disclosing record existence.
+- Parent access requires an active same-school `ParentStudentLink`; the link does
+  not grant private counseling-note access.
+- Only `SCHOOL_ADMIN` can list, invite, update, suspend, or assign school members
+  in Phase 2.
 
 ## Mentoring
 

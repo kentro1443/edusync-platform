@@ -133,84 +133,84 @@
 
 ### Schema và migration
 
-- [ ] Rà soát/hoàn thiện User, School, Membership và role assignments.
-- [ ] Rà soát/hoàn thiện ParentStudentLink.
-- [ ] Hoàn thiện Invitation lifecycle fields/indexes.
-- [ ] Hoàn thiện Session revocation/expiry fields/indexes.
-- [ ] Hoàn thiện PasswordResetToken.
-- [ ] Thêm password-change-required state.
-- [ ] Thêm audit indexes cần thiết.
-- [ ] Tạo/chạy migration và cập nhật seed.
+- [x] Rà soát/hoàn thiện User, School, Membership và role assignments.
+- [x] Rà soát/hoàn thiện ParentStudentLink.
+- [x] Hoàn thiện Invitation lifecycle fields/indexes.
+- [x] Hoàn thiện Session revocation/expiry fields/indexes.
+- [x] Hoàn thiện PasswordResetToken.
+- [x] Thêm password-change-required state.
+- [x] Thêm audit indexes cần thiết.
+- [x] Tạo/chạy migration và cập nhật seed.
 
 ### Auth service và route
 
 - [x] Xây login service với Argon2id và generic error.
 - [x] Xây secure session creation/cookie.
 - [x] Xây logout current session.
-- [ ] Xây revoke other/all sessions.
+- [x] Xây revoke other/all sessions.
 - [x] Xây current-session resolver.
 - [x] Xây active-school context persistence.
-- [ ] Xây forced first-login password change.
-- [ ] Xây forgot-password request với non-enumerating response.
-- [ ] Xây reset-password consume-once flow.
-- [ ] Xây invitation create/send/resend/revoke/accept/expire flow.
-- [ ] Thêm auth rate limits.
-- [ ] Thêm route guards cho anonymous/authenticated/school/platform (đã bảo vệ shell authenticated; còn school/platform guard dùng chung).
-- [ ] Thêm CSRF-safe mutation approach.
-- [ ] Thêm audit cho auth/admin actions.
+- [x] Xây forced first-login password change.
+- [x] Xây forgot-password request với non-enumerating response.
+- [x] Xây reset-password consume-once flow.
+- [x] Xây invitation create/send/resend/revoke/accept/expire flow.
+- [x] Thêm auth rate limits.
+- [x] Thêm route guards cho anonymous/authenticated/school/platform.
+- [x] Thêm CSRF-safe mutation approach.
+- [x] Thêm audit cho auth/admin actions.
 
 ### Authorization
 
-- [ ] Chuẩn hoá typed permissions cho toàn bộ role.
-- [ ] Xây tenant-scoped repository/service pattern.
-- [ ] Kiểm tra active membership ở mọi school route.
-- [ ] Xây ownership/assignment checks.
-- [ ] Xây parent-linked-student projection.
-- [ ] Tách platform scope và school scope rõ ràng.
-- [ ] Thêm forbidden/not-found response an toàn.
+- [x] Chuẩn hoá typed permissions cho toàn bộ role.
+- [x] Xây tenant-scoped repository/service pattern.
+- [x] Kiểm tra active membership ở mọi school route.
+- [x] Xây ownership/assignment checks.
+- [x] Xây parent-linked-student projection.
+- [x] Tách platform scope và school scope rõ ràng.
+- [x] Thêm forbidden/not-found response an toàn.
 
 ### UI auth
 
 - [x] Trang đăng nhập hoạt động thật.
 - [x] Trang đổi mật khẩu lần đầu.
-- [ ] Trang quên mật khẩu.
-- [ ] Trang đặt lại mật khẩu.
-- [ ] Trang chấp nhận lời mời.
+- [x] Trang quên mật khẩu.
+- [x] Trang đặt lại mật khẩu.
+- [x] Trang chấp nhận lời mời.
 - [x] Trang chọn/đổi trường.
-- [ ] Trang membership inactive.
-- [ ] Trang 403.
-- [ ] Profile và security settings.
-- [ ] Danh sách/quản lý session.
+- [x] Trang membership inactive.
+- [x] Trang 403.
+- [x] Profile và security settings.
+- [x] Danh sách/quản lý session.
 
 ### UI quản trị
 
-- [ ] School member list/search/filter/pagination.
-- [ ] Invite-member form.
-- [ ] Membership detail.
-- [ ] Role assignment dialog.
-- [ ] Membership deactivate/reactivate flow.
-- [ ] Parent-student link management.
-- [ ] School settings.
-- [ ] Platform school directory.
-- [ ] Platform school provisioning/detail.
-- [ ] Visual warning khi thao tác platform scope.
+- [x] School member list/search/filter/pagination.
+- [x] Invite-member form.
+- [x] Membership detail.
+- [x] Role assignment dialog.
+- [x] Membership deactivate/reactivate flow.
+- [x] Parent-student link management.
+- [x] School settings.
+- [x] Platform school directory.
+- [x] Platform school provisioning/detail.
+- [x] Visual warning khi thao tác platform scope.
 
 ### Gate Phase 2
 
-- [ ] Unit tests password/session/token/policy.
-- [ ] Integration tests login/session/revoke/invitation/reset.
-- [ ] Integration tests tenant-scoped queries.
-- [ ] Negative tests School A ↔ School B.
-- [ ] Negative tests inactive membership.
-- [ ] Negative tests parent/unlinked student/private projection.
-- [ ] E2E mọi demo role đăng nhập/logout.
-- [ ] E2E forced password change.
-- [ ] E2E invitation và password reset.
-- [ ] E2E active-school switching.
-- [ ] E2E school/platform admin.
-- [ ] Lint, typecheck, tests, E2E và build xanh.
-- [ ] Cập nhật permissions/data-model/README.
-- [ ] Đóng gate Phase 2.
+- [x] Unit tests password/session/token/policy.
+- [x] Integration tests login/session/revoke/invitation/reset.
+- [x] Integration tests tenant-scoped queries.
+- [x] Negative tests School A ↔ School B.
+- [x] Negative tests inactive membership.
+- [x] Negative tests parent/unlinked student/private projection.
+- [x] E2E mọi demo role đăng nhập/logout.
+- [x] E2E forced password change.
+- [x] E2E invitation và password reset.
+- [x] E2E active-school switching.
+- [x] E2E school/platform admin.
+- [x] Lint, typecheck, tests, E2E và build xanh.
+- [x] Cập nhật permissions/data-model/README.
+- [x] Đóng gate Phase 2.
 
 ## Phase 3 — Cố vấn và tư vấn
 

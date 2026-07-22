@@ -93,20 +93,41 @@ Unique: `(schoolId, parentUserId, studentUserId)`.
 - `id`
 - `schoolId`
 - `email`
+- `normalizedEmail`
 - `tokenHash`
 - `roleHintsJson`
 - `expiresAt`
 - `acceptedAt`
+- `revokedAt`
+- `lastSentAt`
+- `sendCount`
 - `createdByUserId`
 - `createdAt`
 
+Only the HMAC token hash is stored. A pending invitation is neither accepted,
+revoked, nor expired. Resending rotates the token and invalidates the previous
+link. Acceptance creates or reuses the global user, then activates exactly one
+school membership with the requested roles.
+
 ### `Session`
 
-Auth.js adapter session record:
+Opaque database session record:
 
+- `id`
 - `sessionTokenHash`
 - `userId`
 - `expires`
+- `revokedAt`
+- `revokeReason`
+- `lastSeenAt`
+- `userAgent`
+- `ipHash`
+- `createdAt`
+- `updatedAt`
+
+Raw session tokens exist only in the secure cookie. Revocation preserves session
+history for audit and incident review. Session resolution rejects expired,
+revoked, inactive-user, suspended-school, and inactive-membership contexts.
 
 ### `PasswordResetToken`
 
@@ -115,7 +136,34 @@ Auth.js adapter session record:
 - `tokenHash`
 - `expiresAt`
 - `usedAt`
+- `revokedAt`
 - `createdAt`
+
+Reset tokens are opaque and consume-once. Completing a reset revokes every
+outstanding reset token and active session for the user.
+
+### `AuthRateLimit`
+
+- `keyHash`
+- `action`
+- `attempts`
+- `windowStart`
+- `blockedUntil`
+- `updatedAt`
+
+The key is an HMAC of action and normalized request subject. Email addresses and
+IP addresses are not stored in clear text. Login, password-reset request, and
+invitation delivery use durable database-backed limits.
+
+### Identity indexes and audit
+
+- Invitation lookup: `(schoolId, normalizedEmail)` and lifecycle fields.
+- Session lookup: `(userId, revokedAt, expires)` and `(expires, revokedAt)`.
+- Password reset lookup: `(userId, revokedAt, expiresAt)`.
+- Audit lookup: school/time, actor/time, school/action/time,
+  entity/type/time, and request ID.
+- `EmailOutbox.schoolId` is nullable so platform-level identity messages remain
+  deliverable without pretending to belong to a tenant.
 
 ## Academic structure
 
