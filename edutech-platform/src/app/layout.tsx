@@ -3,11 +3,24 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "LiênKếtHọc — Nền tảng Smart School cho học sinh THPT",
-    template: "%s | LiênKếtHọc",
+    default: "EduTech — Nền tảng vận hành trường học kết nối",
+    template: "%s | EduTech",
   },
   description:
     "Nền tảng hợp nhất cố vấn học tập có xác minh, kho tài liệu ôn thi, lịch hẹn trực tuyến và số hóa quy trình phê duyệt CLB/sự kiện cho các trường THPT.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    siteName: "EduTech",
+    title: "EduTech — Nền tảng vận hành trường học kết nối",
+    description: "Kết nối con người, học liệu và quy trình nhà trường trong một không gian an toàn, minh bạch.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EduTech — Nền tảng vận hành trường học kết nối",
+    description: "Kết nối con người, học liệu và quy trình nhà trường trong một không gian an toàn, minh bạch.",
+  },
 };
 
 export default function RootLayout({

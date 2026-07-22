@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Brand } from "@/components/layout/Brand";
 import { Container } from "@/components/ui/Container";
 import { footerLinks } from "@/lib/site-data";
 
@@ -7,16 +8,9 @@ export function SiteFooter() {
     <footer className="border-t border-[var(--color-ink-200)] bg-[var(--color-ink-50)]">
       <Container className="grid gap-10 py-14 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-2.5 text-[var(--color-brand-900)]">
-            <span className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-brand-800)] text-sm font-bold text-white">
-              LK
-            </span>
-            <span className="text-lg font-semibold tracking-tight">
-              LiênKếtHọc
-            </span>
-          </div>
+          <Brand />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-ink-500)]">
-            Nền tảng Smart School hợp nhất cố vấn học tập, tài liệu ôn thi, lịch
+            Nền tảng vận hành trường học hợp nhất cố vấn, học liệu, lịch
             hẹn và số hóa quy trình hành chính cho các trường phổ thông tại
             Việt Nam.
           </p>
@@ -79,7 +73,7 @@ export function SiteFooter() {
 
       <div className="border-t border-[var(--color-ink-200)] py-6">
         <Container className="flex flex-col items-center justify-between gap-3 text-xs text-[var(--color-ink-400)] sm:flex-row">
-          <p>© {new Date().getFullYear()} LiênKếtHọc. Bảo lưu mọi quyền.</p>
+          <p>© {new Date().getFullYear()} EduTech. Bảo lưu mọi quyền.</p>
           <p>Xây dựng cho các trường THPT tư thục & liên cấp tại Việt Nam.</p>
         </Container>
       </div>

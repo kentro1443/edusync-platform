@@ -8,7 +8,7 @@ import { LinkButton } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Trợ giúp",
-  description: "Trung tâm trợ giúp LiênKếtHọc cho học sinh, phụ huynh, giáo viên và ban quản trị nhà trường.",
+  description: "Trung tâm trợ giúp EduTech cho học sinh, phụ huynh, giáo viên và ban quản trị nhà trường.",
 };
 
 const categories = [
@@ -85,7 +85,7 @@ export default function HelpPage() {
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-[var(--color-brand-100)]">
               Tìm câu trả lời nhanh theo vai trò của bạn, hoặc liên hệ trực
-              tiếp đội ngũ hỗ trợ của LiênKếtHọc.
+              tiếp đội ngũ hỗ trợ của EduTech.
             </p>
           </div>
         </Container>

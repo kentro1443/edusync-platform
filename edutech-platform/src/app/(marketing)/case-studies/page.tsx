@@ -7,7 +7,7 @@ import { LinkButton } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Trường hợp triển khai",
   description:
-    "Các kịch bản triển khai LiênKếtHọc thực tế cho trường THPT tư thục và liên cấp tại Việt Nam.",
+    "Các kịch bản triển khai EduTech thực tế cho trường THPT tư thục và liên cấp tại Việt Nam.",
 };
 
 const cases = [
@@ -26,7 +26,7 @@ const cases = [
     challenge:
       "Học sinh tự tìm gia sư qua mạng xã hội, phụ huynh không kiểm soát được chất lượng và độ an toàn.",
     solution:
-      "Triển khai mô-đun Mentoring với quy trình xác minh mentor và đồng ý phụ huynh bắt buộc.",
+      "Triển khai mô-đun Cố vấn với quy trình xác minh người hướng dẫn và đồng ý phụ huynh bắt buộc.",
     result: "120+ mentor được xác minh trong học kỳ đầu, 0 khiếu nại về an toàn.",
   },
   {

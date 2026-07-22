@@ -3,17 +3,17 @@ import { ModulePageLayout, type ModulePageContent } from "@/components/marketing
 import { BookIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
-  title: "Kho tài liệu (Resource Library)",
+  title: "Kho tài liệu",
   description:
     "Kho đề thi và tài liệu ôn tập được kiểm chứng nguồn gốc, phân loại theo môn học, khối lớp và năm học.",
 };
 
 const content: ModulePageContent = {
   key: "resources",
-  eyebrow: "Mô-đun Resource Library",
+  eyebrow: "Mô-đun Kho tài liệu",
   heroTitle: "Tài liệu ôn thi đáng tin cậy, dễ tìm kiếm",
   heroDescription:
-    "Chấm dứt tình trạng đề thi trôi nổi trong các nhóm chat. LiênKếtHọc tổ chức toàn bộ tài liệu ôn tập theo môn học, khối lớp và năm học, với quy trình kiểm duyệt rõ ràng trước khi công bố.",
+    "Chấm dứt tình trạng đề thi trôi nổi trong các nhóm chat. EduTech tổ chức toàn bộ tài liệu ôn tập theo môn học, khối lớp và năm học, với quy trình kiểm duyệt rõ ràng trước khi công bố.",
   problemTitle: "Vấn đề hiện tại",
   problemPoints: [
     "Tài liệu chia sẻ rời rạc qua nhiều nhóm Zalo/Facebook, không có phiên bản chuẩn.",

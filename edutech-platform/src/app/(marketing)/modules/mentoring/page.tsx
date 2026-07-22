@@ -3,17 +3,17 @@ import { ModulePageLayout, type ModulePageContent } from "@/components/marketing
 import { MentorIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
-  title: "Cố vấn & Gia sư (Mentoring)",
+  title: "Cố vấn & Gia sư",
   description:
     "Thị trường cố vấn học tập có kiểm soát: mentor được xác minh, phụ huynh xác nhận đồng ý, thanh toán minh bạch.",
 };
 
 const content: ModulePageContent = {
   key: "mentoring",
-  eyebrow: "Mô-đun Mentoring",
+  eyebrow: "Mô-đun Cố vấn",
   heroTitle: "Cố vấn học tập an toàn, có xác minh và minh bạch",
   heroDescription:
-    "Thay vì để học sinh tự tìm gia sư qua mạng xã hội, LiênKếtHọc tạo ra một thị trường cố vấn khép kín do nhà trường quản lý — nơi mọi mentor đều được xác minh, mọi buổi học đều có sự đồng ý của phụ huynh.",
+    "Thay vì để học sinh tự tìm gia sư qua mạng xã hội, EduTech tạo ra một thị trường cố vấn khép kín do nhà trường quản lý — nơi mọi mentor đều được xác minh, mọi buổi học đều có sự đồng ý của phụ huynh.",
   problemTitle: "Vấn đề hiện tại",
   problemPoints: [
     "Học sinh liên hệ mentor qua Facebook, Zalo — không qua kiểm chứng thành tích hay lý lịch.",

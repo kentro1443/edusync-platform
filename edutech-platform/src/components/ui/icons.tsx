@@ -54,6 +54,18 @@ export function BuildingIcon(props: IconProps) {
   );
 }
 
+export function WorkflowIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="3" y="3.5" width="6" height="5" rx="1.25" />
+      <rect x="15" y="15.5" width="6" height="5" rx="1.25" />
+      <path d="M9 6h3a3 3 0 0 1 3 3v6.5" />
+      <path d="m12.5 13 2.5 2.5 2.5-2.5" />
+      <path d="M6 8.5v7a3 3 0 0 0 3 3h6" />
+    </svg>
+  );
+}
+
 export function ShieldIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
@@ -142,5 +154,6 @@ export const moduleIcons = {
   mentor: MentorIcon,
   book: BookIcon,
   calendar: CalendarIcon,
+  workflow: WorkflowIcon,
   building: BuildingIcon,
 };

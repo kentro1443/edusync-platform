@@ -3,14 +3,14 @@ import { ModulePageLayout, type ModulePageContent } from "@/components/marketing
 import { CalendarIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
-  title: "Lịch hẹn & Đơn từ (Appointments & Forms)",
+  title: "Lịch hẹn & Đơn từ",
   description:
     "Đặt lịch tư vấn với giáo viên và nộp đơn từ trực tuyến với luồng phê duyệt rõ ràng, theo dõi trạng thái theo thời gian thực.",
 };
 
 const content: ModulePageContent = {
   key: "appointments",
-  eyebrow: "Mô-đun Appointments & Forms",
+  eyebrow: "Mô-đun Lịch hẹn & Đơn từ",
   heroTitle: "Đặt lịch và nộp đơn từ chỉ trong vài cú chạm",
   heroDescription:
     "Không còn tin nhắn cá nhân hay xếp hàng chờ trước phòng giáo viên. Học sinh xem giờ trống, đặt lịch hẹn và nộp đơn từ hoàn toàn trực tuyến, với trạng thái xử lý minh bạch theo thời gian thực.",

@@ -99,7 +99,7 @@ function Brand() {
         <MentorIcon width={19} height={19} aria-hidden="true" />
       </span>
       <span>
-        <span className="block text-sm font-bold leading-tight">LiênKếtHọc</span>
+        <span className="block text-sm font-bold leading-tight">EduTech</span>
         <span className="block text-[10px] font-medium uppercase tracking-[0.12em] text-[var(--color-ink-400)]">
           Không gian nhà trường
         </span>

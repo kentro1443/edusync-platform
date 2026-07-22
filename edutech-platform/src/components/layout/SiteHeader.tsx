@@ -2,110 +2,88 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { Container } from "@/components/ui/Container";
+import { useEffect, useRef, useState } from "react";
+
+import { Brand } from "@/components/layout/Brand";
 import { LinkButton } from "@/components/ui/Button";
-import { primaryNav } from "@/lib/site-data";
-import { moduleIcons } from "@/components/ui/icons";
-import { ChevronDownIcon, MenuIcon, CloseIcon } from "@/components/ui/icons";
+import { Container } from "@/components/ui/Container";
+import { ChevronDownIcon, CloseIcon, MenuIcon, moduleIcons } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
+import { primaryNav } from "@/lib/site-data";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
-  const [renderedPathname, setRenderedPathname] = useState(pathname);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
-  if (pathname !== renderedPathname) {
-    setRenderedPathname(pathname);
+  useEffect(() => {
+    if (!mobileOpen) return;
+    closeRef.current?.focus();
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      setMobileOpen(false);
+      triggerRef.current?.focus();
+    }
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileOpen]);
+
+  function closeMobileAndRestoreFocus() {
     setMobileOpen(false);
-    setProductsOpen(false);
+    triggerRef.current?.focus();
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-ink-200)] bg-[var(--color-surface)]/95 backdrop-blur">
-      <Container className="flex h-18 items-center justify-between py-3">
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 text-[var(--color-brand-900)]"
-          aria-label="LienKetHoc - Trang chủ"
-        >
-          <span className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-brand-800)] text-sm font-bold text-white">
-            LK
-          </span>
-          <span className="text-lg font-semibold tracking-tight">LiênKếtHọc</span>
-        </Link>
+    <header className="sticky top-0 z-50 border-b border-[var(--color-ink-200)]/80 bg-[var(--color-surface)]/94 shadow-[0_1px_0_rgb(18_24_31_/_0.02)] backdrop-blur-xl">
+      <Container className="flex h-[4.75rem] items-center justify-between gap-5">
+        <Brand />
 
-        <nav
-          className="hidden items-center gap-1 lg:flex"
-          aria-label="Điều hướng chính"
-        >
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Điều hướng chính">
           {primaryNav.map((item) => {
             if ("children" in item && item.children) {
               return (
-                <div key={item.href} className="relative">
-                  <button
-                    type="button"
-                    className={cn(
-                      "flex items-center gap-1 rounded-[var(--radius-sm)] px-3.5 py-2 text-sm font-medium text-[var(--color-ink-700)] hover:bg-[var(--color-ink-50)]",
-                      productsOpen && "bg-[var(--color-ink-50)]"
-                    )}
-                    aria-expanded={productsOpen}
-                    aria-haspopup="true"
-                    onClick={() => setProductsOpen((v) => !v)}
-                    onBlur={(e) => {
-                      if (!e.currentTarget.parentElement?.contains(e.relatedTarget as Node)) {
-                        setProductsOpen(false);
-                      }
-                    }}
-                  >
+                <details key={item.href} className="group relative">
+                  <summary className="flex cursor-pointer list-none items-center gap-1.5 rounded-[var(--radius-md)] px-3 py-2 text-sm font-semibold text-[var(--color-ink-700)] transition-colors hover:bg-[var(--color-brand-50)] hover:text-[var(--color-brand-800)]">
                     {item.label}
-                    <ChevronDownIcon
-                      width={16}
-                      height={16}
-                      className={cn("transition-transform", productsOpen && "rotate-180")}
-                    />
-                  </button>
-                  {productsOpen && (
-                    <div
-                      role="menu"
-                      className="absolute left-0 top-full mt-2 w-80 rounded-[var(--radius-lg)] border border-[var(--color-ink-200)] bg-[var(--color-surface)] p-2 shadow-[var(--shadow-lg)]"
-                    >
-                      {item.children.map((mod) => {
-                        const Icon = moduleIcons[mod.icon];
+                    <ChevronDownIcon width={15} height={15} aria-hidden="true" className="transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="absolute left-1/2 top-full mt-3 w-[34rem] -translate-x-1/2 rounded-[var(--radius-lg)] border bg-[var(--color-surface)] p-3 shadow-[var(--shadow-lg)]">
+                    <div className="grid grid-cols-2 gap-1">
+                      {item.children.map((module) => {
+                        const Icon = moduleIcons[module.icon];
                         return (
-                          <Link
-                            key={mod.key}
-                            href={mod.href}
-                            role="menuitem"
-                            className="flex items-start gap-3 rounded-[var(--radius-md)] p-3 hover:bg-[var(--color-brand-50)]"
-                          >
-                            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-brand-100)] text-[var(--color-brand-700)]">
-                              <Icon width={18} height={18} />
+                          <Link key={module.key} href={module.href} className="group/item flex items-start gap-3 rounded-[var(--radius-md)] p-3 transition-colors hover:bg-[var(--color-brand-50)]">
+                            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-brand-100)] text-[var(--color-brand-700)] transition-colors group-hover/item:bg-[var(--color-brand-700)] group-hover/item:text-white">
+                              <Icon width={18} height={18} aria-hidden="true" />
                             </span>
                             <span>
-                              <span className="block text-sm font-medium text-[var(--color-ink-900)]">
-                                {mod.name}
-                              </span>
-                              <span className="mt-0.5 block text-xs text-[var(--color-ink-500)]">
-                                {mod.tagline}
-                              </span>
+                              <span className="block text-sm font-bold text-[var(--color-ink-900)]">{module.name}</span>
+                              <span className="mt-1 block text-xs leading-relaxed text-[var(--color-ink-500)]">{module.tagline}</span>
                             </span>
                           </Link>
                         );
                       })}
                     </div>
-                  )}
-                </div>
+                  </div>
+                </details>
               );
             }
+            const active = pathname === item.href;
             return (
               <Link
-                key={item.href}
+                key={`${item.href}-${item.label}`}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-[var(--radius-sm)] px-3.5 py-2 text-sm font-medium text-[var(--color-ink-700)] hover:bg-[var(--color-ink-50)]",
-                  pathname === item.href && "text-[var(--color-brand-700)]"
+                  "rounded-[var(--radius-md)] px-3 py-2 text-sm font-semibold text-[var(--color-ink-600)] transition-colors hover:bg-[var(--color-brand-50)] hover:text-[var(--color-brand-800)]",
+                  active && "bg-[var(--color-brand-50)] text-[var(--color-brand-800)]",
                 )}
               >
                 {item.label}
@@ -114,49 +92,55 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <LinkButton href="/login" variant="ghost" size="sm">
-            Đăng nhập
-          </LinkButton>
-          <LinkButton href="/demo" variant="primary" size="sm">
-            Yêu cầu demo
-          </LinkButton>
+        <div className="hidden items-center gap-2 xl:flex">
+          <LinkButton href="/login" variant="ghost" size="sm">Đăng nhập</LinkButton>
+          <LinkButton href="/demo" variant="primary" size="sm">Đăng ký tư vấn</LinkButton>
         </div>
 
         <button
+          ref={triggerRef}
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-md)] text-[var(--color-ink-700)] hover:bg-[var(--color-ink-100)] lg:hidden"
-          aria-label={mobileOpen ? "Đóng menu" : "Mở menu"}
+          className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] border bg-white text-[var(--color-ink-700)] shadow-[var(--shadow-sm)] xl:hidden"
+          aria-label="Mở menu điều hướng"
           aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
+          aria-controls="mobile-navigation"
+          onClick={() => setMobileOpen(true)}
         >
-          {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+          <MenuIcon width={21} height={21} aria-hidden="true" />
         </button>
       </Container>
 
-      {mobileOpen && (
-        <div className="border-t border-[var(--color-ink-200)] bg-[var(--color-surface)] lg:hidden">
-          <Container className="flex flex-col gap-1 py-4">
-            {primaryNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-[var(--radius-sm)] px-3.5 py-2.5 text-sm font-medium text-[var(--color-ink-700)] hover:bg-[var(--color-ink-50)]"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="mt-3 flex flex-col gap-2 border-t border-[var(--color-ink-200)] pt-3">
-              <LinkButton href="/login" variant="outline" size="sm">
-                Đăng nhập
-              </LinkButton>
-              <LinkButton href="/demo" variant="primary" size="sm">
-                Yêu cầu demo
-              </LinkButton>
+      {mobileOpen ? (
+        <div id="mobile-navigation" role="dialog" aria-modal="true" aria-label="Điều hướng di động" className="fixed inset-0 z-[60] xl:hidden">
+          <button type="button" aria-label="Đóng menu điều hướng" className="absolute inset-0 bg-[var(--color-surface-inverted)]/55 backdrop-blur-[2px]" onClick={closeMobileAndRestoreFocus} />
+          <div className="absolute inset-y-0 right-0 flex w-[min(27rem,92vw)] flex-col bg-[var(--color-surface)] shadow-[var(--shadow-lg)]">
+            <div className="flex items-center justify-between border-b px-5 py-4">
+              <Brand />
+              <button ref={closeRef} type="button" aria-label="Đóng menu điều hướng" onClick={closeMobileAndRestoreFocus} className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] hover:bg-[var(--color-ink-100)]">
+                <CloseIcon width={21} height={21} aria-hidden="true" />
+              </button>
             </div>
-          </Container>
+            <nav aria-label="Điều hướng trên điện thoại" className="flex-1 overflow-y-auto p-4">
+              <ul className="space-y-1">
+                {primaryNav.map((item) => (
+                  <li key={`${item.href}-${item.label}`}>
+                    <Link href={item.href} onClick={() => setMobileOpen(false)} className="flex min-h-11 items-center rounded-[var(--radius-md)] px-3 py-2.5 text-sm font-semibold text-[var(--color-ink-700)] hover:bg-[var(--color-brand-50)]">{item.label}</Link>
+                    {"children" in item && item.children ? (
+                      <ul className="mb-3 ml-3 border-l pl-3">
+                        {item.children.map((module) => <li key={module.key}><Link href={module.href} onClick={() => setMobileOpen(false)} className="block rounded-[var(--radius-sm)] px-3 py-2 text-sm text-[var(--color-ink-600)] hover:bg-[var(--color-ink-50)]">{module.name}</Link></li>)}
+                      </ul>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className="grid gap-2 border-t p-5">
+              <LinkButton href="/demo" size="md">Đăng ký tư vấn</LinkButton>
+              <LinkButton href="/login" variant="outline" size="md">Đăng nhập</LinkButton>
+            </div>
+          </div>
         </div>
-      )}
+      ) : null}
     </header>
   );
 }

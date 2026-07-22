@@ -8,7 +8,7 @@ import { ShieldIcon, CheckIcon } from "@/components/ui/icons";
 export const metadata: Metadata = {
   title: "Bảo mật & An toàn",
   description:
-    "Cam kết bảo mật dữ liệu và an toàn học sinh của LiênKếtHọc: xác minh danh tính, đồng ý phụ huynh, mã hóa dữ liệu và kiểm toán đầy đủ.",
+    "Cam kết bảo mật dữ liệu và an toàn học sinh của EduTech: xác minh danh tính, đồng ý phụ huynh, mã hóa dữ liệu và kiểm toán đầy đủ.",
 };
 
 const pillars = [
@@ -66,7 +66,7 @@ export default function SecurityPage() {
               An toàn của học sinh không phải là tính năng — đó là nền tảng
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--color-brand-100)]">
-              LiênKếtHọc được thiết kế từ đầu với nguyên tắc bảo vệ trẻ em và
+              EduTech được thiết kế từ đầu với nguyên tắc bảo vệ trẻ em và
               bảo mật dữ liệu làm trọng tâm, không phải điều chỉnh thêm vào
               sau khi sản phẩm đã hoàn thiện.
             </p>

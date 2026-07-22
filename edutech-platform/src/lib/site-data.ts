@@ -2,6 +2,7 @@ export type ModuleKey =
   | "mentoring"
   | "resources"
   | "appointments"
+  | "workflows"
   | "clubs-events";
 
 export interface ModuleSummary {
@@ -10,7 +11,7 @@ export interface ModuleSummary {
   name: string;
   tagline: string;
   description: string;
-  icon: "mentor" | "book" | "calendar" | "building";
+  icon: "mentor" | "book" | "calendar" | "workflow" | "building";
   outcomes: string[];
 }
 
@@ -18,7 +19,7 @@ export const modules: ModuleSummary[] = [
   {
     key: "mentoring",
     href: "/modules/mentoring",
-    name: "Cố vấn & Gia sư (Mentoring)",
+    name: "Cố vấn & Gia sư",
     tagline: "Kết nối học sinh với anh chị khóa trên đã được xác minh",
     description:
       "Một thị trường cố vấn có kiểm soát: nhà trường duyệt mentor, phụ huynh xác nhận đồng ý, thanh toán và lịch sử buổi học minh bạch qua nền tảng.",
@@ -33,7 +34,7 @@ export const modules: ModuleSummary[] = [
   {
     key: "resources",
     href: "/modules/resources",
-    name: "Kho tài liệu (Resource Library)",
+    name: "Kho tài liệu",
     tagline: "Đề thi, tài liệu ôn tập được kiểm chứng nguồn gốc",
     description:
       "Kho tài liệu tập trung theo môn học, khối lớp và năm học, có quy trình kiểm duyệt và huy hiệu nguồn xác thực để học sinh yên tâm sử dụng.",
@@ -48,7 +49,7 @@ export const modules: ModuleSummary[] = [
   {
     key: "appointments",
     href: "/modules/appointments",
-    name: "Lịch hẹn & Đơn từ (Appointments & Forms)",
+    name: "Lịch hẹn & Đơn từ",
     tagline: "Đặt lịch với thầy cô, nộp đơn từ hoàn toàn trực tuyến",
     description:
       "Học sinh chủ động đặt lịch tư vấn theo giờ trống của giáo viên và nộp các loại đơn cá nhân với luồng phê duyệt rõ ràng, có thời hạn xử lý.",
@@ -58,6 +59,21 @@ export const modules: ModuleSummary[] = [
       "Biểu mẫu đơn từ tùy biến theo từng trường",
       "Theo dõi trạng thái phê duyệt theo thời gian thực",
       "Nhắc lịch tự động qua email và thông báo đẩy",
+    ],
+  },
+  {
+    key: "workflows",
+    href: "/modules/workflows",
+    name: "Quy trình số",
+    tagline: "Thiết kế biểu mẫu và luồng phê duyệt không cần viết mã",
+    description:
+      "Chuẩn hóa đơn từ nội bộ bằng biểu mẫu có điều kiện, thời hạn xử lý và luồng phê duyệt nhiều cấp được cấu hình theo từng trường.",
+    icon: "workflow",
+    outcomes: [
+      "Tạo biểu mẫu từ thư viện trường dữ liệu kiểm soát",
+      "Phê duyệt tuần tự hoặc song song theo vai trò",
+      "Theo dõi thời hạn, nhắc việc và lý do quyết định",
+      "Lưu vết đầy đủ mọi phiên bản và thao tác",
     ],
   },
   {
@@ -110,15 +126,15 @@ export const roleBenefits: RoleBenefit[] = [
 ];
 
 export const primaryNav = [
-  { href: "/", label: "Trang chủ" },
   {
     href: "/modules/mentoring",
     label: "Sản phẩm",
     children: modules,
   },
+  { href: "/solutions", label: "Giải pháp" },
   { href: "/security", label: "Bảo mật & An toàn" },
   { href: "/pricing", label: "Bảng giá" },
-  { href: "/case-studies", label: "Trường hợp triển khai" },
+  { href: "/case-studies", label: "Câu chuyện khách hàng" },
   { href: "/help", label: "Trợ giúp" },
 ];
 
@@ -127,6 +143,7 @@ export const footerLinks = {
     { href: "/modules/mentoring", label: "Cố vấn & Gia sư" },
     { href: "/modules/resources", label: "Kho tài liệu" },
     { href: "/modules/appointments", label: "Lịch hẹn & Đơn từ" },
+    { href: "/modules/workflows", label: "Quy trình số" },
     { href: "/modules/clubs-events", label: "CLB & Sự kiện" },
   ],
   company: [

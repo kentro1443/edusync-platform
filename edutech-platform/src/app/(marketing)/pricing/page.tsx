@@ -9,7 +9,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Bảng giá",
   description:
-    "Các gói triển khai LiênKếtHọc cho trường THPT: từ gói Cơ bản đến gói Doanh nghiệp với hỗ trợ tùy chỉnh toàn diện.",
+    "Các gói triển khai EduTech cho trường THPT: từ gói Cơ bản đến gói Doanh nghiệp với hỗ trợ tùy chỉnh toàn diện.",
 };
 
 const tiers = [
@@ -34,7 +34,7 @@ const tiers = [
       "Toàn bộ 4 mô-đun",
       "Không giới hạn số lượng học sinh",
       "Hỗ trợ ưu tiên trong 4 giờ làm việc",
-      "Dashboard phân tích nâng cao",
+      "Bảng điều khiển phân tích nâng cao",
       "Tùy chỉnh luồng phê duyệt theo trường",
       "Đào tạo vận hành cho đội ngũ nhà trường",
     ],
@@ -58,7 +58,7 @@ const tiers = [
 const faqs = [
   {
     q: "Chúng tôi có thể bắt đầu với một mô-đun duy nhất không?",
-    a: "Có. Đa số trường bắt đầu với mô-đun Lịch hẹn & Đơn từ hoặc CLB & Sự kiện, sau đó mở rộng dần sang Mentoring và Kho tài liệu.",
+    a: "Có. Đa số trường bắt đầu với mô-đun Lịch hẹn & Đơn từ hoặc CLB & Sự kiện, sau đó mở rộng dần sang Cố vấn và Kho tài liệu.",
   },
   {
     q: "Thời gian triển khai trung bình là bao lâu?",

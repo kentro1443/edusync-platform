@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test.describe("Kiểm tra khói ứng dụng", () => {
   test("trang chủ hiển thị đúng tiêu đề và điều hướng", async ({ page }) => {
     await page.goto("/");
-    await expect(page).toHaveTitle(/LiênKếtHọc/);
+    await expect(page).toHaveTitle(/EduTech/);
     await expect(
       page.getByRole("link", { name: "Chuyển đến nội dung chính" }),
     ).toBeAttached();
@@ -39,6 +39,7 @@ test.describe("Kiểm tra khói ứng dụng", () => {
       "/modules/mentoring",
       "/modules/resources",
       "/modules/appointments",
+      "/modules/workflows",
       "/modules/clubs-events",
       "/pricing",
       "/case-studies",

@@ -32,7 +32,7 @@ export function DemoForm() {
           Cảm ơn bạn đã đăng ký!
         </h2>
         <p className="max-w-sm text-sm text-[var(--color-ink-500)]">
-          Đội ngũ của LiênKếtHọc sẽ liên hệ với bạn trong vòng 24 giờ làm
+          Đội ngũ của EduTech sẽ liên hệ với bạn trong vòng 24 giờ làm
           việc để sắp xếp buổi demo phù hợp.
         </p>
       </Card>
@@ -115,7 +115,7 @@ export function DemoForm() {
           Gửi yêu cầu demo
         </Button>
         <p className="text-center text-xs text-[var(--color-ink-400)]">
-          Bằng việc gửi biểu mẫu này, bạn đồng ý cho LiênKếtHọc liên hệ để
+          Bằng việc gửi biểu mẫu này, bạn đồng ý cho EduTech liên hệ để
           sắp xếp lịch demo.
         </p>
       </form>

@@ -102,7 +102,7 @@ export function ModulePageLayout({
           </div>
           <Card className="bg-[var(--color-brand-50)]">
             <h3 className="text-lg font-semibold text-[var(--color-ink-900)]">
-              Cách LiênKếtHọc giải quyết
+              Cách EduTech giải quyết
             </h3>
             <ol className="mt-5 space-y-5">
               {content.workflow.map((step, i) => (
@@ -145,7 +145,7 @@ export function ModulePageLayout({
           <h2 className="text-2xl font-bold tracking-tight text-[var(--color-ink-900)] sm:text-3xl">
             Khám phá các mô-đun khác
           </h2>
-          <div className="mt-8 grid gap-5 sm:grid-cols-3">
+          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {others.map((mod) => (
               <Link
                 key={mod.key}

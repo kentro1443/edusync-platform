@@ -231,3 +231,17 @@ button:disabled,
     transition-duration: 0.01ms !important;
   }
 }
+
+.marketing-hero {
+  background-color: var(--color-brand-900);
+  background-image:
+    radial-gradient(52rem 26rem at 88% -10%, rgb(28 123 191 / 0.36), transparent 66%),
+    radial-gradient(34rem 22rem at 3% 110%, rgb(242 149 31 / 0.16), transparent 65%);
+}
+
+.subtle-grid {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+}
