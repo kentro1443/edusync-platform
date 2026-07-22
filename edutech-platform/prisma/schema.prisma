@@ -1,0 +1,360 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  ARCHIVED
+}
+
+enum SchoolStatus {
+  ACTIVE
+  SUSPENDED
+  ARCHIVED
+}
+
+enum MembershipStatus {
+  INVITED
+  ACTIVE
+  SUSPENDED
+  LEFT
+}
+
+enum ParentStudentLinkStatus {
+  ACTIVE
+  SUSPENDED
+  REVOKED
+}
+
+enum PlatformRole {
+  PLATFORM_SUPER_ADMIN
+}
+
+enum SchoolRole {
+  SCHOOL_ADMIN
+  TEACHER_STAFF
+  MENTOR_COUNSELOR
+  STUDENT
+  PARENT_GUARDIAN
+  CLUB_LEADER
+  APPROVER_REVIEWER
+}
+
+enum StoredFileStatus {
+  PENDING
+  AVAILABLE
+  QUARANTINED
+  DELETED
+}
+
+enum OutboxStatus {
+  PENDING
+  PROCESSING
+  PROCESSED
+  FAILED
+}
+
+enum EmailOutboxStatus {
+  PENDING
+  PROCESSING
+  SENT
+  FAILED
+}
+
+model User {
+  id                 String     @id @default(uuid()) @db.Uuid
+  email              String
+  normalizedEmail    String     @unique
+  passwordHash       String
+  displayName        String
+  avatarFileId       String?    @db.Uuid
+  locale             String     @default("vi")
+  timezone           String     @default("Asia/Ho_Chi_Minh")
+  mustChangePassword Boolean    @default(true)
+  status             UserStatus @default(ACTIVE)
+  lastLoginAt        DateTime?  @db.Timestamptz(6)
+  createdAt          DateTime   @default(now()) @db.Timestamptz(6)
+  updatedAt          DateTime   @updatedAt @db.Timestamptz(6)
+
+  platformRoleAssignments PlatformRoleAssignment[] @relation("PlatformRoleUser")
+  platformRolesAssigned   PlatformRoleAssignment[] @relation("PlatformRoleAssigner")
+  memberships             SchoolMembership[]
+  schoolRolesAssigned     SchoolRoleAssignment[]   @relation("SchoolRoleAssigner")
+  parentLinks              ParentStudentLink[]      @relation("ParentLinks")
+  studentLinks             ParentStudentLink[]      @relation("StudentLinks")
+  invitationsCreated      Invitation[]             @relation("InvitationCreator")
+  sessions                 Session[]
+  passwordResetTokens      PasswordResetToken[]
+  filesCreated             StoredFile[]             @relation("StoredFileCreator")
+  fileVersionsCreated      FileVersion[]            @relation("FileVersionCreator")
+  fileLinksCreated         FileLink[]                @relation("FileLinkCreator")
+  auditEvents              AuditEvent[]              @relation("AuditActor")
+  emailOutboxItems         EmailOutbox[]             @relation("EmailRecipient")
+}
+
+model PlatformRoleAssignment {
+  id               String       @id @default(uuid()) @db.Uuid
+  userId           String       @db.Uuid
+  role             PlatformRole
+  assignedByUserId String?      @db.Uuid
+  createdAt        DateTime     @default(now()) @db.Timestamptz(6)
+
+  user       User  @relation("PlatformRoleUser", fields: [userId], references: [id], onDelete: Cascade)
+  assignedBy User? @relation("PlatformRoleAssigner", fields: [assignedByUserId], references: [id], onDelete: SetNull)
+
+  @@unique([userId, role])
+  @@index([role])
+}
+
+model School {
+  id                String       @id @default(uuid()) @db.Uuid
+  slug              String       @unique
+  name              String
+  shortName         String
+  logoFileId        String?      @db.Uuid
+  status            SchoolStatus @default(ACTIVE)
+  planCode          String       @default("LOCAL")
+  storageQuotaBytes BigInt       @default(1073741824)
+  settingsJson      Json         @default("{}")
+  createdAt         DateTime     @default(now()) @db.Timestamptz(6)
+  updatedAt         DateTime     @updatedAt @db.Timestamptz(6)
+
+  memberships       SchoolMembership[]
+  parentStudentLinks ParentStudentLink[]
+  invitations       Invitation[]
+  storedFiles       StoredFile[]
+  fileLinks         FileLink[]
+  auditEvents       AuditEvent[]
+  domainOutboxEvents DomainOutboxEvent[]
+  emailOutboxItems  EmailOutbox[]
+
+  @@index([status])
+}
+
+model SchoolMembership {
+  id           String           @id @default(uuid()) @db.Uuid
+  schoolId     String           @db.Uuid
+  userId       String           @db.Uuid
+  status       MembershipStatus @default(INVITED)
+  joinedAt     DateTime?        @db.Timestamptz(6)
+  leftAt       DateTime?        @db.Timestamptz(6)
+  lastActiveAt DateTime?        @db.Timestamptz(6)
+  createdAt    DateTime         @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime         @updatedAt @db.Timestamptz(6)
+
+  school          School                 @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  user            User                   @relation(fields: [userId], references: [id], onDelete: Restrict)
+  roleAssignments SchoolRoleAssignment[]
+
+  @@unique([schoolId, userId])
+  @@index([schoolId, status])
+  @@index([userId, status])
+}
+
+model SchoolRoleAssignment {
+  id               String     @id @default(uuid()) @db.Uuid
+  membershipId     String     @db.Uuid
+  role             SchoolRole
+  assignedByUserId String?    @db.Uuid
+  createdAt        DateTime   @default(now()) @db.Timestamptz(6)
+
+  membership SchoolMembership @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  assignedBy User?            @relation("SchoolRoleAssigner", fields: [assignedByUserId], references: [id], onDelete: SetNull)
+
+  @@unique([membershipId, role])
+  @@index([role])
+}
+
+model ParentStudentLink {
+  id                   String                  @id @default(uuid()) @db.Uuid
+  schoolId             String                  @db.Uuid
+  parentUserId         String                  @db.Uuid
+  studentUserId        String                  @db.Uuid
+  relationshipType     String
+  status               ParentStudentLinkStatus @default(ACTIVE)
+  startsAt             DateTime                @db.Timestamptz(6)
+  endsAt               DateTime?               @db.Timestamptz(6)
+  visibilityPolicyJson Json                    @default("{}")
+  createdAt            DateTime                @default(now()) @db.Timestamptz(6)
+  updatedAt            DateTime                @updatedAt @db.Timestamptz(6)
+
+  school  School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  parent  User   @relation("ParentLinks", fields: [parentUserId], references: [id], onDelete: Restrict)
+  student User   @relation("StudentLinks", fields: [studentUserId], references: [id], onDelete: Restrict)
+
+  @@unique([schoolId, parentUserId, studentUserId])
+  @@index([schoolId, status])
+  @@index([parentUserId, status])
+  @@index([studentUserId, status])
+}
+
+model Invitation {
+  id              String   @id @default(uuid()) @db.Uuid
+  schoolId        String   @db.Uuid
+  email           String
+  normalizedEmail String
+  tokenHash       String   @unique
+  roleHintsJson   Json     @default("[]")
+  expiresAt       DateTime @db.Timestamptz(6)
+  acceptedAt      DateTime? @db.Timestamptz(6)
+  createdByUserId String   @db.Uuid
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+
+  school    School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy User   @relation("InvitationCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, normalizedEmail])
+  @@index([schoolId, expiresAt])
+}
+
+model Session {
+  sessionTokenHash String   @id
+  userId           String   @db.Uuid
+  expires          DateTime @db.Timestamptz(6)
+  createdAt        DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime @updatedAt @db.Timestamptz(6)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expires])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @db.Uuid
+  tokenHash String    @unique
+  expiresAt DateTime  @db.Timestamptz(6)
+  usedAt    DateTime? @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @db.Timestamptz(6)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
+}
+
+model StoredFile {
+  id              String           @id @default(uuid()) @db.Uuid
+  schoolId        String           @db.Uuid
+  storageKey      String           @unique
+  originalName    String
+  mimeType        String
+  sizeBytes       BigInt
+  sha256          String
+  status          StoredFileStatus @default(PENDING)
+  createdByUserId String           @db.Uuid
+  createdAt       DateTime         @default(now()) @db.Timestamptz(6)
+
+  school      School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy   User          @relation("StoredFileCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  versions    FileVersion[]
+  links       FileLink[]
+
+  @@unique([id, schoolId])
+  @@index([schoolId, status])
+  @@index([schoolId, sha256])
+}
+
+model FileVersion {
+  id              String   @id @default(uuid()) @db.Uuid
+  fileId          String   @db.Uuid
+  versionNumber   Int
+  storageKey      String   @unique
+  originalName    String
+  mimeType        String
+  sizeBytes       BigInt
+  sha256          String
+  createdByUserId String   @db.Uuid
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+
+  file      StoredFile @relation(fields: [fileId], references: [id], onDelete: Restrict)
+  createdBy User       @relation("FileVersionCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+
+  @@unique([fileId, versionNumber])
+  @@index([fileId, createdAt])
+}
+
+model FileLink {
+  id              String   @id @default(uuid()) @db.Uuid
+  schoolId        String   @db.Uuid
+  fileId          String   @db.Uuid
+  entityType      String
+  entityId        String   @db.Uuid
+  visibility      String
+  createdByUserId String   @db.Uuid
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+
+  school    School     @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  file      StoredFile @relation(fields: [fileId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  createdBy User       @relation("FileLinkCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, entityType, entityId])
+  @@index([schoolId, fileId])
+}
+
+model AuditEvent {
+  id          String   @id @default(uuid()) @db.Uuid
+  schoolId    String?  @db.Uuid
+  actorUserId String?  @db.Uuid
+  actorType   String
+  action      String
+  entityType  String
+  entityId    String?
+  beforeJson  Json?
+  afterJson   Json?
+  requestId   String
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+
+  school School? @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  actor  User?   @relation("AuditActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([schoolId, createdAt])
+  @@index([actorUserId, createdAt])
+  @@index([requestId])
+}
+
+model DomainOutboxEvent {
+  id            String       @id @default(uuid()) @db.Uuid
+  schoolId      String?      @db.Uuid
+  eventType     String
+  aggregateType String
+  aggregateId   String
+  payloadJson   Json
+  status        OutboxStatus @default(PENDING)
+  attempts      Int          @default(0)
+  availableAt   DateTime     @default(now()) @db.Timestamptz(6)
+  processedAt   DateTime?    @db.Timestamptz(6)
+  createdAt     DateTime     @default(now()) @db.Timestamptz(6)
+
+  school School? @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+
+  @@index([status, availableAt])
+  @@index([schoolId, createdAt])
+}
+
+model EmailOutbox {
+  id              String            @id @default(uuid()) @db.Uuid
+  schoolId        String            @db.Uuid
+  recipientUserId String?           @db.Uuid
+  toAddress       String
+  templateKey     String
+  payloadJson     Json
+  status          EmailOutboxStatus @default(PENDING)
+  attempts        Int               @default(0)
+  sentAt          DateTime?         @db.Timestamptz(6)
+  lastError       String?
+  createdAt       DateTime          @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime          @updatedAt @db.Timestamptz(6)
+
+  school        School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  recipientUser User?  @relation("EmailRecipient", fields: [recipientUserId], references: [id], onDelete: SetNull)
+
+  @@index([status, createdAt])
+  @@index([schoolId, status])
+}
