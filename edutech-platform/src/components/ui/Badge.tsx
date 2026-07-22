@@ -27,6 +27,7 @@ export function Badge({
         className
       )}
     >
+      <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-current" />
       {children}
     </span>
   );
