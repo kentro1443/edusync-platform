@@ -172,7 +172,7 @@
 ### UI auth
 
 - [x] Trang đăng nhập hoạt động thật.
-- [ ] Trang đổi mật khẩu lần đầu.
+- [x] Trang đổi mật khẩu lần đầu.
 - [ ] Trang quên mật khẩu.
 - [ ] Trang đặt lại mật khẩu.
 - [ ] Trang chấp nhận lời mời.

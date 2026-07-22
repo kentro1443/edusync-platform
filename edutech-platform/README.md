@@ -59,7 +59,7 @@ The seed creates two schools (`Minh Khai` and `Nguyễn Du`) and every foundatio
 EduTech-Demo-2026!
 ```
 
-Seeded users currently carry the `mustChangePassword` flag. The first-login password-change screen is the next authentication slice; until it is implemented, authenticated seeded users are redirected to `/doi-mat-khau`.
+Seeded users carry the `mustChangePassword` flag. On first login, enter the shared temporary password again at `/doi-mat-khau`, choose a new password with at least 12 characters, and continue to the school selector or dashboard.
 
 | Scope | Role | Email |
 | --- | --- | --- |
@@ -94,19 +94,65 @@ These credentials are development fixtures only and must not be used in producti
 
 Prisma configuration intentionally requires `DATABASE_URL`. Run database commands after creating `.env`, or provide the variable explicitly to the process.
 
-## Quality gates
+## Start the website for manual testing
 
-Run each foundation quality gate with:
+Run the following commands one by one from `/Users/huan/EduTechTest`:
+
+1. Start PostgreSQL and Redis:
 
 ```bash
-npm run db:validate
-npm run lint
-npm run typecheck
-npm test
-npm run build
+npm --prefix edutech-platform run services:up
 ```
 
-The unit/integration suite covers permission evaluation, tenant isolation, parent/student privacy links, authentication navigation safety, local file-storage containment, and durable email-outbox behavior. The Playwright smoke suite verifies public routes, login, and the authenticated-route redirect behavior.
+2. Apply database migrations:
+
+```bash
+npm --prefix edutech-platform run db:migrate:deploy
+```
+
+3. Load the demo accounts for initial setup:
+
+```bash
+npm --prefix edutech-platform run db:seed
+```
+
+This seed step is normally required only for the initial setup or when the demo fixtures need to be restored.
+
+4. Start the development server and leave this terminal running:
+
+```bash
+npm --prefix edutech-platform run dev
+```
+
+5. Open <http://localhost:3000> and sign in with a demo account listed above.
+
+After each completed phase or bug fix, the EduTech verification skill runs the automated checks, starts or reuses these services, confirms the website responds at `http://localhost:3000`, and leaves it running for manual testing.
+
+## Testing and quality gates
+
+For the full automated verification after each phase or bug fix, run:
+
+```bash
+npm run verify
+```
+
+This runs Prisma schema validation, ESLint, TypeScript checking, all Vitest tests, the production build, and the Playwright E2E suite in sequence. It stops immediately when a check fails.
+
+Individual commands:
+
+```bash
+npm run db:validate  # Prisma schema
+npm run lint         # ESLint
+npm run typecheck    # TypeScript
+npm test             # Unit/integration tests once
+npm run test:watch   # Unit tests in watch mode
+npm run build        # Production build
+npm run test:e2e     # Playwright browser tests
+```
+
+Before running the E2E suite, ensure PostgreSQL and Redis are running and the database has been migrated and seeded. To test manually, run `npm run dev`, open <http://localhost:3000>, and use one of the demo accounts listed above.
+
+The unit/integration suite covers permission evaluation, tenant isolation, parent/student privacy links, authentication navigation safety, password-change validation, local file-storage containment, and durable email-outbox behavior. The Playwright smoke suite verifies public routes, login, authenticated-route redirects, and the forced first-login password-change flow.
 
 ## Authentication behavior
 
@@ -119,7 +165,7 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 
 ## Verification status
 
-On July 23, 2026, ESLint, TypeScript, all 28 Vitest tests, the four-test Playwright smoke suite, and the production build passed. The Phase 0 database migration and deterministic seed were also verified against the local Compose services.
+On July 23, 2026, Prisma schema validation, ESLint, TypeScript, all 33 Vitest tests, the five-test Playwright smoke suite, and the production build passed. The Phase 0 database migration and deterministic seed were also verified against the local Compose services.
 
 ## Architecture documentation
 
