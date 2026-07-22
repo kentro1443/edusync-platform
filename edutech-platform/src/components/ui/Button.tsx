@@ -37,6 +37,8 @@ interface ButtonAsButtonProps
   extends BaseProps,
     ButtonHTMLAttributes<HTMLButtonElement> {
   href?: undefined;
+  loading?: boolean;
+  loadingLabel?: string;
 }
 
 interface ButtonAsLinkProps extends BaseProps {
@@ -48,18 +50,74 @@ interface ButtonAsLinkProps extends BaseProps {
 
 export const Button = forwardRef<HTMLButtonElement, ButtonAsButtonProps>(
   function ButtonInner(
-    { variant = "primary", size = "md", className, ...props },
+    {
+      variant = "primary",
+      size = "md",
+      className,
+      loading = false,
+      loadingLabel = "Đang xử lý",
+      disabled,
+      children,
+      ...props
+    },
     ref
   ) {
     return (
       <button
         ref={ref}
         className={cn(baseStyles, variantStyles[variant], sizeStyles[size], className)}
+        disabled={disabled || loading}
+        aria-busy={loading || undefined}
         {...props}
-      />
+      >
+        {loading ? (
+          <>
+            <span
+              aria-hidden="true"
+              className="h-4 w-4 animate-spin rounded-full border-2 border-current border-r-transparent motion-reduce:animate-none"
+            />
+            <span>{loadingLabel}</span>
+          </>
+        ) : (
+          children
+        )}
+      </button>
     );
   }
 );
+
+export const IconButton = forwardRef<
+  HTMLButtonElement,
+  Omit<ButtonAsButtonProps, "children"> & {
+    label: string;
+    children: React.ReactNode;
+  }
+>(function IconButton(
+  {
+    label,
+    children,
+    variant = "ghost",
+    size = "md",
+    className,
+    type = "button",
+    ...props
+  },
+  ref,
+) {
+  return (
+    <Button
+      ref={ref}
+      type={type}
+      variant={variant}
+      size={size}
+      aria-label={label}
+      className={cn("aspect-square px-0", className)}
+      {...props}
+    >
+      {children}
+    </Button>
+  );
+});
 
 export function LinkButton({
   variant = "primary",
