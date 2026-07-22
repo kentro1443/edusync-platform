@@ -3,14 +3,15 @@ import "server-only";
 import { createHash, randomBytes } from "node:crypto";
 import {
   createReadStream,
-  createWriteStream,
   type ReadStream,
 } from "node:fs";
 import {
   access,
   mkdir,
+  open,
   rename,
   rm,
+  type FileHandle,
 } from "node:fs/promises";
 import path from "node:path";
 import { Readable } from "node:stream";
@@ -139,18 +140,19 @@ export class LocalFileStorage implements FileStorage {
       }
     };
 
+    let temporaryFile: FileHandle | undefined;
     try {
+      temporaryFile = await open(temporaryPath, "wx", 0o600);
       await pipeline(
         source,
         limiter,
-        createWriteStream(temporaryPath, {
-          flags: "wx",
-          mode: 0o600,
-        }),
+        temporaryFile.createWriteStream({ autoClose: true }),
       );
+      temporaryFile = undefined;
       await rename(temporaryPath, target);
     } catch (error) {
       source.destroy();
+      await temporaryFile?.close().catch(() => undefined);
       await rm(temporaryPath, { force: true });
       throw error;
     }
