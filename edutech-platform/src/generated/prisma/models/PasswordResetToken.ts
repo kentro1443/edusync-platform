@@ -30,6 +30,7 @@ export type PasswordResetTokenMinAggregateOutputType = {
   tokenHash: string | null
   expiresAt: Date | null
   usedAt: Date | null
+  revokedAt: Date | null
   createdAt: Date | null
 }
 
@@ -39,6 +40,7 @@ export type PasswordResetTokenMaxAggregateOutputType = {
   tokenHash: string | null
   expiresAt: Date | null
   usedAt: Date | null
+  revokedAt: Date | null
   createdAt: Date | null
 }
 
@@ -48,6 +50,7 @@ export type PasswordResetTokenCountAggregateOutputType = {
   tokenHash: number
   expiresAt: number
   usedAt: number
+  revokedAt: number
   createdAt: number
   _all: number
 }
@@ -59,6 +62,7 @@ export type PasswordResetTokenMinAggregateInputType = {
   tokenHash?: true
   expiresAt?: true
   usedAt?: true
+  revokedAt?: true
   createdAt?: true
 }
 
@@ -68,6 +72,7 @@ export type PasswordResetTokenMaxAggregateInputType = {
   tokenHash?: true
   expiresAt?: true
   usedAt?: true
+  revokedAt?: true
   createdAt?: true
 }
 
@@ -77,6 +82,7 @@ export type PasswordResetTokenCountAggregateInputType = {
   tokenHash?: true
   expiresAt?: true
   usedAt?: true
+  revokedAt?: true
   createdAt?: true
   _all?: true
 }
@@ -159,6 +165,7 @@ export type PasswordResetTokenGroupByOutputType = {
   tokenHash: string
   expiresAt: Date
   usedAt: Date | null
+  revokedAt: Date | null
   createdAt: Date
   _count: PasswordResetTokenCountAggregateOutputType | null
   _min: PasswordResetTokenMinAggregateOutputType | null
@@ -189,6 +196,7 @@ export type PasswordResetTokenWhereInput = {
   tokenHash?: Prisma.StringFilter<"PasswordResetToken"> | string
   expiresAt?: Prisma.DateTimeFilter<"PasswordResetToken"> | Date | string
   usedAt?: Prisma.DateTimeNullableFilter<"PasswordResetToken"> | Date | string | null
+  revokedAt?: Prisma.DateTimeNullableFilter<"PasswordResetToken"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"PasswordResetToken"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
@@ -199,6 +207,7 @@ export type PasswordResetTokenOrderByWithRelationInput = {
   tokenHash?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   usedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  revokedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
@@ -212,6 +221,7 @@ export type PasswordResetTokenWhereUniqueInput = Prisma.AtLeast<{
   userId?: Prisma.UuidFilter<"PasswordResetToken"> | string
   expiresAt?: Prisma.DateTimeFilter<"PasswordResetToken"> | Date | string
   usedAt?: Prisma.DateTimeNullableFilter<"PasswordResetToken"> | Date | string | null
+  revokedAt?: Prisma.DateTimeNullableFilter<"PasswordResetToken"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"PasswordResetToken"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id" | "tokenHash">
@@ -222,6 +232,7 @@ export type PasswordResetTokenOrderByWithAggregationInput = {
   tokenHash?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   usedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  revokedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.PasswordResetTokenCountOrderByAggregateInput
   _max?: Prisma.PasswordResetTokenMaxOrderByAggregateInput
@@ -237,6 +248,7 @@ export type PasswordResetTokenScalarWhereWithAggregatesInput = {
   tokenHash?: Prisma.StringWithAggregatesFilter<"PasswordResetToken"> | string
   expiresAt?: Prisma.DateTimeWithAggregatesFilter<"PasswordResetToken"> | Date | string
   usedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"PasswordResetToken"> | Date | string | null
+  revokedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"PasswordResetToken"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"PasswordResetToken"> | Date | string
 }
 
@@ -245,6 +257,7 @@ export type PasswordResetTokenCreateInput = {
   tokenHash: string
   expiresAt: Date | string
   usedAt?: Date | string | null
+  revokedAt?: Date | string | null
   createdAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutPasswordResetTokensInput
 }
@@ -255,6 +268,7 @@ export type PasswordResetTokenUncheckedCreateInput = {
   tokenHash: string
   expiresAt: Date | string
   usedAt?: Date | string | null
+  revokedAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -263,6 +277,7 @@ export type PasswordResetTokenUpdateInput = {
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutPasswordResetTokensNestedInput
 }
@@ -273,6 +288,7 @@ export type PasswordResetTokenUncheckedUpdateInput = {
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -282,6 +298,7 @@ export type PasswordResetTokenCreateManyInput = {
   tokenHash: string
   expiresAt: Date | string
   usedAt?: Date | string | null
+  revokedAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -290,6 +307,7 @@ export type PasswordResetTokenUpdateManyMutationInput = {
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -299,6 +317,7 @@ export type PasswordResetTokenUncheckedUpdateManyInput = {
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -318,6 +337,7 @@ export type PasswordResetTokenCountOrderByAggregateInput = {
   tokenHash?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   usedAt?: Prisma.SortOrder
+  revokedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -327,6 +347,7 @@ export type PasswordResetTokenMaxOrderByAggregateInput = {
   tokenHash?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   usedAt?: Prisma.SortOrder
+  revokedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -336,6 +357,7 @@ export type PasswordResetTokenMinOrderByAggregateInput = {
   tokenHash?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   usedAt?: Prisma.SortOrder
+  revokedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -386,6 +408,7 @@ export type PasswordResetTokenCreateWithoutUserInput = {
   tokenHash: string
   expiresAt: Date | string
   usedAt?: Date | string | null
+  revokedAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -394,6 +417,7 @@ export type PasswordResetTokenUncheckedCreateWithoutUserInput = {
   tokenHash: string
   expiresAt: Date | string
   usedAt?: Date | string | null
+  revokedAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -432,6 +456,7 @@ export type PasswordResetTokenScalarWhereInput = {
   tokenHash?: Prisma.StringFilter<"PasswordResetToken"> | string
   expiresAt?: Prisma.DateTimeFilter<"PasswordResetToken"> | Date | string
   usedAt?: Prisma.DateTimeNullableFilter<"PasswordResetToken"> | Date | string | null
+  revokedAt?: Prisma.DateTimeNullableFilter<"PasswordResetToken"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"PasswordResetToken"> | Date | string
 }
 
@@ -440,6 +465,7 @@ export type PasswordResetTokenCreateManyUserInput = {
   tokenHash: string
   expiresAt: Date | string
   usedAt?: Date | string | null
+  revokedAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -448,6 +474,7 @@ export type PasswordResetTokenUpdateWithoutUserInput = {
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -456,6 +483,7 @@ export type PasswordResetTokenUncheckedUpdateWithoutUserInput = {
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -464,6 +492,7 @@ export type PasswordResetTokenUncheckedUpdateManyWithoutUserInput = {
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -475,6 +504,7 @@ export type PasswordResetTokenSelect<ExtArgs extends runtime.Types.Extensions.In
   tokenHash?: boolean
   expiresAt?: boolean
   usedAt?: boolean
+  revokedAt?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["passwordResetToken"]>
@@ -485,6 +515,7 @@ export type PasswordResetTokenSelectCreateManyAndReturn<ExtArgs extends runtime.
   tokenHash?: boolean
   expiresAt?: boolean
   usedAt?: boolean
+  revokedAt?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["passwordResetToken"]>
@@ -495,6 +526,7 @@ export type PasswordResetTokenSelectUpdateManyAndReturn<ExtArgs extends runtime.
   tokenHash?: boolean
   expiresAt?: boolean
   usedAt?: boolean
+  revokedAt?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["passwordResetToken"]>
@@ -505,10 +537,11 @@ export type PasswordResetTokenSelectScalar = {
   tokenHash?: boolean
   expiresAt?: boolean
   usedAt?: boolean
+  revokedAt?: boolean
   createdAt?: boolean
 }
 
-export type PasswordResetTokenOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "tokenHash" | "expiresAt" | "usedAt" | "createdAt", ExtArgs["result"]["passwordResetToken"]>
+export type PasswordResetTokenOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "tokenHash" | "expiresAt" | "usedAt" | "revokedAt" | "createdAt", ExtArgs["result"]["passwordResetToken"]>
 export type PasswordResetTokenInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -530,6 +563,7 @@ export type $PasswordResetTokenPayload<ExtArgs extends runtime.Types.Extensions.
     tokenHash: string
     expiresAt: Date
     usedAt: Date | null
+    revokedAt: Date | null
     createdAt: Date
   }, ExtArgs["result"]["passwordResetToken"]>
   composites: {}
@@ -960,6 +994,7 @@ export interface PasswordResetTokenFieldRefs {
   readonly tokenHash: Prisma.FieldRef<"PasswordResetToken", 'String'>
   readonly expiresAt: Prisma.FieldRef<"PasswordResetToken", 'DateTime'>
   readonly usedAt: Prisma.FieldRef<"PasswordResetToken", 'DateTime'>
+  readonly revokedAt: Prisma.FieldRef<"PasswordResetToken", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"PasswordResetToken", 'DateTime'>
 }
     

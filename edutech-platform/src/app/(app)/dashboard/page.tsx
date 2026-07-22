@@ -27,6 +27,9 @@ export default async function DashboardPage() {
       (context) => context.schoolSlug === requestedSchoolSlug,
     ) ??
     (session.schoolContexts.length === 1 ? session.schoolContexts[0] : undefined);
+  if (!activeSchool && session.platformRoles.length === 0) {
+    redirect("/membership-inactive");
+  }
   const roles = activeSchool?.roles ?? session.platformRoles;
   const permissionCount = activeSchool
     ? getSchoolPermissions(activeSchool.roles).length

@@ -220,6 +220,9 @@ model Invitation {
   roleHintsJson   Json     @default("[]")
   expiresAt       DateTime @db.Timestamptz(6)
   acceptedAt      DateTime? @db.Timestamptz(6)
+  revokedAt       DateTime? @db.Timestamptz(6)
+  lastSentAt      DateTime @default(now()) @db.Timestamptz(6)
+  sendCount       Int      @default(1)
   createdByUserId String   @db.Uuid
   createdAt       DateTime @default(now()) @db.Timestamptz(6)
 
@@ -227,20 +230,26 @@ model Invitation {
   createdBy User   @relation("InvitationCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
 
   @@index([schoolId, normalizedEmail])
-  @@index([schoolId, expiresAt])
+  @@index([schoolId, revokedAt, expiresAt])
 }
 
 model Session {
+  id               String   @default(uuid()) @unique @db.Uuid
   sessionTokenHash String   @id
   userId           String   @db.Uuid
   expires          DateTime @db.Timestamptz(6)
+  revokedAt        DateTime? @db.Timestamptz(6)
+  revokeReason     String?
+  lastSeenAt       DateTime @default(now()) @db.Timestamptz(6)
+  userAgent        String?
+  ipHash           String?
   createdAt        DateTime @default(now()) @db.Timestamptz(6)
   updatedAt        DateTime @updatedAt @db.Timestamptz(6)
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@index([userId])
-  @@index([expires])
+  @@index([userId, revokedAt, expires])
+  @@index([expires, revokedAt])
 }
 
 model PasswordResetToken {
@@ -249,11 +258,24 @@ model PasswordResetToken {
   tokenHash String    @unique
   expiresAt DateTime  @db.Timestamptz(6)
   usedAt    DateTime? @db.Timestamptz(6)
+  revokedAt DateTime? @db.Timestamptz(6)
   createdAt DateTime  @default(now()) @db.Timestamptz(6)
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@index([userId, expiresAt])
+  @@index([userId, revokedAt, expiresAt])
+}
+
+model AuthRateLimit {
+  keyHash      String   @id
+  action       String
+  attempts     Int      @default(0)
+  windowStart DateTime  @db.Timestamptz(6)
+  blockedUntil DateTime? @db.Timestamptz(6)
+  updatedAt    DateTime @updatedAt @db.Timestamptz(6)
+
+  @@index([action, updatedAt])
+  @@index([blockedUntil])
 }
 
 model StoredFile {
@@ -333,6 +355,8 @@ model AuditEvent {
 
   @@index([schoolId, createdAt])
   @@index([actorUserId, createdAt])
+  @@index([schoolId, action, createdAt])
+  @@index([entityType, entityId, createdAt])
   @@index([requestId])
 }
 
@@ -357,7 +381,7 @@ model DomainOutboxEvent {
 
 model EmailOutbox {
   id              String            @id @default(uuid()) @db.Uuid
-  schoolId        String            @db.Uuid
+  schoolId        String?           @db.Uuid
   recipientUserId String?           @db.Uuid
   toAddress       String
   templateKey     String
@@ -369,7 +393,7 @@ model EmailOutbox {
   createdAt       DateTime          @default(now()) @db.Timestamptz(6)
   updatedAt       DateTime          @updatedAt @db.Timestamptz(6)
 
-  school        School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  school        School? @relation(fields: [schoolId], references: [id], onDelete: Restrict)
   recipientUser User?  @relation("EmailRecipient", fields: [recipientUserId], references: [id], onDelete: SetNull)
 
   @@index([status, createdAt])

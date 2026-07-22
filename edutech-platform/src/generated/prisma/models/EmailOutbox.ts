@@ -219,7 +219,7 @@ export type EmailOutboxGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type EmailOutboxGroupByOutputType = {
   id: string
-  schoolId: string
+  schoolId: string | null
   recipientUserId: string | null
   toAddress: string
   templateKey: string
@@ -257,7 +257,7 @@ export type EmailOutboxWhereInput = {
   OR?: Prisma.EmailOutboxWhereInput[]
   NOT?: Prisma.EmailOutboxWhereInput | Prisma.EmailOutboxWhereInput[]
   id?: Prisma.UuidFilter<"EmailOutbox"> | string
-  schoolId?: Prisma.UuidFilter<"EmailOutbox"> | string
+  schoolId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   recipientUserId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   toAddress?: Prisma.StringFilter<"EmailOutbox"> | string
   templateKey?: Prisma.StringFilter<"EmailOutbox"> | string
@@ -268,13 +268,13 @@ export type EmailOutboxWhereInput = {
   lastError?: Prisma.StringNullableFilter<"EmailOutbox"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
-  school?: Prisma.XOR<Prisma.SchoolScalarRelationFilter, Prisma.SchoolWhereInput>
+  school?: Prisma.XOR<Prisma.SchoolNullableScalarRelationFilter, Prisma.SchoolWhereInput> | null
   recipientUser?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
 }
 
 export type EmailOutboxOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  schoolId?: Prisma.SortOrder
+  schoolId?: Prisma.SortOrderInput | Prisma.SortOrder
   recipientUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   toAddress?: Prisma.SortOrder
   templateKey?: Prisma.SortOrder
@@ -294,7 +294,7 @@ export type EmailOutboxWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.EmailOutboxWhereInput | Prisma.EmailOutboxWhereInput[]
   OR?: Prisma.EmailOutboxWhereInput[]
   NOT?: Prisma.EmailOutboxWhereInput | Prisma.EmailOutboxWhereInput[]
-  schoolId?: Prisma.UuidFilter<"EmailOutbox"> | string
+  schoolId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   recipientUserId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   toAddress?: Prisma.StringFilter<"EmailOutbox"> | string
   templateKey?: Prisma.StringFilter<"EmailOutbox"> | string
@@ -305,13 +305,13 @@ export type EmailOutboxWhereUniqueInput = Prisma.AtLeast<{
   lastError?: Prisma.StringNullableFilter<"EmailOutbox"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
-  school?: Prisma.XOR<Prisma.SchoolScalarRelationFilter, Prisma.SchoolWhereInput>
+  school?: Prisma.XOR<Prisma.SchoolNullableScalarRelationFilter, Prisma.SchoolWhereInput> | null
   recipientUser?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
 }, "id">
 
 export type EmailOutboxOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  schoolId?: Prisma.SortOrder
+  schoolId?: Prisma.SortOrderInput | Prisma.SortOrder
   recipientUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   toAddress?: Prisma.SortOrder
   templateKey?: Prisma.SortOrder
@@ -334,7 +334,7 @@ export type EmailOutboxScalarWhereWithAggregatesInput = {
   OR?: Prisma.EmailOutboxScalarWhereWithAggregatesInput[]
   NOT?: Prisma.EmailOutboxScalarWhereWithAggregatesInput | Prisma.EmailOutboxScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"EmailOutbox"> | string
-  schoolId?: Prisma.UuidWithAggregatesFilter<"EmailOutbox"> | string
+  schoolId?: Prisma.UuidNullableWithAggregatesFilter<"EmailOutbox"> | string | null
   recipientUserId?: Prisma.UuidNullableWithAggregatesFilter<"EmailOutbox"> | string | null
   toAddress?: Prisma.StringWithAggregatesFilter<"EmailOutbox"> | string
   templateKey?: Prisma.StringWithAggregatesFilter<"EmailOutbox"> | string
@@ -358,13 +358,13 @@ export type EmailOutboxCreateInput = {
   lastError?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  school: Prisma.SchoolCreateNestedOneWithoutEmailOutboxItemsInput
+  school?: Prisma.SchoolCreateNestedOneWithoutEmailOutboxItemsInput
   recipientUser?: Prisma.UserCreateNestedOneWithoutEmailOutboxItemsInput
 }
 
 export type EmailOutboxUncheckedCreateInput = {
   id?: string
-  schoolId: string
+  schoolId?: string | null
   recipientUserId?: string | null
   toAddress: string
   templateKey: string
@@ -388,13 +388,13 @@ export type EmailOutboxUpdateInput = {
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  school?: Prisma.SchoolUpdateOneRequiredWithoutEmailOutboxItemsNestedInput
+  school?: Prisma.SchoolUpdateOneWithoutEmailOutboxItemsNestedInput
   recipientUser?: Prisma.UserUpdateOneWithoutEmailOutboxItemsNestedInput
 }
 
 export type EmailOutboxUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolId?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -409,7 +409,7 @@ export type EmailOutboxUncheckedUpdateInput = {
 
 export type EmailOutboxCreateManyInput = {
   id?: string
-  schoolId: string
+  schoolId?: string | null
   recipientUserId?: string | null
   toAddress: string
   templateKey: string
@@ -437,7 +437,7 @@ export type EmailOutboxUpdateManyMutationInput = {
 
 export type EmailOutboxUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolId?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -610,12 +610,12 @@ export type EmailOutboxCreateWithoutRecipientUserInput = {
   lastError?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  school: Prisma.SchoolCreateNestedOneWithoutEmailOutboxItemsInput
+  school?: Prisma.SchoolCreateNestedOneWithoutEmailOutboxItemsInput
 }
 
 export type EmailOutboxUncheckedCreateWithoutRecipientUserInput = {
   id?: string
-  schoolId: string
+  schoolId?: string | null
   toAddress: string
   templateKey: string
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -658,7 +658,7 @@ export type EmailOutboxScalarWhereInput = {
   OR?: Prisma.EmailOutboxScalarWhereInput[]
   NOT?: Prisma.EmailOutboxScalarWhereInput | Prisma.EmailOutboxScalarWhereInput[]
   id?: Prisma.UuidFilter<"EmailOutbox"> | string
-  schoolId?: Prisma.UuidFilter<"EmailOutbox"> | string
+  schoolId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   recipientUserId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   toAddress?: Prisma.StringFilter<"EmailOutbox"> | string
   templateKey?: Prisma.StringFilter<"EmailOutbox"> | string
@@ -727,7 +727,7 @@ export type EmailOutboxUpdateManyWithWhereWithoutSchoolInput = {
 
 export type EmailOutboxCreateManyRecipientUserInput = {
   id?: string
-  schoolId: string
+  schoolId?: string | null
   toAddress: string
   templateKey: string
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -750,12 +750,12 @@ export type EmailOutboxUpdateWithoutRecipientUserInput = {
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  school?: Prisma.SchoolUpdateOneRequiredWithoutEmailOutboxItemsNestedInput
+  school?: Prisma.SchoolUpdateOneWithoutEmailOutboxItemsNestedInput
 }
 
 export type EmailOutboxUncheckedUpdateWithoutRecipientUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolId?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -769,7 +769,7 @@ export type EmailOutboxUncheckedUpdateWithoutRecipientUserInput = {
 
 export type EmailOutboxUncheckedUpdateManyWithoutRecipientUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolId?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -852,7 +852,7 @@ export type EmailOutboxSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   lastError?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
+  school?: boolean | Prisma.EmailOutbox$schoolArgs<ExtArgs>
   recipientUser?: boolean | Prisma.EmailOutbox$recipientUserArgs<ExtArgs>
 }, ExtArgs["result"]["emailOutbox"]>
 
@@ -869,7 +869,7 @@ export type EmailOutboxSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   lastError?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
+  school?: boolean | Prisma.EmailOutbox$schoolArgs<ExtArgs>
   recipientUser?: boolean | Prisma.EmailOutbox$recipientUserArgs<ExtArgs>
 }, ExtArgs["result"]["emailOutbox"]>
 
@@ -886,7 +886,7 @@ export type EmailOutboxSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   lastError?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
+  school?: boolean | Prisma.EmailOutbox$schoolArgs<ExtArgs>
   recipientUser?: boolean | Prisma.EmailOutbox$recipientUserArgs<ExtArgs>
 }, ExtArgs["result"]["emailOutbox"]>
 
@@ -907,27 +907,27 @@ export type EmailOutboxSelectScalar = {
 
 export type EmailOutboxOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "schoolId" | "recipientUserId" | "toAddress" | "templateKey" | "payloadJson" | "status" | "attempts" | "sentAt" | "lastError" | "createdAt" | "updatedAt", ExtArgs["result"]["emailOutbox"]>
 export type EmailOutboxInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
+  school?: boolean | Prisma.EmailOutbox$schoolArgs<ExtArgs>
   recipientUser?: boolean | Prisma.EmailOutbox$recipientUserArgs<ExtArgs>
 }
 export type EmailOutboxIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
+  school?: boolean | Prisma.EmailOutbox$schoolArgs<ExtArgs>
   recipientUser?: boolean | Prisma.EmailOutbox$recipientUserArgs<ExtArgs>
 }
 export type EmailOutboxIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
+  school?: boolean | Prisma.EmailOutbox$schoolArgs<ExtArgs>
   recipientUser?: boolean | Prisma.EmailOutbox$recipientUserArgs<ExtArgs>
 }
 
 export type $EmailOutboxPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "EmailOutbox"
   objects: {
-    school: Prisma.$SchoolPayload<ExtArgs>
+    school: Prisma.$SchoolPayload<ExtArgs> | null
     recipientUser: Prisma.$UserPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    schoolId: string
+    schoolId: string | null
     recipientUserId: string | null
     toAddress: string
     templateKey: string
@@ -1332,7 +1332,7 @@ readonly fields: EmailOutboxFieldRefs;
  */
 export interface Prisma__EmailOutboxClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  school<T extends Prisma.SchoolDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SchoolDefaultArgs<ExtArgs>>): Prisma.Prisma__SchoolClient<runtime.Types.Result.GetResult<Prisma.$SchoolPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  school<T extends Prisma.EmailOutbox$schoolArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EmailOutbox$schoolArgs<ExtArgs>>): Prisma.Prisma__SchoolClient<runtime.Types.Result.GetResult<Prisma.$SchoolPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   recipientUser<T extends Prisma.EmailOutbox$recipientUserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EmailOutbox$recipientUserArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1773,6 +1773,25 @@ export type EmailOutboxDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.I
    * Limit how many EmailOutboxes to delete.
    */
   limit?: number
+}
+
+/**
+ * EmailOutbox.school
+ */
+export type EmailOutbox$schoolArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the School
+   */
+  select?: Prisma.SchoolSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the School
+   */
+  omit?: Prisma.SchoolOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SchoolInclude<ExtArgs> | null
+  where?: Prisma.SchoolWhereInput
 }
 
 /**

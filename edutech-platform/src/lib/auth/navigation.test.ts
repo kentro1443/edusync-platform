@@ -10,6 +10,7 @@ function createSession(
   overrides: Partial<AuthenticatedSession> = {},
 ): AuthenticatedSession {
   return {
+    sessionId: "session-1",
     user: {
       id: "user-1",
       email: "hoc-sinh@demo.edu.vn",

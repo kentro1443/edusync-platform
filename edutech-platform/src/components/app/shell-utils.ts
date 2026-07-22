@@ -46,6 +46,57 @@ export function translateRole(role: string): string {
   return roleLabels[role] ?? "Thành viên nhà trường";
 }
 
+const membershipStatusLabels: Record<string, string> = {
+  ACTIVE: "Hoạt động",
+  INVITED: "Đã mời",
+  SUSPENDED: "Tạm dừng",
+  LEFT: "Đã rời trường",
+};
+
+const planCodeLabels: Record<string, string> = {
+  STANDARD: "Tiêu chuẩn",
+  LOCAL: "Cục bộ",
+};
+
+const auditActionLabels: Record<string, string> = {
+  AUTH_LOGIN_SUCCEEDED: "Đăng nhập thành công",
+  AUTH_LOGIN_FAILED: "Đăng nhập không thành công",
+  AUTH_LOGOUT: "Đăng xuất",
+  AUTH_PASSWORD_CHANGED: "Đổi mật khẩu thành công",
+  AUTH_PASSWORD_RESET_REQUESTED: "Yêu cầu đặt lại mật khẩu",
+  AUTH_PASSWORD_RESET_COMPLETED: "Đặt lại mật khẩu thành công",
+  AUTH_SESSION_REVOKED: "Thu hồi phiên đăng nhập",
+  AUTH_SESSIONS_OTHER_REVOKED: "Đăng xuất các thiết bị khác",
+  AUTH_SESSIONS_ALL_REVOKED: "Đăng xuất khỏi mọi thiết bị",
+  SCHOOL_CONTEXT_SELECTED: "Chuyển trường làm việc",
+  SCHOOL_INVITATION_CREATED: "Tạo lời mời thành viên",
+  SCHOOL_INVITATION_RESENT: "Gửi lại lời mời thành viên",
+  SCHOOL_INVITATION_REVOKED: "Thu hồi lời mời thành viên",
+  SCHOOL_INVITATION_ACCEPTED: "Chấp nhận lời mời thành viên",
+  SCHOOL_MEMBERSHIP_ROLES_UPDATED: "Cập nhật vai trò thành viên",
+  SCHOOL_MEMBERSHIP_SUSPENDED: "Tạm dừng thành viên",
+  SCHOOL_MEMBERSHIP_REACTIVATED: "Kích hoạt lại thành viên",
+  PARENT_STUDENT_LINK_CREATED: "Liên kết phụ huynh với học sinh",
+  PARENT_STUDENT_LINK_REVOKED: "Gỡ liên kết phụ huynh với học sinh",
+  SCHOOL_SETTINGS_UPDATED: "Cập nhật cấu hình trường",
+  PLATFORM_SCHOOL_PROVISIONED: "Khởi tạo trường mới",
+  PLATFORM_SCHOOL_SUSPENDED: "Tạm dừng trường",
+  PLATFORM_SCHOOL_RESTORED: "Khôi phục trường",
+  USER_PROFILE_UPDATED: "Cập nhật hồ sơ cá nhân",
+};
+
+export function translateMembershipStatus(status: string): string {
+  return membershipStatusLabels[status] ?? "Không xác định";
+}
+
+export function translatePlanCode(planCode: string): string {
+  return planCodeLabels[planCode] ?? "Theo cấu hình";
+}
+
+export function translateAuditAction(action: string): string {
+  return auditActionLabels[action] ?? "Hoạt động hệ thống";
+}
+
 export function getPrimaryRoleLabel(roles: readonly string[]): string {
   const primary = rolePriority.find((role) => roles.includes(role));
   return primary ? translateRole(primary) : "Quản trị nền tảng";

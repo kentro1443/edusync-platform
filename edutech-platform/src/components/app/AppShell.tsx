@@ -371,6 +371,12 @@ export function AppShell({
                     Đổi trường
                   </Link>
                 ) : null}
+                <Link href="/dashboard/profile" className="mt-1 block rounded-[var(--radius-sm)] px-2 py-2 text-sm text-[var(--color-ink-700)] hover:bg-[var(--color-ink-100)]">
+                  Hồ sơ cá nhân
+                </Link>
+                <Link href="/dashboard/security" className="block rounded-[var(--radius-sm)] px-2 py-2 text-sm text-[var(--color-ink-700)] hover:bg-[var(--color-ink-100)]">
+                  Bảo mật & phiên đăng nhập
+                </Link>
                 <form action={logoutAction}>
                   <button type="submit" className="w-full rounded-[var(--radius-sm)] px-2 py-2 text-left text-sm text-[var(--color-danger-600)] hover:bg-[var(--color-danger-100)]">
                     Đăng xuất

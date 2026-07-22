@@ -3,6 +3,9 @@ import { describe, expect, it } from "vitest";
 import {
   buildBreadcrumbs,
   getPrimaryRoleLabel,
+  translateAuditAction,
+  translateMembershipStatus,
+  translatePlanCode,
   translateRole,
 } from "@/components/app/shell-utils";
 
@@ -35,5 +38,19 @@ describe("app shell helpers", () => {
       "Giáo viên & nhân viên",
     );
     expect(getPrimaryRoleLabel([])).toBe("Quản trị nền tảng");
+  });
+
+  it("translates operational codes for Vietnamese administration screens", () => {
+    expect(translateMembershipStatus("INVITED")).toBe("Đã mời");
+    expect(translateMembershipStatus("LEFT")).toBe("Đã rời trường");
+    expect(translatePlanCode("STANDARD")).toBe("Tiêu chuẩn");
+    expect(translatePlanCode("LOCAL")).toBe("Cục bộ");
+    expect(translateAuditAction("AUTH_PASSWORD_RESET_COMPLETED")).toBe(
+      "Đặt lại mật khẩu thành công",
+    );
+    expect(translateAuditAction("SCHOOL_MEMBERSHIP_SUSPENDED")).toBe(
+      "Tạm dừng thành viên",
+    );
+    expect(translateAuditAction("UNKNOWN_ACTION")).toBe("Hoạt động hệ thống");
   });
 });

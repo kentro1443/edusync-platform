@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 import {
   validatePasswordChange,
@@ -10,6 +11,8 @@ import { getCurrentSession } from "@/lib/auth/current-session";
 import { db } from "@/lib/db";
 import { getAuthenticatedLandingPath } from "@/lib/auth/navigation";
 import { hashPassword, verifyPassword } from "@/lib/auth/password";
+import { sessionCookieName, revokeOtherUserSessions } from "@/lib/auth/session";
+import { writeAuditEvent } from "@/lib/audit";
 
 function redirectWithError(error: PasswordChangeError | "invalid-current"): never {
   const query = new URLSearchParams({ error });
@@ -62,6 +65,17 @@ export async function changePasswordAction(formData: FormData): Promise<never> {
       passwordHash,
       mustChangePassword: false,
     },
+  });
+
+  const token = (await cookies()).get(sessionCookieName)?.value;
+  if (token) {
+    await revokeOtherUserSessions(session.user.id, token);
+  }
+  await writeAuditEvent({
+    actorUserId: session.user.id,
+    action: "AUTH_PASSWORD_CHANGED",
+    entityType: "User",
+    entityId: session.user.id,
   });
 
   redirect(

@@ -29,6 +29,7 @@ export type SchoolContextOption = Readonly<{
 }>;
 
 export type AuthenticatedSession = Readonly<{
+  sessionId: string;
   user: AuthenticatedUser;
   expires: Date;
   platformRoles: AuthorizationContext["platformRoles"];
@@ -45,42 +46,96 @@ export function createOpaqueSessionToken(): string {
 
 export async function createDatabaseSession(
   userId: string,
+  metadata: { userAgent?: string | null; ipHash?: string | null } = {},
   now = new Date(),
-): Promise<{ token: string; expires: Date }> {
+): Promise<{ id: string; token: string; expires: Date }> {
   const token = createOpaqueSessionToken();
   const expires = new Date(
     now.getTime() + sessionMaxAgeSeconds * 1_000,
   );
 
-  await db.session.create({
+  const session = await db.session.create({
     data: {
       sessionTokenHash: hashSessionToken(token),
       userId,
       expires,
+      userAgent: metadata.userAgent ?? null,
+      ipHash: metadata.ipHash ?? null,
     },
+    select: { id: true },
   });
 
-  return { token, expires };
+  return { id: session.id, token, expires };
 }
 
 export async function revokeDatabaseSession(
   token: string,
+  reason = "LOGOUT",
+  now = new Date(),
 ): Promise<void> {
-  await db.session.deleteMany({
+  await db.session.updateMany({
     where: {
       sessionTokenHash: hashSessionToken(token),
+      revokedAt: null,
     },
+    data: { revokedAt: now, revokeReason: reason },
   });
 }
 
 export async function revokeAllUserSessions(
   userId: string,
+  reason = "REVOKE_ALL",
+  now = new Date(),
 ): Promise<number> {
-  const result = await db.session.deleteMany({
-    where: { userId },
+  const result = await db.session.updateMany({
+    where: { userId, revokedAt: null },
+    data: { revokedAt: now, revokeReason: reason },
   });
 
   return result.count;
+}
+
+export async function revokeOtherUserSessions(
+  userId: string,
+  currentToken: string,
+  now = new Date(),
+): Promise<number> {
+  const result = await db.session.updateMany({
+    where: {
+      userId,
+      sessionTokenHash: { not: hashSessionToken(currentToken) },
+      revokedAt: null,
+    },
+    data: { revokedAt: now, revokeReason: "REVOKE_OTHER" },
+  });
+  return result.count;
+}
+
+export async function listUserSessions(userId: string, now = new Date()) {
+  return db.session.findMany({
+    where: { userId, revokedAt: null, expires: { gt: now } },
+    select: {
+      id: true,
+      createdAt: true,
+      lastSeenAt: true,
+      expires: true,
+      userAgent: true,
+      ipHash: true,
+    },
+    orderBy: { lastSeenAt: "desc" },
+  });
+}
+
+export async function revokeUserSessionById(
+  userId: string,
+  sessionId: string,
+  now = new Date(),
+): Promise<boolean> {
+  const result = await db.session.updateMany({
+    where: { id: sessionId, userId, revokedAt: null },
+    data: { revokedAt: now, revokeReason: "USER_REVOKED" },
+  });
+  return result.count === 1;
 }
 
 export async function getDatabaseSession(
@@ -93,7 +148,10 @@ export async function getDatabaseSession(
       sessionTokenHash: tokenHash,
     },
     select: {
+      id: true,
       expires: true,
+      revokedAt: true,
+      lastSeenAt: true,
       user: {
         select: {
           id: true,
@@ -139,19 +197,35 @@ export async function getDatabaseSession(
   }
 
   if (
+    session.revokedAt !== null ||
     session.expires.getTime() <= now.getTime() ||
     session.user.status !== UserStatus.ACTIVE
   ) {
-    await db.session.deleteMany({
+    await db.session.updateMany({
       where: {
         sessionTokenHash: tokenHash,
+      },
+      data: {
+        revokedAt: session.revokedAt ?? now,
+        revokeReason:
+          session.user.status !== UserStatus.ACTIVE
+            ? "USER_INACTIVE"
+            : "EXPIRED",
       },
     });
 
     return null;
   }
 
+  if (now.getTime() - session.lastSeenAt.getTime() >= 5 * 60_000) {
+    await db.session.updateMany({
+      where: { sessionTokenHash: tokenHash, revokedAt: null },
+      data: { lastSeenAt: now },
+    });
+  }
+
   return {
+    sessionId: session.id,
     user: {
       id: session.user.id,
       email: session.user.email,

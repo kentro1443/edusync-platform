@@ -3,7 +3,16 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
+import { writeAuditEvent } from "@/lib/audit";
 import { authenticateCredentials } from "@/lib/auth/credentials";
+import { normalizeEmail } from "@/lib/auth/password";
+import {
+  authRateLimits,
+  checkAuthRateLimit,
+  clearAuthRateLimit,
+  recordAuthAttempt,
+} from "@/lib/auth/rate-limit";
+import { getRequestMetadata } from "@/lib/auth/request-metadata";
 import {
   getAuthenticatedLandingPath,
   sanitizeReturnPath,
@@ -29,9 +38,30 @@ export async function loginAction(formData: FormData): Promise<never> {
     redirect("/login?error=invalid");
   }
 
+  const metadata = await getRequestMetadata();
+  const rateSubject = `${normalizeEmail(email)}:${metadata.ipHash ?? "unknown"}`;
+  const rateLimit = await checkAuthRateLimit(
+    "login",
+    rateSubject,
+    authRateLimits.login,
+  );
+  if (!rateLimit.allowed) {
+    redirect("/login?error=rate-limited");
+  }
+
   const user = await authenticateCredentials({ email, password });
 
   if (!user) {
+    await recordAuthAttempt(
+      "login",
+      rateSubject,
+      authRateLimits.login,
+    );
+    await writeAuditEvent({
+      actorType: "SYSTEM",
+      action: "AUTH_LOGIN_FAILED",
+      entityType: "Authentication",
+    });
     const query = new URLSearchParams({ error: "invalid" });
     if (returnTo) {
       query.set("returnTo", returnTo);
@@ -39,7 +69,9 @@ export async function loginAction(formData: FormData): Promise<never> {
     redirect(`/login?${query.toString()}`);
   }
 
-  const createdSession = await createDatabaseSession(user.id);
+  await clearAuthRateLimit("login", rateSubject);
+
+  const createdSession = await createDatabaseSession(user.id, metadata);
   const cookieStore = await cookies();
 
   cookieStore.set(sessionCookieName, createdSession.token, {
@@ -57,6 +89,13 @@ export async function loginAction(formData: FormData): Promise<never> {
     cookieStore.delete(sessionCookieName);
     redirect("/login?error=invalid");
   }
+
+  await writeAuditEvent({
+    actorUserId: user.id,
+    action: "AUTH_LOGIN_SUCCEEDED",
+    entityType: "Session",
+    entityId: createdSession.id,
+  });
 
   redirect(returnTo ?? getAuthenticatedLandingPath(session));
 }

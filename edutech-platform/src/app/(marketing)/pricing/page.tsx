@@ -66,7 +66,7 @@ const faqs = [
   },
   {
     q: "Dữ liệu của trường có được lưu trữ riêng biệt không?",
-    a: "Có. Mỗi trường được phân tách dữ liệu hoàn toàn (single-tenant hoặc schema riêng), đảm bảo không rò rỉ chéo giữa các trường.",
+    a: "Có. Mỗi trường được phân tách dữ liệu hoàn toàn bằng vùng dữ liệu hoặc lược đồ riêng, đảm bảo không rò rỉ chéo giữa các trường.",
   },
   {
     q: "Có hỗ trợ tích hợp với hệ thống quản lý học sinh hiện tại không?",

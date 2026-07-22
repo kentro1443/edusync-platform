@@ -126,10 +126,6 @@ export type Permission =
 const p = permissions;
 
 const commonSchoolPermissions = [
-  p.schoolSettingsRead,
-  p.schoolUserRead,
-  p.schoolUserUpdate,
-  p.schoolReportRead,
   p.mentorDirectoryRead,
   p.mentorAppointmentRead,
   p.resourceRead,
@@ -154,8 +150,6 @@ const commonSchoolPermissions = [
   p.commentCreate,
   p.notificationReadOwn,
   p.notificationPreferencesUpdateOwn,
-  p.auditReadSchool,
-  p.reportExport,
 ] satisfies Permission[];
 
 export const platformRolePermissions = {
@@ -177,14 +171,18 @@ export const platformRolePermissions = {
 export const schoolRolePermissions = {
   SCHOOL_ADMIN: [
     ...commonSchoolPermissions,
+    p.schoolSettingsRead,
     p.schoolSettingsUpdate,
     p.schoolAcademicStructureManage,
     p.schoolPolicyManage,
     p.schoolRetentionManage,
+    p.schoolUserRead,
     p.schoolUserInvite,
     p.schoolUserImport,
+    p.schoolUserUpdate,
     p.schoolUserSuspend,
     p.schoolRoleAssign,
+    p.schoolReportRead,
     p.schoolAuditRead,
     p.mentorProfileUpdate,
     p.mentorProfileVerify,
@@ -234,10 +232,11 @@ export const schoolRolePermissions = {
     p.commentModerate,
     p.notificationSendBroadcast,
     p.auditExportSchool,
+    p.auditReadSchool,
+    p.reportExport,
   ],
   TEACHER_STAFF: [
     ...commonSchoolPermissions,
-    p.schoolUserInvite,
     p.mentorProfileUpdate,
     p.mentorAvailabilityManage,
     p.mentorAppointmentCreate,
@@ -431,6 +430,18 @@ export function getSchoolPermissions(
     }
   }
 
+  return [...effectivePermissions];
+}
+
+export function getPlatformPermissions(
+  roles: readonly PlatformRole[],
+): Permission[] {
+  const effectivePermissions = new Set<Permission>();
+  for (const role of roles) {
+    for (const permission of platformRolePermissions[role]) {
+      effectivePermissions.add(permission);
+    }
+  }
   return [...effectivePermissions];
 }
 

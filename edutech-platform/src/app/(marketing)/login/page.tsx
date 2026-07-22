@@ -6,6 +6,7 @@ import { loginAction } from "@/app/(marketing)/login/actions";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
+import { Alert } from "@/components/ui/Feedback";
 import { Input, Label } from "@/components/ui/Field";
 import { MentorIcon } from "@/components/ui/icons";
 import { getCurrentSession } from "@/lib/auth/current-session";
@@ -23,6 +24,9 @@ type LoginPageProps = Readonly<{
   searchParams: Promise<{
     error?: string;
     returnTo?: string;
+    reset?: string;
+    invited?: string;
+    revoked?: string;
   }>;
 }>;
 
@@ -66,6 +70,27 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
               Email hoặc mật khẩu không đúng. Vui lòng thử lại.
             </div>
           ) : null}
+          {params.error === "rate-limited" ? (
+            <div
+              role="alert"
+              className="mb-5 rounded-[var(--radius-md)] border border-[var(--color-warning-300)] bg-[var(--color-warning-50)] px-4 py-3 text-sm text-[var(--color-warning-900)]"
+            >
+              Đã có quá nhiều lần đăng nhập không thành công. Vui lòng thử lại sau.
+            </div>
+          ) : null}
+          {params.reset === "success" ? (
+            <Alert className="mb-5" tone="success" title="Mật khẩu đã được cập nhật">
+              Bạn có thể đăng nhập bằng mật khẩu mới.
+            </Alert>
+          ) : null}
+          {params.invited === "1" ? (
+            <Alert className="mb-5" tone="success" title="Đã tham gia trường">
+              Đăng nhập để mở không gian trường vừa được cấp.
+            </Alert>
+          ) : null}
+          {params.revoked === "1" ? (
+            <Alert className="mb-5" tone="info" title="Đã đăng xuất khỏi mọi thiết bị" />
+          ) : null}
 
           <form action={loginAction} className="space-y-5">
             {returnTo ? (
@@ -98,9 +123,9 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
               />
             </div>
             <div className="flex justify-end text-sm">
-              <span className="text-[var(--color-ink-500)]">
-                Quên mật khẩu? Liên hệ quản trị viên trường.
-              </span>
+              <Link href="/quen-mat-khau" className="font-medium text-[var(--color-brand-700)] hover:underline">
+                Quên mật khẩu?
+              </Link>
             </div>
             <Button type="submit" size="lg" className="w-full">
               Đăng nhập

@@ -20,6 +20,19 @@ const schoolActor: AuthorizationContext = {
 };
 
 describe("school permissions", () => {
+  it("does not grant identity administration to students, parents or teachers", () => {
+    for (const role of ["STUDENT", "PARENT_GUARDIAN", "TEACHER_STAFF"] as const) {
+      const actor: AuthorizationContext = {
+        ...schoolActor,
+        schoolRoles: [role],
+      };
+      expect(can(actor, permissions.schoolUserRead)).toBe(false);
+      expect(can(actor, permissions.schoolUserInvite)).toBe(false);
+      expect(can(actor, permissions.schoolRoleAssign)).toBe(false);
+      expect(can(actor, permissions.schoolAuditRead)).toBe(false);
+    }
+  });
+
   it("unions permissions from multiple roles without duplicates", () => {
     const effective = getSchoolPermissions([
       "STUDENT",

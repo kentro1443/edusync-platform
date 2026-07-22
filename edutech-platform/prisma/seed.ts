@@ -112,6 +112,11 @@ const users = [
     email: "approver.nguyendu@edutech.local",
     displayName: "Tạ Quang Vinh",
   },
+  {
+    id: "20000000-0000-4000-8000-000000000016",
+    email: "admin.multischool@edutech.local",
+    displayName: "Nguyễn Hoài An",
+  },
 ] as const;
 
 const memberships = [
@@ -198,6 +203,18 @@ const memberships = [
     schoolId: schools[1].id,
     userId: users[14].id,
     roles: [SchoolRole.APPROVER_REVIEWER],
+  },
+  {
+    id: "30000000-0000-4000-8000-000000000015",
+    schoolId: schools[0].id,
+    userId: users[15].id,
+    roles: [SchoolRole.SCHOOL_ADMIN],
+  },
+  {
+    id: "30000000-0000-4000-8000-000000000016",
+    schoolId: schools[1].id,
+    userId: users[15].id,
+    roles: [SchoolRole.SCHOOL_ADMIN],
   },
 ] as const;
 

@@ -3,6 +3,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
+import { writeAuditEvent } from "@/lib/audit";
 import { activeSchoolCookieName } from "@/lib/auth/cookies";
 import { getCurrentSession } from "@/lib/auth/current-session";
 import {
@@ -13,8 +14,17 @@ import {
 export async function logoutAction(): Promise<never> {
   const cookieStore = await cookies();
   const token = cookieStore.get(sessionCookieName)?.value;
+  const session = token ? await getCurrentSession() : null;
 
   if (token) {
+    if (session) {
+      await writeAuditEvent({
+        actorUserId: session.user.id,
+        action: "AUTH_LOGOUT",
+        entityType: "Session",
+        entityId: session.sessionId,
+      });
+    }
     await revokeDatabaseSession(token);
   }
 
@@ -39,6 +49,17 @@ export async function selectSchoolAction(formData: FormData): Promise<never> {
   ) {
     redirect("/chon-truong?error=invalid");
   }
+
+  const selectedSchool = session.schoolContexts.find(
+    (schoolContext) => schoolContext.schoolSlug === schoolSlug,
+  );
+  await writeAuditEvent({
+    schoolId: selectedSchool?.schoolId,
+    actorUserId: session.user.id,
+    action: "SCHOOL_CONTEXT_SELECTED",
+    entityType: "School",
+    entityId: selectedSchool?.schoolId,
+  });
 
   const cookieStore = await cookies();
   cookieStore.set(activeSchoolCookieName, schoolSlug, {

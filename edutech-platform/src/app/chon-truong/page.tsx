@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { selectSchoolAction } from "@/app/(app)/actions";
+import { translateRole } from "@/components/app/shell-utils";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
@@ -82,7 +83,7 @@ export default async function SelectSchoolPage({
                   {schoolContext.schoolName}
                 </h2>
                 <p className="mt-1 text-sm text-[var(--color-ink-500)]">
-                  Vai trò: {schoolContext.roles.join(", ")}
+                  Vai trò: {schoolContext.roles.map(translateRole).join(", ")}
                 </p>
                 <Button type="submit" className="mt-5 w-full">
                   Tiếp tục với trường này

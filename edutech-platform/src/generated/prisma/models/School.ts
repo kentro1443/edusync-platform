@@ -661,10 +661,12 @@ export type SchoolCreateNestedOneWithoutEmailOutboxItemsInput = {
   connect?: Prisma.SchoolWhereUniqueInput
 }
 
-export type SchoolUpdateOneRequiredWithoutEmailOutboxItemsNestedInput = {
+export type SchoolUpdateOneWithoutEmailOutboxItemsNestedInput = {
   create?: Prisma.XOR<Prisma.SchoolCreateWithoutEmailOutboxItemsInput, Prisma.SchoolUncheckedCreateWithoutEmailOutboxItemsInput>
   connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutEmailOutboxItemsInput
   upsert?: Prisma.SchoolUpsertWithoutEmailOutboxItemsInput
+  disconnect?: Prisma.SchoolWhereInput | boolean
+  delete?: Prisma.SchoolWhereInput | boolean
   connect?: Prisma.SchoolWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.SchoolUpdateToOneWithWhereWithoutEmailOutboxItemsInput, Prisma.SchoolUpdateWithoutEmailOutboxItemsInput>, Prisma.SchoolUncheckedUpdateWithoutEmailOutboxItemsInput>
 }

@@ -7,6 +7,7 @@ import { activeSchoolCookieName } from "@/lib/auth/cookies";
 import { getCurrentSession } from "@/lib/auth/current-session";
 import {
   getSchoolPermissions,
+  getPlatformPermissions,
   hasPermission,
   permissions,
   type Permission,
@@ -15,34 +16,57 @@ import {
 const navItems = [
   { href: "/dashboard", label: "Tổng quan", icon: "overview" },
   {
+    href: "/dashboard/admin/members",
+    label: "Thành viên",
+    icon: "members",
+    schoolPermission: permissions.schoolUserRead,
+  },
+  {
+    href: "/dashboard/admin/settings",
+    label: "Cài đặt trường",
+    icon: "settings",
+    schoolPermission: permissions.schoolSettingsRead,
+  },
+  {
+    href: "/dashboard/platform/schools",
+    label: "Danh mục trường",
+    icon: "schools",
+    platformPermission: permissions.platformSchoolRead,
+  },
+  { href: "/dashboard/profile", label: "Hồ sơ cá nhân", icon: "settings" },
+  { href: "/dashboard/security", label: "Bảo mật", icon: "settings" },
+  {
     href: "/dashboard/mentoring",
     label: "Cố vấn & Gia sư",
     icon: "mentoring",
-    permission: permissions.mentorDirectoryRead,
+    schoolPermission: permissions.mentorDirectoryRead,
     available: false,
   },
   {
     href: "/dashboard/resources",
     label: "Kho tài liệu",
     icon: "resources",
-    permission: permissions.resourceRead,
+    schoolPermission: permissions.resourceRead,
     available: false,
   },
   {
     href: "/dashboard/appointments",
     label: "Lịch hẹn & Đơn từ",
     icon: "appointments",
-    permission: permissions.calendarEventRead,
+    schoolPermission: permissions.calendarEventRead,
     available: false,
   },
   {
     href: "/dashboard/clubs-events",
     label: "CLB & Sự kiện",
     icon: "clubs",
-    permission: permissions.clubRead,
+    schoolPermission: permissions.clubRead,
     available: false,
   },
-] satisfies readonly (AppNavItem & { permission?: Permission })[];
+] satisfies readonly (AppNavItem & {
+  schoolPermission?: Permission;
+  platformPermission?: Permission;
+})[];
 
 function getInitials(displayName: string): string {
   return (
@@ -88,22 +112,32 @@ export default async function AppLayout({
   const effectivePermissions = activeSchool
     ? getSchoolPermissions(activeSchool.roles)
     : [];
-  const visibleNavItems = navItems.filter(
-    (item) =>
-      !item.permission ||
-      hasPermission(effectivePermissions, item.permission),
-  );
+  const effectivePlatformPermissions = getPlatformPermissions(session.platformRoles);
+  const visibleNavItems = navItems.filter((item) => {
+    const schoolPermission =
+      "schoolPermission" in item ? item.schoolPermission : undefined;
+    const platformPermission =
+      "platformPermission" in item ? item.platformPermission : undefined;
+    return (
+      (!schoolPermission || hasPermission(effectivePermissions, schoolPermission)) &&
+      (!platformPermission ||
+        hasPermission(effectivePlatformPermissions, platformPermission))
+    );
+  });
   const scopeDescription = activeSchool
     ? activeSchool.roles.map(translateRole).join(" · ")
     : session.platformRoles.map(translateRole).join(" · ") ||
-      "Quản trị nền tảng";
+      "Không có tư cách thành viên hoạt động";
 
   return (
     <AppShell
       displayName={session.user.displayName}
       initials={getInitials(session.user.displayName)}
       scopeDescription={scopeDescription}
-      activeSchoolName={activeSchool?.schoolName}
+      activeSchoolName={
+        activeSchool?.schoolName ??
+        (session.platformRoles.length > 0 ? undefined : "Tài khoản")
+      }
       canSwitchSchool={session.schoolContexts.length > 1}
       navItems={visibleNavItems}
     >
