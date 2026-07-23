@@ -439,9 +439,10 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 - [x] Runtime required-field validation, conditional routing, and sequential/parallel approval state machine.
 - [x] Builder, submission form, reviewer decision UI, status timeline, and authorized CSV export.
 - [x] Tenant-scoped submission comments, processing history UI, and role-aware record visibility.
+- [x] Individual reviewer delegation with role validation, assignment locking, and audit history.
 - [x] Phase 6 unit/E2E coverage.
 
-Attachments, delegation/escalation workers, and advanced analytics remain follow-up tasks.
+Attachments, deadline/escalation workers, and advanced analytics remain follow-up tasks.
 
 ### Schema và domain
 
@@ -450,7 +451,7 @@ Attachments, delegation/escalation workers, and advanced analytics remain follow
 - [ ] Thêm ApprovalStep/edge/assignment.
 - [x] Thêm Submission và SubmissionValue.
 - [x] Thêm SubmissionStep/Decision.
-- [ ] Thêm Delegation.
+- [x] Thêm Delegation.
 - [x] Thêm submission comment/history.
 - [ ] Thêm submission attachment.
 - [ ] Thêm deadline/escalation jobs.
@@ -464,10 +465,11 @@ Attachments, delegation/escalation workers, and advanced analytics remain follow
 - [x] Runtime form-schema validation.
 - [x] Conditional visibility/routing evaluator.
 - [x] Sequential/parallel approval engine.
-- [ ] Reviewer assignment.
+- [x] Reviewer assignment.
 - [ ] Draft/autosave/submit service.
 - [x] Approve/reject/request-changes.
-- [ ] Deadline/escalation/delegation.
+- [x] Delegation.
+- [ ] Deadline/escalation.
 - [x] Historical-version preservation.
 - [x] Analytics/authorized CSV export.
 - [ ] Audit/outbox events.
@@ -496,7 +498,8 @@ Attachments, delegation/escalation workers, and advanced analytics remain follow
 - [x] Confirmation/status timeline.
 - [ ] Reviewer queue/filter/deadline.
 - [x] Decision flow với reason.
-- [ ] Delegation/escalation UI.
+- [x] Delegation UI.
+- [ ] Escalation UI.
 - [x] Workflow analytics/export.
 - [ ] Loading/empty/error/forbidden states.
 
@@ -504,7 +507,7 @@ Attachments, delegation/escalation workers, and advanced analytics remain follow
 
 - [x] Unit tests evaluator/routing/state transitions.
 - [x] Published immutability/historical-version tests.
-- [ ] Unauthorized approver negative tests.
+- [x] Unauthorized reader/approver negative tests.
 - [x] Integration sequential/parallel routing tests.
 - [ ] E2E ba workflow mẫu.
 - [ ] E2E request-changes/resubmit.

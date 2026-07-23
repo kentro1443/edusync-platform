@@ -10,6 +10,7 @@ import {
   addWorkflowStep,
   createWorkflowSubmission,
   createWorkflowTemplate,
+  delegateWorkflowSubmissionStep,
   decideWorkflowSubmission,
   publishWorkflowTemplate,
   submitWorkflowSubmission,
@@ -137,4 +138,19 @@ export async function addWorkflowSubmissionCommentAction(formData: FormData): Pr
     redirect(`/dashboard/workflows/submissions/${submissionId}?error=${errorCode(error)}`);
   }
   redirect(`/dashboard/workflows/submissions/${submissionId}?result=comment`);
+}
+
+export async function delegateWorkflowSubmissionStepAction(formData: FormData): Promise<never> {
+  const submissionId = value(formData, "submissionId");
+  const { actor } = await requireSchoolContext(permissions.workflowSubmissionDelegate);
+  try {
+    await delegateWorkflowSubmissionStep(actor, submissionId, {
+      submissionStepId: value(formData, "submissionStepId"),
+      targetUserId: value(formData, "targetUserId"),
+      reason: value(formData, "reason"),
+    });
+  } catch (error) {
+    redirect(`/dashboard/workflows/submissions/${submissionId}?error=${errorCode(error)}`);
+  }
+  redirect(`/dashboard/workflows/submissions/${submissionId}?result=delegated`);
 }

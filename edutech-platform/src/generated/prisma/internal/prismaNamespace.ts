@@ -460,6 +460,7 @@ export const ModelName = {
   WorkflowSubmission: 'WorkflowSubmission',
   WorkflowSubmissionValue: 'WorkflowSubmissionValue',
   WorkflowSubmissionStep: 'WorkflowSubmissionStep',
+  WorkflowDelegation: 'WorkflowDelegation',
   WorkflowDecision: 'WorkflowDecision',
   WorkflowSubmissionHistory: 'WorkflowSubmissionHistory',
   WorkflowSubmissionComment: 'WorkflowSubmissionComment',
@@ -491,7 +492,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "demoRequest" | "platformRoleAssignment" | "school" | "schoolMembership" | "schoolRoleAssignment" | "parentStudentLink" | "invitation" | "session" | "passwordResetToken" | "authRateLimit" | "storedFile" | "fileVersion" | "fileLink" | "resource" | "resourceVersion" | "resourceCategory" | "resourceTag" | "resourceTransition" | "resourceComment" | "resourceReport" | "resourceBookmark" | "resourceCollection" | "resourceCollectionItem" | "resourceAnalyticsEvent" | "resourceAnalyticsCounter" | "auditEvent" | "domainOutboxEvent" | "emailOutbox" | "mentorProfile" | "mentorSpecialty" | "mentorProfileSpecialty" | "mentorStudentAssignment" | "mentorAvailabilityRule" | "mentorAvailabilityException" | "appointmentType" | "appointment" | "appointmentTransition" | "appointmentWaitlistEntry" | "appointmentAttendance" | "mentoringCase" | "mentoringGoal" | "mentoringSessionOutcome" | "mentoringTask" | "mentoringReferral" | "mentoringNote" | "calendarSource" | "calendar" | "recurrenceRule" | "recurrenceException" | "bookableResource" | "blockedPeriod" | "calendarEvent" | "calendarBooking" | "calendarAttendance" | "calendarReminder" | "workflowTemplate" | "workflowVersion" | "workflowFieldDefinition" | "workflowApprovalStep" | "workflowSubmission" | "workflowSubmissionValue" | "workflowSubmissionStep" | "workflowDecision" | "workflowSubmissionHistory" | "workflowSubmissionComment" | "club" | "clubApplication" | "clubMembership" | "clubAnnouncement" | "clubTask" | "clubEvent" | "clubRegistration" | "clubConsent" | "clubAttendance" | "clubBudget" | "clubExpense" | "clubSafetyPlan" | "clubPostEventReport"
+    modelProps: "user" | "demoRequest" | "platformRoleAssignment" | "school" | "schoolMembership" | "schoolRoleAssignment" | "parentStudentLink" | "invitation" | "session" | "passwordResetToken" | "authRateLimit" | "storedFile" | "fileVersion" | "fileLink" | "resource" | "resourceVersion" | "resourceCategory" | "resourceTag" | "resourceTransition" | "resourceComment" | "resourceReport" | "resourceBookmark" | "resourceCollection" | "resourceCollectionItem" | "resourceAnalyticsEvent" | "resourceAnalyticsCounter" | "auditEvent" | "domainOutboxEvent" | "emailOutbox" | "mentorProfile" | "mentorSpecialty" | "mentorProfileSpecialty" | "mentorStudentAssignment" | "mentorAvailabilityRule" | "mentorAvailabilityException" | "appointmentType" | "appointment" | "appointmentTransition" | "appointmentWaitlistEntry" | "appointmentAttendance" | "mentoringCase" | "mentoringGoal" | "mentoringSessionOutcome" | "mentoringTask" | "mentoringReferral" | "mentoringNote" | "calendarSource" | "calendar" | "recurrenceRule" | "recurrenceException" | "bookableResource" | "blockedPeriod" | "calendarEvent" | "calendarBooking" | "calendarAttendance" | "calendarReminder" | "workflowTemplate" | "workflowVersion" | "workflowFieldDefinition" | "workflowApprovalStep" | "workflowSubmission" | "workflowSubmissionValue" | "workflowSubmissionStep" | "workflowDelegation" | "workflowDecision" | "workflowSubmissionHistory" | "workflowSubmissionComment" | "club" | "clubApplication" | "clubMembership" | "clubAnnouncement" | "clubTask" | "clubEvent" | "clubRegistration" | "clubConsent" | "clubAttendance" | "clubBudget" | "clubExpense" | "clubSafetyPlan" | "clubPostEventReport"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -5157,6 +5158,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    WorkflowDelegation: {
+      payload: Prisma.$WorkflowDelegationPayload<ExtArgs>
+      fields: Prisma.WorkflowDelegationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.WorkflowDelegationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.WorkflowDelegationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload>
+        }
+        findFirst: {
+          args: Prisma.WorkflowDelegationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.WorkflowDelegationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload>
+        }
+        findMany: {
+          args: Prisma.WorkflowDelegationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload>[]
+        }
+        create: {
+          args: Prisma.WorkflowDelegationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload>
+        }
+        createMany: {
+          args: Prisma.WorkflowDelegationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.WorkflowDelegationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload>[]
+        }
+        delete: {
+          args: Prisma.WorkflowDelegationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload>
+        }
+        update: {
+          args: Prisma.WorkflowDelegationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload>
+        }
+        deleteMany: {
+          args: Prisma.WorkflowDelegationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.WorkflowDelegationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.WorkflowDelegationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload>[]
+        }
+        upsert: {
+          args: Prisma.WorkflowDelegationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowDelegationPayload>
+        }
+        aggregate: {
+          args: Prisma.WorkflowDelegationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWorkflowDelegation>
+        }
+        groupBy: {
+          args: Prisma.WorkflowDelegationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WorkflowDelegationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.WorkflowDelegationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WorkflowDelegationCountAggregateOutputType> | number
+        }
+      }
+    }
     WorkflowDecision: {
       payload: Prisma.$WorkflowDecisionPayload<ExtArgs>
       fields: Prisma.WorkflowDecisionFieldRefs
@@ -7323,6 +7398,19 @@ export const WorkflowSubmissionStepScalarFieldEnum = {
 export type WorkflowSubmissionStepScalarFieldEnum = (typeof WorkflowSubmissionStepScalarFieldEnum)[keyof typeof WorkflowSubmissionStepScalarFieldEnum]
 
 
+export const WorkflowDelegationScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  submissionStepId: 'submissionStepId',
+  delegatedByUserId: 'delegatedByUserId',
+  delegatedToUserId: 'delegatedToUserId',
+  reason: 'reason',
+  createdAt: 'createdAt'
+} as const
+
+export type WorkflowDelegationScalarFieldEnum = (typeof WorkflowDelegationScalarFieldEnum)[keyof typeof WorkflowDelegationScalarFieldEnum]
+
+
 export const WorkflowDecisionScalarFieldEnum = {
   id: 'id',
   submissionId: 'submissionId',
@@ -8516,6 +8604,7 @@ export type GlobalOmitConfig = {
   workflowSubmission?: Prisma.WorkflowSubmissionOmit
   workflowSubmissionValue?: Prisma.WorkflowSubmissionValueOmit
   workflowSubmissionStep?: Prisma.WorkflowSubmissionStepOmit
+  workflowDelegation?: Prisma.WorkflowDelegationOmit
   workflowDecision?: Prisma.WorkflowDecisionOmit
   workflowSubmissionHistory?: Prisma.WorkflowSubmissionHistoryOmit
   workflowSubmissionComment?: Prisma.WorkflowSubmissionCommentOmit

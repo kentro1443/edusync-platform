@@ -114,6 +114,7 @@ export const ModelName = {
   WorkflowSubmission: 'WorkflowSubmission',
   WorkflowSubmissionValue: 'WorkflowSubmissionValue',
   WorkflowSubmissionStep: 'WorkflowSubmissionStep',
+  WorkflowDelegation: 'WorkflowDelegation',
   WorkflowDecision: 'WorkflowDecision',
   WorkflowSubmissionHistory: 'WorkflowSubmissionHistory',
   WorkflowSubmissionComment: 'WorkflowSubmissionComment',
@@ -1089,6 +1090,19 @@ export const WorkflowSubmissionStepScalarFieldEnum = {
 } as const
 
 export type WorkflowSubmissionStepScalarFieldEnum = (typeof WorkflowSubmissionStepScalarFieldEnum)[keyof typeof WorkflowSubmissionStepScalarFieldEnum]
+
+
+export const WorkflowDelegationScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  submissionStepId: 'submissionStepId',
+  delegatedByUserId: 'delegatedByUserId',
+  delegatedToUserId: 'delegatedToUserId',
+  reason: 'reason',
+  createdAt: 'createdAt'
+} as const
+
+export type WorkflowDelegationScalarFieldEnum = (typeof WorkflowDelegationScalarFieldEnum)[keyof typeof WorkflowDelegationScalarFieldEnum]
 
 
 export const WorkflowDecisionScalarFieldEnum = {

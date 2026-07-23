@@ -45,7 +45,13 @@ function workflowSubmissionAccess(actor: SchoolActor): Prisma.WorkflowSubmission
         steps: {
           some: {
             status: "ACTIVE",
-            step: { role: { in: [...actor.schoolRoles] } },
+            OR: [
+              { assignedUserId: actor.userId },
+              {
+                assignedUserId: null,
+                step: { role: { in: [...actor.schoolRoles] } },
+              },
+            ],
           },
         },
       },
@@ -285,7 +291,7 @@ export async function getWorkflowSubmission(actor: AuthorizationContext, submiss
       owner: { select: { id: true, displayName: true } },
       version: { include: { fields: { orderBy: { position: "asc" } }, steps: { orderBy: { position: "asc" } } } },
       values: true,
-      steps: { include: { step: true }, orderBy: { step: { position: "asc" } } },
+      steps: { include: { step: true, assignedUser: { select: { displayName: true } } }, orderBy: { step: { position: "asc" } } },
       history: { orderBy: { createdAt: "desc" }, take: 200, include: { actor: { select: { displayName: true } } } },
       comments: { orderBy: { createdAt: "desc" }, take: 100, include: { author: { select: { displayName: true } } } },
     },
@@ -319,6 +325,132 @@ export async function addWorkflowSubmissionComment(
   });
 }
 
+export async function listWorkflowDelegationCandidates(
+  actor: AuthorizationContext,
+  submissionStepId: string,
+) {
+  requireWorkflowActor(actor, permissions.workflowSubmissionDelegate);
+  const active = await db.workflowSubmissionStep.findFirst({
+    where: {
+      id: submissionStepId,
+      status: "ACTIVE",
+      submission: { schoolId: actor.schoolId, status: "IN_REVIEW" },
+    },
+    include: { step: { select: { role: true } } },
+  });
+  const actorCanDelegate =
+    active &&
+    (active.assignedUserId
+      ? active.assignedUserId === actor.userId
+      : actor.schoolRoles.includes(active.step.role));
+  if (!active || !actorCanDelegate) {
+    throw new WorkflowAuthorizationError("Bạn không thể chuyển bước duyệt này.");
+  }
+  const memberships = await db.schoolMembership.findMany({
+    where: {
+      schoolId: actor.schoolId,
+      status: "ACTIVE",
+      userId: { not: actor.userId },
+      roleAssignments: { some: { role: active.step.role } },
+    },
+    select: {
+      userId: true,
+      user: { select: { displayName: true } },
+    },
+    orderBy: { user: { displayName: "asc" } },
+    take: 100,
+  });
+  return memberships.map((membership) => ({
+    userId: membership.userId,
+    displayName: membership.user.displayName,
+  }));
+}
+
+export async function delegateWorkflowSubmissionStep(
+  actor: AuthorizationContext,
+  submissionId: string,
+  input: Readonly<{ submissionStepId: string; targetUserId: string; reason?: string }>,
+) {
+  requireWorkflowActor(actor, permissions.workflowSubmissionDelegate);
+  const reason = input.reason?.trim() || undefined;
+  if (reason && reason.length > 500) {
+    throw new WorkflowValidationError("Lý do chuyển người duyệt không được quá 500 ký tự.");
+  }
+  const active = await db.workflowSubmissionStep.findFirst({
+    where: {
+      id: input.submissionStepId,
+      submissionId,
+      status: "ACTIVE",
+      submission: { schoolId: actor.schoolId, status: "IN_REVIEW" },
+    },
+    include: { step: { select: { role: true } } },
+  });
+  const actorCanDelegate =
+    active &&
+    (active.assignedUserId
+      ? active.assignedUserId === actor.userId
+      : actor.schoolRoles.includes(active.step.role));
+  if (!active || !actorCanDelegate) {
+    throw new WorkflowAuthorizationError("Bạn không thể chuyển bước duyệt này.");
+  }
+  if (input.targetUserId === actor.userId || input.targetUserId === active.assignedUserId) {
+    throw new WorkflowValidationError("Hãy chọn một người duyệt khác.");
+  }
+  const target = await db.schoolMembership.findFirst({
+    where: {
+      schoolId: actor.schoolId,
+      userId: input.targetUserId,
+      status: "ACTIVE",
+      roleAssignments: { some: { role: active.step.role } },
+    },
+    select: { user: { select: { displayName: true } } },
+  });
+  if (!target) {
+    throw new WorkflowValidationError("Người nhận không còn hoạt động hoặc không đúng vai trò.");
+  }
+  await db.$transaction(async (transaction) => {
+    const delegated = await transaction.workflowSubmissionStep.updateMany({
+      where: {
+        id: active.id,
+        status: "ACTIVE",
+        assignedUserId: active.assignedUserId,
+      },
+      data: { assignedUserId: input.targetUserId },
+    });
+    if (delegated.count !== 1) {
+      throw new WorkflowValidationError("Bước duyệt vừa được người khác cập nhật.");
+    }
+    await transaction.workflowDelegation.create({
+      data: {
+        schoolId: actor.schoolId,
+        submissionStepId: active.id,
+        delegatedByUserId: actor.userId,
+        delegatedToUserId: input.targetUserId,
+        reason,
+      },
+    });
+    await transaction.workflowSubmission.update({
+      where: { id: submissionId },
+      data: {
+        history: {
+          create: {
+            actorUserId: actor.userId,
+            action: "DELEGATE",
+            fromStatus: "IN_REVIEW",
+            toStatus: "IN_REVIEW",
+            metadataJson: {
+              submissionStepId: active.id,
+              delegatedToUserId: input.targetUserId,
+              delegatedToName: target.user.displayName,
+              ...(reason ? { reason } : {}),
+            },
+          },
+        },
+      },
+    });
+  });
+}
+
 export async function exportWorkflowSubmissionsCsv(actor: AuthorizationContext): Promise<string> {
   requireWorkflowActor(actor, permissions.workflowAnalyticsRead);
   const submissions = await listWorkflowSubmissions(actor);
@@ -347,7 +479,13 @@ export async function decideWorkflowSubmission(
     where: { id: submissionId, schoolId: actor.schoolId, status: "IN_REVIEW" },
     include: { steps: { include: { step: true }, orderBy: { step: { position: "asc" } } } },
   });
-  const active = submission?.steps.find((step) => step.status === "ACTIVE" && actor.schoolRoles.includes(step.step.role));
+  const active = submission?.steps.find(
+    (step) =>
+      step.status === "ACTIVE" &&
+      (step.assignedUserId
+        ? step.assignedUserId === actor.userId
+        : actor.schoolRoles.includes(step.step.role)),
+  );
   if (!submission || !active) {
     throw new WorkflowAuthorizationError("Bạn không phải người duyệt bước hiện tại.");
   }

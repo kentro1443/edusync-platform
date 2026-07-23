@@ -200,6 +200,8 @@ export type WorkflowSubmissionStepWhereInput = {
   actedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
   submission?: Prisma.XOR<Prisma.WorkflowSubmissionScalarRelationFilter, Prisma.WorkflowSubmissionWhereInput>
   step?: Prisma.XOR<Prisma.WorkflowApprovalStepScalarRelationFilter, Prisma.WorkflowApprovalStepWhereInput>
+  assignedUser?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  delegations?: Prisma.WorkflowDelegationListRelationFilter
 }
 
 export type WorkflowSubmissionStepOrderByWithRelationInput = {
@@ -212,6 +214,8 @@ export type WorkflowSubmissionStepOrderByWithRelationInput = {
   actedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   submission?: Prisma.WorkflowSubmissionOrderByWithRelationInput
   step?: Prisma.WorkflowApprovalStepOrderByWithRelationInput
+  assignedUser?: Prisma.UserOrderByWithRelationInput
+  delegations?: Prisma.WorkflowDelegationOrderByRelationAggregateInput
 }
 
 export type WorkflowSubmissionStepWhereUniqueInput = Prisma.AtLeast<{
@@ -228,6 +232,8 @@ export type WorkflowSubmissionStepWhereUniqueInput = Prisma.AtLeast<{
   actedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
   submission?: Prisma.XOR<Prisma.WorkflowSubmissionScalarRelationFilter, Prisma.WorkflowSubmissionWhereInput>
   step?: Prisma.XOR<Prisma.WorkflowApprovalStepScalarRelationFilter, Prisma.WorkflowApprovalStepWhereInput>
+  assignedUser?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  delegations?: Prisma.WorkflowDelegationListRelationFilter
 }, "id" | "submissionId_stepId">
 
 export type WorkflowSubmissionStepOrderByWithAggregationInput = {
@@ -259,11 +265,12 @@ export type WorkflowSubmissionStepScalarWhereWithAggregatesInput = {
 export type WorkflowSubmissionStepCreateInput = {
   id?: string
   status?: $Enums.WorkflowStepStatus
-  assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
   submission: Prisma.WorkflowSubmissionCreateNestedOneWithoutStepsInput
   step: Prisma.WorkflowApprovalStepCreateNestedOneWithoutSubmissionsInput
+  assignedUser?: Prisma.UserCreateNestedOneWithoutWorkflowStepsAssignedInput
+  delegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSubmissionStepInput
 }
 
 export type WorkflowSubmissionStepUncheckedCreateInput = {
@@ -274,16 +281,18 @@ export type WorkflowSubmissionStepUncheckedCreateInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  delegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSubmissionStepInput
 }
 
 export type WorkflowSubmissionStepUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
-  assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submission?: Prisma.WorkflowSubmissionUpdateOneRequiredWithoutStepsNestedInput
   step?: Prisma.WorkflowApprovalStepUpdateOneRequiredWithoutSubmissionsNestedInput
+  assignedUser?: Prisma.UserUpdateOneWithoutWorkflowStepsAssignedNestedInput
+  delegations?: Prisma.WorkflowDelegationUpdateManyWithoutSubmissionStepNestedInput
 }
 
 export type WorkflowSubmissionStepUncheckedUpdateInput = {
@@ -294,6 +303,7 @@ export type WorkflowSubmissionStepUncheckedUpdateInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  delegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSubmissionStepNestedInput
 }
 
 export type WorkflowSubmissionStepCreateManyInput = {
@@ -309,7 +319,6 @@ export type WorkflowSubmissionStepCreateManyInput = {
 export type WorkflowSubmissionStepUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
-  assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
@@ -367,6 +376,53 @@ export type WorkflowSubmissionStepMinOrderByAggregateInput = {
   assignedUserId?: Prisma.SortOrder
   dueAt?: Prisma.SortOrder
   actedAt?: Prisma.SortOrder
+}
+
+export type WorkflowSubmissionStepScalarRelationFilter = {
+  is?: Prisma.WorkflowSubmissionStepWhereInput
+  isNot?: Prisma.WorkflowSubmissionStepWhereInput
+}
+
+export type WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput = {
+  create?: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput> | Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput[] | Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput[]
+  connectOrCreate?: Prisma.WorkflowSubmissionStepCreateOrConnectWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepCreateOrConnectWithoutAssignedUserInput[]
+  createMany?: Prisma.WorkflowSubmissionStepCreateManyAssignedUserInputEnvelope
+  connect?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+}
+
+export type WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput = {
+  create?: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput> | Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput[] | Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput[]
+  connectOrCreate?: Prisma.WorkflowSubmissionStepCreateOrConnectWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepCreateOrConnectWithoutAssignedUserInput[]
+  createMany?: Prisma.WorkflowSubmissionStepCreateManyAssignedUserInputEnvelope
+  connect?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+}
+
+export type WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput> | Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput[] | Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput[]
+  connectOrCreate?: Prisma.WorkflowSubmissionStepCreateOrConnectWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepCreateOrConnectWithoutAssignedUserInput[]
+  upsert?: Prisma.WorkflowSubmissionStepUpsertWithWhereUniqueWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepUpsertWithWhereUniqueWithoutAssignedUserInput[]
+  createMany?: Prisma.WorkflowSubmissionStepCreateManyAssignedUserInputEnvelope
+  set?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+  disconnect?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+  delete?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+  connect?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+  update?: Prisma.WorkflowSubmissionStepUpdateWithWhereUniqueWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepUpdateWithWhereUniqueWithoutAssignedUserInput[]
+  updateMany?: Prisma.WorkflowSubmissionStepUpdateManyWithWhereWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepUpdateManyWithWhereWithoutAssignedUserInput[]
+  deleteMany?: Prisma.WorkflowSubmissionStepScalarWhereInput | Prisma.WorkflowSubmissionStepScalarWhereInput[]
+}
+
+export type WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput> | Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput[] | Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput[]
+  connectOrCreate?: Prisma.WorkflowSubmissionStepCreateOrConnectWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepCreateOrConnectWithoutAssignedUserInput[]
+  upsert?: Prisma.WorkflowSubmissionStepUpsertWithWhereUniqueWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepUpsertWithWhereUniqueWithoutAssignedUserInput[]
+  createMany?: Prisma.WorkflowSubmissionStepCreateManyAssignedUserInputEnvelope
+  set?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+  disconnect?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+  delete?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+  connect?: Prisma.WorkflowSubmissionStepWhereUniqueInput | Prisma.WorkflowSubmissionStepWhereUniqueInput[]
+  update?: Prisma.WorkflowSubmissionStepUpdateWithWhereUniqueWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepUpdateWithWhereUniqueWithoutAssignedUserInput[]
+  updateMany?: Prisma.WorkflowSubmissionStepUpdateManyWithWhereWithoutAssignedUserInput | Prisma.WorkflowSubmissionStepUpdateManyWithWhereWithoutAssignedUserInput[]
+  deleteMany?: Prisma.WorkflowSubmissionStepScalarWhereInput | Prisma.WorkflowSubmissionStepScalarWhereInput[]
 }
 
 export type WorkflowSubmissionStepCreateNestedManyWithoutStepInput = {
@@ -457,13 +513,87 @@ export type EnumWorkflowStepStatusFieldUpdateOperationsInput = {
   set?: $Enums.WorkflowStepStatus
 }
 
-export type WorkflowSubmissionStepCreateWithoutStepInput = {
+export type WorkflowSubmissionStepCreateNestedOneWithoutDelegationsInput = {
+  create?: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutDelegationsInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutDelegationsInput>
+  connectOrCreate?: Prisma.WorkflowSubmissionStepCreateOrConnectWithoutDelegationsInput
+  connect?: Prisma.WorkflowSubmissionStepWhereUniqueInput
+}
+
+export type WorkflowSubmissionStepUpdateOneRequiredWithoutDelegationsNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutDelegationsInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutDelegationsInput>
+  connectOrCreate?: Prisma.WorkflowSubmissionStepCreateOrConnectWithoutDelegationsInput
+  upsert?: Prisma.WorkflowSubmissionStepUpsertWithoutDelegationsInput
+  connect?: Prisma.WorkflowSubmissionStepWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkflowSubmissionStepUpdateToOneWithWhereWithoutDelegationsInput, Prisma.WorkflowSubmissionStepUpdateWithoutDelegationsInput>, Prisma.WorkflowSubmissionStepUncheckedUpdateWithoutDelegationsInput>
+}
+
+export type WorkflowSubmissionStepCreateWithoutAssignedUserInput = {
   id?: string
   status?: $Enums.WorkflowStepStatus
-  assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
   submission: Prisma.WorkflowSubmissionCreateNestedOneWithoutStepsInput
+  step: Prisma.WorkflowApprovalStepCreateNestedOneWithoutSubmissionsInput
+  delegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSubmissionStepInput
+}
+
+export type WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput = {
+  id?: string
+  submissionId: string
+  stepId: string
+  status?: $Enums.WorkflowStepStatus
+  dueAt?: Date | string | null
+  actedAt?: Date | string | null
+  delegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSubmissionStepInput
+}
+
+export type WorkflowSubmissionStepCreateOrConnectWithoutAssignedUserInput = {
+  where: Prisma.WorkflowSubmissionStepWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput>
+}
+
+export type WorkflowSubmissionStepCreateManyAssignedUserInputEnvelope = {
+  data: Prisma.WorkflowSubmissionStepCreateManyAssignedUserInput | Prisma.WorkflowSubmissionStepCreateManyAssignedUserInput[]
+  skipDuplicates?: boolean
+}
+
+export type WorkflowSubmissionStepUpsertWithWhereUniqueWithoutAssignedUserInput = {
+  where: Prisma.WorkflowSubmissionStepWhereUniqueInput
+  update: Prisma.XOR<Prisma.WorkflowSubmissionStepUpdateWithoutAssignedUserInput, Prisma.WorkflowSubmissionStepUncheckedUpdateWithoutAssignedUserInput>
+  create: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutAssignedUserInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput>
+}
+
+export type WorkflowSubmissionStepUpdateWithWhereUniqueWithoutAssignedUserInput = {
+  where: Prisma.WorkflowSubmissionStepWhereUniqueInput
+  data: Prisma.XOR<Prisma.WorkflowSubmissionStepUpdateWithoutAssignedUserInput, Prisma.WorkflowSubmissionStepUncheckedUpdateWithoutAssignedUserInput>
+}
+
+export type WorkflowSubmissionStepUpdateManyWithWhereWithoutAssignedUserInput = {
+  where: Prisma.WorkflowSubmissionStepScalarWhereInput
+  data: Prisma.XOR<Prisma.WorkflowSubmissionStepUpdateManyMutationInput, Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserInput>
+}
+
+export type WorkflowSubmissionStepScalarWhereInput = {
+  AND?: Prisma.WorkflowSubmissionStepScalarWhereInput | Prisma.WorkflowSubmissionStepScalarWhereInput[]
+  OR?: Prisma.WorkflowSubmissionStepScalarWhereInput[]
+  NOT?: Prisma.WorkflowSubmissionStepScalarWhereInput | Prisma.WorkflowSubmissionStepScalarWhereInput[]
+  id?: Prisma.UuidFilter<"WorkflowSubmissionStep"> | string
+  submissionId?: Prisma.UuidFilter<"WorkflowSubmissionStep"> | string
+  stepId?: Prisma.UuidFilter<"WorkflowSubmissionStep"> | string
+  status?: Prisma.EnumWorkflowStepStatusFilter<"WorkflowSubmissionStep"> | $Enums.WorkflowStepStatus
+  assignedUserId?: Prisma.UuidNullableFilter<"WorkflowSubmissionStep"> | string | null
+  dueAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
+  actedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
+}
+
+export type WorkflowSubmissionStepCreateWithoutStepInput = {
+  id?: string
+  status?: $Enums.WorkflowStepStatus
+  dueAt?: Date | string | null
+  actedAt?: Date | string | null
+  submission: Prisma.WorkflowSubmissionCreateNestedOneWithoutStepsInput
+  assignedUser?: Prisma.UserCreateNestedOneWithoutWorkflowStepsAssignedInput
+  delegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSubmissionStepInput
 }
 
 export type WorkflowSubmissionStepUncheckedCreateWithoutStepInput = {
@@ -473,6 +603,7 @@ export type WorkflowSubmissionStepUncheckedCreateWithoutStepInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  delegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSubmissionStepInput
 }
 
 export type WorkflowSubmissionStepCreateOrConnectWithoutStepInput = {
@@ -501,26 +632,14 @@ export type WorkflowSubmissionStepUpdateManyWithWhereWithoutStepInput = {
   data: Prisma.XOR<Prisma.WorkflowSubmissionStepUpdateManyMutationInput, Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutStepInput>
 }
 
-export type WorkflowSubmissionStepScalarWhereInput = {
-  AND?: Prisma.WorkflowSubmissionStepScalarWhereInput | Prisma.WorkflowSubmissionStepScalarWhereInput[]
-  OR?: Prisma.WorkflowSubmissionStepScalarWhereInput[]
-  NOT?: Prisma.WorkflowSubmissionStepScalarWhereInput | Prisma.WorkflowSubmissionStepScalarWhereInput[]
-  id?: Prisma.UuidFilter<"WorkflowSubmissionStep"> | string
-  submissionId?: Prisma.UuidFilter<"WorkflowSubmissionStep"> | string
-  stepId?: Prisma.UuidFilter<"WorkflowSubmissionStep"> | string
-  status?: Prisma.EnumWorkflowStepStatusFilter<"WorkflowSubmissionStep"> | $Enums.WorkflowStepStatus
-  assignedUserId?: Prisma.UuidNullableFilter<"WorkflowSubmissionStep"> | string | null
-  dueAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
-  actedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
-}
-
 export type WorkflowSubmissionStepCreateWithoutSubmissionInput = {
   id?: string
   status?: $Enums.WorkflowStepStatus
-  assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
   step: Prisma.WorkflowApprovalStepCreateNestedOneWithoutSubmissionsInput
+  assignedUser?: Prisma.UserCreateNestedOneWithoutWorkflowStepsAssignedInput
+  delegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSubmissionStepInput
 }
 
 export type WorkflowSubmissionStepUncheckedCreateWithoutSubmissionInput = {
@@ -530,6 +649,7 @@ export type WorkflowSubmissionStepUncheckedCreateWithoutSubmissionInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  delegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSubmissionStepInput
 }
 
 export type WorkflowSubmissionStepCreateOrConnectWithoutSubmissionInput = {
@@ -558,6 +678,100 @@ export type WorkflowSubmissionStepUpdateManyWithWhereWithoutSubmissionInput = {
   data: Prisma.XOR<Prisma.WorkflowSubmissionStepUpdateManyMutationInput, Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionInput>
 }
 
+export type WorkflowSubmissionStepCreateWithoutDelegationsInput = {
+  id?: string
+  status?: $Enums.WorkflowStepStatus
+  dueAt?: Date | string | null
+  actedAt?: Date | string | null
+  submission: Prisma.WorkflowSubmissionCreateNestedOneWithoutStepsInput
+  step: Prisma.WorkflowApprovalStepCreateNestedOneWithoutSubmissionsInput
+  assignedUser?: Prisma.UserCreateNestedOneWithoutWorkflowStepsAssignedInput
+}
+
+export type WorkflowSubmissionStepUncheckedCreateWithoutDelegationsInput = {
+  id?: string
+  submissionId: string
+  stepId: string
+  status?: $Enums.WorkflowStepStatus
+  assignedUserId?: string | null
+  dueAt?: Date | string | null
+  actedAt?: Date | string | null
+}
+
+export type WorkflowSubmissionStepCreateOrConnectWithoutDelegationsInput = {
+  where: Prisma.WorkflowSubmissionStepWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutDelegationsInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutDelegationsInput>
+}
+
+export type WorkflowSubmissionStepUpsertWithoutDelegationsInput = {
+  update: Prisma.XOR<Prisma.WorkflowSubmissionStepUpdateWithoutDelegationsInput, Prisma.WorkflowSubmissionStepUncheckedUpdateWithoutDelegationsInput>
+  create: Prisma.XOR<Prisma.WorkflowSubmissionStepCreateWithoutDelegationsInput, Prisma.WorkflowSubmissionStepUncheckedCreateWithoutDelegationsInput>
+  where?: Prisma.WorkflowSubmissionStepWhereInput
+}
+
+export type WorkflowSubmissionStepUpdateToOneWithWhereWithoutDelegationsInput = {
+  where?: Prisma.WorkflowSubmissionStepWhereInput
+  data: Prisma.XOR<Prisma.WorkflowSubmissionStepUpdateWithoutDelegationsInput, Prisma.WorkflowSubmissionStepUncheckedUpdateWithoutDelegationsInput>
+}
+
+export type WorkflowSubmissionStepUpdateWithoutDelegationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
+  dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  submission?: Prisma.WorkflowSubmissionUpdateOneRequiredWithoutStepsNestedInput
+  step?: Prisma.WorkflowApprovalStepUpdateOneRequiredWithoutSubmissionsNestedInput
+  assignedUser?: Prisma.UserUpdateOneWithoutWorkflowStepsAssignedNestedInput
+}
+
+export type WorkflowSubmissionStepUncheckedUpdateWithoutDelegationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  submissionId?: Prisma.StringFieldUpdateOperationsInput | string
+  stepId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
+  assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+export type WorkflowSubmissionStepCreateManyAssignedUserInput = {
+  id?: string
+  submissionId: string
+  stepId: string
+  status?: $Enums.WorkflowStepStatus
+  dueAt?: Date | string | null
+  actedAt?: Date | string | null
+}
+
+export type WorkflowSubmissionStepUpdateWithoutAssignedUserInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
+  dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  submission?: Prisma.WorkflowSubmissionUpdateOneRequiredWithoutStepsNestedInput
+  step?: Prisma.WorkflowApprovalStepUpdateOneRequiredWithoutSubmissionsNestedInput
+  delegations?: Prisma.WorkflowDelegationUpdateManyWithoutSubmissionStepNestedInput
+}
+
+export type WorkflowSubmissionStepUncheckedUpdateWithoutAssignedUserInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  submissionId?: Prisma.StringFieldUpdateOperationsInput | string
+  stepId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
+  dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  delegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSubmissionStepNestedInput
+}
+
+export type WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  submissionId?: Prisma.StringFieldUpdateOperationsInput | string
+  stepId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
+  dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
 export type WorkflowSubmissionStepCreateManyStepInput = {
   id?: string
   submissionId: string
@@ -570,10 +784,11 @@ export type WorkflowSubmissionStepCreateManyStepInput = {
 export type WorkflowSubmissionStepUpdateWithoutStepInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
-  assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submission?: Prisma.WorkflowSubmissionUpdateOneRequiredWithoutStepsNestedInput
+  assignedUser?: Prisma.UserUpdateOneWithoutWorkflowStepsAssignedNestedInput
+  delegations?: Prisma.WorkflowDelegationUpdateManyWithoutSubmissionStepNestedInput
 }
 
 export type WorkflowSubmissionStepUncheckedUpdateWithoutStepInput = {
@@ -583,6 +798,7 @@ export type WorkflowSubmissionStepUncheckedUpdateWithoutStepInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  delegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSubmissionStepNestedInput
 }
 
 export type WorkflowSubmissionStepUncheckedUpdateManyWithoutStepInput = {
@@ -606,10 +822,11 @@ export type WorkflowSubmissionStepCreateManySubmissionInput = {
 export type WorkflowSubmissionStepUpdateWithoutSubmissionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
-  assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   step?: Prisma.WorkflowApprovalStepUpdateOneRequiredWithoutSubmissionsNestedInput
+  assignedUser?: Prisma.UserUpdateOneWithoutWorkflowStepsAssignedNestedInput
+  delegations?: Prisma.WorkflowDelegationUpdateManyWithoutSubmissionStepNestedInput
 }
 
 export type WorkflowSubmissionStepUncheckedUpdateWithoutSubmissionInput = {
@@ -619,6 +836,7 @@ export type WorkflowSubmissionStepUncheckedUpdateWithoutSubmissionInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  delegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSubmissionStepNestedInput
 }
 
 export type WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionInput = {
@@ -631,6 +849,35 @@ export type WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionInput = {
 }
 
 
+/**
+ * Count Type WorkflowSubmissionStepCountOutputType
+ */
+
+export type WorkflowSubmissionStepCountOutputType = {
+  delegations: number
+}
+
+export type WorkflowSubmissionStepCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  delegations?: boolean | WorkflowSubmissionStepCountOutputTypeCountDelegationsArgs
+}
+
+/**
+ * WorkflowSubmissionStepCountOutputType without action
+ */
+export type WorkflowSubmissionStepCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WorkflowSubmissionStepCountOutputType
+   */
+  select?: Prisma.WorkflowSubmissionStepCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * WorkflowSubmissionStepCountOutputType without action
+ */
+export type WorkflowSubmissionStepCountOutputTypeCountDelegationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WorkflowDelegationWhereInput
+}
+
 
 export type WorkflowSubmissionStepSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -642,6 +889,9 @@ export type WorkflowSubmissionStepSelect<ExtArgs extends runtime.Types.Extension
   actedAt?: boolean
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
+  assignedUser?: boolean | Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>
+  delegations?: boolean | Prisma.WorkflowSubmissionStep$delegationsArgs<ExtArgs>
+  _count?: boolean | Prisma.WorkflowSubmissionStepCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workflowSubmissionStep"]>
 
 export type WorkflowSubmissionStepSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -654,6 +904,7 @@ export type WorkflowSubmissionStepSelectCreateManyAndReturn<ExtArgs extends runt
   actedAt?: boolean
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
+  assignedUser?: boolean | Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>
 }, ExtArgs["result"]["workflowSubmissionStep"]>
 
 export type WorkflowSubmissionStepSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -666,6 +917,7 @@ export type WorkflowSubmissionStepSelectUpdateManyAndReturn<ExtArgs extends runt
   actedAt?: boolean
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
+  assignedUser?: boolean | Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>
 }, ExtArgs["result"]["workflowSubmissionStep"]>
 
 export type WorkflowSubmissionStepSelectScalar = {
@@ -682,14 +934,19 @@ export type WorkflowSubmissionStepOmit<ExtArgs extends runtime.Types.Extensions.
 export type WorkflowSubmissionStepInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
+  assignedUser?: boolean | Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>
+  delegations?: boolean | Prisma.WorkflowSubmissionStep$delegationsArgs<ExtArgs>
+  _count?: boolean | Prisma.WorkflowSubmissionStepCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type WorkflowSubmissionStepIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
+  assignedUser?: boolean | Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>
 }
 export type WorkflowSubmissionStepIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
+  assignedUser?: boolean | Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>
 }
 
 export type $WorkflowSubmissionStepPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -697,6 +954,8 @@ export type $WorkflowSubmissionStepPayload<ExtArgs extends runtime.Types.Extensi
   objects: {
     submission: Prisma.$WorkflowSubmissionPayload<ExtArgs>
     step: Prisma.$WorkflowApprovalStepPayload<ExtArgs>
+    assignedUser: Prisma.$UserPayload<ExtArgs> | null
+    delegations: Prisma.$WorkflowDelegationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1102,6 +1361,8 @@ export interface Prisma__WorkflowSubmissionStepClient<T, Null = never, ExtArgs e
   readonly [Symbol.toStringTag]: "PrismaPromise"
   submission<T extends Prisma.WorkflowSubmissionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>>): Prisma.Prisma__WorkflowSubmissionClient<runtime.Types.Result.GetResult<Prisma.$WorkflowSubmissionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   step<T extends Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>>): Prisma.Prisma__WorkflowApprovalStepClient<runtime.Types.Result.GetResult<Prisma.$WorkflowApprovalStepPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  assignedUser<T extends Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  delegations<T extends Prisma.WorkflowSubmissionStep$delegationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkflowSubmissionStep$delegationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowDelegationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1536,6 +1797,49 @@ export type WorkflowSubmissionStepDeleteManyArgs<ExtArgs extends runtime.Types.E
    * Limit how many WorkflowSubmissionSteps to delete.
    */
   limit?: number
+}
+
+/**
+ * WorkflowSubmissionStep.assignedUser
+ */
+export type WorkflowSubmissionStep$assignedUserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the User
+   */
+  select?: Prisma.UserSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the User
+   */
+  omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  where?: Prisma.UserWhereInput
+}
+
+/**
+ * WorkflowSubmissionStep.delegations
+ */
+export type WorkflowSubmissionStep$delegationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WorkflowDelegation
+   */
+  select?: Prisma.WorkflowDelegationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WorkflowDelegation
+   */
+  omit?: Prisma.WorkflowDelegationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WorkflowDelegationInclude<ExtArgs> | null
+  where?: Prisma.WorkflowDelegationWhereInput
+  orderBy?: Prisma.WorkflowDelegationOrderByWithRelationInput | Prisma.WorkflowDelegationOrderByWithRelationInput[]
+  cursor?: Prisma.WorkflowDelegationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WorkflowDelegationScalarFieldEnum | Prisma.WorkflowDelegationScalarFieldEnum[]
 }
 
 /**

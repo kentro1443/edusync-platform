@@ -357,6 +357,11 @@ export type WorkflowSubmissionValue = Prisma.WorkflowSubmissionValueModel
  */
 export type WorkflowSubmissionStep = Prisma.WorkflowSubmissionStepModel
 /**
+ * Model WorkflowDelegation
+ * 
+ */
+export type WorkflowDelegation = Prisma.WorkflowDelegationModel
+/**
  * Model WorkflowDecision
  * 
  */

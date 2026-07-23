@@ -305,75 +305,78 @@ model User {
   createdAt          DateTime   @default(now()) @db.Timestamptz(6)
   updatedAt          DateTime   @updatedAt @db.Timestamptz(6)
 
-  platformRoleAssignments    PlatformRoleAssignment[]    @relation("PlatformRoleUser")
-  platformRolesAssigned      PlatformRoleAssignment[]    @relation("PlatformRoleAssigner")
-  memberships                SchoolMembership[]
-  schoolRolesAssigned        SchoolRoleAssignment[]      @relation("SchoolRoleAssigner")
-  parentLinks                ParentStudentLink[]         @relation("ParentLinks")
-  studentLinks               ParentStudentLink[]         @relation("StudentLinks")
-  invitationsCreated         Invitation[]                @relation("InvitationCreator")
-  sessions                   Session[]
-  passwordResetTokens        PasswordResetToken[]
-  filesCreated               StoredFile[]                @relation("StoredFileCreator")
-  fileVersionsCreated        FileVersion[]               @relation("FileVersionCreator")
-  fileLinksCreated           FileLink[]                  @relation("FileLinkCreator")
-  resourcesCreated           Resource[]                  @relation("ResourceCreator")
-  resourceVersionsCreated    ResourceVersion[]           @relation("ResourceVersionCreator")
-  resourceTransitions        ResourceTransition[]        @relation("ResourceTransitionActor")
-  categoriesCreated          ResourceCategory[]          @relation("ResourceCategoryCreator")
-  tagsCreated                ResourceTag[]               @relation("ResourceTagCreator")
-  resourceComments           ResourceComment[]           @relation("ResourceCommentAuthor")
-  resourceReports            ResourceReport[]            @relation("ResourceReportAuthor")
-  resourceBookmarks          ResourceBookmark[]
-  resourceCollections        ResourceCollection[]        @relation("ResourceCollectionOwner")
-  resourceAnalyticsEvents    ResourceAnalyticsEvent[]    @relation("ResourceAnalyticsActor")
-  auditEvents                AuditEvent[]                @relation("AuditActor")
-  emailOutboxItems           EmailOutbox[]               @relation("EmailRecipient")
-  mentorProfiles             MentorProfile[]             @relation("MentorProfileUser")
-  mentorProfilesVerified     MentorProfile[]             @relation("MentorProfileVerifier")
-  mentorAssignmentsCreated   MentorStudentAssignment[]   @relation("MentorAssignmentCreator")
-  mentorAssignments          MentorStudentAssignment[]   @relation("MentorAssignmentStudent")
-  appointmentsOrganized      Appointment[]               @relation("AppointmentOrganizer")
-  studentAppointments        Appointment[]               @relation("AppointmentStudent")
-  mentorAppointments         Appointment[]               @relation("AppointmentMentor")
-  appointmentTransitions     AppointmentTransition[]     @relation("AppointmentTransitionActor")
-  appointmentWaitlist        AppointmentWaitlistEntry[]
-  attendanceRecords          AppointmentAttendance[]     @relation("AttendanceUser")
-  attendanceRecorded         AppointmentAttendance[]     @relation("AttendanceRecorder")
-  mentoringCases             MentoringCase[]             @relation("MentoringCaseStudent")
-  mentoringCasesCreated      MentoringCase[]             @relation("MentoringCaseCreator")
-  mentoringGoalsCreated      MentoringGoal[]             @relation("MentoringGoalCreator")
-  mentoringTasksAssigned     MentoringTask[]             @relation("MentoringTaskAssignee")
-  mentoringTasksCreated      MentoringTask[]             @relation("MentoringTaskCreator")
-  mentoringReferrals         MentoringReferral[]         @relation("MentoringReferralStudent")
-  mentoringReferralsCreated  MentoringReferral[]         @relation("MentoringReferralCreator")
-  mentoringNotes             MentoringNote[]             @relation("MentoringNoteAuthor")
-  sessionOutcomesCompleted   MentoringSessionOutcome[]   @relation("SessionOutcomeCompleter")
-  calendarsOwned             Calendar[]                  @relation("CalendarOwner")
-  calendarEventsCreated      CalendarEvent[]             @relation("CalendarEventCreator")
-  calendarBookings           CalendarBooking[]
-  calendarAttendance         CalendarAttendance[]        @relation("CalendarAttendanceUser")
-  calendarAttendanceRecorded CalendarAttendance[]        @relation("CalendarAttendanceRecorder")
-  bookableResourcesCreated   BookableResource[]          @relation("BookableResourceCreator")
-  workflowTemplatesCreated   WorkflowTemplate[]          @relation("WorkflowTemplateCreator")
-  workflowSubmissions        WorkflowSubmission[]        @relation("WorkflowSubmissionOwner")
-  workflowDecisions          WorkflowDecision[]          @relation("WorkflowDecisionActor")
-  workflowHistory            WorkflowSubmissionHistory[] @relation("WorkflowHistoryActor")
-  workflowComments           WorkflowSubmissionComment[] @relation("WorkflowCommentAuthor")
-  clubsCreated               Club[]                      @relation("ClubCreator")
-  clubApplications           ClubApplication[]           @relation("ClubApplicant")
-  clubApplicationsReviewed   ClubApplication[]           @relation("ClubApplicationReviewer")
-  clubMemberships            ClubMembership[]
-  clubAnnouncements          ClubAnnouncement[]          @relation("ClubAnnouncementAuthor")
-  clubTasksCreated           ClubTask[]                  @relation("ClubTaskCreator")
-  clubTasksAssigned          ClubTask[]                  @relation("ClubTaskAssignee")
-  clubEventsCreated          ClubEvent[]                 @relation("ClubEventCreator")
-  clubRegistrations          ClubRegistration[]
-  clubConsentsForStudent     ClubConsent[]               @relation("ClubConsentStudent")
-  clubConsentsForGuardian    ClubConsent[]               @relation("ClubConsentGuardian")
-  clubAttendance             ClubAttendance[]            @relation("ClubAttendanceUser")
-  clubAttendanceRecorded     ClubAttendance[]            @relation("ClubAttendanceRecorder")
-  clubPostEventReports       ClubPostEventReport[]
+  platformRoleAssignments     PlatformRoleAssignment[]    @relation("PlatformRoleUser")
+  platformRolesAssigned       PlatformRoleAssignment[]    @relation("PlatformRoleAssigner")
+  memberships                 SchoolMembership[]
+  schoolRolesAssigned         SchoolRoleAssignment[]      @relation("SchoolRoleAssigner")
+  parentLinks                 ParentStudentLink[]         @relation("ParentLinks")
+  studentLinks                ParentStudentLink[]         @relation("StudentLinks")
+  invitationsCreated          Invitation[]                @relation("InvitationCreator")
+  sessions                    Session[]
+  passwordResetTokens         PasswordResetToken[]
+  filesCreated                StoredFile[]                @relation("StoredFileCreator")
+  fileVersionsCreated         FileVersion[]               @relation("FileVersionCreator")
+  fileLinksCreated            FileLink[]                  @relation("FileLinkCreator")
+  resourcesCreated            Resource[]                  @relation("ResourceCreator")
+  resourceVersionsCreated     ResourceVersion[]           @relation("ResourceVersionCreator")
+  resourceTransitions         ResourceTransition[]        @relation("ResourceTransitionActor")
+  categoriesCreated           ResourceCategory[]          @relation("ResourceCategoryCreator")
+  tagsCreated                 ResourceTag[]               @relation("ResourceTagCreator")
+  resourceComments            ResourceComment[]           @relation("ResourceCommentAuthor")
+  resourceReports             ResourceReport[]            @relation("ResourceReportAuthor")
+  resourceBookmarks           ResourceBookmark[]
+  resourceCollections         ResourceCollection[]        @relation("ResourceCollectionOwner")
+  resourceAnalyticsEvents     ResourceAnalyticsEvent[]    @relation("ResourceAnalyticsActor")
+  auditEvents                 AuditEvent[]                @relation("AuditActor")
+  emailOutboxItems            EmailOutbox[]               @relation("EmailRecipient")
+  mentorProfiles              MentorProfile[]             @relation("MentorProfileUser")
+  mentorProfilesVerified      MentorProfile[]             @relation("MentorProfileVerifier")
+  mentorAssignmentsCreated    MentorStudentAssignment[]   @relation("MentorAssignmentCreator")
+  mentorAssignments           MentorStudentAssignment[]   @relation("MentorAssignmentStudent")
+  appointmentsOrganized       Appointment[]               @relation("AppointmentOrganizer")
+  studentAppointments         Appointment[]               @relation("AppointmentStudent")
+  mentorAppointments          Appointment[]               @relation("AppointmentMentor")
+  appointmentTransitions      AppointmentTransition[]     @relation("AppointmentTransitionActor")
+  appointmentWaitlist         AppointmentWaitlistEntry[]
+  attendanceRecords           AppointmentAttendance[]     @relation("AttendanceUser")
+  attendanceRecorded          AppointmentAttendance[]     @relation("AttendanceRecorder")
+  mentoringCases              MentoringCase[]             @relation("MentoringCaseStudent")
+  mentoringCasesCreated       MentoringCase[]             @relation("MentoringCaseCreator")
+  mentoringGoalsCreated       MentoringGoal[]             @relation("MentoringGoalCreator")
+  mentoringTasksAssigned      MentoringTask[]             @relation("MentoringTaskAssignee")
+  mentoringTasksCreated       MentoringTask[]             @relation("MentoringTaskCreator")
+  mentoringReferrals          MentoringReferral[]         @relation("MentoringReferralStudent")
+  mentoringReferralsCreated   MentoringReferral[]         @relation("MentoringReferralCreator")
+  mentoringNotes              MentoringNote[]             @relation("MentoringNoteAuthor")
+  sessionOutcomesCompleted    MentoringSessionOutcome[]   @relation("SessionOutcomeCompleter")
+  calendarsOwned              Calendar[]                  @relation("CalendarOwner")
+  calendarEventsCreated       CalendarEvent[]             @relation("CalendarEventCreator")
+  calendarBookings            CalendarBooking[]
+  calendarAttendance          CalendarAttendance[]        @relation("CalendarAttendanceUser")
+  calendarAttendanceRecorded  CalendarAttendance[]        @relation("CalendarAttendanceRecorder")
+  bookableResourcesCreated    BookableResource[]          @relation("BookableResourceCreator")
+  workflowTemplatesCreated    WorkflowTemplate[]          @relation("WorkflowTemplateCreator")
+  workflowSubmissions         WorkflowSubmission[]        @relation("WorkflowSubmissionOwner")
+  workflowDecisions           WorkflowDecision[]          @relation("WorkflowDecisionActor")
+  workflowHistory             WorkflowSubmissionHistory[] @relation("WorkflowHistoryActor")
+  workflowComments            WorkflowSubmissionComment[] @relation("WorkflowCommentAuthor")
+  workflowStepsAssigned       WorkflowSubmissionStep[]    @relation("WorkflowStepAssignee")
+  workflowDelegationsCreated  WorkflowDelegation[]        @relation("WorkflowDelegatedBy")
+  workflowDelegationsReceived WorkflowDelegation[]        @relation("WorkflowDelegatedTo")
+  clubsCreated                Club[]                      @relation("ClubCreator")
+  clubApplications            ClubApplication[]           @relation("ClubApplicant")
+  clubApplicationsReviewed    ClubApplication[]           @relation("ClubApplicationReviewer")
+  clubMemberships             ClubMembership[]
+  clubAnnouncements           ClubAnnouncement[]          @relation("ClubAnnouncementAuthor")
+  clubTasksCreated            ClubTask[]                  @relation("ClubTaskCreator")
+  clubTasksAssigned           ClubTask[]                  @relation("ClubTaskAssignee")
+  clubEventsCreated           ClubEvent[]                 @relation("ClubEventCreator")
+  clubRegistrations           ClubRegistration[]
+  clubConsentsForStudent      ClubConsent[]               @relation("ClubConsentStudent")
+  clubConsentsForGuardian     ClubConsent[]               @relation("ClubConsentGuardian")
+  clubAttendance              ClubAttendance[]            @relation("ClubAttendanceUser")
+  clubAttendanceRecorded      ClubAttendance[]            @relation("ClubAttendanceRecorder")
+  clubPostEventReports        ClubPostEventReport[]
 }
 
 model DemoRequest {
@@ -456,6 +459,7 @@ model School {
   workflowSubmissions     WorkflowSubmission[]
   workflowTemplates       WorkflowTemplate[]
   workflowComments        WorkflowSubmissionComment[]
+  workflowDelegations     WorkflowDelegation[]
   clubs                   Club[]
   clubApplications        ClubApplication[]
   clubMemberships         ClubMembership[]
@@ -1599,11 +1603,31 @@ model WorkflowSubmissionStep {
   dueAt          DateTime?          @db.Timestamptz(6)
   actedAt        DateTime?          @db.Timestamptz(6)
 
-  submission WorkflowSubmission   @relation(fields: [submissionId], references: [id], onDelete: Cascade)
-  step       WorkflowApprovalStep @relation(fields: [stepId], references: [id], onDelete: Restrict)
+  submission   WorkflowSubmission   @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  step         WorkflowApprovalStep @relation(fields: [stepId], references: [id], onDelete: Restrict)
+  assignedUser User?                @relation("WorkflowStepAssignee", fields: [assignedUserId], references: [id], onDelete: SetNull)
+  delegations  WorkflowDelegation[]
 
   @@unique([submissionId, stepId])
   @@index([assignedUserId, status, dueAt])
+}
+
+model WorkflowDelegation {
+  id                String   @id @default(uuid()) @db.Uuid
+  schoolId          String   @db.Uuid
+  submissionStepId  String   @db.Uuid
+  delegatedByUserId String   @db.Uuid
+  delegatedToUserId String   @db.Uuid
+  reason            String?
+  createdAt         DateTime @default(now()) @db.Timestamptz(6)
+
+  school         School                 @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  submissionStep WorkflowSubmissionStep @relation(fields: [submissionStepId], references: [id], onDelete: Cascade)
+  delegatedBy    User                   @relation("WorkflowDelegatedBy", fields: [delegatedByUserId], references: [id], onDelete: Restrict)
+  delegatedTo    User                   @relation("WorkflowDelegatedTo", fields: [delegatedToUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, submissionStepId, createdAt])
+  @@index([delegatedToUserId, createdAt])
 }
 
 model WorkflowDecision {

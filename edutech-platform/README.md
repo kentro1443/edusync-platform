@@ -226,7 +226,7 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | `/dashboard/clubs-events` | Câu lạc bộ trong trường, sự kiện sắp tới và tạo CLB | Club read/create |
 | `/dashboard/clubs-events/[clubId]` | Thành viên, đơn tham gia, đề xuất/duyệt sự kiện và đăng ký | Club scope |
 
-The Phase 5 delivery now includes room/resource CRUD, capacity validation, blocked periods, and cross-calendar resource conflict locking. Reminder workers and real-time invalidation remain follow-up work. Phase 6 now includes tenant-scoped comments, processing history, and role-aware submission visibility; delegation/escalation, attachments, and advanced analytics remain follow-up increments. Phase 7 includes a tenant-scoped club/event vertical slice: club lifecycle, applications, membership, event approval, capacity-aware registration and deterministic waitlist.
+The Phase 5 delivery now includes room/resource CRUD, capacity validation, blocked periods, and cross-calendar resource conflict locking. Reminder workers and real-time invalidation remain follow-up work. Phase 6 now includes tenant-scoped comments, processing history, role-aware submission visibility, and audited reviewer delegation; deadline/escalation, attachments, and advanced analytics remain follow-up increments. Phase 7 includes a tenant-scoped club/event vertical slice: club lifecycle, applications, membership, event approval, capacity-aware registration and deterministic waitlist.
 
 ## Verification status
 

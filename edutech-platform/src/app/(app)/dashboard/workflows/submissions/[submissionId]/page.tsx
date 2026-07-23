@@ -1,5 +1,6 @@
 import {
   addWorkflowSubmissionCommentAction,
+  delegateWorkflowSubmissionStepAction,
   decideWorkflowSubmissionAction,
   submitWorkflowSubmissionAction,
 } from "@/app/(app)/dashboard/workflows/actions";
@@ -9,10 +10,13 @@ import { Badge } from "@/components/ui/Badge";
 import { Button, LinkButton } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Alert } from "@/components/ui/Feedback";
-import { Field, Input, Textarea } from "@/components/ui/Field";
+import { Field, Input, Select, Textarea } from "@/components/ui/Field";
 import { requireSchoolContext } from "@/lib/auth/guards";
 import { getSchoolPermissions, hasPermission, permissions } from "@/lib/auth/permissions";
-import { getWorkflowSubmission } from "@/lib/workflows/workflow-service";
+import {
+  getWorkflowSubmission,
+  listWorkflowDelegationCandidates,
+} from "@/lib/workflows/workflow-service";
 
 const dateTimeFormatter = new Intl.DateTimeFormat("vi-VN", {
   dateStyle: "medium",
@@ -36,13 +40,22 @@ export default async function WorkflowSubmissionPage({
     submission.ownerUserId === actor.userId &&
     ["DRAFT", "CHANGES_REQUESTED"].includes(submission.status);
   const activeStep = submission.steps.find(
-    (step) => step.status === "ACTIVE" && actor.schoolRoles.includes(step.step.role),
+    (step) =>
+      step.status === "ACTIVE" &&
+      (step.assignedUserId
+        ? step.assignedUserId === actor.userId
+        : actor.schoolRoles.includes(step.step.role)),
   );
   const canDecide = submission.status === "IN_REVIEW" && Boolean(activeStep);
-  const canComment = hasPermission(
-    getSchoolPermissions(actor.schoolRoles),
-    permissions.workflowSubmissionComment,
-  );
+  const actorPermissions = getSchoolPermissions(actor.schoolRoles);
+  const canComment = hasPermission(actorPermissions, permissions.workflowSubmissionComment);
+  const canDelegate =
+    Boolean(activeStep) &&
+    hasPermission(actorPermissions, permissions.workflowSubmissionDelegate);
+  const delegationCandidates =
+    canDelegate && activeStep
+      ? await listWorkflowDelegationCandidates(actor, activeStep.id)
+      : [];
   const values = new Map(
     submission.values.map((value) => [
       value.fieldKey,
@@ -67,6 +80,8 @@ export default async function WorkflowSubmissionPage({
         <Alert tone="success" title="Đã cập nhật">
           {query.result === "comment"
             ? "Bình luận đã được thêm vào hồ sơ."
+            : query.result === "delegated"
+              ? "Bước hiện tại đã được chuyển cho người duyệt mới."
             : "Trạng thái hồ sơ đã được lưu."}
         </Alert>
       ) : null}
@@ -172,6 +187,11 @@ export default async function WorkflowSubmissionPage({
                     <p className="text-xs text-[var(--color-ink-500)]">
                       {step.status} · {step.step.role}
                     </p>
+                    {step.assignedUser ? (
+                      <p className="mt-1 text-xs font-medium text-[var(--color-brand-700)]">
+                        Đã giao: {step.assignedUser.displayName}
+                      </p>
+                    ) : null}
                   </div>
                 </li>
               ))}
@@ -202,6 +222,46 @@ export default async function WorkflowSubmissionPage({
                     Từ chối
                   </Button>
                 </div>
+              </form>
+            </Card>
+          ) : null}
+
+          {activeStep && canDelegate && delegationCandidates.length ? (
+            <Card>
+              <h2 className="text-base font-bold">Chuyển người duyệt</h2>
+              <p className="mt-1 text-sm text-[var(--color-ink-500)]">
+                Chỉ thành viên đang hoạt động và đúng vai trò của bước này mới xuất hiện.
+              </p>
+              <form action={delegateWorkflowSubmissionStepAction} className="mt-4 space-y-3">
+                <input type="hidden" name="submissionId" value={submission.id} />
+                <input type="hidden" name="submissionStepId" value={activeStep.id} />
+                <Field id="delegation-target" label="Người duyệt mới" required>
+                  <Select id="delegation-target" name="targetUserId" required defaultValue="">
+                    <option value="" disabled>
+                      Chọn người nhận
+                    </option>
+                    {delegationCandidates.map((candidate) => (
+                      <option key={candidate.userId} value={candidate.userId}>
+                        {candidate.displayName}
+                      </option>
+                    ))}
+                  </Select>
+                </Field>
+                <Field
+                  id="delegation-reason"
+                  label="Lý do chuyển"
+                  description="Tối đa 500 ký tự; lý do sẽ nằm trong nhật ký hồ sơ."
+                >
+                  <Textarea
+                    id="delegation-reason"
+                    name="reason"
+                    rows={3}
+                    maxLength={500}
+                  />
+                </Field>
+                <Button type="submit" variant="outline">
+                  Chuyển người duyệt
+                </Button>
               </form>
             </Card>
           ) : null}
