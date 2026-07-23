@@ -417,3 +417,38 @@ export type ClubSafetyPlan = Prisma.ClubSafetyPlanModel
  * 
  */
 export type ClubPostEventReport = Prisma.ClubPostEventReportModel
+/**
+ * Model Conversation
+ * 
+ */
+export type Conversation = Prisma.ConversationModel
+/**
+ * Model ConversationParticipant
+ * 
+ */
+export type ConversationParticipant = Prisma.ConversationParticipantModel
+/**
+ * Model Message
+ * 
+ */
+export type Message = Prisma.MessageModel
+/**
+ * Model MessageMention
+ * 
+ */
+export type MessageMention = Prisma.MessageMentionModel
+/**
+ * Model Notification
+ * 
+ */
+export type Notification = Prisma.NotificationModel
+/**
+ * Model NotificationPreference
+ * 
+ */
+export type NotificationPreference = Prisma.NotificationPreferenceModel
+/**
+ * Model ActivityFeedProjection
+ * 
+ */
+export type ActivityFeedProjection = Prisma.ActivityFeedProjectionModel

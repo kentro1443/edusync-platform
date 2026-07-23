@@ -130,7 +130,14 @@ export const ModelName = {
   ClubBudget: 'ClubBudget',
   ClubExpense: 'ClubExpense',
   ClubSafetyPlan: 'ClubSafetyPlan',
-  ClubPostEventReport: 'ClubPostEventReport'
+  ClubPostEventReport: 'ClubPostEventReport',
+  Conversation: 'Conversation',
+  ConversationParticipant: 'ConversationParticipant',
+  Message: 'Message',
+  MessageMention: 'MessageMention',
+  Notification: 'Notification',
+  NotificationPreference: 'NotificationPreference',
+  ActivityFeedProjection: 'ActivityFeedProjection'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -551,6 +558,7 @@ export const DomainOutboxEventScalarFieldEnum = {
   eventType: 'eventType',
   aggregateType: 'aggregateType',
   aggregateId: 'aggregateId',
+  dedupeKey: 'dedupeKey',
   payloadJson: 'payloadJson',
   status: 'status',
   attempts: 'attempts',
@@ -564,6 +572,7 @@ export type DomainOutboxEventScalarFieldEnum = (typeof DomainOutboxEventScalarFi
 
 export const EmailOutboxScalarFieldEnum = {
   id: 'id',
+  dedupeKey: 'dedupeKey',
   schoolId: 'schoolId',
   recipientUserId: 'recipientUserId',
   toAddress: 'toAddress',
@@ -571,6 +580,7 @@ export const EmailOutboxScalarFieldEnum = {
   payloadJson: 'payloadJson',
   status: 'status',
   attempts: 'attempts',
+  availableAt: 'availableAt',
   sentAt: 'sentAt',
   lastError: 'lastError',
   createdAt: 'createdAt',
@@ -1336,6 +1346,101 @@ export const ClubPostEventReportScalarFieldEnum = {
 } as const
 
 export type ClubPostEventReportScalarFieldEnum = (typeof ClubPostEventReportScalarFieldEnum)[keyof typeof ClubPostEventReportScalarFieldEnum]
+
+
+export const ConversationScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  createdByUserId: 'createdByUserId',
+  title: 'title',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ConversationScalarFieldEnum = (typeof ConversationScalarFieldEnum)[keyof typeof ConversationScalarFieldEnum]
+
+
+export const ConversationParticipantScalarFieldEnum = {
+  id: 'id',
+  conversationId: 'conversationId',
+  userId: 'userId',
+  joinedAt: 'joinedAt',
+  lastReadAt: 'lastReadAt',
+  mutedAt: 'mutedAt'
+} as const
+
+export type ConversationParticipantScalarFieldEnum = (typeof ConversationParticipantScalarFieldEnum)[keyof typeof ConversationParticipantScalarFieldEnum]
+
+
+export const MessageScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  conversationId: 'conversationId',
+  senderUserId: 'senderUserId',
+  body: 'body',
+  editedAt: 'editedAt',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type MessageScalarFieldEnum = (typeof MessageScalarFieldEnum)[keyof typeof MessageScalarFieldEnum]
+
+
+export const MessageMentionScalarFieldEnum = {
+  id: 'id',
+  messageId: 'messageId',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type MessageMentionScalarFieldEnum = (typeof MessageMentionScalarFieldEnum)[keyof typeof MessageMentionScalarFieldEnum]
+
+
+export const NotificationScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  userId: 'userId',
+  type: 'type',
+  title: 'title',
+  body: 'body',
+  href: 'href',
+  dedupeKey: 'dedupeKey',
+  readAt: 'readAt',
+  createdAt: 'createdAt'
+} as const
+
+export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
+
+
+export const NotificationPreferenceScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  userId: 'userId',
+  inAppEnabled: 'inAppEnabled',
+  emailEnabled: 'emailEnabled',
+  messagesEnabled: 'messagesEnabled',
+  mentionsEnabled: 'mentionsEnabled',
+  updatedAt: 'updatedAt'
+} as const
+
+export type NotificationPreferenceScalarFieldEnum = (typeof NotificationPreferenceScalarFieldEnum)[keyof typeof NotificationPreferenceScalarFieldEnum]
+
+
+export const ActivityFeedProjectionScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  userId: 'userId',
+  actorUserId: 'actorUserId',
+  eventType: 'eventType',
+  objectType: 'objectType',
+  objectId: 'objectId',
+  summary: 'summary',
+  href: 'href',
+  dedupeKey: 'dedupeKey',
+  createdAt: 'createdAt'
+} as const
+
+export type ActivityFeedProjectionScalarFieldEnum = (typeof ActivityFeedProjectionScalarFieldEnum)[keyof typeof ActivityFeedProjectionScalarFieldEnum]
 
 
 export const SortOrder = {

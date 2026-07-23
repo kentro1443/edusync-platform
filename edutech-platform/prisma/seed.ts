@@ -872,6 +872,83 @@ async function main() {
     },
   });
 
+  const demoConversationId = "6b000000-0000-4000-8000-000000000001";
+  const demoMessageId = "6b000000-0000-4000-8000-000000000101";
+  await prisma.conversation.upsert({
+    where: { id: demoConversationId },
+    update: { title: "Điều phối tuần học Minh Khai" },
+    create: {
+      id: demoConversationId,
+      schoolId: schools[0].id,
+      createdByUserId: users[1].id,
+      title: "Điều phối tuần học Minh Khai",
+      createdAt: seededAt,
+    },
+  });
+  for (const userId of [users[1].id, users[2].id]) {
+    await prisma.conversationParticipant.upsert({
+      where: { conversationId_userId: { conversationId: demoConversationId, userId } },
+      update: {},
+      create: {
+        conversationId: demoConversationId,
+        userId,
+        joinedAt: seededAt,
+        lastReadAt: userId === users[1].id ? seededAt : null,
+      },
+    });
+  }
+  await prisma.message.upsert({
+    where: { id: demoMessageId },
+    update: {
+      body: "Chào cô Hà, lịch họp tổ chuyên môn đã được cập nhật trong lịch trường.",
+    },
+    create: {
+      id: demoMessageId,
+      schoolId: schools[0].id,
+      conversationId: demoConversationId,
+      senderUserId: users[1].id,
+      body: "Chào cô Hà, lịch họp tổ chuyên môn đã được cập nhật trong lịch trường.",
+      createdAt: seededAt,
+    },
+  });
+  await prisma.messageMention.upsert({
+    where: {
+      messageId_userId: { messageId: demoMessageId, userId: users[2].id },
+    },
+    update: {},
+    create: { messageId: demoMessageId, userId: users[2].id, createdAt: seededAt },
+  });
+  await prisma.notification.upsert({
+    where: { dedupeKey: `notification:MENTION:${demoMessageId}:${users[2].id}` },
+    update: {},
+    create: {
+      schoolId: schools[0].id,
+      userId: users[2].id,
+      type: "MENTION",
+      title: `${users[1].displayName} đã nhắc đến bạn`,
+      body: "Lịch họp tổ chuyên môn đã được cập nhật.",
+      href: `/dashboard/messages/${demoConversationId}`,
+      dedupeKey: `notification:MENTION:${demoMessageId}:${users[2].id}`,
+      createdAt: seededAt,
+    },
+  });
+  await prisma.activityFeedProjection.upsert({
+    where: { dedupeKey: `activity:message.sent:${demoMessageId}:${users[2].id}` },
+    update: {},
+    create: {
+      schoolId: schools[0].id,
+      userId: users[2].id,
+      actorUserId: users[1].id,
+      eventType: "MESSAGE_SENT",
+      objectType: "Message",
+      objectId: demoMessageId,
+      summary: `${users[1].displayName} đã gửi tin nhắn mới.`,
+      href: `/dashboard/messages/${demoConversationId}`,
+      dedupeKey: `activity:message.sent:${demoMessageId}:${users[2].id}`,
+      createdAt: seededAt,
+    },
+  });
+
   console.info(
     `Seeded ${schools.length} schools, ${users.length} demo users and ${mentorProfiles.length} mentor profiles. Shared password: ${demoPassword}`,
   );

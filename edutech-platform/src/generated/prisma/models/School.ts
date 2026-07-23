@@ -297,6 +297,11 @@ export type SchoolWhereInput = {
   workflowTemplates?: Prisma.WorkflowTemplateListRelationFilter
   workflowComments?: Prisma.WorkflowSubmissionCommentListRelationFilter
   workflowDelegations?: Prisma.WorkflowDelegationListRelationFilter
+  conversations?: Prisma.ConversationListRelationFilter
+  messages?: Prisma.MessageListRelationFilter
+  notifications?: Prisma.NotificationListRelationFilter
+  notificationPreferences?: Prisma.NotificationPreferenceListRelationFilter
+  activityFeed?: Prisma.ActivityFeedProjectionListRelationFilter
   clubs?: Prisma.ClubListRelationFilter
   clubApplications?: Prisma.ClubApplicationListRelationFilter
   clubMemberships?: Prisma.ClubMembershipListRelationFilter
@@ -358,6 +363,11 @@ export type SchoolOrderByWithRelationInput = {
   workflowTemplates?: Prisma.WorkflowTemplateOrderByRelationAggregateInput
   workflowComments?: Prisma.WorkflowSubmissionCommentOrderByRelationAggregateInput
   workflowDelegations?: Prisma.WorkflowDelegationOrderByRelationAggregateInput
+  conversations?: Prisma.ConversationOrderByRelationAggregateInput
+  messages?: Prisma.MessageOrderByRelationAggregateInput
+  notifications?: Prisma.NotificationOrderByRelationAggregateInput
+  notificationPreferences?: Prisma.NotificationPreferenceOrderByRelationAggregateInput
+  activityFeed?: Prisma.ActivityFeedProjectionOrderByRelationAggregateInput
   clubs?: Prisma.ClubOrderByRelationAggregateInput
   clubApplications?: Prisma.ClubApplicationOrderByRelationAggregateInput
   clubMemberships?: Prisma.ClubMembershipOrderByRelationAggregateInput
@@ -422,6 +432,11 @@ export type SchoolWhereUniqueInput = Prisma.AtLeast<{
   workflowTemplates?: Prisma.WorkflowTemplateListRelationFilter
   workflowComments?: Prisma.WorkflowSubmissionCommentListRelationFilter
   workflowDelegations?: Prisma.WorkflowDelegationListRelationFilter
+  conversations?: Prisma.ConversationListRelationFilter
+  messages?: Prisma.MessageListRelationFilter
+  notifications?: Prisma.NotificationListRelationFilter
+  notificationPreferences?: Prisma.NotificationPreferenceListRelationFilter
+  activityFeed?: Prisma.ActivityFeedProjectionListRelationFilter
   clubs?: Prisma.ClubListRelationFilter
   clubApplications?: Prisma.ClubApplicationListRelationFilter
   clubMemberships?: Prisma.ClubMembershipListRelationFilter
@@ -519,6 +534,11 @@ export type SchoolCreateInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -580,6 +600,11 @@ export type SchoolUncheckedCreateInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -641,6 +666,11 @@ export type SchoolUpdateInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -702,6 +732,11 @@ export type SchoolUncheckedUpdateInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -1490,6 +1525,76 @@ export type SchoolUpdateOneRequiredWithoutClubBudgetsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SchoolUpdateToOneWithWhereWithoutClubBudgetsInput, Prisma.SchoolUpdateWithoutClubBudgetsInput>, Prisma.SchoolUncheckedUpdateWithoutClubBudgetsInput>
 }
 
+export type SchoolCreateNestedOneWithoutConversationsInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutConversationsInput, Prisma.SchoolUncheckedCreateWithoutConversationsInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutConversationsInput
+  connect?: Prisma.SchoolWhereUniqueInput
+}
+
+export type SchoolUpdateOneRequiredWithoutConversationsNestedInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutConversationsInput, Prisma.SchoolUncheckedCreateWithoutConversationsInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutConversationsInput
+  upsert?: Prisma.SchoolUpsertWithoutConversationsInput
+  connect?: Prisma.SchoolWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SchoolUpdateToOneWithWhereWithoutConversationsInput, Prisma.SchoolUpdateWithoutConversationsInput>, Prisma.SchoolUncheckedUpdateWithoutConversationsInput>
+}
+
+export type SchoolCreateNestedOneWithoutMessagesInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutMessagesInput, Prisma.SchoolUncheckedCreateWithoutMessagesInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutMessagesInput
+  connect?: Prisma.SchoolWhereUniqueInput
+}
+
+export type SchoolUpdateOneRequiredWithoutMessagesNestedInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutMessagesInput, Prisma.SchoolUncheckedCreateWithoutMessagesInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutMessagesInput
+  upsert?: Prisma.SchoolUpsertWithoutMessagesInput
+  connect?: Prisma.SchoolWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SchoolUpdateToOneWithWhereWithoutMessagesInput, Prisma.SchoolUpdateWithoutMessagesInput>, Prisma.SchoolUncheckedUpdateWithoutMessagesInput>
+}
+
+export type SchoolCreateNestedOneWithoutNotificationsInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutNotificationsInput, Prisma.SchoolUncheckedCreateWithoutNotificationsInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutNotificationsInput
+  connect?: Prisma.SchoolWhereUniqueInput
+}
+
+export type SchoolUpdateOneRequiredWithoutNotificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutNotificationsInput, Prisma.SchoolUncheckedCreateWithoutNotificationsInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutNotificationsInput
+  upsert?: Prisma.SchoolUpsertWithoutNotificationsInput
+  connect?: Prisma.SchoolWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SchoolUpdateToOneWithWhereWithoutNotificationsInput, Prisma.SchoolUpdateWithoutNotificationsInput>, Prisma.SchoolUncheckedUpdateWithoutNotificationsInput>
+}
+
+export type SchoolCreateNestedOneWithoutNotificationPreferencesInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutNotificationPreferencesInput, Prisma.SchoolUncheckedCreateWithoutNotificationPreferencesInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutNotificationPreferencesInput
+  connect?: Prisma.SchoolWhereUniqueInput
+}
+
+export type SchoolUpdateOneRequiredWithoutNotificationPreferencesNestedInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutNotificationPreferencesInput, Prisma.SchoolUncheckedCreateWithoutNotificationPreferencesInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutNotificationPreferencesInput
+  upsert?: Prisma.SchoolUpsertWithoutNotificationPreferencesInput
+  connect?: Prisma.SchoolWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SchoolUpdateToOneWithWhereWithoutNotificationPreferencesInput, Prisma.SchoolUpdateWithoutNotificationPreferencesInput>, Prisma.SchoolUncheckedUpdateWithoutNotificationPreferencesInput>
+}
+
+export type SchoolCreateNestedOneWithoutActivityFeedInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutActivityFeedInput, Prisma.SchoolUncheckedCreateWithoutActivityFeedInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutActivityFeedInput
+  connect?: Prisma.SchoolWhereUniqueInput
+}
+
+export type SchoolUpdateOneRequiredWithoutActivityFeedNestedInput = {
+  create?: Prisma.XOR<Prisma.SchoolCreateWithoutActivityFeedInput, Prisma.SchoolUncheckedCreateWithoutActivityFeedInput>
+  connectOrCreate?: Prisma.SchoolCreateOrConnectWithoutActivityFeedInput
+  upsert?: Prisma.SchoolUpsertWithoutActivityFeedInput
+  connect?: Prisma.SchoolWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SchoolUpdateToOneWithWhereWithoutActivityFeedInput, Prisma.SchoolUpdateWithoutActivityFeedInput>, Prisma.SchoolUncheckedUpdateWithoutActivityFeedInput>
+}
+
 export type SchoolCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -1538,6 +1643,11 @@ export type SchoolCreateWithoutMembershipsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -1598,6 +1708,11 @@ export type SchoolUncheckedCreateWithoutMembershipsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -1674,6 +1789,11 @@ export type SchoolUpdateWithoutMembershipsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -1734,6 +1854,11 @@ export type SchoolUncheckedUpdateWithoutMembershipsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -1794,6 +1919,11 @@ export type SchoolCreateWithoutParentStudentLinksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -1854,6 +1984,11 @@ export type SchoolUncheckedCreateWithoutParentStudentLinksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -1930,6 +2065,11 @@ export type SchoolUpdateWithoutParentStudentLinksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -1990,6 +2130,11 @@ export type SchoolUncheckedUpdateWithoutParentStudentLinksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -2050,6 +2195,11 @@ export type SchoolCreateWithoutInvitationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -2110,6 +2260,11 @@ export type SchoolUncheckedCreateWithoutInvitationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -2186,6 +2341,11 @@ export type SchoolUpdateWithoutInvitationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -2246,6 +2406,11 @@ export type SchoolUncheckedUpdateWithoutInvitationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -2306,6 +2471,11 @@ export type SchoolCreateWithoutStoredFilesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -2366,6 +2536,11 @@ export type SchoolUncheckedCreateWithoutStoredFilesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -2442,6 +2617,11 @@ export type SchoolUpdateWithoutStoredFilesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -2502,6 +2682,11 @@ export type SchoolUncheckedUpdateWithoutStoredFilesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -2562,6 +2747,11 @@ export type SchoolCreateWithoutFileLinksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -2622,6 +2812,11 @@ export type SchoolUncheckedCreateWithoutFileLinksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -2698,6 +2893,11 @@ export type SchoolUpdateWithoutFileLinksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -2758,6 +2958,11 @@ export type SchoolUncheckedUpdateWithoutFileLinksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -2818,6 +3023,11 @@ export type SchoolCreateWithoutResourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -2878,6 +3088,11 @@ export type SchoolUncheckedCreateWithoutResourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -2954,6 +3169,11 @@ export type SchoolUpdateWithoutResourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -3014,6 +3234,11 @@ export type SchoolUncheckedUpdateWithoutResourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -3074,6 +3299,11 @@ export type SchoolCreateWithoutResourceCategoriesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -3134,6 +3364,11 @@ export type SchoolUncheckedCreateWithoutResourceCategoriesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -3210,6 +3445,11 @@ export type SchoolUpdateWithoutResourceCategoriesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -3270,6 +3510,11 @@ export type SchoolUncheckedUpdateWithoutResourceCategoriesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -3330,6 +3575,11 @@ export type SchoolCreateWithoutResourceTagsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -3390,6 +3640,11 @@ export type SchoolUncheckedCreateWithoutResourceTagsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -3466,6 +3721,11 @@ export type SchoolUpdateWithoutResourceTagsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -3526,6 +3786,11 @@ export type SchoolUncheckedUpdateWithoutResourceTagsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -3586,6 +3851,11 @@ export type SchoolCreateWithoutResourceCommentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -3646,6 +3916,11 @@ export type SchoolUncheckedCreateWithoutResourceCommentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -3722,6 +3997,11 @@ export type SchoolUpdateWithoutResourceCommentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -3782,6 +4062,11 @@ export type SchoolUncheckedUpdateWithoutResourceCommentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -3842,6 +4127,11 @@ export type SchoolCreateWithoutResourceReportsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -3902,6 +4192,11 @@ export type SchoolUncheckedCreateWithoutResourceReportsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -3978,6 +4273,11 @@ export type SchoolUpdateWithoutResourceReportsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -4038,6 +4338,11 @@ export type SchoolUncheckedUpdateWithoutResourceReportsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -4098,6 +4403,11 @@ export type SchoolCreateWithoutResourceBookmarksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -4158,6 +4468,11 @@ export type SchoolUncheckedCreateWithoutResourceBookmarksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -4234,6 +4549,11 @@ export type SchoolUpdateWithoutResourceBookmarksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -4294,6 +4614,11 @@ export type SchoolUncheckedUpdateWithoutResourceBookmarksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -4354,6 +4679,11 @@ export type SchoolCreateWithoutResourceCollectionsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -4414,6 +4744,11 @@ export type SchoolUncheckedCreateWithoutResourceCollectionsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -4490,6 +4825,11 @@ export type SchoolUpdateWithoutResourceCollectionsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -4550,6 +4890,11 @@ export type SchoolUncheckedUpdateWithoutResourceCollectionsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -4610,6 +4955,11 @@ export type SchoolCreateWithoutResourceAnalyticsEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -4670,6 +5020,11 @@ export type SchoolUncheckedCreateWithoutResourceAnalyticsEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -4746,6 +5101,11 @@ export type SchoolUpdateWithoutResourceAnalyticsEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -4806,6 +5166,11 @@ export type SchoolUncheckedUpdateWithoutResourceAnalyticsEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -4866,6 +5231,11 @@ export type SchoolCreateWithoutAuditEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -4926,6 +5296,11 @@ export type SchoolUncheckedCreateWithoutAuditEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -5002,6 +5377,11 @@ export type SchoolUpdateWithoutAuditEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -5062,6 +5442,11 @@ export type SchoolUncheckedUpdateWithoutAuditEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -5122,6 +5507,11 @@ export type SchoolCreateWithoutDomainOutboxEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -5182,6 +5572,11 @@ export type SchoolUncheckedCreateWithoutDomainOutboxEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -5258,6 +5653,11 @@ export type SchoolUpdateWithoutDomainOutboxEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -5318,6 +5718,11 @@ export type SchoolUncheckedUpdateWithoutDomainOutboxEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -5378,6 +5783,11 @@ export type SchoolCreateWithoutEmailOutboxItemsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -5438,6 +5848,11 @@ export type SchoolUncheckedCreateWithoutEmailOutboxItemsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -5514,6 +5929,11 @@ export type SchoolUpdateWithoutEmailOutboxItemsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -5574,6 +5994,11 @@ export type SchoolUncheckedUpdateWithoutEmailOutboxItemsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -5634,6 +6059,11 @@ export type SchoolCreateWithoutMentorProfilesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -5694,6 +6124,11 @@ export type SchoolUncheckedCreateWithoutMentorProfilesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -5770,6 +6205,11 @@ export type SchoolUpdateWithoutMentorProfilesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -5830,6 +6270,11 @@ export type SchoolUncheckedUpdateWithoutMentorProfilesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -5890,6 +6335,11 @@ export type SchoolCreateWithoutMentorSpecialtiesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -5950,6 +6400,11 @@ export type SchoolUncheckedCreateWithoutMentorSpecialtiesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -6026,6 +6481,11 @@ export type SchoolUpdateWithoutMentorSpecialtiesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -6086,6 +6546,11 @@ export type SchoolUncheckedUpdateWithoutMentorSpecialtiesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -6146,6 +6611,11 @@ export type SchoolCreateWithoutMentorAssignmentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -6206,6 +6676,11 @@ export type SchoolUncheckedCreateWithoutMentorAssignmentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -6282,6 +6757,11 @@ export type SchoolUpdateWithoutMentorAssignmentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -6342,6 +6822,11 @@ export type SchoolUncheckedUpdateWithoutMentorAssignmentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -6402,6 +6887,11 @@ export type SchoolCreateWithoutAppointmentTypesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -6462,6 +6952,11 @@ export type SchoolUncheckedCreateWithoutAppointmentTypesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -6538,6 +7033,11 @@ export type SchoolUpdateWithoutAppointmentTypesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -6598,6 +7098,11 @@ export type SchoolUncheckedUpdateWithoutAppointmentTypesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -6658,6 +7163,11 @@ export type SchoolCreateWithoutAppointmentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -6718,6 +7228,11 @@ export type SchoolUncheckedCreateWithoutAppointmentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -6794,6 +7309,11 @@ export type SchoolUpdateWithoutAppointmentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -6854,6 +7374,11 @@ export type SchoolUncheckedUpdateWithoutAppointmentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -6914,6 +7439,11 @@ export type SchoolCreateWithoutMentoringCasesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -6974,6 +7504,11 @@ export type SchoolUncheckedCreateWithoutMentoringCasesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -7050,6 +7585,11 @@ export type SchoolUpdateWithoutMentoringCasesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -7110,6 +7650,11 @@ export type SchoolUncheckedUpdateWithoutMentoringCasesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -7170,6 +7715,11 @@ export type SchoolCreateWithoutMentoringTasksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -7230,6 +7780,11 @@ export type SchoolUncheckedCreateWithoutMentoringTasksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -7306,6 +7861,11 @@ export type SchoolUpdateWithoutMentoringTasksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -7366,6 +7926,11 @@ export type SchoolUncheckedUpdateWithoutMentoringTasksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -7426,6 +7991,11 @@ export type SchoolCreateWithoutMentoringReferralsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -7486,6 +8056,11 @@ export type SchoolUncheckedCreateWithoutMentoringReferralsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -7562,6 +8137,11 @@ export type SchoolUpdateWithoutMentoringReferralsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -7622,6 +8202,11 @@ export type SchoolUncheckedUpdateWithoutMentoringReferralsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -7682,6 +8267,11 @@ export type SchoolCreateWithoutMentoringNotesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -7742,6 +8332,11 @@ export type SchoolUncheckedCreateWithoutMentoringNotesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -7818,6 +8413,11 @@ export type SchoolUpdateWithoutMentoringNotesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -7878,6 +8478,11 @@ export type SchoolUncheckedUpdateWithoutMentoringNotesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -7938,6 +8543,11 @@ export type SchoolCreateWithoutCalendarSourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -7998,6 +8608,11 @@ export type SchoolUncheckedCreateWithoutCalendarSourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -8074,6 +8689,11 @@ export type SchoolUpdateWithoutCalendarSourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -8134,6 +8754,11 @@ export type SchoolUncheckedUpdateWithoutCalendarSourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -8194,6 +8819,11 @@ export type SchoolCreateWithoutCalendarsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -8254,6 +8884,11 @@ export type SchoolUncheckedCreateWithoutCalendarsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -8330,6 +8965,11 @@ export type SchoolUpdateWithoutCalendarsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -8390,6 +9030,11 @@ export type SchoolUncheckedUpdateWithoutCalendarsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -8450,6 +9095,11 @@ export type SchoolCreateWithoutBookableResourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -8510,6 +9160,11 @@ export type SchoolUncheckedCreateWithoutBookableResourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -8586,6 +9241,11 @@ export type SchoolUpdateWithoutBookableResourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -8646,6 +9306,11 @@ export type SchoolUncheckedUpdateWithoutBookableResourcesInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -8706,6 +9371,11 @@ export type SchoolCreateWithoutBlockedPeriodsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -8766,6 +9436,11 @@ export type SchoolUncheckedCreateWithoutBlockedPeriodsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -8842,6 +9517,11 @@ export type SchoolUpdateWithoutBlockedPeriodsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -8902,6 +9582,11 @@ export type SchoolUncheckedUpdateWithoutBlockedPeriodsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -8962,6 +9647,11 @@ export type SchoolCreateWithoutCalendarEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -9022,6 +9712,11 @@ export type SchoolUncheckedCreateWithoutCalendarEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -9098,6 +9793,11 @@ export type SchoolUpdateWithoutCalendarEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -9158,6 +9858,11 @@ export type SchoolUncheckedUpdateWithoutCalendarEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -9218,6 +9923,11 @@ export type SchoolCreateWithoutCalendarBookingsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -9278,6 +9988,11 @@ export type SchoolUncheckedCreateWithoutCalendarBookingsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -9354,6 +10069,11 @@ export type SchoolUpdateWithoutCalendarBookingsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -9414,6 +10134,11 @@ export type SchoolUncheckedUpdateWithoutCalendarBookingsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -9474,6 +10199,11 @@ export type SchoolCreateWithoutCalendarAttendanceInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -9534,6 +10264,11 @@ export type SchoolUncheckedCreateWithoutCalendarAttendanceInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -9610,6 +10345,11 @@ export type SchoolUpdateWithoutCalendarAttendanceInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -9670,6 +10410,11 @@ export type SchoolUncheckedUpdateWithoutCalendarAttendanceInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -9730,6 +10475,11 @@ export type SchoolCreateWithoutCalendarRemindersInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -9790,6 +10540,11 @@ export type SchoolUncheckedCreateWithoutCalendarRemindersInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -9866,6 +10621,11 @@ export type SchoolUpdateWithoutCalendarRemindersInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -9926,6 +10686,11 @@ export type SchoolUncheckedUpdateWithoutCalendarRemindersInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -9986,6 +10751,11 @@ export type SchoolCreateWithoutWorkflowTemplatesInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -10046,6 +10816,11 @@ export type SchoolUncheckedCreateWithoutWorkflowTemplatesInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -10122,6 +10897,11 @@ export type SchoolUpdateWithoutWorkflowTemplatesInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -10182,6 +10962,11 @@ export type SchoolUncheckedUpdateWithoutWorkflowTemplatesInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -10242,6 +11027,11 @@ export type SchoolCreateWithoutWorkflowSubmissionsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -10302,6 +11092,11 @@ export type SchoolUncheckedCreateWithoutWorkflowSubmissionsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -10378,6 +11173,11 @@ export type SchoolUpdateWithoutWorkflowSubmissionsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -10438,6 +11238,11 @@ export type SchoolUncheckedUpdateWithoutWorkflowSubmissionsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -10498,6 +11303,11 @@ export type SchoolCreateWithoutWorkflowDelegationsInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutSchoolInput
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -10558,6 +11368,11 @@ export type SchoolUncheckedCreateWithoutWorkflowDelegationsInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutSchoolInput
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -10634,6 +11449,11 @@ export type SchoolUpdateWithoutWorkflowDelegationsInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutSchoolNestedInput
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -10694,6 +11514,11 @@ export type SchoolUncheckedUpdateWithoutWorkflowDelegationsInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutSchoolNestedInput
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -10754,6 +11579,11 @@ export type SchoolCreateWithoutWorkflowCommentsInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutSchoolInput
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -10814,6 +11644,11 @@ export type SchoolUncheckedCreateWithoutWorkflowCommentsInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutSchoolInput
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -10890,6 +11725,11 @@ export type SchoolUpdateWithoutWorkflowCommentsInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutSchoolNestedInput
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -10950,6 +11790,11 @@ export type SchoolUncheckedUpdateWithoutWorkflowCommentsInput = {
   workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutSchoolNestedInput
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -11011,6 +11856,11 @@ export type SchoolCreateWithoutClubsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
   clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutSchoolInput
@@ -11071,6 +11921,11 @@ export type SchoolUncheckedCreateWithoutClubsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
   clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutSchoolInput
@@ -11147,6 +12002,11 @@ export type SchoolUpdateWithoutClubsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
   clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutSchoolNestedInput
@@ -11207,6 +12067,11 @@ export type SchoolUncheckedUpdateWithoutClubsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
   clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutSchoolNestedInput
@@ -11267,6 +12132,11 @@ export type SchoolCreateWithoutClubApplicationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
   clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutSchoolInput
@@ -11327,6 +12197,11 @@ export type SchoolUncheckedCreateWithoutClubApplicationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
   clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutSchoolInput
@@ -11403,6 +12278,11 @@ export type SchoolUpdateWithoutClubApplicationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
   clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutSchoolNestedInput
@@ -11463,6 +12343,11 @@ export type SchoolUncheckedUpdateWithoutClubApplicationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
   clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutSchoolNestedInput
@@ -11523,6 +12408,11 @@ export type SchoolCreateWithoutClubMembershipsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutSchoolInput
@@ -11583,6 +12473,11 @@ export type SchoolUncheckedCreateWithoutClubMembershipsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutSchoolInput
@@ -11659,6 +12554,11 @@ export type SchoolUpdateWithoutClubMembershipsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutSchoolNestedInput
@@ -11719,6 +12619,11 @@ export type SchoolUncheckedUpdateWithoutClubMembershipsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutSchoolNestedInput
@@ -11779,6 +12684,11 @@ export type SchoolCreateWithoutClubAnnouncementsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -11839,6 +12749,11 @@ export type SchoolUncheckedCreateWithoutClubAnnouncementsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -11915,6 +12830,11 @@ export type SchoolUpdateWithoutClubAnnouncementsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -11975,6 +12895,11 @@ export type SchoolUncheckedUpdateWithoutClubAnnouncementsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -12035,6 +12960,11 @@ export type SchoolCreateWithoutClubTasksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -12095,6 +13025,11 @@ export type SchoolUncheckedCreateWithoutClubTasksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -12171,6 +13106,11 @@ export type SchoolUpdateWithoutClubTasksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -12231,6 +13171,11 @@ export type SchoolUncheckedUpdateWithoutClubTasksInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -12291,6 +13236,11 @@ export type SchoolCreateWithoutClubEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -12351,6 +13301,11 @@ export type SchoolUncheckedCreateWithoutClubEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -12427,6 +13382,11 @@ export type SchoolUpdateWithoutClubEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -12487,6 +13447,11 @@ export type SchoolUncheckedUpdateWithoutClubEventsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -12547,6 +13512,11 @@ export type SchoolCreateWithoutClubRegistrationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -12607,6 +13577,11 @@ export type SchoolUncheckedCreateWithoutClubRegistrationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -12683,6 +13658,11 @@ export type SchoolUpdateWithoutClubRegistrationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -12743,6 +13723,11 @@ export type SchoolUncheckedUpdateWithoutClubRegistrationsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -12803,6 +13788,11 @@ export type SchoolCreateWithoutClubConsentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -12863,6 +13853,11 @@ export type SchoolUncheckedCreateWithoutClubConsentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -12939,6 +13934,11 @@ export type SchoolUpdateWithoutClubConsentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -12999,6 +13999,11 @@ export type SchoolUncheckedUpdateWithoutClubConsentsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -13059,6 +14064,11 @@ export type SchoolCreateWithoutClubAttendanceInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -13119,6 +14129,11 @@ export type SchoolUncheckedCreateWithoutClubAttendanceInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -13195,6 +14210,11 @@ export type SchoolUpdateWithoutClubAttendanceInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -13255,6 +14275,11 @@ export type SchoolUncheckedUpdateWithoutClubAttendanceInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -13315,6 +14340,11 @@ export type SchoolCreateWithoutClubBudgetsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
@@ -13375,6 +14405,11 @@ export type SchoolUncheckedCreateWithoutClubBudgetsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
   clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
@@ -13451,6 +14486,11 @@ export type SchoolUpdateWithoutClubBudgetsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
@@ -13511,6 +14551,11 @@ export type SchoolUncheckedUpdateWithoutClubBudgetsInput = {
   workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
   workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
   clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
@@ -13520,6 +14565,1386 @@ export type SchoolUncheckedUpdateWithoutClubBudgetsInput = {
   clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutSchoolNestedInput
   clubConsents?: Prisma.ClubConsentUncheckedUpdateManyWithoutSchoolNestedInput
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolCreateWithoutConversationsInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolUncheckedCreateWithoutConversationsInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileUncheckedCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkUncheckedCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceUncheckedCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarUncheckedCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventUncheckedCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolCreateOrConnectWithoutConversationsInput = {
+  where: Prisma.SchoolWhereUniqueInput
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutConversationsInput, Prisma.SchoolUncheckedCreateWithoutConversationsInput>
+}
+
+export type SchoolUpsertWithoutConversationsInput = {
+  update: Prisma.XOR<Prisma.SchoolUpdateWithoutConversationsInput, Prisma.SchoolUncheckedUpdateWithoutConversationsInput>
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutConversationsInput, Prisma.SchoolUncheckedCreateWithoutConversationsInput>
+  where?: Prisma.SchoolWhereInput
+}
+
+export type SchoolUpdateToOneWithWhereWithoutConversationsInput = {
+  where?: Prisma.SchoolWhereInput
+  data: Prisma.XOR<Prisma.SchoolUpdateWithoutConversationsInput, Prisma.SchoolUncheckedUpdateWithoutConversationsInput>
+}
+
+export type SchoolUpdateWithoutConversationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolUncheckedUpdateWithoutConversationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUncheckedUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUncheckedUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUncheckedUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolCreateWithoutMessagesInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolUncheckedCreateWithoutMessagesInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileUncheckedCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkUncheckedCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceUncheckedCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarUncheckedCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventUncheckedCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolCreateOrConnectWithoutMessagesInput = {
+  where: Prisma.SchoolWhereUniqueInput
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutMessagesInput, Prisma.SchoolUncheckedCreateWithoutMessagesInput>
+}
+
+export type SchoolUpsertWithoutMessagesInput = {
+  update: Prisma.XOR<Prisma.SchoolUpdateWithoutMessagesInput, Prisma.SchoolUncheckedUpdateWithoutMessagesInput>
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutMessagesInput, Prisma.SchoolUncheckedCreateWithoutMessagesInput>
+  where?: Prisma.SchoolWhereInput
+}
+
+export type SchoolUpdateToOneWithWhereWithoutMessagesInput = {
+  where?: Prisma.SchoolWhereInput
+  data: Prisma.XOR<Prisma.SchoolUpdateWithoutMessagesInput, Prisma.SchoolUncheckedUpdateWithoutMessagesInput>
+}
+
+export type SchoolUpdateWithoutMessagesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolUncheckedUpdateWithoutMessagesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUncheckedUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUncheckedUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUncheckedUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolCreateWithoutNotificationsInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolUncheckedCreateWithoutNotificationsInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileUncheckedCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkUncheckedCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceUncheckedCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarUncheckedCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventUncheckedCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolCreateOrConnectWithoutNotificationsInput = {
+  where: Prisma.SchoolWhereUniqueInput
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutNotificationsInput, Prisma.SchoolUncheckedCreateWithoutNotificationsInput>
+}
+
+export type SchoolUpsertWithoutNotificationsInput = {
+  update: Prisma.XOR<Prisma.SchoolUpdateWithoutNotificationsInput, Prisma.SchoolUncheckedUpdateWithoutNotificationsInput>
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutNotificationsInput, Prisma.SchoolUncheckedCreateWithoutNotificationsInput>
+  where?: Prisma.SchoolWhereInput
+}
+
+export type SchoolUpdateToOneWithWhereWithoutNotificationsInput = {
+  where?: Prisma.SchoolWhereInput
+  data: Prisma.XOR<Prisma.SchoolUpdateWithoutNotificationsInput, Prisma.SchoolUncheckedUpdateWithoutNotificationsInput>
+}
+
+export type SchoolUpdateWithoutNotificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolUncheckedUpdateWithoutNotificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUncheckedUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUncheckedUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUncheckedUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolCreateWithoutNotificationPreferencesInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolUncheckedCreateWithoutNotificationPreferencesInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileUncheckedCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkUncheckedCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceUncheckedCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarUncheckedCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventUncheckedCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolCreateOrConnectWithoutNotificationPreferencesInput = {
+  where: Prisma.SchoolWhereUniqueInput
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutNotificationPreferencesInput, Prisma.SchoolUncheckedCreateWithoutNotificationPreferencesInput>
+}
+
+export type SchoolUpsertWithoutNotificationPreferencesInput = {
+  update: Prisma.XOR<Prisma.SchoolUpdateWithoutNotificationPreferencesInput, Prisma.SchoolUncheckedUpdateWithoutNotificationPreferencesInput>
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutNotificationPreferencesInput, Prisma.SchoolUncheckedCreateWithoutNotificationPreferencesInput>
+  where?: Prisma.SchoolWhereInput
+}
+
+export type SchoolUpdateToOneWithWhereWithoutNotificationPreferencesInput = {
+  where?: Prisma.SchoolWhereInput
+  data: Prisma.XOR<Prisma.SchoolUpdateWithoutNotificationPreferencesInput, Prisma.SchoolUncheckedUpdateWithoutNotificationPreferencesInput>
+}
+
+export type SchoolUpdateWithoutNotificationPreferencesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolUncheckedUpdateWithoutNotificationPreferencesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUncheckedUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUncheckedUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  activityFeed?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUncheckedUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolCreateWithoutActivityFeedInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolUncheckedCreateWithoutActivityFeedInput = {
+  id?: string
+  slug: string
+  name: string
+  shortName: string
+  logoFileId?: string | null
+  status?: $Enums.SchoolStatus
+  planCode?: string
+  storageQuotaBytes?: bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutSchoolInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutSchoolInput
+  storedFiles?: Prisma.StoredFileUncheckedCreateNestedManyWithoutSchoolInput
+  fileLinks?: Prisma.FileLinkUncheckedCreateNestedManyWithoutSchoolInput
+  resources?: Prisma.ResourceUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutSchoolInput
+  resourceTags?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutSchoolInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutSchoolInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutSchoolInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutSchoolInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutSchoolInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutSchoolInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSchoolInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedCreateNestedManyWithoutSchoolInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutSchoolInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutSchoolInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedCreateNestedManyWithoutSchoolInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutSchoolInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutSchoolInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutSchoolInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutSchoolInput
+  calendarSources?: Prisma.CalendarSourceUncheckedCreateNestedManyWithoutSchoolInput
+  calendars?: Prisma.CalendarUncheckedCreateNestedManyWithoutSchoolInput
+  bookableResources?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutSchoolInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedCreateNestedManyWithoutSchoolInput
+  calendarEvents?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutSchoolInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutSchoolInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedCreateNestedManyWithoutSchoolInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutSchoolInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutSchoolInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSchoolInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSchoolInput
+  conversations?: Prisma.ConversationUncheckedCreateNestedManyWithoutSchoolInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSchoolInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutSchoolInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutSchoolInput
+  clubs?: Prisma.ClubUncheckedCreateNestedManyWithoutSchoolInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutSchoolInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutSchoolInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutSchoolInput
+  clubTasks?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutSchoolInput
+  clubEvents?: Prisma.ClubEventUncheckedCreateNestedManyWithoutSchoolInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutSchoolInput
+  clubConsents?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutSchoolInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutSchoolInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedCreateNestedManyWithoutSchoolInput
+}
+
+export type SchoolCreateOrConnectWithoutActivityFeedInput = {
+  where: Prisma.SchoolWhereUniqueInput
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutActivityFeedInput, Prisma.SchoolUncheckedCreateWithoutActivityFeedInput>
+}
+
+export type SchoolUpsertWithoutActivityFeedInput = {
+  update: Prisma.XOR<Prisma.SchoolUpdateWithoutActivityFeedInput, Prisma.SchoolUncheckedUpdateWithoutActivityFeedInput>
+  create: Prisma.XOR<Prisma.SchoolCreateWithoutActivityFeedInput, Prisma.SchoolUncheckedCreateWithoutActivityFeedInput>
+  where?: Prisma.SchoolWhereInput
+}
+
+export type SchoolUpdateToOneWithWhereWithoutActivityFeedInput = {
+  where?: Prisma.SchoolWhereInput
+  data: Prisma.XOR<Prisma.SchoolUpdateWithoutActivityFeedInput, Prisma.SchoolUncheckedUpdateWithoutActivityFeedInput>
+}
+
+export type SchoolUpdateWithoutActivityFeedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUpdateManyWithoutSchoolNestedInput
+}
+
+export type SchoolUncheckedUpdateWithoutActivityFeedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
+  logoFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumSchoolStatusFieldUpdateOperationsInput | $Enums.SchoolStatus
+  planCode?: Prisma.StringFieldUpdateOperationsInput | string
+  storageQuotaBytes?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  settingsJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  parentStudentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutSchoolNestedInput
+  storedFiles?: Prisma.StoredFileUncheckedUpdateManyWithoutSchoolNestedInput
+  fileLinks?: Prisma.FileLinkUncheckedUpdateManyWithoutSchoolNestedInput
+  resources?: Prisma.ResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCategories?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceTags?: Prisma.ResourceTagUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutSchoolNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutSchoolNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutSchoolNestedInput
+  domainOutboxEvents?: Prisma.DomainOutboxEventUncheckedUpdateManyWithoutSchoolNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorSpecialties?: Prisma.MentorSpecialtyUncheckedUpdateManyWithoutSchoolNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutSchoolNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutSchoolNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringTasks?: Prisma.MentoringTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutSchoolNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarSources?: Prisma.CalendarSourceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendars?: Prisma.CalendarUncheckedUpdateManyWithoutSchoolNestedInput
+  bookableResources?: Prisma.BookableResourceUncheckedUpdateManyWithoutSchoolNestedInput
+  blockedPeriods?: Prisma.BlockedPeriodUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarEvents?: Prisma.CalendarEventUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  calendarReminders?: Prisma.CalendarReminderUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowTemplates?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSchoolNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSchoolNestedInput
+  conversations?: Prisma.ConversationUncheckedUpdateManyWithoutSchoolNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSchoolNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutSchoolNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutSchoolNestedInput
+  clubs?: Prisma.ClubUncheckedUpdateManyWithoutSchoolNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutSchoolNestedInput
+  clubTasks?: Prisma.ClubTaskUncheckedUpdateManyWithoutSchoolNestedInput
+  clubEvents?: Prisma.ClubEventUncheckedUpdateManyWithoutSchoolNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutSchoolNestedInput
+  clubConsents?: Prisma.ClubConsentUncheckedUpdateManyWithoutSchoolNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutSchoolNestedInput
+  clubBudgets?: Prisma.ClubBudgetUncheckedUpdateManyWithoutSchoolNestedInput
 }
 
 
@@ -13565,6 +15990,11 @@ export type SchoolCountOutputType = {
   workflowTemplates: number
   workflowComments: number
   workflowDelegations: number
+  conversations: number
+  messages: number
+  notifications: number
+  notificationPreferences: number
+  activityFeed: number
   clubs: number
   clubApplications: number
   clubMemberships: number
@@ -13615,6 +16045,11 @@ export type SchoolCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   workflowTemplates?: boolean | SchoolCountOutputTypeCountWorkflowTemplatesArgs
   workflowComments?: boolean | SchoolCountOutputTypeCountWorkflowCommentsArgs
   workflowDelegations?: boolean | SchoolCountOutputTypeCountWorkflowDelegationsArgs
+  conversations?: boolean | SchoolCountOutputTypeCountConversationsArgs
+  messages?: boolean | SchoolCountOutputTypeCountMessagesArgs
+  notifications?: boolean | SchoolCountOutputTypeCountNotificationsArgs
+  notificationPreferences?: boolean | SchoolCountOutputTypeCountNotificationPreferencesArgs
+  activityFeed?: boolean | SchoolCountOutputTypeCountActivityFeedArgs
   clubs?: boolean | SchoolCountOutputTypeCountClubsArgs
   clubApplications?: boolean | SchoolCountOutputTypeCountClubApplicationsArgs
   clubMemberships?: boolean | SchoolCountOutputTypeCountClubMembershipsArgs
@@ -13899,6 +16334,41 @@ export type SchoolCountOutputTypeCountWorkflowDelegationsArgs<ExtArgs extends ru
 /**
  * SchoolCountOutputType without action
  */
+export type SchoolCountOutputTypeCountConversationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ConversationWhereInput
+}
+
+/**
+ * SchoolCountOutputType without action
+ */
+export type SchoolCountOutputTypeCountMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MessageWhereInput
+}
+
+/**
+ * SchoolCountOutputType without action
+ */
+export type SchoolCountOutputTypeCountNotificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.NotificationWhereInput
+}
+
+/**
+ * SchoolCountOutputType without action
+ */
+export type SchoolCountOutputTypeCountNotificationPreferencesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.NotificationPreferenceWhereInput
+}
+
+/**
+ * SchoolCountOutputType without action
+ */
+export type SchoolCountOutputTypeCountActivityFeedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ActivityFeedProjectionWhereInput
+}
+
+/**
+ * SchoolCountOutputType without action
+ */
 export type SchoolCountOutputTypeCountClubsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ClubWhereInput
 }
@@ -14016,6 +16486,11 @@ export type SchoolSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   workflowTemplates?: boolean | Prisma.School$workflowTemplatesArgs<ExtArgs>
   workflowComments?: boolean | Prisma.School$workflowCommentsArgs<ExtArgs>
   workflowDelegations?: boolean | Prisma.School$workflowDelegationsArgs<ExtArgs>
+  conversations?: boolean | Prisma.School$conversationsArgs<ExtArgs>
+  messages?: boolean | Prisma.School$messagesArgs<ExtArgs>
+  notifications?: boolean | Prisma.School$notificationsArgs<ExtArgs>
+  notificationPreferences?: boolean | Prisma.School$notificationPreferencesArgs<ExtArgs>
+  activityFeed?: boolean | Prisma.School$activityFeedArgs<ExtArgs>
   clubs?: boolean | Prisma.School$clubsArgs<ExtArgs>
   clubApplications?: boolean | Prisma.School$clubApplicationsArgs<ExtArgs>
   clubMemberships?: boolean | Prisma.School$clubMembershipsArgs<ExtArgs>
@@ -14110,6 +16585,11 @@ export type SchoolInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   workflowTemplates?: boolean | Prisma.School$workflowTemplatesArgs<ExtArgs>
   workflowComments?: boolean | Prisma.School$workflowCommentsArgs<ExtArgs>
   workflowDelegations?: boolean | Prisma.School$workflowDelegationsArgs<ExtArgs>
+  conversations?: boolean | Prisma.School$conversationsArgs<ExtArgs>
+  messages?: boolean | Prisma.School$messagesArgs<ExtArgs>
+  notifications?: boolean | Prisma.School$notificationsArgs<ExtArgs>
+  notificationPreferences?: boolean | Prisma.School$notificationPreferencesArgs<ExtArgs>
+  activityFeed?: boolean | Prisma.School$activityFeedArgs<ExtArgs>
   clubs?: boolean | Prisma.School$clubsArgs<ExtArgs>
   clubApplications?: boolean | Prisma.School$clubApplicationsArgs<ExtArgs>
   clubMemberships?: boolean | Prisma.School$clubMembershipsArgs<ExtArgs>
@@ -14165,6 +16645,11 @@ export type $SchoolPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     workflowTemplates: Prisma.$WorkflowTemplatePayload<ExtArgs>[]
     workflowComments: Prisma.$WorkflowSubmissionCommentPayload<ExtArgs>[]
     workflowDelegations: Prisma.$WorkflowDelegationPayload<ExtArgs>[]
+    conversations: Prisma.$ConversationPayload<ExtArgs>[]
+    messages: Prisma.$MessagePayload<ExtArgs>[]
+    notifications: Prisma.$NotificationPayload<ExtArgs>[]
+    notificationPreferences: Prisma.$NotificationPreferencePayload<ExtArgs>[]
+    activityFeed: Prisma.$ActivityFeedProjectionPayload<ExtArgs>[]
     clubs: Prisma.$ClubPayload<ExtArgs>[]
     clubApplications: Prisma.$ClubApplicationPayload<ExtArgs>[]
     clubMemberships: Prisma.$ClubMembershipPayload<ExtArgs>[]
@@ -14619,6 +17104,11 @@ export interface Prisma__SchoolClient<T, Null = never, ExtArgs extends runtime.T
   workflowTemplates<T extends Prisma.School$workflowTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$workflowTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workflowComments<T extends Prisma.School$workflowCommentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$workflowCommentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowSubmissionCommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workflowDelegations<T extends Prisma.School$workflowDelegationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$workflowDelegationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowDelegationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  conversations<T extends Prisma.School$conversationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$conversationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConversationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  messages<T extends Prisma.School$messagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  notifications<T extends Prisma.School$notificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  notificationPreferences<T extends Prisma.School$notificationPreferencesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$notificationPreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  activityFeed<T extends Prisma.School$activityFeedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$activityFeedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ActivityFeedProjectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clubs<T extends Prisma.School$clubsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$clubsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClubPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clubApplications<T extends Prisma.School$clubApplicationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$clubApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClubApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clubMemberships<T extends Prisma.School$clubMembershipsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.School$clubMembershipsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClubMembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -15947,6 +18437,126 @@ export type School$workflowDelegationsArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.WorkflowDelegationScalarFieldEnum | Prisma.WorkflowDelegationScalarFieldEnum[]
+}
+
+/**
+ * School.conversations
+ */
+export type School$conversationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Conversation
+   */
+  select?: Prisma.ConversationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Conversation
+   */
+  omit?: Prisma.ConversationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ConversationInclude<ExtArgs> | null
+  where?: Prisma.ConversationWhereInput
+  orderBy?: Prisma.ConversationOrderByWithRelationInput | Prisma.ConversationOrderByWithRelationInput[]
+  cursor?: Prisma.ConversationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ConversationScalarFieldEnum | Prisma.ConversationScalarFieldEnum[]
+}
+
+/**
+ * School.messages
+ */
+export type School$messagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Message
+   */
+  select?: Prisma.MessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Message
+   */
+  omit?: Prisma.MessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MessageInclude<ExtArgs> | null
+  where?: Prisma.MessageWhereInput
+  orderBy?: Prisma.MessageOrderByWithRelationInput | Prisma.MessageOrderByWithRelationInput[]
+  cursor?: Prisma.MessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MessageScalarFieldEnum | Prisma.MessageScalarFieldEnum[]
+}
+
+/**
+ * School.notifications
+ */
+export type School$notificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Notification
+   */
+  select?: Prisma.NotificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Notification
+   */
+  omit?: Prisma.NotificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.NotificationInclude<ExtArgs> | null
+  where?: Prisma.NotificationWhereInput
+  orderBy?: Prisma.NotificationOrderByWithRelationInput | Prisma.NotificationOrderByWithRelationInput[]
+  cursor?: Prisma.NotificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.NotificationScalarFieldEnum | Prisma.NotificationScalarFieldEnum[]
+}
+
+/**
+ * School.notificationPreferences
+ */
+export type School$notificationPreferencesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the NotificationPreference
+   */
+  select?: Prisma.NotificationPreferenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the NotificationPreference
+   */
+  omit?: Prisma.NotificationPreferenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.NotificationPreferenceInclude<ExtArgs> | null
+  where?: Prisma.NotificationPreferenceWhereInput
+  orderBy?: Prisma.NotificationPreferenceOrderByWithRelationInput | Prisma.NotificationPreferenceOrderByWithRelationInput[]
+  cursor?: Prisma.NotificationPreferenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.NotificationPreferenceScalarFieldEnum | Prisma.NotificationPreferenceScalarFieldEnum[]
+}
+
+/**
+ * School.activityFeed
+ */
+export type School$activityFeedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ActivityFeedProjection
+   */
+  select?: Prisma.ActivityFeedProjectionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ActivityFeedProjection
+   */
+  omit?: Prisma.ActivityFeedProjectionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ActivityFeedProjectionInclude<ExtArgs> | null
+  where?: Prisma.ActivityFeedProjectionWhereInput
+  orderBy?: Prisma.ActivityFeedProjectionOrderByWithRelationInput | Prisma.ActivityFeedProjectionOrderByWithRelationInput[]
+  cursor?: Prisma.ActivityFeedProjectionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ActivityFeedProjectionScalarFieldEnum | Prisma.ActivityFeedProjectionScalarFieldEnum[]
 }
 
 /**

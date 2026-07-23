@@ -36,12 +36,14 @@ export type EmailOutboxSumAggregateOutputType = {
 
 export type EmailOutboxMinAggregateOutputType = {
   id: string | null
+  dedupeKey: string | null
   schoolId: string | null
   recipientUserId: string | null
   toAddress: string | null
   templateKey: string | null
   status: $Enums.EmailOutboxStatus | null
   attempts: number | null
+  availableAt: Date | null
   sentAt: Date | null
   lastError: string | null
   createdAt: Date | null
@@ -50,12 +52,14 @@ export type EmailOutboxMinAggregateOutputType = {
 
 export type EmailOutboxMaxAggregateOutputType = {
   id: string | null
+  dedupeKey: string | null
   schoolId: string | null
   recipientUserId: string | null
   toAddress: string | null
   templateKey: string | null
   status: $Enums.EmailOutboxStatus | null
   attempts: number | null
+  availableAt: Date | null
   sentAt: Date | null
   lastError: string | null
   createdAt: Date | null
@@ -64,6 +68,7 @@ export type EmailOutboxMaxAggregateOutputType = {
 
 export type EmailOutboxCountAggregateOutputType = {
   id: number
+  dedupeKey: number
   schoolId: number
   recipientUserId: number
   toAddress: number
@@ -71,6 +76,7 @@ export type EmailOutboxCountAggregateOutputType = {
   payloadJson: number
   status: number
   attempts: number
+  availableAt: number
   sentAt: number
   lastError: number
   createdAt: number
@@ -89,12 +95,14 @@ export type EmailOutboxSumAggregateInputType = {
 
 export type EmailOutboxMinAggregateInputType = {
   id?: true
+  dedupeKey?: true
   schoolId?: true
   recipientUserId?: true
   toAddress?: true
   templateKey?: true
   status?: true
   attempts?: true
+  availableAt?: true
   sentAt?: true
   lastError?: true
   createdAt?: true
@@ -103,12 +111,14 @@ export type EmailOutboxMinAggregateInputType = {
 
 export type EmailOutboxMaxAggregateInputType = {
   id?: true
+  dedupeKey?: true
   schoolId?: true
   recipientUserId?: true
   toAddress?: true
   templateKey?: true
   status?: true
   attempts?: true
+  availableAt?: true
   sentAt?: true
   lastError?: true
   createdAt?: true
@@ -117,6 +127,7 @@ export type EmailOutboxMaxAggregateInputType = {
 
 export type EmailOutboxCountAggregateInputType = {
   id?: true
+  dedupeKey?: true
   schoolId?: true
   recipientUserId?: true
   toAddress?: true
@@ -124,6 +135,7 @@ export type EmailOutboxCountAggregateInputType = {
   payloadJson?: true
   status?: true
   attempts?: true
+  availableAt?: true
   sentAt?: true
   lastError?: true
   createdAt?: true
@@ -219,6 +231,7 @@ export type EmailOutboxGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type EmailOutboxGroupByOutputType = {
   id: string
+  dedupeKey: string | null
   schoolId: string | null
   recipientUserId: string | null
   toAddress: string
@@ -226,6 +239,7 @@ export type EmailOutboxGroupByOutputType = {
   payloadJson: runtime.JsonValue
   status: $Enums.EmailOutboxStatus
   attempts: number
+  availableAt: Date
   sentAt: Date | null
   lastError: string | null
   createdAt: Date
@@ -257,6 +271,7 @@ export type EmailOutboxWhereInput = {
   OR?: Prisma.EmailOutboxWhereInput[]
   NOT?: Prisma.EmailOutboxWhereInput | Prisma.EmailOutboxWhereInput[]
   id?: Prisma.UuidFilter<"EmailOutbox"> | string
+  dedupeKey?: Prisma.StringNullableFilter<"EmailOutbox"> | string | null
   schoolId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   recipientUserId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   toAddress?: Prisma.StringFilter<"EmailOutbox"> | string
@@ -264,6 +279,7 @@ export type EmailOutboxWhereInput = {
   payloadJson?: Prisma.JsonFilter<"EmailOutbox">
   status?: Prisma.EnumEmailOutboxStatusFilter<"EmailOutbox"> | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFilter<"EmailOutbox"> | number
+  availableAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
   sentAt?: Prisma.DateTimeNullableFilter<"EmailOutbox"> | Date | string | null
   lastError?: Prisma.StringNullableFilter<"EmailOutbox"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
@@ -274,6 +290,7 @@ export type EmailOutboxWhereInput = {
 
 export type EmailOutboxOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  dedupeKey?: Prisma.SortOrderInput | Prisma.SortOrder
   schoolId?: Prisma.SortOrderInput | Prisma.SortOrder
   recipientUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   toAddress?: Prisma.SortOrder
@@ -281,6 +298,7 @@ export type EmailOutboxOrderByWithRelationInput = {
   payloadJson?: Prisma.SortOrder
   status?: Prisma.SortOrder
   attempts?: Prisma.SortOrder
+  availableAt?: Prisma.SortOrder
   sentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   lastError?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -291,6 +309,7 @@ export type EmailOutboxOrderByWithRelationInput = {
 
 export type EmailOutboxWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  dedupeKey?: string
   AND?: Prisma.EmailOutboxWhereInput | Prisma.EmailOutboxWhereInput[]
   OR?: Prisma.EmailOutboxWhereInput[]
   NOT?: Prisma.EmailOutboxWhereInput | Prisma.EmailOutboxWhereInput[]
@@ -301,16 +320,18 @@ export type EmailOutboxWhereUniqueInput = Prisma.AtLeast<{
   payloadJson?: Prisma.JsonFilter<"EmailOutbox">
   status?: Prisma.EnumEmailOutboxStatusFilter<"EmailOutbox"> | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFilter<"EmailOutbox"> | number
+  availableAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
   sentAt?: Prisma.DateTimeNullableFilter<"EmailOutbox"> | Date | string | null
   lastError?: Prisma.StringNullableFilter<"EmailOutbox"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
   school?: Prisma.XOR<Prisma.SchoolNullableScalarRelationFilter, Prisma.SchoolWhereInput> | null
   recipientUser?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-}, "id">
+}, "id" | "dedupeKey">
 
 export type EmailOutboxOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  dedupeKey?: Prisma.SortOrderInput | Prisma.SortOrder
   schoolId?: Prisma.SortOrderInput | Prisma.SortOrder
   recipientUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   toAddress?: Prisma.SortOrder
@@ -318,6 +339,7 @@ export type EmailOutboxOrderByWithAggregationInput = {
   payloadJson?: Prisma.SortOrder
   status?: Prisma.SortOrder
   attempts?: Prisma.SortOrder
+  availableAt?: Prisma.SortOrder
   sentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   lastError?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -334,6 +356,7 @@ export type EmailOutboxScalarWhereWithAggregatesInput = {
   OR?: Prisma.EmailOutboxScalarWhereWithAggregatesInput[]
   NOT?: Prisma.EmailOutboxScalarWhereWithAggregatesInput | Prisma.EmailOutboxScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"EmailOutbox"> | string
+  dedupeKey?: Prisma.StringNullableWithAggregatesFilter<"EmailOutbox"> | string | null
   schoolId?: Prisma.UuidNullableWithAggregatesFilter<"EmailOutbox"> | string | null
   recipientUserId?: Prisma.UuidNullableWithAggregatesFilter<"EmailOutbox"> | string | null
   toAddress?: Prisma.StringWithAggregatesFilter<"EmailOutbox"> | string
@@ -341,6 +364,7 @@ export type EmailOutboxScalarWhereWithAggregatesInput = {
   payloadJson?: Prisma.JsonWithAggregatesFilter<"EmailOutbox">
   status?: Prisma.EnumEmailOutboxStatusWithAggregatesFilter<"EmailOutbox"> | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntWithAggregatesFilter<"EmailOutbox"> | number
+  availableAt?: Prisma.DateTimeWithAggregatesFilter<"EmailOutbox"> | Date | string
   sentAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EmailOutbox"> | Date | string | null
   lastError?: Prisma.StringNullableWithAggregatesFilter<"EmailOutbox"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"EmailOutbox"> | Date | string
@@ -349,11 +373,13 @@ export type EmailOutboxScalarWhereWithAggregatesInput = {
 
 export type EmailOutboxCreateInput = {
   id?: string
+  dedupeKey?: string | null
   toAddress: string
   templateKey: string
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: $Enums.EmailOutboxStatus
   attempts?: number
+  availableAt?: Date | string
   sentAt?: Date | string | null
   lastError?: string | null
   createdAt?: Date | string
@@ -364,6 +390,7 @@ export type EmailOutboxCreateInput = {
 
 export type EmailOutboxUncheckedCreateInput = {
   id?: string
+  dedupeKey?: string | null
   schoolId?: string | null
   recipientUserId?: string | null
   toAddress: string
@@ -371,6 +398,7 @@ export type EmailOutboxUncheckedCreateInput = {
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: $Enums.EmailOutboxStatus
   attempts?: number
+  availableAt?: Date | string
   sentAt?: Date | string | null
   lastError?: string | null
   createdAt?: Date | string
@@ -379,11 +407,13 @@ export type EmailOutboxUncheckedCreateInput = {
 
 export type EmailOutboxUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -394,6 +424,7 @@ export type EmailOutboxUpdateInput = {
 
 export type EmailOutboxUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schoolId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -401,6 +432,7 @@ export type EmailOutboxUncheckedUpdateInput = {
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -409,6 +441,7 @@ export type EmailOutboxUncheckedUpdateInput = {
 
 export type EmailOutboxCreateManyInput = {
   id?: string
+  dedupeKey?: string | null
   schoolId?: string | null
   recipientUserId?: string | null
   toAddress: string
@@ -416,6 +449,7 @@ export type EmailOutboxCreateManyInput = {
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: $Enums.EmailOutboxStatus
   attempts?: number
+  availableAt?: Date | string
   sentAt?: Date | string | null
   lastError?: string | null
   createdAt?: Date | string
@@ -424,11 +458,13 @@ export type EmailOutboxCreateManyInput = {
 
 export type EmailOutboxUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -437,6 +473,7 @@ export type EmailOutboxUpdateManyMutationInput = {
 
 export type EmailOutboxUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schoolId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -444,6 +481,7 @@ export type EmailOutboxUncheckedUpdateManyInput = {
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -462,6 +500,7 @@ export type EmailOutboxOrderByRelationAggregateInput = {
 
 export type EmailOutboxCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  dedupeKey?: Prisma.SortOrder
   schoolId?: Prisma.SortOrder
   recipientUserId?: Prisma.SortOrder
   toAddress?: Prisma.SortOrder
@@ -469,6 +508,7 @@ export type EmailOutboxCountOrderByAggregateInput = {
   payloadJson?: Prisma.SortOrder
   status?: Prisma.SortOrder
   attempts?: Prisma.SortOrder
+  availableAt?: Prisma.SortOrder
   sentAt?: Prisma.SortOrder
   lastError?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -481,12 +521,14 @@ export type EmailOutboxAvgOrderByAggregateInput = {
 
 export type EmailOutboxMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  dedupeKey?: Prisma.SortOrder
   schoolId?: Prisma.SortOrder
   recipientUserId?: Prisma.SortOrder
   toAddress?: Prisma.SortOrder
   templateKey?: Prisma.SortOrder
   status?: Prisma.SortOrder
   attempts?: Prisma.SortOrder
+  availableAt?: Prisma.SortOrder
   sentAt?: Prisma.SortOrder
   lastError?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -495,12 +537,14 @@ export type EmailOutboxMaxOrderByAggregateInput = {
 
 export type EmailOutboxMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  dedupeKey?: Prisma.SortOrder
   schoolId?: Prisma.SortOrder
   recipientUserId?: Prisma.SortOrder
   toAddress?: Prisma.SortOrder
   templateKey?: Prisma.SortOrder
   status?: Prisma.SortOrder
   attempts?: Prisma.SortOrder
+  availableAt?: Prisma.SortOrder
   sentAt?: Prisma.SortOrder
   lastError?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -601,11 +645,13 @@ export type EnumEmailOutboxStatusFieldUpdateOperationsInput = {
 
 export type EmailOutboxCreateWithoutRecipientUserInput = {
   id?: string
+  dedupeKey?: string | null
   toAddress: string
   templateKey: string
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: $Enums.EmailOutboxStatus
   attempts?: number
+  availableAt?: Date | string
   sentAt?: Date | string | null
   lastError?: string | null
   createdAt?: Date | string
@@ -615,12 +661,14 @@ export type EmailOutboxCreateWithoutRecipientUserInput = {
 
 export type EmailOutboxUncheckedCreateWithoutRecipientUserInput = {
   id?: string
+  dedupeKey?: string | null
   schoolId?: string | null
   toAddress: string
   templateKey: string
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: $Enums.EmailOutboxStatus
   attempts?: number
+  availableAt?: Date | string
   sentAt?: Date | string | null
   lastError?: string | null
   createdAt?: Date | string
@@ -658,6 +706,7 @@ export type EmailOutboxScalarWhereInput = {
   OR?: Prisma.EmailOutboxScalarWhereInput[]
   NOT?: Prisma.EmailOutboxScalarWhereInput | Prisma.EmailOutboxScalarWhereInput[]
   id?: Prisma.UuidFilter<"EmailOutbox"> | string
+  dedupeKey?: Prisma.StringNullableFilter<"EmailOutbox"> | string | null
   schoolId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   recipientUserId?: Prisma.UuidNullableFilter<"EmailOutbox"> | string | null
   toAddress?: Prisma.StringFilter<"EmailOutbox"> | string
@@ -665,6 +714,7 @@ export type EmailOutboxScalarWhereInput = {
   payloadJson?: Prisma.JsonFilter<"EmailOutbox">
   status?: Prisma.EnumEmailOutboxStatusFilter<"EmailOutbox"> | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFilter<"EmailOutbox"> | number
+  availableAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
   sentAt?: Prisma.DateTimeNullableFilter<"EmailOutbox"> | Date | string | null
   lastError?: Prisma.StringNullableFilter<"EmailOutbox"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EmailOutbox"> | Date | string
@@ -673,11 +723,13 @@ export type EmailOutboxScalarWhereInput = {
 
 export type EmailOutboxCreateWithoutSchoolInput = {
   id?: string
+  dedupeKey?: string | null
   toAddress: string
   templateKey: string
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: $Enums.EmailOutboxStatus
   attempts?: number
+  availableAt?: Date | string
   sentAt?: Date | string | null
   lastError?: string | null
   createdAt?: Date | string
@@ -687,12 +739,14 @@ export type EmailOutboxCreateWithoutSchoolInput = {
 
 export type EmailOutboxUncheckedCreateWithoutSchoolInput = {
   id?: string
+  dedupeKey?: string | null
   recipientUserId?: string | null
   toAddress: string
   templateKey: string
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: $Enums.EmailOutboxStatus
   attempts?: number
+  availableAt?: Date | string
   sentAt?: Date | string | null
   lastError?: string | null
   createdAt?: Date | string
@@ -727,12 +781,14 @@ export type EmailOutboxUpdateManyWithWhereWithoutSchoolInput = {
 
 export type EmailOutboxCreateManyRecipientUserInput = {
   id?: string
+  dedupeKey?: string | null
   schoolId?: string | null
   toAddress: string
   templateKey: string
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: $Enums.EmailOutboxStatus
   attempts?: number
+  availableAt?: Date | string
   sentAt?: Date | string | null
   lastError?: string | null
   createdAt?: Date | string
@@ -741,11 +797,13 @@ export type EmailOutboxCreateManyRecipientUserInput = {
 
 export type EmailOutboxUpdateWithoutRecipientUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -755,12 +813,14 @@ export type EmailOutboxUpdateWithoutRecipientUserInput = {
 
 export type EmailOutboxUncheckedUpdateWithoutRecipientUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schoolId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -769,12 +829,14 @@ export type EmailOutboxUncheckedUpdateWithoutRecipientUserInput = {
 
 export type EmailOutboxUncheckedUpdateManyWithoutRecipientUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schoolId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -783,12 +845,14 @@ export type EmailOutboxUncheckedUpdateManyWithoutRecipientUserInput = {
 
 export type EmailOutboxCreateManySchoolInput = {
   id?: string
+  dedupeKey?: string | null
   recipientUserId?: string | null
   toAddress: string
   templateKey: string
   payloadJson: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: $Enums.EmailOutboxStatus
   attempts?: number
+  availableAt?: Date | string
   sentAt?: Date | string | null
   lastError?: string | null
   createdAt?: Date | string
@@ -797,11 +861,13 @@ export type EmailOutboxCreateManySchoolInput = {
 
 export type EmailOutboxUpdateWithoutSchoolInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -811,12 +877,14 @@ export type EmailOutboxUpdateWithoutSchoolInput = {
 
 export type EmailOutboxUncheckedUpdateWithoutSchoolInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -825,12 +893,14 @@ export type EmailOutboxUncheckedUpdateWithoutSchoolInput = {
 
 export type EmailOutboxUncheckedUpdateManyWithoutSchoolInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  dedupeKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toAddress?: Prisma.StringFieldUpdateOperationsInput | string
   templateKey?: Prisma.StringFieldUpdateOperationsInput | string
   payloadJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.EnumEmailOutboxStatusFieldUpdateOperationsInput | $Enums.EmailOutboxStatus
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -841,6 +911,7 @@ export type EmailOutboxUncheckedUpdateManyWithoutSchoolInput = {
 
 export type EmailOutboxSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  dedupeKey?: boolean
   schoolId?: boolean
   recipientUserId?: boolean
   toAddress?: boolean
@@ -848,6 +919,7 @@ export type EmailOutboxSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   payloadJson?: boolean
   status?: boolean
   attempts?: boolean
+  availableAt?: boolean
   sentAt?: boolean
   lastError?: boolean
   createdAt?: boolean
@@ -858,6 +930,7 @@ export type EmailOutboxSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type EmailOutboxSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  dedupeKey?: boolean
   schoolId?: boolean
   recipientUserId?: boolean
   toAddress?: boolean
@@ -865,6 +938,7 @@ export type EmailOutboxSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   payloadJson?: boolean
   status?: boolean
   attempts?: boolean
+  availableAt?: boolean
   sentAt?: boolean
   lastError?: boolean
   createdAt?: boolean
@@ -875,6 +949,7 @@ export type EmailOutboxSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type EmailOutboxSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  dedupeKey?: boolean
   schoolId?: boolean
   recipientUserId?: boolean
   toAddress?: boolean
@@ -882,6 +957,7 @@ export type EmailOutboxSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   payloadJson?: boolean
   status?: boolean
   attempts?: boolean
+  availableAt?: boolean
   sentAt?: boolean
   lastError?: boolean
   createdAt?: boolean
@@ -892,6 +968,7 @@ export type EmailOutboxSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type EmailOutboxSelectScalar = {
   id?: boolean
+  dedupeKey?: boolean
   schoolId?: boolean
   recipientUserId?: boolean
   toAddress?: boolean
@@ -899,13 +976,14 @@ export type EmailOutboxSelectScalar = {
   payloadJson?: boolean
   status?: boolean
   attempts?: boolean
+  availableAt?: boolean
   sentAt?: boolean
   lastError?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type EmailOutboxOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "schoolId" | "recipientUserId" | "toAddress" | "templateKey" | "payloadJson" | "status" | "attempts" | "sentAt" | "lastError" | "createdAt" | "updatedAt", ExtArgs["result"]["emailOutbox"]>
+export type EmailOutboxOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dedupeKey" | "schoolId" | "recipientUserId" | "toAddress" | "templateKey" | "payloadJson" | "status" | "attempts" | "availableAt" | "sentAt" | "lastError" | "createdAt" | "updatedAt", ExtArgs["result"]["emailOutbox"]>
 export type EmailOutboxInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   school?: boolean | Prisma.EmailOutbox$schoolArgs<ExtArgs>
   recipientUser?: boolean | Prisma.EmailOutbox$recipientUserArgs<ExtArgs>
@@ -927,6 +1005,7 @@ export type $EmailOutboxPayload<ExtArgs extends runtime.Types.Extensions.Interna
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    dedupeKey: string | null
     schoolId: string | null
     recipientUserId: string | null
     toAddress: string
@@ -934,6 +1013,7 @@ export type $EmailOutboxPayload<ExtArgs extends runtime.Types.Extensions.Interna
     payloadJson: runtime.JsonValue
     status: $Enums.EmailOutboxStatus
     attempts: number
+    availableAt: Date
     sentAt: Date | null
     lastError: string | null
     createdAt: Date
@@ -1364,6 +1444,7 @@ export interface Prisma__EmailOutboxClient<T, Null = never, ExtArgs extends runt
  */
 export interface EmailOutboxFieldRefs {
   readonly id: Prisma.FieldRef<"EmailOutbox", 'String'>
+  readonly dedupeKey: Prisma.FieldRef<"EmailOutbox", 'String'>
   readonly schoolId: Prisma.FieldRef<"EmailOutbox", 'String'>
   readonly recipientUserId: Prisma.FieldRef<"EmailOutbox", 'String'>
   readonly toAddress: Prisma.FieldRef<"EmailOutbox", 'String'>
@@ -1371,6 +1452,7 @@ export interface EmailOutboxFieldRefs {
   readonly payloadJson: Prisma.FieldRef<"EmailOutbox", 'Json'>
   readonly status: Prisma.FieldRef<"EmailOutbox", 'EmailOutboxStatus'>
   readonly attempts: Prisma.FieldRef<"EmailOutbox", 'Int'>
+  readonly availableAt: Prisma.FieldRef<"EmailOutbox", 'DateTime'>
   readonly sentAt: Prisma.FieldRef<"EmailOutbox", 'DateTime'>
   readonly lastError: Prisma.FieldRef<"EmailOutbox", 'String'>
   readonly createdAt: Prisma.FieldRef<"EmailOutbox", 'DateTime'>

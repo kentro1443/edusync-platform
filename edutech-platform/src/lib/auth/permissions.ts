@@ -146,6 +146,7 @@ const commonSchoolPermissions = [
   p.messageConversationCreate,
   p.messageConversationRead,
   p.messageSend,
+  p.messageAttachmentCreate,
   p.messageDeleteOwn,
   p.commentCreate,
   p.notificationReadOwn,

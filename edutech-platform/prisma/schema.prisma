@@ -363,6 +363,14 @@ model User {
   workflowStepsAssigned       WorkflowSubmissionStep[]    @relation("WorkflowStepAssignee")
   workflowDelegationsCreated  WorkflowDelegation[]        @relation("WorkflowDelegatedBy")
   workflowDelegationsReceived WorkflowDelegation[]        @relation("WorkflowDelegatedTo")
+  conversationsCreated        Conversation[]              @relation("ConversationCreator")
+  conversationParticipants    ConversationParticipant[]
+  messagesSent                Message[]                   @relation("MessageSender")
+  messageMentions             MessageMention[]
+  notifications               Notification[]
+  notificationPreferences     NotificationPreference[]
+  activityFeedEvents          ActivityFeedProjection[]    @relation("ActivityFeedUser")
+  activityFeedActions         ActivityFeedProjection[]    @relation("ActivityFeedActor")
   clubsCreated                Club[]                      @relation("ClubCreator")
   clubApplications            ClubApplication[]           @relation("ClubApplicant")
   clubApplicationsReviewed    ClubApplication[]           @relation("ClubApplicationReviewer")
@@ -460,6 +468,11 @@ model School {
   workflowTemplates       WorkflowTemplate[]
   workflowComments        WorkflowSubmissionComment[]
   workflowDelegations     WorkflowDelegation[]
+  conversations           Conversation[]
+  messages                Message[]
+  notifications           Notification[]
+  notificationPreferences NotificationPreference[]
+  activityFeed            ActivityFeedProjection[]
   clubs                   Club[]
   clubApplications        ClubApplication[]
   clubMemberships         ClubMembership[]
@@ -906,6 +919,7 @@ model DomainOutboxEvent {
   eventType     String
   aggregateType String
   aggregateId   String
+  dedupeKey     String?      @unique
   payloadJson   Json
   status        OutboxStatus @default(PENDING)
   attempts      Int          @default(0)
@@ -921,6 +935,7 @@ model DomainOutboxEvent {
 
 model EmailOutbox {
   id              String            @id @default(uuid()) @db.Uuid
+  dedupeKey       String?           @unique
   schoolId        String?           @db.Uuid
   recipientUserId String?           @db.Uuid
   toAddress       String
@@ -928,6 +943,7 @@ model EmailOutbox {
   payloadJson     Json
   status          EmailOutboxStatus @default(PENDING)
   attempts        Int               @default(0)
+  availableAt     DateTime          @default(now()) @db.Timestamptz(6)
   sentAt          DateTime?         @db.Timestamptz(6)
   lastError       String?
   createdAt       DateTime          @default(now()) @db.Timestamptz(6)
@@ -937,6 +953,7 @@ model EmailOutbox {
   recipientUser User?   @relation("EmailRecipient", fields: [recipientUserId], references: [id], onDelete: SetNull)
 
   @@index([status, createdAt])
+  @@index([status, availableAt])
   @@index([schoolId, status])
 }
 
@@ -1921,4 +1938,124 @@ model ClubPostEventReport {
 
   event       ClubEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
   submittedBy User      @relation(fields: [submittedById], references: [id], onDelete: Restrict)
+}
+
+model Conversation {
+  id              String   @id @default(uuid()) @db.Uuid
+  schoolId        String   @db.Uuid
+  createdByUserId String   @db.Uuid
+  title           String?
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime @updatedAt @db.Timestamptz(6)
+
+  school       School                    @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy    User                      @relation("ConversationCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  participants ConversationParticipant[]
+  messages     Message[]
+
+  @@unique([id, schoolId])
+  @@index([schoolId, updatedAt])
+}
+
+model ConversationParticipant {
+  id             String    @id @default(uuid()) @db.Uuid
+  conversationId String    @db.Uuid
+  userId         String    @db.Uuid
+  joinedAt       DateTime  @default(now()) @db.Timestamptz(6)
+  lastReadAt     DateTime? @db.Timestamptz(6)
+  mutedAt        DateTime? @db.Timestamptz(6)
+
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Restrict)
+
+  @@unique([conversationId, userId])
+  @@index([userId, lastReadAt])
+}
+
+model Message {
+  id             String    @id @default(uuid()) @db.Uuid
+  schoolId       String    @db.Uuid
+  conversationId String    @db.Uuid
+  senderUserId   String    @db.Uuid
+  body           String
+  editedAt       DateTime? @db.Timestamptz(6)
+  deletedAt      DateTime? @db.Timestamptz(6)
+  createdAt      DateTime  @default(now()) @db.Timestamptz(6)
+
+  school       School           @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  conversation Conversation     @relation(fields: [conversationId, schoolId], references: [id, schoolId], onDelete: Cascade)
+  sender       User             @relation("MessageSender", fields: [senderUserId], references: [id], onDelete: Restrict)
+  mentions     MessageMention[]
+
+  @@index([schoolId, conversationId, createdAt])
+  @@index([senderUserId, createdAt])
+}
+
+model MessageMention {
+  id        String   @id @default(uuid()) @db.Uuid
+  messageId String   @db.Uuid
+  userId    String   @db.Uuid
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  message Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId])
+  @@index([userId, createdAt])
+}
+
+model Notification {
+  id        String    @id @default(uuid()) @db.Uuid
+  schoolId  String    @db.Uuid
+  userId    String    @db.Uuid
+  type      String
+  title     String
+  body      String?
+  href      String?
+  dedupeKey String    @unique
+  readAt    DateTime? @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @db.Timestamptz(6)
+
+  school School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([schoolId, userId, readAt, createdAt])
+}
+
+model NotificationPreference {
+  id              String   @id @default(uuid()) @db.Uuid
+  schoolId        String   @db.Uuid
+  userId          String   @db.Uuid
+  inAppEnabled    Boolean  @default(true)
+  emailEnabled    Boolean  @default(true)
+  messagesEnabled Boolean  @default(true)
+  mentionsEnabled Boolean  @default(true)
+  updatedAt       DateTime @updatedAt @db.Timestamptz(6)
+
+  school School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([schoolId, userId])
+  @@index([userId])
+}
+
+model ActivityFeedProjection {
+  id          String   @id @default(uuid()) @db.Uuid
+  schoolId    String   @db.Uuid
+  userId      String?  @db.Uuid
+  actorUserId String?  @db.Uuid
+  eventType   String
+  objectType  String
+  objectId    String
+  summary     String
+  href        String?
+  dedupeKey   String   @unique
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+
+  school School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  user   User?  @relation("ActivityFeedUser", fields: [userId], references: [id], onDelete: Cascade)
+  actor  User?  @relation("ActivityFeedActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([schoolId, userId, createdAt])
+  @@index([schoolId, eventType, createdAt])
 }

@@ -304,6 +304,14 @@ export type UserWhereInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepListRelationFilter
   workflowDelegationsCreated?: Prisma.WorkflowDelegationListRelationFilter
   workflowDelegationsReceived?: Prisma.WorkflowDelegationListRelationFilter
+  conversationsCreated?: Prisma.ConversationListRelationFilter
+  conversationParticipants?: Prisma.ConversationParticipantListRelationFilter
+  messagesSent?: Prisma.MessageListRelationFilter
+  messageMentions?: Prisma.MessageMentionListRelationFilter
+  notifications?: Prisma.NotificationListRelationFilter
+  notificationPreferences?: Prisma.NotificationPreferenceListRelationFilter
+  activityFeedEvents?: Prisma.ActivityFeedProjectionListRelationFilter
+  activityFeedActions?: Prisma.ActivityFeedProjectionListRelationFilter
   clubsCreated?: Prisma.ClubListRelationFilter
   clubApplications?: Prisma.ClubApplicationListRelationFilter
   clubApplicationsReviewed?: Prisma.ClubApplicationListRelationFilter
@@ -392,6 +400,14 @@ export type UserOrderByWithRelationInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepOrderByRelationAggregateInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationOrderByRelationAggregateInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationOrderByRelationAggregateInput
+  conversationsCreated?: Prisma.ConversationOrderByRelationAggregateInput
+  conversationParticipants?: Prisma.ConversationParticipantOrderByRelationAggregateInput
+  messagesSent?: Prisma.MessageOrderByRelationAggregateInput
+  messageMentions?: Prisma.MessageMentionOrderByRelationAggregateInput
+  notifications?: Prisma.NotificationOrderByRelationAggregateInput
+  notificationPreferences?: Prisma.NotificationPreferenceOrderByRelationAggregateInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionOrderByRelationAggregateInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionOrderByRelationAggregateInput
   clubsCreated?: Prisma.ClubOrderByRelationAggregateInput
   clubApplications?: Prisma.ClubApplicationOrderByRelationAggregateInput
   clubApplicationsReviewed?: Prisma.ClubApplicationOrderByRelationAggregateInput
@@ -483,6 +499,14 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepListRelationFilter
   workflowDelegationsCreated?: Prisma.WorkflowDelegationListRelationFilter
   workflowDelegationsReceived?: Prisma.WorkflowDelegationListRelationFilter
+  conversationsCreated?: Prisma.ConversationListRelationFilter
+  conversationParticipants?: Prisma.ConversationParticipantListRelationFilter
+  messagesSent?: Prisma.MessageListRelationFilter
+  messageMentions?: Prisma.MessageMentionListRelationFilter
+  notifications?: Prisma.NotificationListRelationFilter
+  notificationPreferences?: Prisma.NotificationPreferenceListRelationFilter
+  activityFeedEvents?: Prisma.ActivityFeedProjectionListRelationFilter
+  activityFeedActions?: Prisma.ActivityFeedProjectionListRelationFilter
   clubsCreated?: Prisma.ClubListRelationFilter
   clubApplications?: Prisma.ClubApplicationListRelationFilter
   clubApplicationsReviewed?: Prisma.ClubApplicationListRelationFilter
@@ -609,6 +633,14 @@ export type UserCreateInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -697,6 +729,14 @@ export type UserUncheckedCreateInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -785,6 +825,14 @@ export type UserUpdateInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -873,6 +921,14 @@ export type UserUncheckedUpdateInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -2053,6 +2109,122 @@ export type UserUpdateOneRequiredWithoutClubPostEventReportsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutClubPostEventReportsInput, Prisma.UserUpdateWithoutClubPostEventReportsInput>, Prisma.UserUncheckedUpdateWithoutClubPostEventReportsInput>
 }
 
+export type UserCreateNestedOneWithoutConversationsCreatedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConversationsCreatedInput, Prisma.UserUncheckedCreateWithoutConversationsCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConversationsCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutConversationsCreatedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConversationsCreatedInput, Prisma.UserUncheckedCreateWithoutConversationsCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConversationsCreatedInput
+  upsert?: Prisma.UserUpsertWithoutConversationsCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutConversationsCreatedInput, Prisma.UserUpdateWithoutConversationsCreatedInput>, Prisma.UserUncheckedUpdateWithoutConversationsCreatedInput>
+}
+
+export type UserCreateNestedOneWithoutConversationParticipantsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConversationParticipantsInput, Prisma.UserUncheckedCreateWithoutConversationParticipantsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConversationParticipantsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutConversationParticipantsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConversationParticipantsInput, Prisma.UserUncheckedCreateWithoutConversationParticipantsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConversationParticipantsInput
+  upsert?: Prisma.UserUpsertWithoutConversationParticipantsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutConversationParticipantsInput, Prisma.UserUpdateWithoutConversationParticipantsInput>, Prisma.UserUncheckedUpdateWithoutConversationParticipantsInput>
+}
+
+export type UserCreateNestedOneWithoutMessagesSentInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessagesSentInput, Prisma.UserUncheckedCreateWithoutMessagesSentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessagesSentInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutMessagesSentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessagesSentInput, Prisma.UserUncheckedCreateWithoutMessagesSentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessagesSentInput
+  upsert?: Prisma.UserUpsertWithoutMessagesSentInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMessagesSentInput, Prisma.UserUpdateWithoutMessagesSentInput>, Prisma.UserUncheckedUpdateWithoutMessagesSentInput>
+}
+
+export type UserCreateNestedOneWithoutMessageMentionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessageMentionsInput, Prisma.UserUncheckedCreateWithoutMessageMentionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessageMentionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutMessageMentionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessageMentionsInput, Prisma.UserUncheckedCreateWithoutMessageMentionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessageMentionsInput
+  upsert?: Prisma.UserUpsertWithoutMessageMentionsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMessageMentionsInput, Prisma.UserUpdateWithoutMessageMentionsInput>, Prisma.UserUncheckedUpdateWithoutMessageMentionsInput>
+}
+
+export type UserCreateNestedOneWithoutNotificationsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutNotificationsInput, Prisma.UserUncheckedCreateWithoutNotificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutNotificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutNotificationsInput, Prisma.UserUncheckedCreateWithoutNotificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationsInput
+  upsert?: Prisma.UserUpsertWithoutNotificationsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutNotificationsInput, Prisma.UserUpdateWithoutNotificationsInput>, Prisma.UserUncheckedUpdateWithoutNotificationsInput>
+}
+
+export type UserCreateNestedOneWithoutNotificationPreferencesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutNotificationPreferencesInput, Prisma.UserUncheckedCreateWithoutNotificationPreferencesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationPreferencesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutNotificationPreferencesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutNotificationPreferencesInput, Prisma.UserUncheckedCreateWithoutNotificationPreferencesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationPreferencesInput
+  upsert?: Prisma.UserUpsertWithoutNotificationPreferencesInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutNotificationPreferencesInput, Prisma.UserUpdateWithoutNotificationPreferencesInput>, Prisma.UserUncheckedUpdateWithoutNotificationPreferencesInput>
+}
+
+export type UserCreateNestedOneWithoutActivityFeedEventsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutActivityFeedEventsInput, Prisma.UserUncheckedCreateWithoutActivityFeedEventsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutActivityFeedEventsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutActivityFeedActionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutActivityFeedActionsInput, Prisma.UserUncheckedCreateWithoutActivityFeedActionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutActivityFeedActionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutActivityFeedEventsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutActivityFeedEventsInput, Prisma.UserUncheckedCreateWithoutActivityFeedEventsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutActivityFeedEventsInput
+  upsert?: Prisma.UserUpsertWithoutActivityFeedEventsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutActivityFeedEventsInput, Prisma.UserUpdateWithoutActivityFeedEventsInput>, Prisma.UserUncheckedUpdateWithoutActivityFeedEventsInput>
+}
+
+export type UserUpdateOneWithoutActivityFeedActionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutActivityFeedActionsInput, Prisma.UserUncheckedCreateWithoutActivityFeedActionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutActivityFeedActionsInput
+  upsert?: Prisma.UserUpsertWithoutActivityFeedActionsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutActivityFeedActionsInput, Prisma.UserUpdateWithoutActivityFeedActionsInput>, Prisma.UserUncheckedUpdateWithoutActivityFeedActionsInput>
+}
+
 export type UserCreateWithoutPlatformRoleAssignmentsInput = {
   id?: string
   email: string
@@ -2124,6 +2296,14 @@ export type UserCreateWithoutPlatformRoleAssignmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -2211,6 +2391,14 @@ export type UserUncheckedCreateWithoutPlatformRoleAssignmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -2303,6 +2491,14 @@ export type UserCreateWithoutPlatformRolesAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -2390,6 +2586,14 @@ export type UserUncheckedCreateWithoutPlatformRolesAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -2493,6 +2697,14 @@ export type UserUpdateWithoutPlatformRoleAssignmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -2580,6 +2792,14 @@ export type UserUncheckedUpdateWithoutPlatformRoleAssignmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -2678,6 +2898,14 @@ export type UserUpdateWithoutPlatformRolesAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -2765,6 +2993,14 @@ export type UserUncheckedUpdateWithoutPlatformRolesAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -2852,6 +3088,14 @@ export type UserCreateWithoutMembershipsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -2939,6 +3183,14 @@ export type UserUncheckedCreateWithoutMembershipsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -3042,6 +3294,14 @@ export type UserUpdateWithoutMembershipsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -3129,6 +3389,14 @@ export type UserUncheckedUpdateWithoutMembershipsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -3216,6 +3484,14 @@ export type UserCreateWithoutSchoolRolesAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -3303,6 +3579,14 @@ export type UserUncheckedCreateWithoutSchoolRolesAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -3406,6 +3690,14 @@ export type UserUpdateWithoutSchoolRolesAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -3493,6 +3785,14 @@ export type UserUncheckedUpdateWithoutSchoolRolesAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -3580,6 +3880,14 @@ export type UserCreateWithoutParentLinksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -3667,6 +3975,14 @@ export type UserUncheckedCreateWithoutParentLinksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -3759,6 +4075,14 @@ export type UserCreateWithoutStudentLinksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -3846,6 +4170,14 @@ export type UserUncheckedCreateWithoutStudentLinksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -3949,6 +4281,14 @@ export type UserUpdateWithoutParentLinksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -4036,6 +4376,14 @@ export type UserUncheckedUpdateWithoutParentLinksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -4134,6 +4482,14 @@ export type UserUpdateWithoutStudentLinksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -4221,6 +4577,14 @@ export type UserUncheckedUpdateWithoutStudentLinksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -4308,6 +4672,14 @@ export type UserCreateWithoutInvitationsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -4395,6 +4767,14 @@ export type UserUncheckedCreateWithoutInvitationsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -4498,6 +4878,14 @@ export type UserUpdateWithoutInvitationsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -4585,6 +4973,14 @@ export type UserUncheckedUpdateWithoutInvitationsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -4672,6 +5068,14 @@ export type UserCreateWithoutSessionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -4759,6 +5163,14 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -4862,6 +5274,14 @@ export type UserUpdateWithoutSessionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -4949,6 +5369,14 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -5036,6 +5464,14 @@ export type UserCreateWithoutPasswordResetTokensInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -5123,6 +5559,14 @@ export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -5226,6 +5670,14 @@ export type UserUpdateWithoutPasswordResetTokensInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -5313,6 +5765,14 @@ export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -5400,6 +5860,14 @@ export type UserCreateWithoutFilesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -5487,6 +5955,14 @@ export type UserUncheckedCreateWithoutFilesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -5590,6 +6066,14 @@ export type UserUpdateWithoutFilesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -5677,6 +6161,14 @@ export type UserUncheckedUpdateWithoutFilesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -5764,6 +6256,14 @@ export type UserCreateWithoutFileVersionsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -5851,6 +6351,14 @@ export type UserUncheckedCreateWithoutFileVersionsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -5954,6 +6462,14 @@ export type UserUpdateWithoutFileVersionsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -6041,6 +6557,14 @@ export type UserUncheckedUpdateWithoutFileVersionsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -6128,6 +6652,14 @@ export type UserCreateWithoutFileLinksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -6215,6 +6747,14 @@ export type UserUncheckedCreateWithoutFileLinksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -6318,6 +6858,14 @@ export type UserUpdateWithoutFileLinksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -6405,6 +6953,14 @@ export type UserUncheckedUpdateWithoutFileLinksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -6492,6 +7048,14 @@ export type UserCreateWithoutResourcesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -6579,6 +7143,14 @@ export type UserUncheckedCreateWithoutResourcesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -6682,6 +7254,14 @@ export type UserUpdateWithoutResourcesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -6769,6 +7349,14 @@ export type UserUncheckedUpdateWithoutResourcesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -6856,6 +7444,14 @@ export type UserCreateWithoutResourceVersionsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -6943,6 +7539,14 @@ export type UserUncheckedCreateWithoutResourceVersionsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -7046,6 +7650,14 @@ export type UserUpdateWithoutResourceVersionsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -7133,6 +7745,14 @@ export type UserUncheckedUpdateWithoutResourceVersionsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -7220,6 +7840,14 @@ export type UserCreateWithoutCategoriesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -7307,6 +7935,14 @@ export type UserUncheckedCreateWithoutCategoriesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -7410,6 +8046,14 @@ export type UserUpdateWithoutCategoriesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -7497,6 +8141,14 @@ export type UserUncheckedUpdateWithoutCategoriesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -7584,6 +8236,14 @@ export type UserCreateWithoutTagsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -7671,6 +8331,14 @@ export type UserUncheckedCreateWithoutTagsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -7774,6 +8442,14 @@ export type UserUpdateWithoutTagsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -7861,6 +8537,14 @@ export type UserUncheckedUpdateWithoutTagsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -7948,6 +8632,14 @@ export type UserCreateWithoutResourceTransitionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -8035,6 +8727,14 @@ export type UserUncheckedCreateWithoutResourceTransitionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -8138,6 +8838,14 @@ export type UserUpdateWithoutResourceTransitionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -8225,6 +8933,14 @@ export type UserUncheckedUpdateWithoutResourceTransitionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -8312,6 +9028,14 @@ export type UserCreateWithoutResourceCommentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -8399,6 +9123,14 @@ export type UserUncheckedCreateWithoutResourceCommentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -8502,6 +9234,14 @@ export type UserUpdateWithoutResourceCommentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -8589,6 +9329,14 @@ export type UserUncheckedUpdateWithoutResourceCommentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -8676,6 +9424,14 @@ export type UserCreateWithoutResourceReportsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -8763,6 +9519,14 @@ export type UserUncheckedCreateWithoutResourceReportsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -8866,6 +9630,14 @@ export type UserUpdateWithoutResourceReportsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -8953,6 +9725,14 @@ export type UserUncheckedUpdateWithoutResourceReportsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -9040,6 +9820,14 @@ export type UserCreateWithoutResourceBookmarksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -9127,6 +9915,14 @@ export type UserUncheckedCreateWithoutResourceBookmarksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -9230,6 +10026,14 @@ export type UserUpdateWithoutResourceBookmarksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -9317,6 +10121,14 @@ export type UserUncheckedUpdateWithoutResourceBookmarksInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -9404,6 +10216,14 @@ export type UserCreateWithoutResourceCollectionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -9491,6 +10311,14 @@ export type UserUncheckedCreateWithoutResourceCollectionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -9594,6 +10422,14 @@ export type UserUpdateWithoutResourceCollectionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -9681,6 +10517,14 @@ export type UserUncheckedUpdateWithoutResourceCollectionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -9768,6 +10612,14 @@ export type UserCreateWithoutResourceAnalyticsEventsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -9855,6 +10707,14 @@ export type UserUncheckedCreateWithoutResourceAnalyticsEventsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -9958,6 +10818,14 @@ export type UserUpdateWithoutResourceAnalyticsEventsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -10045,6 +10913,14 @@ export type UserUncheckedUpdateWithoutResourceAnalyticsEventsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -10132,6 +11008,14 @@ export type UserCreateWithoutAuditEventsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -10219,6 +11103,14 @@ export type UserUncheckedCreateWithoutAuditEventsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -10322,6 +11214,14 @@ export type UserUpdateWithoutAuditEventsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -10409,6 +11309,14 @@ export type UserUncheckedUpdateWithoutAuditEventsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -10496,6 +11404,14 @@ export type UserCreateWithoutEmailOutboxItemsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -10583,6 +11499,14 @@ export type UserUncheckedCreateWithoutEmailOutboxItemsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -10686,6 +11610,14 @@ export type UserUpdateWithoutEmailOutboxItemsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -10773,6 +11705,14 @@ export type UserUncheckedUpdateWithoutEmailOutboxItemsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -10860,6 +11800,14 @@ export type UserCreateWithoutMentorProfilesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -10947,6 +11895,14 @@ export type UserUncheckedCreateWithoutMentorProfilesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -11039,6 +11995,14 @@ export type UserCreateWithoutMentorProfilesVerifiedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -11126,6 +12090,14 @@ export type UserUncheckedCreateWithoutMentorProfilesVerifiedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -11229,6 +12201,14 @@ export type UserUpdateWithoutMentorProfilesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -11316,6 +12296,14 @@ export type UserUncheckedUpdateWithoutMentorProfilesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -11414,6 +12402,14 @@ export type UserUpdateWithoutMentorProfilesVerifiedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -11501,6 +12497,14 @@ export type UserUncheckedUpdateWithoutMentorProfilesVerifiedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -11588,6 +12592,14 @@ export type UserCreateWithoutMentorAssignmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -11675,6 +12687,14 @@ export type UserUncheckedCreateWithoutMentorAssignmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -11767,6 +12787,14 @@ export type UserCreateWithoutMentorAssignmentsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -11854,6 +12882,14 @@ export type UserUncheckedCreateWithoutMentorAssignmentsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -11957,6 +12993,14 @@ export type UserUpdateWithoutMentorAssignmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -12044,6 +13088,14 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -12142,6 +13194,14 @@ export type UserUpdateWithoutMentorAssignmentsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -12229,6 +13289,14 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -12316,6 +13384,14 @@ export type UserCreateWithoutAppointmentsOrganizedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -12403,6 +13479,14 @@ export type UserUncheckedCreateWithoutAppointmentsOrganizedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -12495,6 +13579,14 @@ export type UserCreateWithoutStudentAppointmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -12582,6 +13674,14 @@ export type UserUncheckedCreateWithoutStudentAppointmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -12674,6 +13774,14 @@ export type UserCreateWithoutMentorAppointmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -12761,6 +13869,14 @@ export type UserUncheckedCreateWithoutMentorAppointmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -12864,6 +13980,14 @@ export type UserUpdateWithoutAppointmentsOrganizedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -12951,6 +14075,14 @@ export type UserUncheckedUpdateWithoutAppointmentsOrganizedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -13049,6 +14181,14 @@ export type UserUpdateWithoutStudentAppointmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -13136,6 +14276,14 @@ export type UserUncheckedUpdateWithoutStudentAppointmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -13234,6 +14382,14 @@ export type UserUpdateWithoutMentorAppointmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -13321,6 +14477,14 @@ export type UserUncheckedUpdateWithoutMentorAppointmentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -13408,6 +14572,14 @@ export type UserCreateWithoutAppointmentTransitionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -13495,6 +14667,14 @@ export type UserUncheckedCreateWithoutAppointmentTransitionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -13598,6 +14778,14 @@ export type UserUpdateWithoutAppointmentTransitionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -13685,6 +14873,14 @@ export type UserUncheckedUpdateWithoutAppointmentTransitionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -13772,6 +14968,14 @@ export type UserCreateWithoutAppointmentWaitlistInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -13859,6 +15063,14 @@ export type UserUncheckedCreateWithoutAppointmentWaitlistInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -13962,6 +15174,14 @@ export type UserUpdateWithoutAppointmentWaitlistInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -14049,6 +15269,14 @@ export type UserUncheckedUpdateWithoutAppointmentWaitlistInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -14136,6 +15364,14 @@ export type UserCreateWithoutAttendanceRecordsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -14223,6 +15459,14 @@ export type UserUncheckedCreateWithoutAttendanceRecordsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -14315,6 +15559,14 @@ export type UserCreateWithoutAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -14402,6 +15654,14 @@ export type UserUncheckedCreateWithoutAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -14505,6 +15765,14 @@ export type UserUpdateWithoutAttendanceRecordsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -14592,6 +15860,14 @@ export type UserUncheckedUpdateWithoutAttendanceRecordsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -14690,6 +15966,14 @@ export type UserUpdateWithoutAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -14777,6 +16061,14 @@ export type UserUncheckedUpdateWithoutAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -14864,6 +16156,14 @@ export type UserCreateWithoutMentoringCasesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -14951,6 +16251,14 @@ export type UserUncheckedCreateWithoutMentoringCasesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -15043,6 +16351,14 @@ export type UserCreateWithoutMentoringCasesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -15130,6 +16446,14 @@ export type UserUncheckedCreateWithoutMentoringCasesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -15233,6 +16557,14 @@ export type UserUpdateWithoutMentoringCasesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -15320,6 +16652,14 @@ export type UserUncheckedUpdateWithoutMentoringCasesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -15418,6 +16758,14 @@ export type UserUpdateWithoutMentoringCasesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -15505,6 +16853,14 @@ export type UserUncheckedUpdateWithoutMentoringCasesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -15592,6 +16948,14 @@ export type UserCreateWithoutMentoringGoalsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -15679,6 +17043,14 @@ export type UserUncheckedCreateWithoutMentoringGoalsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -15782,6 +17154,14 @@ export type UserUpdateWithoutMentoringGoalsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -15869,6 +17249,14 @@ export type UserUncheckedUpdateWithoutMentoringGoalsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -15956,6 +17344,14 @@ export type UserCreateWithoutSessionOutcomesCompletedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -16043,6 +17439,14 @@ export type UserUncheckedCreateWithoutSessionOutcomesCompletedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -16146,6 +17550,14 @@ export type UserUpdateWithoutSessionOutcomesCompletedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -16233,6 +17645,14 @@ export type UserUncheckedUpdateWithoutSessionOutcomesCompletedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -16320,6 +17740,14 @@ export type UserCreateWithoutMentoringTasksAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -16407,6 +17835,14 @@ export type UserUncheckedCreateWithoutMentoringTasksAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -16499,6 +17935,14 @@ export type UserCreateWithoutMentoringTasksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -16586,6 +18030,14 @@ export type UserUncheckedCreateWithoutMentoringTasksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -16689,6 +18141,14 @@ export type UserUpdateWithoutMentoringTasksAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -16776,6 +18236,14 @@ export type UserUncheckedUpdateWithoutMentoringTasksAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -16874,6 +18342,14 @@ export type UserUpdateWithoutMentoringTasksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -16961,6 +18437,14 @@ export type UserUncheckedUpdateWithoutMentoringTasksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -17048,6 +18532,14 @@ export type UserCreateWithoutMentoringReferralsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -17135,6 +18627,14 @@ export type UserUncheckedCreateWithoutMentoringReferralsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -17227,6 +18727,14 @@ export type UserCreateWithoutMentoringReferralsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -17314,6 +18822,14 @@ export type UserUncheckedCreateWithoutMentoringReferralsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -17417,6 +18933,14 @@ export type UserUpdateWithoutMentoringReferralsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -17504,6 +19028,14 @@ export type UserUncheckedUpdateWithoutMentoringReferralsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -17602,6 +19134,14 @@ export type UserUpdateWithoutMentoringReferralsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -17689,6 +19229,14 @@ export type UserUncheckedUpdateWithoutMentoringReferralsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -17776,6 +19324,14 @@ export type UserCreateWithoutMentoringNotesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -17863,6 +19419,14 @@ export type UserUncheckedCreateWithoutMentoringNotesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -17966,6 +19530,14 @@ export type UserUpdateWithoutMentoringNotesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -18053,6 +19625,14 @@ export type UserUncheckedUpdateWithoutMentoringNotesInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -18140,6 +19720,14 @@ export type UserCreateWithoutCalendarsOwnedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -18227,6 +19815,14 @@ export type UserUncheckedCreateWithoutCalendarsOwnedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -18330,6 +19926,14 @@ export type UserUpdateWithoutCalendarsOwnedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -18417,6 +20021,14 @@ export type UserUncheckedUpdateWithoutCalendarsOwnedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -18504,6 +20116,14 @@ export type UserCreateWithoutBookableResourcesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -18591,6 +20211,14 @@ export type UserUncheckedCreateWithoutBookableResourcesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -18694,6 +20322,14 @@ export type UserUpdateWithoutBookableResourcesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -18781,6 +20417,14 @@ export type UserUncheckedUpdateWithoutBookableResourcesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -18868,6 +20512,14 @@ export type UserCreateWithoutCalendarEventsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -18955,6 +20607,14 @@ export type UserUncheckedCreateWithoutCalendarEventsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -19058,6 +20718,14 @@ export type UserUpdateWithoutCalendarEventsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -19145,6 +20813,14 @@ export type UserUncheckedUpdateWithoutCalendarEventsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -19232,6 +20908,14 @@ export type UserCreateWithoutCalendarBookingsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -19319,6 +21003,14 @@ export type UserUncheckedCreateWithoutCalendarBookingsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -19422,6 +21114,14 @@ export type UserUpdateWithoutCalendarBookingsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -19509,6 +21209,14 @@ export type UserUncheckedUpdateWithoutCalendarBookingsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -19596,6 +21304,14 @@ export type UserCreateWithoutCalendarAttendanceInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -19683,6 +21399,14 @@ export type UserUncheckedCreateWithoutCalendarAttendanceInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -19775,6 +21499,14 @@ export type UserCreateWithoutCalendarAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -19862,6 +21594,14 @@ export type UserUncheckedCreateWithoutCalendarAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -19965,6 +21705,14 @@ export type UserUpdateWithoutCalendarAttendanceInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -20052,6 +21800,14 @@ export type UserUncheckedUpdateWithoutCalendarAttendanceInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -20150,6 +21906,14 @@ export type UserUpdateWithoutCalendarAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -20237,6 +22001,14 @@ export type UserUncheckedUpdateWithoutCalendarAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -20324,6 +22096,14 @@ export type UserCreateWithoutWorkflowTemplatesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -20411,6 +22191,14 @@ export type UserUncheckedCreateWithoutWorkflowTemplatesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -20514,6 +22302,14 @@ export type UserUpdateWithoutWorkflowTemplatesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -20601,6 +22397,14 @@ export type UserUncheckedUpdateWithoutWorkflowTemplatesCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -20688,6 +22492,14 @@ export type UserCreateWithoutWorkflowSubmissionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -20775,6 +22587,14 @@ export type UserUncheckedCreateWithoutWorkflowSubmissionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -20878,6 +22698,14 @@ export type UserUpdateWithoutWorkflowSubmissionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -20965,6 +22793,14 @@ export type UserUncheckedUpdateWithoutWorkflowSubmissionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -21052,6 +22888,14 @@ export type UserCreateWithoutWorkflowStepsAssignedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -21139,6 +22983,14 @@ export type UserUncheckedCreateWithoutWorkflowStepsAssignedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -21242,6 +23094,14 @@ export type UserUpdateWithoutWorkflowStepsAssignedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -21329,6 +23189,14 @@ export type UserUncheckedUpdateWithoutWorkflowStepsAssignedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -21416,6 +23284,14 @@ export type UserCreateWithoutWorkflowDelegationsCreatedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -21503,6 +23379,14 @@ export type UserUncheckedCreateWithoutWorkflowDelegationsCreatedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -21595,6 +23479,14 @@ export type UserCreateWithoutWorkflowDelegationsReceivedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -21682,6 +23574,14 @@ export type UserUncheckedCreateWithoutWorkflowDelegationsReceivedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -21785,6 +23685,14 @@ export type UserUpdateWithoutWorkflowDelegationsCreatedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -21872,6 +23780,14 @@ export type UserUncheckedUpdateWithoutWorkflowDelegationsCreatedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -21970,6 +23886,14 @@ export type UserUpdateWithoutWorkflowDelegationsReceivedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -22057,6 +23981,14 @@ export type UserUncheckedUpdateWithoutWorkflowDelegationsReceivedInput = {
   workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -22144,6 +24076,14 @@ export type UserCreateWithoutWorkflowDecisionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -22231,6 +24171,14 @@ export type UserUncheckedCreateWithoutWorkflowDecisionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -22334,6 +24282,14 @@ export type UserUpdateWithoutWorkflowDecisionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -22421,6 +24377,14 @@ export type UserUncheckedUpdateWithoutWorkflowDecisionsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -22508,6 +24472,14 @@ export type UserCreateWithoutWorkflowHistoryInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -22595,6 +24567,14 @@ export type UserUncheckedCreateWithoutWorkflowHistoryInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -22698,6 +24678,14 @@ export type UserUpdateWithoutWorkflowHistoryInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -22785,6 +24773,14 @@ export type UserUncheckedUpdateWithoutWorkflowHistoryInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -22872,6 +24868,14 @@ export type UserCreateWithoutWorkflowCommentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -22959,6 +24963,14 @@ export type UserUncheckedCreateWithoutWorkflowCommentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -23062,6 +25074,14 @@ export type UserUpdateWithoutWorkflowCommentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -23149,6 +25169,14 @@ export type UserUncheckedUpdateWithoutWorkflowCommentsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -23237,6 +25265,14 @@ export type UserCreateWithoutClubsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
@@ -23324,6 +25360,14 @@ export type UserUncheckedCreateWithoutClubsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -23427,6 +25471,14 @@ export type UserUpdateWithoutClubsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
@@ -23514,6 +25566,14 @@ export type UserUncheckedUpdateWithoutClubsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -23601,6 +25661,14 @@ export type UserCreateWithoutClubApplicationsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
@@ -23688,6 +25756,14 @@ export type UserUncheckedCreateWithoutClubApplicationsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -23780,6 +25856,14 @@ export type UserCreateWithoutClubApplicationsReviewedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
@@ -23867,6 +25951,14 @@ export type UserUncheckedCreateWithoutClubApplicationsReviewedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -23970,6 +26062,14 @@ export type UserUpdateWithoutClubApplicationsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
@@ -24057,6 +26157,14 @@ export type UserUncheckedUpdateWithoutClubApplicationsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -24155,6 +26263,14 @@ export type UserUpdateWithoutClubApplicationsReviewedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
@@ -24242,6 +26358,14 @@ export type UserUncheckedUpdateWithoutClubApplicationsReviewedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -24329,6 +26453,14 @@ export type UserCreateWithoutClubMembershipsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -24416,6 +26548,14 @@ export type UserUncheckedCreateWithoutClubMembershipsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -24519,6 +26659,14 @@ export type UserUpdateWithoutClubMembershipsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -24606,6 +26754,14 @@ export type UserUncheckedUpdateWithoutClubMembershipsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -24693,6 +26849,14 @@ export type UserCreateWithoutClubAnnouncementsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -24780,6 +26944,14 @@ export type UserUncheckedCreateWithoutClubAnnouncementsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -24883,6 +27055,14 @@ export type UserUpdateWithoutClubAnnouncementsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -24970,6 +27150,14 @@ export type UserUncheckedUpdateWithoutClubAnnouncementsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -25057,6 +27245,14 @@ export type UserCreateWithoutClubTasksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -25144,6 +27340,14 @@ export type UserUncheckedCreateWithoutClubTasksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -25236,6 +27440,14 @@ export type UserCreateWithoutClubTasksAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -25323,6 +27535,14 @@ export type UserUncheckedCreateWithoutClubTasksAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -25426,6 +27646,14 @@ export type UserUpdateWithoutClubTasksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -25513,6 +27741,14 @@ export type UserUncheckedUpdateWithoutClubTasksCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -25611,6 +27847,14 @@ export type UserUpdateWithoutClubTasksAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -25698,6 +27942,14 @@ export type UserUncheckedUpdateWithoutClubTasksAssignedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -25785,6 +28037,14 @@ export type UserCreateWithoutClubEventsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -25872,6 +28132,14 @@ export type UserUncheckedCreateWithoutClubEventsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -25975,6 +28243,14 @@ export type UserUpdateWithoutClubEventsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -26062,6 +28338,14 @@ export type UserUncheckedUpdateWithoutClubEventsCreatedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -26149,6 +28433,14 @@ export type UserCreateWithoutClubRegistrationsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -26236,6 +28528,14 @@ export type UserUncheckedCreateWithoutClubRegistrationsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -26339,6 +28639,14 @@ export type UserUpdateWithoutClubRegistrationsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -26426,6 +28734,14 @@ export type UserUncheckedUpdateWithoutClubRegistrationsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -26513,6 +28829,14 @@ export type UserCreateWithoutClubConsentsForStudentInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -26600,6 +28924,14 @@ export type UserUncheckedCreateWithoutClubConsentsForStudentInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -26692,6 +29024,14 @@ export type UserCreateWithoutClubConsentsForGuardianInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -26779,6 +29119,14 @@ export type UserUncheckedCreateWithoutClubConsentsForGuardianInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -26882,6 +29230,14 @@ export type UserUpdateWithoutClubConsentsForStudentInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -26969,6 +29325,14 @@ export type UserUncheckedUpdateWithoutClubConsentsForStudentInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -27067,6 +29431,14 @@ export type UserUpdateWithoutClubConsentsForGuardianInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -27154,6 +29526,14 @@ export type UserUncheckedUpdateWithoutClubConsentsForGuardianInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -27241,6 +29621,14 @@ export type UserCreateWithoutClubAttendanceInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -27328,6 +29716,14 @@ export type UserUncheckedCreateWithoutClubAttendanceInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -27420,6 +29816,14 @@ export type UserCreateWithoutClubAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -27507,6 +29911,14 @@ export type UserUncheckedCreateWithoutClubAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -27610,6 +30022,14 @@ export type UserUpdateWithoutClubAttendanceInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -27697,6 +30117,14 @@ export type UserUncheckedUpdateWithoutClubAttendanceInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -27795,6 +30223,14 @@ export type UserUpdateWithoutClubAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -27882,6 +30318,14 @@ export type UserUncheckedUpdateWithoutClubAttendanceRecordedInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -27969,6 +30413,14 @@ export type UserCreateWithoutClubPostEventReportsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
@@ -28056,6 +30508,14 @@ export type UserUncheckedCreateWithoutClubPostEventReportsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
   clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
   clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
@@ -28159,6 +30619,14 @@ export type UserUpdateWithoutClubPostEventReportsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
@@ -28246,6 +30714,14 @@ export type UserUncheckedUpdateWithoutClubPostEventReportsInput = {
   workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
   workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
   workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
   clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
   clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
   clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
@@ -28259,6 +30735,3174 @@ export type UserUncheckedUpdateWithoutClubPostEventReportsInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+}
+
+export type UserCreateWithoutConversationsCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserUncheckedCreateWithoutConversationsCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserCreateOrConnectWithoutConversationsCreatedInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutConversationsCreatedInput, Prisma.UserUncheckedCreateWithoutConversationsCreatedInput>
+}
+
+export type UserUpsertWithoutConversationsCreatedInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutConversationsCreatedInput, Prisma.UserUncheckedUpdateWithoutConversationsCreatedInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutConversationsCreatedInput, Prisma.UserUncheckedCreateWithoutConversationsCreatedInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutConversationsCreatedInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutConversationsCreatedInput, Prisma.UserUncheckedUpdateWithoutConversationsCreatedInput>
+}
+
+export type UserUpdateWithoutConversationsCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutConversationsCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserCreateWithoutConversationParticipantsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserUncheckedCreateWithoutConversationParticipantsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserCreateOrConnectWithoutConversationParticipantsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutConversationParticipantsInput, Prisma.UserUncheckedCreateWithoutConversationParticipantsInput>
+}
+
+export type UserUpsertWithoutConversationParticipantsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutConversationParticipantsInput, Prisma.UserUncheckedUpdateWithoutConversationParticipantsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutConversationParticipantsInput, Prisma.UserUncheckedCreateWithoutConversationParticipantsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutConversationParticipantsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutConversationParticipantsInput, Prisma.UserUncheckedUpdateWithoutConversationParticipantsInput>
+}
+
+export type UserUpdateWithoutConversationParticipantsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutConversationParticipantsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserCreateWithoutMessagesSentInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserUncheckedCreateWithoutMessagesSentInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserCreateOrConnectWithoutMessagesSentInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessagesSentInput, Prisma.UserUncheckedCreateWithoutMessagesSentInput>
+}
+
+export type UserUpsertWithoutMessagesSentInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMessagesSentInput, Prisma.UserUncheckedUpdateWithoutMessagesSentInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessagesSentInput, Prisma.UserUncheckedCreateWithoutMessagesSentInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMessagesSentInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMessagesSentInput, Prisma.UserUncheckedUpdateWithoutMessagesSentInput>
+}
+
+export type UserUpdateWithoutMessagesSentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMessagesSentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserCreateWithoutMessageMentionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserUncheckedCreateWithoutMessageMentionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserCreateOrConnectWithoutMessageMentionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessageMentionsInput, Prisma.UserUncheckedCreateWithoutMessageMentionsInput>
+}
+
+export type UserUpsertWithoutMessageMentionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMessageMentionsInput, Prisma.UserUncheckedUpdateWithoutMessageMentionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessageMentionsInput, Prisma.UserUncheckedCreateWithoutMessageMentionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMessageMentionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMessageMentionsInput, Prisma.UserUncheckedUpdateWithoutMessageMentionsInput>
+}
+
+export type UserUpdateWithoutMessageMentionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMessageMentionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserCreateWithoutNotificationsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserUncheckedCreateWithoutNotificationsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserCreateOrConnectWithoutNotificationsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutNotificationsInput, Prisma.UserUncheckedCreateWithoutNotificationsInput>
+}
+
+export type UserUpsertWithoutNotificationsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutNotificationsInput, Prisma.UserUncheckedUpdateWithoutNotificationsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutNotificationsInput, Prisma.UserUncheckedCreateWithoutNotificationsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutNotificationsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutNotificationsInput, Prisma.UserUncheckedUpdateWithoutNotificationsInput>
+}
+
+export type UserUpdateWithoutNotificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutNotificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserCreateWithoutNotificationPreferencesInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserUncheckedCreateWithoutNotificationPreferencesInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserCreateOrConnectWithoutNotificationPreferencesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutNotificationPreferencesInput, Prisma.UserUncheckedCreateWithoutNotificationPreferencesInput>
+}
+
+export type UserUpsertWithoutNotificationPreferencesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutNotificationPreferencesInput, Prisma.UserUncheckedUpdateWithoutNotificationPreferencesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutNotificationPreferencesInput, Prisma.UserUncheckedCreateWithoutNotificationPreferencesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutNotificationPreferencesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutNotificationPreferencesInput, Prisma.UserUncheckedUpdateWithoutNotificationPreferencesInput>
+}
+
+export type UserUpdateWithoutNotificationPreferencesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutNotificationPreferencesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserCreateWithoutActivityFeedEventsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserUncheckedCreateWithoutActivityFeedEventsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserCreateOrConnectWithoutActivityFeedEventsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutActivityFeedEventsInput, Prisma.UserUncheckedCreateWithoutActivityFeedEventsInput>
+}
+
+export type UserCreateWithoutActivityFeedActionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserUncheckedCreateWithoutActivityFeedActionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+}
+
+export type UserCreateOrConnectWithoutActivityFeedActionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutActivityFeedActionsInput, Prisma.UserUncheckedCreateWithoutActivityFeedActionsInput>
+}
+
+export type UserUpsertWithoutActivityFeedEventsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutActivityFeedEventsInput, Prisma.UserUncheckedUpdateWithoutActivityFeedEventsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutActivityFeedEventsInput, Prisma.UserUncheckedCreateWithoutActivityFeedEventsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutActivityFeedEventsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutActivityFeedEventsInput, Prisma.UserUncheckedUpdateWithoutActivityFeedEventsInput>
+}
+
+export type UserUpdateWithoutActivityFeedEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutActivityFeedEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserUpsertWithoutActivityFeedActionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutActivityFeedActionsInput, Prisma.UserUncheckedUpdateWithoutActivityFeedActionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutActivityFeedActionsInput, Prisma.UserUncheckedCreateWithoutActivityFeedActionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutActivityFeedActionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutActivityFeedActionsInput, Prisma.UserUncheckedUpdateWithoutActivityFeedActionsInput>
+}
+
+export type UserUpdateWithoutActivityFeedActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutActivityFeedActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
 }
 
 
@@ -28325,6 +33969,14 @@ export type UserCountOutputType = {
   workflowStepsAssigned: number
   workflowDelegationsCreated: number
   workflowDelegationsReceived: number
+  conversationsCreated: number
+  conversationParticipants: number
+  messagesSent: number
+  messageMentions: number
+  notifications: number
+  notificationPreferences: number
+  activityFeedEvents: number
+  activityFeedActions: number
   clubsCreated: number
   clubApplications: number
   clubApplicationsReviewed: number
@@ -28400,6 +34052,14 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   workflowStepsAssigned?: boolean | UserCountOutputTypeCountWorkflowStepsAssignedArgs
   workflowDelegationsCreated?: boolean | UserCountOutputTypeCountWorkflowDelegationsCreatedArgs
   workflowDelegationsReceived?: boolean | UserCountOutputTypeCountWorkflowDelegationsReceivedArgs
+  conversationsCreated?: boolean | UserCountOutputTypeCountConversationsCreatedArgs
+  conversationParticipants?: boolean | UserCountOutputTypeCountConversationParticipantsArgs
+  messagesSent?: boolean | UserCountOutputTypeCountMessagesSentArgs
+  messageMentions?: boolean | UserCountOutputTypeCountMessageMentionsArgs
+  notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
+  notificationPreferences?: boolean | UserCountOutputTypeCountNotificationPreferencesArgs
+  activityFeedEvents?: boolean | UserCountOutputTypeCountActivityFeedEventsArgs
+  activityFeedActions?: boolean | UserCountOutputTypeCountActivityFeedActionsArgs
   clubsCreated?: boolean | UserCountOutputTypeCountClubsCreatedArgs
   clubApplications?: boolean | UserCountOutputTypeCountClubApplicationsArgs
   clubApplicationsReviewed?: boolean | UserCountOutputTypeCountClubApplicationsReviewedArgs
@@ -28835,6 +34495,62 @@ export type UserCountOutputTypeCountWorkflowDelegationsReceivedArgs<ExtArgs exte
 /**
  * UserCountOutputType without action
  */
+export type UserCountOutputTypeCountConversationsCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ConversationWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountConversationParticipantsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ConversationParticipantWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountMessagesSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MessageWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountMessageMentionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MessageMentionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountNotificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.NotificationWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountNotificationPreferencesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.NotificationPreferenceWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountActivityFeedEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ActivityFeedProjectionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountActivityFeedActionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ActivityFeedProjectionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
 export type UserCountOutputTypeCountClubsCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ClubWhereInput
 }
@@ -29003,6 +34719,14 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   workflowStepsAssigned?: boolean | Prisma.User$workflowStepsAssignedArgs<ExtArgs>
   workflowDelegationsCreated?: boolean | Prisma.User$workflowDelegationsCreatedArgs<ExtArgs>
   workflowDelegationsReceived?: boolean | Prisma.User$workflowDelegationsReceivedArgs<ExtArgs>
+  conversationsCreated?: boolean | Prisma.User$conversationsCreatedArgs<ExtArgs>
+  conversationParticipants?: boolean | Prisma.User$conversationParticipantsArgs<ExtArgs>
+  messagesSent?: boolean | Prisma.User$messagesSentArgs<ExtArgs>
+  messageMentions?: boolean | Prisma.User$messageMentionsArgs<ExtArgs>
+  notifications?: boolean | Prisma.User$notificationsArgs<ExtArgs>
+  notificationPreferences?: boolean | Prisma.User$notificationPreferencesArgs<ExtArgs>
+  activityFeedEvents?: boolean | Prisma.User$activityFeedEventsArgs<ExtArgs>
+  activityFeedActions?: boolean | Prisma.User$activityFeedActionsArgs<ExtArgs>
   clubsCreated?: boolean | Prisma.User$clubsCreatedArgs<ExtArgs>
   clubApplications?: boolean | Prisma.User$clubApplicationsArgs<ExtArgs>
   clubApplicationsReviewed?: boolean | Prisma.User$clubApplicationsReviewedArgs<ExtArgs>
@@ -29128,6 +34852,14 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   workflowStepsAssigned?: boolean | Prisma.User$workflowStepsAssignedArgs<ExtArgs>
   workflowDelegationsCreated?: boolean | Prisma.User$workflowDelegationsCreatedArgs<ExtArgs>
   workflowDelegationsReceived?: boolean | Prisma.User$workflowDelegationsReceivedArgs<ExtArgs>
+  conversationsCreated?: boolean | Prisma.User$conversationsCreatedArgs<ExtArgs>
+  conversationParticipants?: boolean | Prisma.User$conversationParticipantsArgs<ExtArgs>
+  messagesSent?: boolean | Prisma.User$messagesSentArgs<ExtArgs>
+  messageMentions?: boolean | Prisma.User$messageMentionsArgs<ExtArgs>
+  notifications?: boolean | Prisma.User$notificationsArgs<ExtArgs>
+  notificationPreferences?: boolean | Prisma.User$notificationPreferencesArgs<ExtArgs>
+  activityFeedEvents?: boolean | Prisma.User$activityFeedEventsArgs<ExtArgs>
+  activityFeedActions?: boolean | Prisma.User$activityFeedActionsArgs<ExtArgs>
   clubsCreated?: boolean | Prisma.User$clubsCreatedArgs<ExtArgs>
   clubApplications?: boolean | Prisma.User$clubApplicationsArgs<ExtArgs>
   clubApplicationsReviewed?: boolean | Prisma.User$clubApplicationsReviewedArgs<ExtArgs>
@@ -29208,6 +34940,14 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     workflowStepsAssigned: Prisma.$WorkflowSubmissionStepPayload<ExtArgs>[]
     workflowDelegationsCreated: Prisma.$WorkflowDelegationPayload<ExtArgs>[]
     workflowDelegationsReceived: Prisma.$WorkflowDelegationPayload<ExtArgs>[]
+    conversationsCreated: Prisma.$ConversationPayload<ExtArgs>[]
+    conversationParticipants: Prisma.$ConversationParticipantPayload<ExtArgs>[]
+    messagesSent: Prisma.$MessagePayload<ExtArgs>[]
+    messageMentions: Prisma.$MessageMentionPayload<ExtArgs>[]
+    notifications: Prisma.$NotificationPayload<ExtArgs>[]
+    notificationPreferences: Prisma.$NotificationPreferencePayload<ExtArgs>[]
+    activityFeedEvents: Prisma.$ActivityFeedProjectionPayload<ExtArgs>[]
+    activityFeedActions: Prisma.$ActivityFeedProjectionPayload<ExtArgs>[]
     clubsCreated: Prisma.$ClubPayload<ExtArgs>[]
     clubApplications: Prisma.$ClubApplicationPayload<ExtArgs>[]
     clubApplicationsReviewed: Prisma.$ClubApplicationPayload<ExtArgs>[]
@@ -29689,6 +35429,14 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   workflowStepsAssigned<T extends Prisma.User$workflowStepsAssignedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$workflowStepsAssignedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowSubmissionStepPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workflowDelegationsCreated<T extends Prisma.User$workflowDelegationsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$workflowDelegationsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowDelegationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workflowDelegationsReceived<T extends Prisma.User$workflowDelegationsReceivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$workflowDelegationsReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowDelegationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  conversationsCreated<T extends Prisma.User$conversationsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$conversationsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConversationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  conversationParticipants<T extends Prisma.User$conversationParticipantsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$conversationParticipantsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConversationParticipantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  messagesSent<T extends Prisma.User$messagesSentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$messagesSentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  messageMentions<T extends Prisma.User$messageMentionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$messageMentionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessageMentionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  notifications<T extends Prisma.User$notificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  notificationPreferences<T extends Prisma.User$notificationPreferencesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$notificationPreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  activityFeedEvents<T extends Prisma.User$activityFeedEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$activityFeedEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ActivityFeedProjectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  activityFeedActions<T extends Prisma.User$activityFeedActionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$activityFeedActionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ActivityFeedProjectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clubsCreated<T extends Prisma.User$clubsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$clubsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClubPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clubApplications<T extends Prisma.User$clubApplicationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$clubApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClubApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clubApplicationsReviewed<T extends Prisma.User$clubApplicationsReviewedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$clubApplicationsReviewedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClubApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -31527,6 +37275,198 @@ export type User$workflowDelegationsReceivedArgs<ExtArgs extends runtime.Types.E
   take?: number
   skip?: number
   distinct?: Prisma.WorkflowDelegationScalarFieldEnum | Prisma.WorkflowDelegationScalarFieldEnum[]
+}
+
+/**
+ * User.conversationsCreated
+ */
+export type User$conversationsCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Conversation
+   */
+  select?: Prisma.ConversationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Conversation
+   */
+  omit?: Prisma.ConversationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ConversationInclude<ExtArgs> | null
+  where?: Prisma.ConversationWhereInput
+  orderBy?: Prisma.ConversationOrderByWithRelationInput | Prisma.ConversationOrderByWithRelationInput[]
+  cursor?: Prisma.ConversationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ConversationScalarFieldEnum | Prisma.ConversationScalarFieldEnum[]
+}
+
+/**
+ * User.conversationParticipants
+ */
+export type User$conversationParticipantsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ConversationParticipant
+   */
+  select?: Prisma.ConversationParticipantSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ConversationParticipant
+   */
+  omit?: Prisma.ConversationParticipantOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ConversationParticipantInclude<ExtArgs> | null
+  where?: Prisma.ConversationParticipantWhereInput
+  orderBy?: Prisma.ConversationParticipantOrderByWithRelationInput | Prisma.ConversationParticipantOrderByWithRelationInput[]
+  cursor?: Prisma.ConversationParticipantWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ConversationParticipantScalarFieldEnum | Prisma.ConversationParticipantScalarFieldEnum[]
+}
+
+/**
+ * User.messagesSent
+ */
+export type User$messagesSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Message
+   */
+  select?: Prisma.MessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Message
+   */
+  omit?: Prisma.MessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MessageInclude<ExtArgs> | null
+  where?: Prisma.MessageWhereInput
+  orderBy?: Prisma.MessageOrderByWithRelationInput | Prisma.MessageOrderByWithRelationInput[]
+  cursor?: Prisma.MessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MessageScalarFieldEnum | Prisma.MessageScalarFieldEnum[]
+}
+
+/**
+ * User.messageMentions
+ */
+export type User$messageMentionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MessageMention
+   */
+  select?: Prisma.MessageMentionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MessageMention
+   */
+  omit?: Prisma.MessageMentionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MessageMentionInclude<ExtArgs> | null
+  where?: Prisma.MessageMentionWhereInput
+  orderBy?: Prisma.MessageMentionOrderByWithRelationInput | Prisma.MessageMentionOrderByWithRelationInput[]
+  cursor?: Prisma.MessageMentionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MessageMentionScalarFieldEnum | Prisma.MessageMentionScalarFieldEnum[]
+}
+
+/**
+ * User.notifications
+ */
+export type User$notificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Notification
+   */
+  select?: Prisma.NotificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Notification
+   */
+  omit?: Prisma.NotificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.NotificationInclude<ExtArgs> | null
+  where?: Prisma.NotificationWhereInput
+  orderBy?: Prisma.NotificationOrderByWithRelationInput | Prisma.NotificationOrderByWithRelationInput[]
+  cursor?: Prisma.NotificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.NotificationScalarFieldEnum | Prisma.NotificationScalarFieldEnum[]
+}
+
+/**
+ * User.notificationPreferences
+ */
+export type User$notificationPreferencesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the NotificationPreference
+   */
+  select?: Prisma.NotificationPreferenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the NotificationPreference
+   */
+  omit?: Prisma.NotificationPreferenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.NotificationPreferenceInclude<ExtArgs> | null
+  where?: Prisma.NotificationPreferenceWhereInput
+  orderBy?: Prisma.NotificationPreferenceOrderByWithRelationInput | Prisma.NotificationPreferenceOrderByWithRelationInput[]
+  cursor?: Prisma.NotificationPreferenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.NotificationPreferenceScalarFieldEnum | Prisma.NotificationPreferenceScalarFieldEnum[]
+}
+
+/**
+ * User.activityFeedEvents
+ */
+export type User$activityFeedEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ActivityFeedProjection
+   */
+  select?: Prisma.ActivityFeedProjectionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ActivityFeedProjection
+   */
+  omit?: Prisma.ActivityFeedProjectionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ActivityFeedProjectionInclude<ExtArgs> | null
+  where?: Prisma.ActivityFeedProjectionWhereInput
+  orderBy?: Prisma.ActivityFeedProjectionOrderByWithRelationInput | Prisma.ActivityFeedProjectionOrderByWithRelationInput[]
+  cursor?: Prisma.ActivityFeedProjectionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ActivityFeedProjectionScalarFieldEnum | Prisma.ActivityFeedProjectionScalarFieldEnum[]
+}
+
+/**
+ * User.activityFeedActions
+ */
+export type User$activityFeedActionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ActivityFeedProjection
+   */
+  select?: Prisma.ActivityFeedProjectionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ActivityFeedProjection
+   */
+  omit?: Prisma.ActivityFeedProjectionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ActivityFeedProjectionInclude<ExtArgs> | null
+  where?: Prisma.ActivityFeedProjectionWhereInput
+  orderBy?: Prisma.ActivityFeedProjectionOrderByWithRelationInput | Prisma.ActivityFeedProjectionOrderByWithRelationInput[]
+  cursor?: Prisma.ActivityFeedProjectionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ActivityFeedProjectionScalarFieldEnum | Prisma.ActivityFeedProjectionScalarFieldEnum[]
 }
 
 /**
