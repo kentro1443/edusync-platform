@@ -128,6 +128,7 @@ test("tác giả gửi duyệt, reviewer xuất bản, reader đọc tài nguyê
   await page.goto(`/dashboard/resources/${resourceId}`);
   await expect(page.getByRole("heading", { name: "Tài nguyên E2E Phase 4" })).toBeVisible();
   await expect(page.getByText("Nội dung tài nguyên đã xuất bản.")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Tải file hiện tại" })).toHaveCount(0);
 });
 
 test("invalid upload bị chặn, version mới và rollback không mutate version cũ", async ({ page }) => {
@@ -150,6 +151,7 @@ test("invalid upload bị chặn, version mới và rollback không mutate versi
   const secondVersionId = secondVersion.rows[0]?.id ?? "";
   const preview = page.getByTitle("Xem trước PDF guide.pdf");
   await expect(preview).toBeVisible();
+  await expect(page.getByRole("link", { name: "Tải file hiện tại" })).toHaveCount(1);
   await expect(preview).toHaveAttribute(
     "src",
     `/dashboard/resources/${resourceId}/preview?versionId=${secondVersionId}`,
@@ -165,6 +167,17 @@ test("invalid upload bị chặn, version mới và rollback không mutate versi
   expect(previewResponse.status).toBe(200);
   expect(previewResponse.contentType).toContain("application/pdf");
   expect(previewResponse.contentDisposition).toContain("inline");
+  const downloadResponse = await page.evaluate(async (url) => {
+    const response = await fetch(url);
+    return {
+      status: response.status,
+      contentType: response.headers.get("content-type"),
+      contentDisposition: response.headers.get("content-disposition"),
+    };
+  }, `/dashboard/resources/${resourceId}/download?versionId=${secondVersionId}`);
+  expect(downloadResponse.status).toBe(200);
+  expect(downloadResponse.contentType).toContain("application/pdf");
+  expect(downloadResponse.contentDisposition).toContain("attachment");
   await expect.poll(async () => (
     await database.query<{ previews: number }>(
       'SELECT previews FROM "ResourceAnalyticsCounter" WHERE "resourceId" = $1',
