@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { requireSchoolContext } from "@/lib/auth/guards";
 import { permissions } from "@/lib/auth/permissions";
 import { getAuthorizedFile, recordResourceEvent } from "@/lib/resources/resource-service";
-import { LocalFileStorage } from "@/lib/storage/file-storage";
+import { contentDisposition, LocalFileStorage } from "@/lib/storage/file-storage";
 
 export async function GET(
   request: Request,
@@ -19,7 +19,7 @@ export async function GET(
     return new NextResponse(stream as unknown as BodyInit, {
       headers: {
         "Content-Type": file.mimeType,
-        "Content-Disposition": `attachment; filename="${file.originalName.replaceAll('"', "")}"`,
+        "Content-Disposition": contentDisposition("attachment", file.originalName),
         "Cache-Control": "private, no-store",
       },
     });

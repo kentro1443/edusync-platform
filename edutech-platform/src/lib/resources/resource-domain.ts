@@ -78,6 +78,37 @@ export function validateUploadMetadata(input: {
   }
 }
 
+export function validateUploadContent(mimeType: string, content: Uint8Array): void {
+  const beginsWith = (...bytes: number[]) =>
+    content.length >= bytes.length && bytes.every((byte, index) => content[index] === byte);
+  const textAt = (offset: number, value: string) =>
+    content.length >= offset + value.length &&
+    [...value].every((character, index) => content[offset + index] === character.charCodeAt(0));
+
+  let valid = true;
+  if (mimeType === "application/pdf") {
+    valid = textAt(0, "%PDF-");
+  } else if (mimeType === "image/png") {
+    valid = beginsWith(0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a);
+  } else if (mimeType === "image/jpeg") {
+    valid = beginsWith(0xff, 0xd8, 0xff);
+  } else if (mimeType === "image/webp") {
+    valid = textAt(0, "RIFF") && textAt(8, "WEBP");
+  } else if (
+    mimeType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
+    mimeType === "application/vnd.openxmlformats-officedocument.presentationml.presentation" ||
+    mimeType === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  ) {
+    valid = beginsWith(0x50, 0x4b);
+  } else if (mimeType === "text/plain" || mimeType === "text/markdown") {
+    valid = !content.slice(0, 8_192).includes(0);
+  }
+
+  if (!valid) {
+    throw new ResourceValidationError("Nội dung tệp không khớp với định dạng đã khai báo.");
+  }
+}
+
 export function isAllowedMimeType(mimeType: string): boolean {
   return allowedMimeTypes.has(mimeType);
 }

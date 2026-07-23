@@ -124,7 +124,7 @@ describe.sequential("Phase 4 resource integration", () => {
       file: {
         originalName: "cam-nang.pdf",
         mimeType: "application/pdf",
-        content: new TextEncoder().encode("demo file"),
+        content: new TextEncoder().encode("%PDF-1.4 demo file"),
       },
     });
     const latest = await db.resource.findUnique({ where: { id: resourceId }, include: { currentVersion: true } });

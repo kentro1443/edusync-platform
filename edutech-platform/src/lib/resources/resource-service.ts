@@ -12,6 +12,7 @@ import {
   transitionResourceStatus,
   validateResourceBody,
   validateResourceTitle,
+  validateUploadContent,
   validateUploadMetadata,
 } from "@/lib/resources/resource-domain";
 import type { ResourceAction } from "@/lib/resources/resource-domain";
@@ -288,6 +289,7 @@ export async function createResourceVersion(
       sizeBytes: input.file.content.byteLength,
       maxBytes: 25 * 1024 * 1024,
     });
+    validateUploadContent(input.file.mimeType, input.file.content);
     storedObject = await storage.put({ content: input.file.content, maxBytes: 25 * 1024 * 1024 });
   }
   try {

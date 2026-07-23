@@ -1,4 +1,5 @@
 import {
+  addWorkflowSubmissionAttachmentAction,
   addWorkflowSubmissionCommentAction,
   delegateWorkflowSubmissionStepAction,
   decideWorkflowSubmissionAction,
@@ -11,6 +12,7 @@ import { Button, LinkButton } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Alert } from "@/components/ui/Feedback";
 import { Field, Input, Select, Textarea } from "@/components/ui/Field";
+import { FileUpload } from "@/components/ui/FileUpload";
 import { requireSchoolContext } from "@/lib/auth/guards";
 import { getSchoolPermissions, hasPermission, permissions } from "@/lib/auth/permissions";
 import {
@@ -80,6 +82,8 @@ export default async function WorkflowSubmissionPage({
         <Alert tone="success" title="Đã cập nhật">
           {query.result === "comment"
             ? "Bình luận đã được thêm vào hồ sơ."
+            : query.result === "attachment"
+              ? "Tệp đã được đính kèm an toàn vào hồ sơ."
             : query.result === "delegated"
               ? "Bước hiện tại đã được chuyển cho người duyệt mới."
             : "Trạng thái hồ sơ đã được lưu."}
@@ -279,6 +283,73 @@ export default async function WorkflowSubmissionPage({
             </div>
             <Badge tone="neutral">{submission.comments.length}</Badge>
           </div>
+
+          <section className="mt-6 rounded-2xl border border-[var(--color-ink-100)] bg-[var(--color-ink-50)] p-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 className="text-sm font-bold text-[var(--color-ink-900)]">
+                  Tài liệu đính kèm
+                </h3>
+                <p className="mt-1 text-xs text-[var(--color-ink-500)]">
+                  PDF mở ngay trên trình duyệt; định dạng khác được tải xuống.
+                </p>
+              </div>
+              <Badge tone="neutral">{submission.attachments.length}</Badge>
+            </div>
+
+            {submission.attachments.length ? (
+              <ul className="mt-4 space-y-3">
+                {submission.attachments.map((attachment) => {
+                  const href = `/dashboard/workflows/submissions/${submission.id}/attachments/${attachment.id}`;
+                  return (
+                    <li
+                      key={attachment.id}
+                      className="rounded-xl border border-[var(--color-ink-100)] bg-white p-3"
+                    >
+                      <p className="break-all text-sm font-semibold text-[var(--color-ink-900)]">
+                        {attachment.file.originalName}
+                      </p>
+                      <p className="mt-1 text-xs text-[var(--color-ink-500)]">
+                        {attachment.file.createdBy.displayName} ·{" "}
+                        {Math.max(1, Math.ceil(Number(attachment.file.sizeBytes) / 1024))} KB
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {attachment.file.mimeType === "application/pdf" ? (
+                          <LinkButton href={href} size="sm" variant="outline">
+                            Xem PDF
+                          </LinkButton>
+                        ) : null}
+                        <LinkButton href={`${href}?download=1`} size="sm" variant="ghost">
+                          Tải xuống
+                        </LinkButton>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : (
+              <p className="mt-4 text-sm text-[var(--color-ink-500)]">
+                Chưa có tài liệu nào trong hồ sơ.
+              </p>
+            )}
+
+            {canComment ? (
+              <form
+                action={addWorkflowSubmissionAttachmentAction}
+                className="mt-4 space-y-3 border-t border-[var(--color-ink-100)] pt-4"
+              >
+                <input type="hidden" name="submissionId" value={submission.id} />
+                <FileUpload
+                  name="file"
+                  accept=".pdf,.docx,.pptx,.xlsx,.txt,.md,.jpg,.jpeg,.png,.webp"
+                  maxSizeMb={15}
+                />
+                <Button type="submit" variant="outline">
+                  Đính kèm tài liệu
+                </Button>
+              </form>
+            ) : null}
+          </section>
 
           {submission.comments.length ? (
             <ol className="mt-5 divide-y divide-[var(--color-ink-100)] border-y border-[var(--color-ink-100)]">

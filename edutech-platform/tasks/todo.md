@@ -440,9 +440,10 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 - [x] Builder, submission form, reviewer decision UI, status timeline, and authorized CSV export.
 - [x] Tenant-scoped submission comments, processing history UI, and role-aware record visibility.
 - [x] Individual reviewer delegation with role validation, assignment locking, and audit history.
+- [x] Secure submission attachments with shared storage, authorized download, and inline PDF preview.
 - [x] Phase 6 unit/E2E coverage.
 
-Attachments, deadline/escalation workers, and advanced analytics remain follow-up tasks.
+Deadline/escalation workers and advanced analytics remain follow-up tasks.
 
 ### Schema và domain
 
@@ -453,7 +454,7 @@ Attachments, deadline/escalation workers, and advanced analytics remain follow-u
 - [x] Thêm SubmissionStep/Decision.
 - [x] Thêm Delegation.
 - [x] Thêm submission comment/history.
-- [ ] Thêm submission attachment.
+- [x] Thêm submission attachment bằng FileLink/StoredFile dùng chung.
 - [ ] Thêm deadline/escalation jobs.
 - [x] Thêm constraints/indexes.
 - [ ] Tạo/chạy migration và seed ba workflow mẫu.
@@ -493,7 +494,7 @@ Attachments, deadline/escalation workers, and advanced analytics remain follow-u
 - [ ] Draft/autosave feedback.
 - [ ] Validation summary.
 - [x] Comment and shared discussion history.
-- [ ] Attachment.
+- [x] Attachment upload/download và PDF preview.
 - [ ] Review-before-submit.
 - [x] Confirmation/status timeline.
 - [ ] Reviewer queue/filter/deadline.

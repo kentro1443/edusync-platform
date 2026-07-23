@@ -51,6 +51,27 @@ export class FileSizeLimitError extends Error {
   }
 }
 
+export function contentDisposition(
+  disposition: "inline" | "attachment",
+  originalName: string,
+): string {
+  const safeName =
+    originalName
+      .replace(/[\r\n"\\/]/g, "_")
+      .trim()
+      .slice(0, 180) || "download";
+  const asciiName =
+    safeName
+      .normalize("NFKD")
+      .replace(/[^\x20-\x7e]/g, "")
+      .trim() || "download";
+  const encodedName = encodeURIComponent(safeName).replace(
+    /['()*]/g,
+    (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`,
+  );
+  return `${disposition}; filename="${asciiName}"; filename*=UTF-8''${encodedName}`;
+}
+
 function assertStorageKey(storageKey: string): void {
   if (!storageKeyPattern.test(storageKey)) {
     throw new Error("Invalid opaque storage key.");

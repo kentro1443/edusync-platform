@@ -4,6 +4,8 @@ import type { AuthorizationContext } from "@/lib/auth/policies";
 import { getSchoolPermissions, hasPermission, permissions } from "@/lib/auth/permissions";
 import { db } from "@/lib/db";
 import type { Prisma } from "@/generated/prisma/client";
+import { validateUploadContent, validateUploadMetadata } from "@/lib/resources/resource-domain";
+import { LocalFileStorage } from "@/lib/storage/file-storage";
 import {
   getNextWorkflowStepIds,
   resolveWorkflowRouting,
@@ -281,7 +283,7 @@ export async function listWorkflowSubmissions(actor: AuthorizationContext) {
 
 export async function getWorkflowSubmission(actor: AuthorizationContext, submissionId: string) {
   requireWorkflowActor(actor, permissions.workflowSubmissionRead);
-  return db.workflowSubmission.findFirst({
+  const submission = await db.workflowSubmission.findFirst({
     where: {
       id: submissionId,
       ...workflowSubmissionAccess(actor),
@@ -296,6 +298,31 @@ export async function getWorkflowSubmission(actor: AuthorizationContext, submiss
       comments: { orderBy: { createdAt: "desc" }, take: 100, include: { author: { select: { displayName: true } } } },
     },
   });
+  if (!submission) return null;
+  const attachments = await db.fileLink.findMany({
+    where: {
+      schoolId: actor.schoolId,
+      entityType: "WORKFLOW_SUBMISSION",
+      entityId: submission.id,
+      file: { status: "AVAILABLE" },
+    },
+    select: {
+      id: true,
+      createdAt: true,
+      file: {
+        select: {
+          originalName: true,
+          mimeType: true,
+          sizeBytes: true,
+          status: true,
+          createdBy: { select: { displayName: true } },
+        },
+      },
+    },
+    orderBy: { createdAt: "desc" },
+    take: 50,
+  });
+  return { ...submission, attachments };
 }
 
 export async function addWorkflowSubmissionComment(
@@ -323,6 +350,141 @@ export async function addWorkflowSubmissionComment(
       body,
     },
   });
+}
+
+export async function addWorkflowSubmissionAttachment(
+  actor: AuthorizationContext,
+  submissionId: string,
+  input: Readonly<{
+    originalName: string;
+    mimeType: string;
+    content: Uint8Array;
+  }>,
+) {
+  requireWorkflowActor(actor, permissions.workflowSubmissionComment);
+  const submission = await db.workflowSubmission.findFirst({
+    where: { id: submissionId, ...workflowSubmissionAccess(actor) },
+    select: { id: true, status: true },
+  });
+  if (!submission) {
+    throw new WorkflowAuthorizationError("Bạn không có quyền đính kèm tệp vào hồ sơ này.");
+  }
+  try {
+    validateUploadMetadata({
+      originalName: input.originalName,
+      mimeType: input.mimeType,
+      sizeBytes: input.content.byteLength,
+      maxBytes: 15 * 1024 * 1024,
+    });
+    validateUploadContent(input.mimeType, input.content);
+  } catch (error) {
+    throw new WorkflowValidationError(
+      error instanceof Error ? error.message : "Tệp đính kèm không hợp lệ.",
+    );
+  }
+  const storage = new LocalFileStorage();
+  const storedObject = await storage.put({
+    content: input.content,
+    maxBytes: 15 * 1024 * 1024,
+  });
+  try {
+    return await db.$transaction(async (transaction) => {
+      const file = await transaction.storedFile.create({
+        data: {
+          schoolId: actor.schoolId,
+          storageKey: storedObject.storageKey,
+          originalName: input.originalName.trim(),
+          mimeType: input.mimeType,
+          sizeBytes: storedObject.sizeBytes,
+          sha256: storedObject.sha256,
+          status: "AVAILABLE",
+          createdByUserId: actor.userId,
+          versions: {
+            create: {
+              versionNumber: 1,
+              storageKey: storedObject.storageKey,
+              originalName: input.originalName.trim(),
+              mimeType: input.mimeType,
+              sizeBytes: storedObject.sizeBytes,
+              sha256: storedObject.sha256,
+              createdByUserId: actor.userId,
+            },
+          },
+        },
+      });
+      const link = await transaction.fileLink.create({
+        data: {
+          schoolId: actor.schoolId,
+          fileId: file.id,
+          entityType: "WORKFLOW_SUBMISSION",
+          entityId: submission.id,
+          visibility: "WORKFLOW_PARTICIPANTS",
+          createdByUserId: actor.userId,
+        },
+      });
+      await transaction.workflowSubmission.update({
+        where: { id: submission.id },
+        data: {
+          history: {
+            create: {
+              actorUserId: actor.userId,
+              action: "ATTACH_FILE",
+              fromStatus: submission.status,
+              toStatus: submission.status,
+              metadataJson: {
+                fileLinkId: link.id,
+                originalName: input.originalName.trim(),
+                mimeType: input.mimeType,
+                sizeBytes: storedObject.sizeBytes.toString(),
+              },
+            },
+          },
+        },
+      });
+      return link.id;
+    });
+  } catch (error) {
+    await storage.remove(storedObject.storageKey).catch(() => undefined);
+    throw error;
+  }
+}
+
+export async function getWorkflowSubmissionAttachment(
+  actor: AuthorizationContext,
+  submissionId: string,
+  fileLinkId: string,
+) {
+  requireWorkflowActor(actor, permissions.workflowSubmissionRead);
+  const submission = await db.workflowSubmission.findFirst({
+    where: { id: submissionId, ...workflowSubmissionAccess(actor) },
+    select: { id: true },
+  });
+  if (!submission) {
+    throw new WorkflowAuthorizationError("Bạn không có quyền đọc tệp này.");
+  }
+  const link = await db.fileLink.findFirst({
+    where: {
+      id: fileLinkId,
+      schoolId: actor.schoolId,
+      entityType: "WORKFLOW_SUBMISSION",
+      entityId: submission.id,
+      file: { status: "AVAILABLE" },
+    },
+    select: {
+      file: {
+        select: {
+          storageKey: true,
+          originalName: true,
+          mimeType: true,
+          sizeBytes: true,
+        },
+      },
+    },
+  });
+  if (!link) {
+    throw new WorkflowValidationError("Không tìm thấy tệp đính kèm.");
+  }
+  return link.file;
 }
 
 export async function listWorkflowDelegationCandidates(

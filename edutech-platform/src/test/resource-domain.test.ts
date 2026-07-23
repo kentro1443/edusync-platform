@@ -5,6 +5,7 @@ import {
   ResourceValidationError,
   transitionResourceStatus,
   validateResourceTitle,
+  validateUploadContent,
   validateUploadMetadata,
 } from "@/lib/resources/resource-domain";
 
@@ -41,5 +42,14 @@ describe("resource domain", () => {
         maxBytes: 1_000,
       }),
     ).toThrow(ResourceValidationError);
+  });
+
+  it("rejects content that does not match the declared MIME type", () => {
+    expect(() =>
+      validateUploadContent("application/pdf", new Uint8Array(Buffer.from("not a PDF"))),
+    ).toThrow(ResourceValidationError);
+    expect(() =>
+      validateUploadContent("application/pdf", new Uint8Array(Buffer.from("%PDF-1.4"))),
+    ).not.toThrow();
   });
 });

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { requireSchoolContext } from "@/lib/auth/guards";
 import { permissions } from "@/lib/auth/permissions";
 import {
+  addWorkflowSubmissionAttachment,
   addWorkflowSubmissionComment,
   addWorkflowField,
   addWorkflowStep,
@@ -138,6 +139,25 @@ export async function addWorkflowSubmissionCommentAction(formData: FormData): Pr
     redirect(`/dashboard/workflows/submissions/${submissionId}?error=${errorCode(error)}`);
   }
   redirect(`/dashboard/workflows/submissions/${submissionId}?result=comment`);
+}
+
+export async function addWorkflowSubmissionAttachmentAction(formData: FormData): Promise<never> {
+  const submissionId = value(formData, "submissionId");
+  const { actor } = await requireSchoolContext(permissions.workflowSubmissionComment);
+  try {
+    const file = formData.get("file");
+    if (!(file instanceof File) || file.size < 1) {
+      throw new WorkflowValidationError("Hãy chọn một tệp để đính kèm.");
+    }
+    await addWorkflowSubmissionAttachment(actor, submissionId, {
+      originalName: file.name,
+      mimeType: file.type || "application/octet-stream",
+      content: new Uint8Array(await file.arrayBuffer()),
+    });
+  } catch (error) {
+    redirect(`/dashboard/workflows/submissions/${submissionId}?error=${errorCode(error)}`);
+  }
+  redirect(`/dashboard/workflows/submissions/${submissionId}?result=attachment`);
 }
 
 export async function delegateWorkflowSubmissionStepAction(formData: FormData): Promise<never> {

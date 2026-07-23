@@ -1,4 +1,6 @@
 import { randomUUID } from "node:crypto";
+import { rm } from "node:fs/promises";
+import path from "node:path";
 
 import { expect, test, type Page } from "@playwright/test";
 import { argon2id, hash } from "argon2";
@@ -15,6 +17,32 @@ const password = "Phase56-E2E-Password-2026!";
 let database: Client;
 let submissionId = "";
 let recurrenceRuleId = "";
+
+function createMinimalPdf(): Buffer {
+  const objects = [
+    "<< /Type /Catalog /Pages 2 0 R >>",
+    "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+    "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>",
+    "<< /Length 52 >>\nstream\nBT /F1 24 Tf 72 720 Td (Workflow EduTech) Tj ET\nendstream",
+    "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+  ];
+  let pdf = "%PDF-1.4\n";
+  const offsets = [0];
+  objects.forEach((object, index) => {
+    offsets.push(Buffer.byteLength(pdf));
+    pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
+  });
+  const xrefOffset = Buffer.byteLength(pdf);
+  pdf += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`;
+  pdf += offsets.slice(1).map((offset) => `${offset.toString().padStart(10, "0")} 00000 n \n`).join("");
+  pdf += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF\n`;
+  return Buffer.from(pdf);
+}
+
+async function removeStoredKey(storageKey: string): Promise<void> {
+  const root = path.resolve(process.env.FILE_STORAGE_ROOT ?? "./storage");
+  await rm(path.join(root, storageKey.slice(0, 2), storageKey.slice(2, 4), storageKey), { force: true });
+}
 
 test.describe.configure({ mode: "serial" });
 
@@ -44,6 +72,8 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
+  const files = await database.query<{ storageKey: string }>('SELECT "storageKey" FROM "StoredFile" WHERE "schoolId" = $1', [school.id]);
+  await Promise.all(files.rows.map((file) => removeStoredKey(file.storageKey).catch(() => undefined)));
   await database.query('DELETE FROM "WorkflowSubmissionComment" WHERE "submissionId" IN (SELECT id FROM "WorkflowSubmission" WHERE "schoolId" = $1)', [school.id]);
   await database.query('DELETE FROM "WorkflowSubmissionHistory" WHERE "submissionId" IN (SELECT id FROM "WorkflowSubmission" WHERE "schoolId" = $1)', [school.id]);
   await database.query('DELETE FROM "WorkflowDecision" WHERE "submissionId" IN (SELECT id FROM "WorkflowSubmission" WHERE "schoolId" = $1)', [school.id]);
@@ -51,6 +81,9 @@ test.afterAll(async () => {
   await database.query('DELETE FROM "WorkflowSubmissionStep" WHERE "submissionId" IN (SELECT id FROM "WorkflowSubmission" WHERE "schoolId" = $1)', [school.id]);
   await database.query('DELETE FROM "WorkflowSubmissionValue" WHERE "submissionId" IN (SELECT id FROM "WorkflowSubmission" WHERE "schoolId" = $1)', [school.id]);
   await database.query('DELETE FROM "WorkflowSubmission" WHERE "schoolId" = $1', [school.id]);
+  await database.query('DELETE FROM "FileLink" WHERE "schoolId" = $1', [school.id]);
+  await database.query('DELETE FROM "FileVersion" WHERE "fileId" IN (SELECT id FROM "StoredFile" WHERE "schoolId" = $1)', [school.id]);
+  await database.query('DELETE FROM "StoredFile" WHERE "schoolId" = $1', [school.id]);
   await database.query('DELETE FROM "WorkflowApprovalStep" WHERE "versionId" IN (SELECT id FROM "WorkflowVersion" WHERE "templateId" IN (SELECT id FROM "WorkflowTemplate" WHERE "schoolId" = $1))', [school.id]);
   await database.query('DELETE FROM "WorkflowFieldDefinition" WHERE "versionId" IN (SELECT id FROM "WorkflowVersion" WHERE "templateId" IN (SELECT id FROM "WorkflowTemplate" WHERE "schoolId" = $1))', [school.id]);
   await database.query('DELETE FROM "WorkflowVersion" WHERE "templateId" IN (SELECT id FROM "WorkflowTemplate" WHERE "schoolId" = $1)', [school.id]);
@@ -189,6 +222,26 @@ test("workflow builder publish, submit và approve giữ version lịch sử", a
   await page.getByRole("button", { name: "Gửi bình luận" }).click();
   await expect(page).toHaveURL(/result=comment/);
   await expect(page.getByText("Đã kiểm tra hồ sơ và nội dung đính kèm.")).toBeVisible();
+  await page.locator('input[name="file"]').setInputFiles({
+    name: "ho-so-quy-trinh-e2e.pdf",
+    mimeType: "application/pdf",
+    buffer: createMinimalPdf(),
+  });
+  await page.getByRole("button", { name: "Đính kèm tài liệu" }).click();
+  await expect(page).toHaveURL(/result=attachment/);
+  await expect(page.getByText("ho-so-quy-trinh-e2e.pdf")).toBeVisible();
+  const previewHref = await page.getByRole("link", { name: "Xem PDF" }).getAttribute("href");
+  const preview = await page.evaluate(async (href) => {
+    const response = await fetch(href!);
+    return {
+      status: response.status,
+      contentType: response.headers.get("content-type"),
+      body: await response.text(),
+    };
+  }, previewHref);
+  expect(preview.status).toBe(200);
+  expect(preview.contentType).toContain("application/pdf");
+  expect(preview.body.startsWith("%PDF-")).toBe(true);
   await page.getByLabel("Người duyệt mới").selectOption(reviewer.id);
   await page.getByLabel("Lý do chuyển").fill("Phân công người phụ trách chuyên môn.");
   await page.getByRole("button", { name: "Chuyển người duyệt" }).click();
