@@ -340,6 +340,9 @@ Resource reads and file downloads require an active membership in the same
 school. Draft/private resources are limited to the author or moderation roles;
 students and parents see only published non-private content. Uploads use opaque
 storage keys, safe original names, allow-listed MIME types and a 25 MiB limit.
+PDF preview uses the same authorization boundary as download, streams with
+`Content-Disposition: inline`, and records a `PREVIEW` analytics event. Other
+file types remain download-only until a format-specific preview is added.
 Audit and domain-outbox records are written in the same transaction as lifecycle
 mutations.
 

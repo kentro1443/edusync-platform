@@ -206,6 +206,7 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | `/dashboard/resources/new` | Create a draft resource | Resource create |
 | `/dashboard/resources/[resourceId]` | Detail, preview, comments, reports, lifecycle, versions and rollback | Resource visibility |
 | `/dashboard/resources/[resourceId]/download` | Authorized private download | Resource download |
+| `/dashboard/resources/[resourceId]/preview` | Inline PDF stream for browser preview; records a preview event | Resource download |
 | `/dashboard/resources/moderation` | Review queue for pending resources | Resource review |
 | `/dashboard/resources/bookmarks` | Personal bookmarks and collections | Resource read |
 | `/dashboard/resources/analytics` | Published-resource usage counters | Resource analytics |
@@ -213,6 +214,16 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 ## Verification status
 
 On July 23, 2026, Phase 1–4 passed their complete verification gates. Phase 4 adds tenant-scoped resource discovery, moderation lifecycle, immutable versions, local secure file upload/download, comments, reports, bookmarks, collections, analytics counters and rollback-as-new-version. Demo seed includes one published and one private resource for Trường Minh Khai.
+
+### Upload and PDF preview
+
+1. Sign in as a school member with resource-create permission and open `/dashboard/resources/new`.
+2. Create the draft metadata, then open the resource detail page.
+3. In **Tạo phiên bản mới**, choose a `.pdf` file (maximum 25 MiB) and save the version.
+4. After the resource is published, every authorized member of the same school sees **Xem trước PDF** on the detail page. The browser loads the file through the protected `/preview` route; the file remains private, and the event increments the resource preview counter.
+5. Non-PDF files remain downloadable, but do not render in the PDF preview panel.
+
+Draft and private resources stay visible only to their author and moderation roles. Students and parents see published, non-private resources within their school.
 
 ## Architecture documentation
 
