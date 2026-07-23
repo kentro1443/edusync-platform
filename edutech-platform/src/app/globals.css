@@ -247,3 +247,51 @@ button:disabled,
     linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
   background-size: 2.5rem 2.5rem;
 }
+
+.marketing-reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 18px));
+  transition:
+    opacity 700ms var(--ease-standard) var(--reveal-delay, 0ms),
+    transform 700ms var(--ease-standard) var(--reveal-delay, 0ms);
+}
+
+.marketing-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.marketing-tilt {
+  transform-style: preserve-3d;
+  transition: transform 420ms var(--ease-standard), box-shadow 420ms var(--ease-standard);
+  will-change: transform;
+}
+
+.marketing-tilt:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.marketing-float {
+  animation: marketing-float 7s ease-in-out infinite;
+}
+
+@keyframes marketing-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .marketing-tilt,
+  .marketing-tilt:hover,
+  .marketing-float {
+    transform: none !important;
+    animation: none;
+    transition: none;
+  }
+}

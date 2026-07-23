@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { moduleIcons, ShieldIcon, ArrowRightIcon, CheckIcon, CalendarIcon, BookIcon, WorkflowIcon } from "@/components/ui/icons";
 import { modules, roleBenefits } from "@/lib/site-data";
+import { Reveal, TiltCard } from "@/components/marketing/Motion";
 
 export const metadata: Metadata = {
   description:
@@ -49,7 +50,7 @@ function ProductPreview() {
     { icon: WorkflowIcon, label: "Hồ sơ", value: "06", detail: "Cần xử lý hôm nay", tone: "success" },
   ] as const;
   return (
-    <div aria-label="Xem trước không gian vận hành EduTech" className="relative mx-auto max-w-[36rem] lg:mx-0">
+    <div aria-label="Xem trước không gian vận hành EduTech" className="marketing-float relative mx-auto max-w-[36rem] lg:mx-0">
       <div className="absolute -inset-6 rounded-[2rem] bg-white/5 blur-2xl" aria-hidden="true" />
       <div className="relative overflow-hidden rounded-[1.35rem] border border-white/15 bg-[var(--color-surface)] shadow-[0_30px_80px_rgb(0_0_0_/_0.28)]">
         <div className="flex h-12 items-center justify-between border-b bg-[var(--color-ink-50)] px-4">
@@ -79,7 +80,7 @@ export default function HomePage() {
       <section className="marketing-hero relative overflow-hidden text-white">
         <div aria-hidden="true" className="subtle-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
         <Container className="relative grid items-center gap-14 py-16 lg:grid-cols-[1fr_0.92fr] lg:py-24">
-          <div className="max-w-3xl">
+          <Reveal className="max-w-3xl">
             <Badge tone="warning" className="bg-white/10 text-[var(--color-accent-400)]">
               Nền tảng vận hành trường học kết nối
             </Badge>
@@ -122,8 +123,8 @@ export default function HomePage() {
                 </div>
               ))}
             </dl>
-          </div>
-          <ProductPreview />
+          </Reveal>
+          <Reveal delay={120}><ProductPreview /></Reveal>
         </Container>
       </section>
 
@@ -143,15 +144,17 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
-            {problems.map((p) => (
-              <Card key={p.title} className="border-[var(--color-danger-100)]">
+            {problems.map((p, index) => (
+              <TiltCard key={p.title} className={index % 2 ? "lg:translate-y-5" : undefined}>
+                <Card className="h-full border-[var(--color-danger-100)]">
                 <h3 className="text-lg font-semibold text-[var(--color-ink-900)]">
                   {p.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--color-ink-500)]">
                   {p.detail}
                 </p>
-              </Card>
+                </Card>
+              </TiltCard>
             ))}
           </div>
         </Container>
@@ -175,10 +178,11 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
-            {modules.map((mod) => {
+            {modules.map((mod, index) => {
               const Icon = moduleIcons[mod.icon];
               return (
-                <Card key={mod.key} className="flex flex-col">
+                <TiltCard key={mod.key} className={index % 2 ? "lg:translate-y-5" : undefined}>
+                <Card className="flex h-full flex-col">
                   <div className="flex items-center gap-3">
                     <span className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-brand-100)] text-[var(--color-brand-700)]">
                       <Icon width={22} height={22} />
@@ -210,6 +214,7 @@ export default function HomePage() {
                     <ArrowRightIcon width={16} height={16} />
                   </Link>
                 </Card>
+                </TiltCard>
               );
             })}
           </div>
@@ -227,8 +232,9 @@ export default function HomePage() {
             </h2>
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {roleBenefits.map((r) => (
-              <Card key={r.role} className="bg-[var(--color-surface-muted)]">
+            {roleBenefits.map((r, index) => (
+              <TiltCard key={r.role} className={index % 3 === 1 ? "lg:translate-y-4" : undefined}>
+              <Card className="h-full bg-[var(--color-surface-muted)]">
                 <h3 className="text-base font-semibold text-[var(--color-brand-800)]">
                   {r.role}
                 </h3>
@@ -236,6 +242,7 @@ export default function HomePage() {
                   {r.benefit}
                 </p>
               </Card>
+              </TiltCard>
             ))}
           </div>
         </Container>
@@ -262,13 +269,14 @@ export default function HomePage() {
             </LinkButton>
           </div>
           <ul className="grid gap-4 sm:grid-cols-2">
-            {trustSignals.map((t) => (
-              <li
-                key={t}
-                className="flex items-start gap-3 rounded-[var(--radius-lg)] border border-white/10 bg-white/5 p-5"
-              >
-                <CheckIcon width={20} height={20} className="mt-0.5 shrink-0 text-[var(--color-accent-400)]" />
-                <span className="text-sm leading-relaxed text-[var(--color-ink-100)]">{t}</span>
+            {trustSignals.map((t, index) => (
+              <li key={t}>
+                <Reveal delay={index * 70} y={12}>
+                  <div className="flex items-start gap-3 rounded-[var(--radius-lg)] border border-white/10 bg-white/5 p-5">
+                    <CheckIcon width={20} height={20} className="mt-0.5 shrink-0 text-[var(--color-accent-400)]" />
+                    <span className="text-sm leading-relaxed text-[var(--color-ink-100)]">{t}</span>
+                  </div>
+                </Reveal>
               </li>
             ))}
           </ul>
