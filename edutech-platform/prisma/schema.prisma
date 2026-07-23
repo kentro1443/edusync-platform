@@ -167,6 +167,75 @@ enum MentoringNoteVisibility {
   STAFF_VISIBLE
 }
 
+enum CalendarVisibility {
+  PRIVATE
+  SCHOOL
+}
+
+enum CalendarEventStatus {
+  CONFIRMED
+  CANCELLED
+}
+
+enum RecurrenceFrequency {
+  DAILY
+  WEEKLY
+  MONTHLY
+}
+
+enum CalendarBookingStatus {
+  BOOKED
+  WAITLISTED
+  CANCELLED
+}
+
+enum CalendarAttendanceStatus {
+  SCHEDULED
+  PRESENT
+  ABSENT
+  EXCUSED
+}
+
+enum WorkflowTemplateStatus {
+  DRAFT
+  PUBLISHED
+  RETIRED
+}
+
+enum WorkflowFieldType {
+  TEXT
+  TEXTAREA
+  NUMBER
+  DATE
+  SELECT
+  CHECKBOX
+  FILE
+}
+
+enum WorkflowSubmissionStatus {
+  DRAFT
+  IN_REVIEW
+  CHANGES_REQUESTED
+  APPROVED
+  REJECTED
+  WITHDRAWN
+}
+
+enum WorkflowStepStatus {
+  PENDING
+  ACTIVE
+  APPROVED
+  REJECTED
+  CHANGES_REQUESTED
+  SKIPPED
+}
+
+enum WorkflowDecisionType {
+  APPROVE
+  REJECT
+  REQUEST_CHANGES
+}
+
 model User {
   id                 String     @id @default(uuid()) @db.Uuid
   email              String
@@ -226,6 +295,16 @@ model User {
   mentoringReferralsCreated MentoringReferral[]        @relation("MentoringReferralCreator")
   mentoringNotes            MentoringNote[]            @relation("MentoringNoteAuthor")
   sessionOutcomesCompleted  MentoringSessionOutcome[]  @relation("SessionOutcomeCompleter")
+  calendarsOwned            Calendar[]                @relation("CalendarOwner")
+  calendarEventsCreated     CalendarEvent[]            @relation("CalendarEventCreator")
+  calendarBookings          CalendarBooking[]
+  calendarAttendance        CalendarAttendance[]       @relation("CalendarAttendanceUser")
+  calendarAttendanceRecorded CalendarAttendance[]     @relation("CalendarAttendanceRecorder")
+  bookableResourcesCreated  BookableResource[]        @relation("BookableResourceCreator")
+  workflowTemplatesCreated  WorkflowTemplate[]         @relation("WorkflowTemplateCreator")
+  workflowSubmissions        WorkflowSubmission[]       @relation("WorkflowSubmissionOwner")
+  workflowDecisions          WorkflowDecision[]         @relation("WorkflowDecisionActor")
+  workflowHistory            WorkflowSubmissionHistory[] @relation("WorkflowHistoryActor")
 }
 
 model DemoRequest {
@@ -297,6 +376,16 @@ model School {
   mentoringTasks     MentoringTask[]
   mentoringReferrals MentoringReferral[]
   mentoringNotes     MentoringNote[]
+  calendarSources    CalendarSource[]
+  calendars          Calendar[]
+  bookableResources  BookableResource[]
+  blockedPeriods     BlockedPeriod[]
+  calendarEvents     CalendarEvent[]
+  calendarBookings   CalendarBooking[]
+  calendarAttendance CalendarAttendance[]
+  calendarReminders  CalendarReminder[]
+  workflowSubmissions WorkflowSubmission[]
+  workflowTemplates  WorkflowTemplate[]
 
   @@index([status])
 }
@@ -1119,4 +1208,349 @@ model MentoringNote {
   @@index([schoolId, studentUserId, createdAt])
   @@index([caseId, createdAt])
   @@index([authorUserId, createdAt])
+}
+
+model CalendarSource {
+  id          String   @id @default(uuid()) @db.Uuid
+  schoolId    String   @db.Uuid
+  name        String
+  provider    String   @default("EDUTECH")
+  externalKey String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  school    School     @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  calendars Calendar[]
+
+  @@unique([schoolId, name])
+  @@index([schoolId, active])
+}
+
+model Calendar {
+  id          String             @id @default(uuid()) @db.Uuid
+  schoolId    String             @db.Uuid
+  sourceId    String?            @db.Uuid
+  ownerUserId String?            @db.Uuid
+  name        String
+  description String?
+  visibility  CalendarVisibility @default(SCHOOL)
+  timezone    String             @default("Asia/Ho_Chi_Minh")
+  active      Boolean            @default(true)
+  createdAt   DateTime           @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime           @updatedAt @db.Timestamptz(6)
+
+  school          School             @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  source          CalendarSource?    @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  owner           User?              @relation("CalendarOwner", fields: [ownerUserId], references: [id], onDelete: SetNull)
+  events          CalendarEvent[]
+  bookings        CalendarBooking[]
+
+  @@unique([id, schoolId])
+  @@unique([schoolId, name])
+  @@index([schoolId, visibility, active])
+}
+
+model RecurrenceRule {
+  id         String             @id @default(uuid()) @db.Uuid
+  frequency  RecurrenceFrequency
+  interval   Int                @default(1)
+  count      Int?
+  until      DateTime?          @db.Timestamptz(6)
+  byWeekday  Int[]
+  createdAt  DateTime           @default(now()) @db.Timestamptz(6)
+
+  events     CalendarEvent[]
+}
+
+model RecurrenceException {
+  id        String   @id @default(uuid()) @db.Uuid
+  eventId   String   @db.Uuid
+  startsAt  DateTime @db.Timestamptz(6)
+  cancelled Boolean  @default(false)
+  movedTo   DateTime? @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  event CalendarEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, startsAt])
+  @@index([eventId, startsAt])
+}
+
+model BookableResource {
+  id          String   @id @default(uuid()) @db.Uuid
+  schoolId    String   @db.Uuid
+  createdById String   @db.Uuid
+  name        String
+  kind        String   @default("ROOM")
+  capacity    Int      @default(1)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  school       School          @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy    User            @relation("BookableResourceCreator", fields: [createdById], references: [id], onDelete: Restrict)
+  events       CalendarEvent[]
+  blockedPeriods BlockedPeriod[]
+
+  @@unique([schoolId, name])
+  @@index([schoolId, active])
+}
+
+model BlockedPeriod {
+  id                 String   @id @default(uuid()) @db.Uuid
+  schoolId           String   @db.Uuid
+  resourceId         String   @db.Uuid
+  startsAt           DateTime @db.Timestamptz(6)
+  endsAt             DateTime @db.Timestamptz(6)
+  reason             String?
+  createdAt          DateTime @default(now()) @db.Timestamptz(6)
+
+  school   School           @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  resource BookableResource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+
+  @@index([schoolId, startsAt, endsAt])
+  @@index([resourceId, startsAt, endsAt])
+}
+
+model CalendarEvent {
+  id               String              @id @default(uuid()) @db.Uuid
+  schoolId         String              @db.Uuid
+  calendarId        String              @db.Uuid
+  createdByUserId   String              @db.Uuid
+  resourceId        String?             @db.Uuid
+  recurrenceRuleId  String?             @db.Uuid
+  title             String
+  description       String?
+  startsAt          DateTime            @db.Timestamptz(6)
+  endsAt            DateTime            @db.Timestamptz(6)
+  timezone          String              @default("Asia/Ho_Chi_Minh")
+  status            CalendarEventStatus @default(CONFIRMED)
+  capacity          Int                 @default(0)
+  location          String?
+  createdAt         DateTime            @default(now()) @db.Timestamptz(6)
+  updatedAt         DateTime            @updatedAt @db.Timestamptz(6)
+
+  school          School              @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  calendar        Calendar            @relation(fields: [calendarId, schoolId], references: [id, schoolId], onDelete: Cascade)
+  createdBy       User                @relation("CalendarEventCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  resource        BookableResource?   @relation(fields: [resourceId], references: [id], onDelete: SetNull)
+  recurrenceRule  RecurrenceRule?     @relation(fields: [recurrenceRuleId], references: [id], onDelete: SetNull)
+  exceptions      RecurrenceException[]
+  bookings        CalendarBooking[]
+  attendance      CalendarAttendance[]
+  reminders       CalendarReminder[]
+
+  @@unique([id, schoolId])
+  @@index([schoolId, startsAt, endsAt])
+  @@index([calendarId, startsAt])
+  @@index([resourceId, startsAt, endsAt])
+}
+
+model CalendarBooking {
+  id        String                @id @default(uuid()) @db.Uuid
+  schoolId  String                @db.Uuid
+  calendarId String               @db.Uuid
+  eventId   String                @db.Uuid
+  userId    String                @db.Uuid
+  status    CalendarBookingStatus @default(BOOKED)
+  position  Int?
+  createdAt DateTime              @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime              @updatedAt @db.Timestamptz(6)
+
+  school   School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  calendar Calendar      @relation(fields: [calendarId, schoolId], references: [id, schoolId], onDelete: Cascade)
+  event    CalendarEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user     User          @relation(fields: [userId], references: [id], onDelete: Restrict)
+
+  @@unique([eventId, userId])
+  @@index([schoolId, status, createdAt])
+  @@index([eventId, status, position])
+}
+
+model CalendarAttendance {
+  id               String                   @id @default(uuid()) @db.Uuid
+  schoolId         String                   @db.Uuid
+  eventId          String                   @db.Uuid
+  userId           String                   @db.Uuid
+  status           CalendarAttendanceStatus @default(SCHEDULED)
+  checkedInAt      DateTime?                @db.Timestamptz(6)
+  recordedByUserId String?                  @db.Uuid
+  note             String?
+  createdAt        DateTime                 @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime                 @updatedAt @db.Timestamptz(6)
+
+  school     School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  event      CalendarEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user       User          @relation("CalendarAttendanceUser", fields: [userId], references: [id], onDelete: Restrict)
+  recordedBy User?         @relation("CalendarAttendanceRecorder", fields: [recordedByUserId], references: [id], onDelete: SetNull)
+
+  @@unique([eventId, userId])
+  @@index([schoolId, status])
+}
+
+model CalendarReminder {
+  id        String   @id @default(uuid()) @db.Uuid
+  schoolId  String   @db.Uuid
+  eventId   String   @db.Uuid
+  minutesBefore Int
+  sentAt    DateTime? @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  school School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  event  CalendarEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, minutesBefore])
+  @@index([schoolId, sentAt])
+}
+
+model WorkflowTemplate {
+  id          String                @id @default(uuid()) @db.Uuid
+  schoolId    String                @db.Uuid
+  createdById String                @db.Uuid
+  name        String
+  slug        String
+  description String?
+  status      WorkflowTemplateStatus @default(DRAFT)
+  currentVersionId String?          @db.Uuid
+  createdAt   DateTime              @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime              @updatedAt @db.Timestamptz(6)
+
+  school        School               @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy     User                 @relation("WorkflowTemplateCreator", fields: [createdById], references: [id], onDelete: Restrict)
+  versions      WorkflowVersion[]
+  submissions   WorkflowSubmission[]
+
+  @@unique([schoolId, slug])
+  @@index([schoolId, status])
+}
+
+model WorkflowVersion {
+  id          String   @id @default(uuid()) @db.Uuid
+  templateId  String   @db.Uuid
+  version     Int
+  publishedAt DateTime? @db.Timestamptz(6)
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+
+  template WorkflowTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  fields   WorkflowFieldDefinition[]
+  steps    WorkflowApprovalStep[]
+  submissions WorkflowSubmission[]
+
+  @@unique([templateId, version])
+}
+
+model WorkflowFieldDefinition {
+  id          String            @id @default(uuid()) @db.Uuid
+  versionId   String            @db.Uuid
+  key         String
+  label       String
+  type        WorkflowFieldType
+  position    Int
+  required    Boolean           @default(false)
+  optionsJson Json              @default("[]")
+  rulesJson   Json              @default("{}")
+
+  version WorkflowVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
+
+  @@unique([versionId, key])
+  @@index([versionId, position])
+}
+
+model WorkflowApprovalStep {
+  id          String   @id @default(uuid()) @db.Uuid
+  versionId   String   @db.Uuid
+  name        String
+  position    Int
+  role        SchoolRole
+  deadlineHours Int?
+  conditionJson Json @default("{}")
+
+  version WorkflowVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
+  submissions WorkflowSubmissionStep[]
+
+  @@unique([versionId, position])
+}
+
+model WorkflowSubmission {
+  id             String                   @id @default(uuid()) @db.Uuid
+  schoolId       String                   @db.Uuid
+  templateId     String                   @db.Uuid
+  versionId      String                   @db.Uuid
+  ownerUserId    String                   @db.Uuid
+  status         WorkflowSubmissionStatus @default(DRAFT)
+  submittedAt    DateTime?                @db.Timestamptz(6)
+  createdAt      DateTime                 @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime                 @updatedAt @db.Timestamptz(6)
+
+  school   School          @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  template WorkflowTemplate @relation(fields: [templateId], references: [id], onDelete: Restrict)
+  version  WorkflowVersion  @relation(fields: [versionId], references: [id], onDelete: Restrict)
+  owner    User             @relation("WorkflowSubmissionOwner", fields: [ownerUserId], references: [id], onDelete: Restrict)
+  values   WorkflowSubmissionValue[]
+  steps    WorkflowSubmissionStep[]
+  decisions WorkflowDecision[]
+  history  WorkflowSubmissionHistory[]
+
+  @@index([schoolId, status, updatedAt])
+  @@index([ownerUserId, status])
+}
+
+model WorkflowSubmissionValue {
+  id           String   @id @default(uuid()) @db.Uuid
+  submissionId String   @db.Uuid
+  fieldKey     String
+  valueJson    Json
+  updatedAt    DateTime @updatedAt @db.Timestamptz(6)
+
+  submission WorkflowSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@unique([submissionId, fieldKey])
+}
+
+model WorkflowSubmissionStep {
+  id           String            @id @default(uuid()) @db.Uuid
+  submissionId String            @db.Uuid
+  stepId       String            @db.Uuid
+  status       WorkflowStepStatus @default(PENDING)
+  assignedUserId String?         @db.Uuid
+  dueAt        DateTime?         @db.Timestamptz(6)
+  actedAt      DateTime?         @db.Timestamptz(6)
+
+  submission WorkflowSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  step       WorkflowApprovalStep @relation(fields: [stepId], references: [id], onDelete: Restrict)
+
+  @@unique([submissionId, stepId])
+  @@index([assignedUserId, status, dueAt])
+}
+
+model WorkflowDecision {
+  id           String               @id @default(uuid()) @db.Uuid
+  submissionId String               @db.Uuid
+  stepId       String               @db.Uuid
+  actorUserId  String               @db.Uuid
+  type         WorkflowDecisionType
+  reason       String?
+  createdAt    DateTime             @default(now()) @db.Timestamptz(6)
+
+  submission WorkflowSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  actor      User               @relation("WorkflowDecisionActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+
+  @@index([submissionId, createdAt])
+}
+
+model WorkflowSubmissionHistory {
+  id           String   @id @default(uuid()) @db.Uuid
+  submissionId String   @db.Uuid
+  actorUserId  String   @db.Uuid
+  action       String
+  fromStatus   WorkflowSubmissionStatus?
+  toStatus     WorkflowSubmissionStatus
+  metadataJson Json     @default("{}")
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  submission WorkflowSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  actor      User               @relation("WorkflowHistoryActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+
+  @@index([submissionId, createdAt])
 }

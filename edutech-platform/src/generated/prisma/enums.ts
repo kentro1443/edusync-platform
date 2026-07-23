@@ -239,3 +239,102 @@ export const MentoringNoteVisibility = {
 } as const
 
 export type MentoringNoteVisibility = (typeof MentoringNoteVisibility)[keyof typeof MentoringNoteVisibility]
+
+
+export const CalendarVisibility = {
+  PRIVATE: 'PRIVATE',
+  SCHOOL: 'SCHOOL'
+} as const
+
+export type CalendarVisibility = (typeof CalendarVisibility)[keyof typeof CalendarVisibility]
+
+
+export const CalendarEventStatus = {
+  CONFIRMED: 'CONFIRMED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type CalendarEventStatus = (typeof CalendarEventStatus)[keyof typeof CalendarEventStatus]
+
+
+export const RecurrenceFrequency = {
+  DAILY: 'DAILY',
+  WEEKLY: 'WEEKLY',
+  MONTHLY: 'MONTHLY'
+} as const
+
+export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency]
+
+
+export const CalendarBookingStatus = {
+  BOOKED: 'BOOKED',
+  WAITLISTED: 'WAITLISTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type CalendarBookingStatus = (typeof CalendarBookingStatus)[keyof typeof CalendarBookingStatus]
+
+
+export const CalendarAttendanceStatus = {
+  SCHEDULED: 'SCHEDULED',
+  PRESENT: 'PRESENT',
+  ABSENT: 'ABSENT',
+  EXCUSED: 'EXCUSED'
+} as const
+
+export type CalendarAttendanceStatus = (typeof CalendarAttendanceStatus)[keyof typeof CalendarAttendanceStatus]
+
+
+export const WorkflowTemplateStatus = {
+  DRAFT: 'DRAFT',
+  PUBLISHED: 'PUBLISHED',
+  RETIRED: 'RETIRED'
+} as const
+
+export type WorkflowTemplateStatus = (typeof WorkflowTemplateStatus)[keyof typeof WorkflowTemplateStatus]
+
+
+export const WorkflowFieldType = {
+  TEXT: 'TEXT',
+  TEXTAREA: 'TEXTAREA',
+  NUMBER: 'NUMBER',
+  DATE: 'DATE',
+  SELECT: 'SELECT',
+  CHECKBOX: 'CHECKBOX',
+  FILE: 'FILE'
+} as const
+
+export type WorkflowFieldType = (typeof WorkflowFieldType)[keyof typeof WorkflowFieldType]
+
+
+export const WorkflowSubmissionStatus = {
+  DRAFT: 'DRAFT',
+  IN_REVIEW: 'IN_REVIEW',
+  CHANGES_REQUESTED: 'CHANGES_REQUESTED',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  WITHDRAWN: 'WITHDRAWN'
+} as const
+
+export type WorkflowSubmissionStatus = (typeof WorkflowSubmissionStatus)[keyof typeof WorkflowSubmissionStatus]
+
+
+export const WorkflowStepStatus = {
+  PENDING: 'PENDING',
+  ACTIVE: 'ACTIVE',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  CHANGES_REQUESTED: 'CHANGES_REQUESTED',
+  SKIPPED: 'SKIPPED'
+} as const
+
+export type WorkflowStepStatus = (typeof WorkflowStepStatus)[keyof typeof WorkflowStepStatus]
+
+
+export const WorkflowDecisionType = {
+  APPROVE: 'APPROVE',
+  REJECT: 'REJECT',
+  REQUEST_CHANGES: 'REQUEST_CHANGES'
+} as const
+
+export type WorkflowDecisionType = (typeof WorkflowDecisionType)[keyof typeof WorkflowDecisionType]

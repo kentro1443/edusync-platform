@@ -366,6 +366,17 @@
 
 ## Phase 5 — Lịch và đặt chỗ
 
+### Delivery slice completed
+
+- [x] Scoped school calendar with day/week/month views and calendar filter.
+- [x] Conflict-safe event creation with tenant authorization.
+- [x] Recurrence rule storage and recurrence-domain expansion with exceptions.
+- [x] Capacity-aware booking/waitlist and deterministic positions.
+- [x] Attendance check-in UI and authorized iCalendar export.
+- [x] Phase 5 unit/E2E coverage.
+
+Room CRUD, reminder worker/outbox, real-time invalidation, and advanced recurrence editing remain follow-up tasks.
+
 ### Schema và domain
 
 - [ ] Thêm Calendar, CalendarSource và membership/visibility.
@@ -419,6 +430,16 @@
 - [ ] Đóng gate Phase 5.
 
 ## Phase 6 — Công cụ tạo quy trình không-code
+
+### Delivery slice completed
+
+- [x] Tenant-scoped template, draft version, field definition, and approval-step schema.
+- [x] Immutable publish creates a new draft version and preserves source version on submissions.
+- [x] Runtime required-field validation and sequential approval state machine.
+- [x] Builder, submission form, reviewer decision UI, status timeline, and authorized CSV export.
+- [x] Phase 6 unit/E2E coverage.
+
+Conditional routing, parallel graphs, attachments/comments, delegation/escalation workers, and advanced analytics remain follow-up tasks.
 
 ### Schema và domain
 

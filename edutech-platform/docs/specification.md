@@ -574,17 +574,15 @@ Critical authorization and workflow-state modules require high branch coverage. 
 
 - Build mentor discovery, verification, availability, booking, sessions, notes, feedback, and analytics.
 
-### Phase 5 — Resources
+### Phase 5 — Scheduling
 
-- Build upload and storage, metadata, search, moderation, versions, preview, collections, comments, and analytics.
+- Build tenant-scoped calendar views, recurrence, conflict-safe events, capacity/waitlist booking, attendance, and authorized iCalendar export.
 
-### Phase 6 — Scheduling
+### Phase 6 — Workflow Engine
 
-- Build calendar views, recurrence, conflicts, rooms, resources, waitlists, attendance, reminders, and iCalendar export.
+- Build no-code fields, immutable template versions, ordered approval steps, submissions, decision history, and authorized CSV export.
 
-### Phase 7 — Workflow Engine
-
-- Build no-code forms, template publication and versioning, approval graphs, conditions, escalation, submissions, and history.
+The current delivery slice covers these runtime paths end to end. Room/resource administration, reminder workers, delegation/escalation, attachments/comments, and advanced analytics remain explicit follow-up increments.
 
 ### Phase 8 — Clubs and Events
 

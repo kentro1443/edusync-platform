@@ -1,6 +1,6 @@
 # EduTech Platform
 
-EduTech is a multi-tenant school operations platform built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. Phases 1–2 provide the production foundation: a responsive Vietnamese design system and marketing site, database-backed identity and session security, tenant-safe authorization, school membership administration, and platform tenant provisioning.
+EduTech is a multi-tenant school operations platform built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. Phases 1–4 provide the foundation, identity, mentoring, and resource library. Phase 5 adds tenant-scoped school calendars and booking; Phase 6 adds immutable no-code workflow templates, submissions, and approvals.
 
 ## Prerequisites
 
@@ -210,6 +210,20 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | `/dashboard/resources/moderation` | Review queue for pending resources | Resource review |
 | `/dashboard/resources/bookmarks` | Personal bookmarks and collections | Resource read |
 | `/dashboard/resources/analytics` | Published-resource usage counters | Resource analytics |
+
+## Phase 5–6 routes
+
+| Route | Purpose | Required scope |
+| --- | --- | --- |
+| `/dashboard/calendar` | Day/week/month calendar, event creation, conflict-safe booking, recurrence, iCalendar export | Calendar read/create |
+| `/dashboard/calendar/[eventId]` | Booking roster and attendance check-in | Calendar read/attendance |
+| `/dashboard/calendar/ical` | Private iCalendar stream for permitted events | Calendar export |
+| `/dashboard/workflows` | Template catalog, submission launcher, and recent hồ sơ | Workflow template read |
+| `/dashboard/workflows/[templateId]` | Draft builder for fields/approval steps and immutable publish | Template create/update/publish |
+| `/dashboard/workflows/submissions` | Reviewer queue and authorized CSV export | Submission read/analytics |
+| `/dashboard/workflows/submissions/[submissionId]` | Form submission, status timeline, and approve/reject/request-changes | Submission scope |
+
+The Phase 5–6 delivery slice deliberately leaves room/resource CRUD, reminder workers, delegation/escalation, attachments/comments, and advanced analytics for the next increment. They are modeled as follow-up work, not silently represented as complete.
 
 ## Verification status
 

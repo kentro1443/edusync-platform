@@ -48,6 +48,18 @@ const navItems = [
     schoolPermission: permissions.resourceRead,
   },
   {
+    href: "/dashboard/calendar",
+    label: "Lịch trường",
+    icon: "appointments",
+    schoolPermission: permissions.calendarEventRead,
+  },
+  {
+    href: "/dashboard/workflows",
+    label: "Quy trình",
+    icon: "settings",
+    schoolPermission: permissions.workflowTemplateRead,
+  },
+  {
     href: "/dashboard/appointments",
     label: "Lịch hẹn & Đơn từ",
     icon: "appointments",

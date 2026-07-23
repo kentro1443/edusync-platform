@@ -381,6 +381,17 @@ Hoàn thiện school, user, membership, role assignment, parent-student link, in
 
 ## Phase 5 — Lịch và đặt chỗ
 
+### Phase 5 delivery slice (2026-07-23)
+
+- Extend the existing tenant-scoped appointment domain with a first-class
+  school calendar view, month/week/agenda filters, conflict-safe event creation,
+  recurrence exceptions, capacity/waitlist visibility, attendance, and
+  authorized iCalendar export.
+- Keep the existing mentoring booking transaction as the source of truth for
+  mentor appointments; calendar events are a separate auditable aggregate.
+- Ship responsive controls, explicit empty/error states, and keyboard-friendly
+  forms before adding broader room/resource administration.
+
 ### Mô hình/chức năng
 
 - Scoped calendar.
@@ -412,6 +423,15 @@ Hoàn thiện school, user, membership, role assignment, parent-student link, in
 - E2E scheduling xanh.
 
 ## Phase 6 — Công cụ tạo quy trình không-code
+
+### Phase 6 delivery slice (2026-07-23)
+
+- Add tenant-scoped workflow templates with immutable published versions,
+  typed field definitions, ordered approval steps, submissions, decisions,
+  request-changes, and historical source-version preservation.
+- Ship a compact builder for template/field/step configuration plus a
+  submission/reviewer experience; keep analytics/export as a follow-up slice
+  after the runtime state machine is proven.
 
 ### Mô hình/chức năng
 

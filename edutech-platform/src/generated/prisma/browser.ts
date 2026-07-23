@@ -247,3 +247,98 @@ export type MentoringReferral = Prisma.MentoringReferralModel
  * 
  */
 export type MentoringNote = Prisma.MentoringNoteModel
+/**
+ * Model CalendarSource
+ * 
+ */
+export type CalendarSource = Prisma.CalendarSourceModel
+/**
+ * Model Calendar
+ * 
+ */
+export type Calendar = Prisma.CalendarModel
+/**
+ * Model RecurrenceRule
+ * 
+ */
+export type RecurrenceRule = Prisma.RecurrenceRuleModel
+/**
+ * Model RecurrenceException
+ * 
+ */
+export type RecurrenceException = Prisma.RecurrenceExceptionModel
+/**
+ * Model BookableResource
+ * 
+ */
+export type BookableResource = Prisma.BookableResourceModel
+/**
+ * Model BlockedPeriod
+ * 
+ */
+export type BlockedPeriod = Prisma.BlockedPeriodModel
+/**
+ * Model CalendarEvent
+ * 
+ */
+export type CalendarEvent = Prisma.CalendarEventModel
+/**
+ * Model CalendarBooking
+ * 
+ */
+export type CalendarBooking = Prisma.CalendarBookingModel
+/**
+ * Model CalendarAttendance
+ * 
+ */
+export type CalendarAttendance = Prisma.CalendarAttendanceModel
+/**
+ * Model CalendarReminder
+ * 
+ */
+export type CalendarReminder = Prisma.CalendarReminderModel
+/**
+ * Model WorkflowTemplate
+ * 
+ */
+export type WorkflowTemplate = Prisma.WorkflowTemplateModel
+/**
+ * Model WorkflowVersion
+ * 
+ */
+export type WorkflowVersion = Prisma.WorkflowVersionModel
+/**
+ * Model WorkflowFieldDefinition
+ * 
+ */
+export type WorkflowFieldDefinition = Prisma.WorkflowFieldDefinitionModel
+/**
+ * Model WorkflowApprovalStep
+ * 
+ */
+export type WorkflowApprovalStep = Prisma.WorkflowApprovalStepModel
+/**
+ * Model WorkflowSubmission
+ * 
+ */
+export type WorkflowSubmission = Prisma.WorkflowSubmissionModel
+/**
+ * Model WorkflowSubmissionValue
+ * 
+ */
+export type WorkflowSubmissionValue = Prisma.WorkflowSubmissionValueModel
+/**
+ * Model WorkflowSubmissionStep
+ * 
+ */
+export type WorkflowSubmissionStep = Prisma.WorkflowSubmissionStepModel
+/**
+ * Model WorkflowDecision
+ * 
+ */
+export type WorkflowDecision = Prisma.WorkflowDecisionModel
+/**
+ * Model WorkflowSubmissionHistory
+ * 
+ */
+export type WorkflowSubmissionHistory = Prisma.WorkflowSubmissionHistoryModel
