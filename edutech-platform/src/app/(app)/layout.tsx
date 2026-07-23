@@ -12,6 +12,8 @@ import {
   permissions,
   type Permission,
 } from "@/lib/auth/permissions";
+import { selectSchoolAuthorizationContext } from "@/lib/auth/session";
+import { getNotificationSummary } from "@/lib/collaboration/collaboration-service";
 
 const navItems = [
   { href: "/dashboard", label: "Tổng quan", icon: "overview" },
@@ -70,6 +72,18 @@ const navItems = [
     label: "CLB & Sự kiện",
     icon: "clubs",
     schoolPermission: permissions.clubRead,
+  },
+  {
+    href: "/dashboard/messages",
+    label: "Tin nhắn",
+    icon: "messages",
+    schoolPermission: permissions.messageConversationRead,
+  },
+  {
+    href: "/dashboard/notifications",
+    label: "Thông báo",
+    icon: "notifications",
+    schoolPermission: permissions.notificationReadOwn,
   },
 ] satisfies readonly (AppNavItem & {
   schoolPermission?: Permission;
@@ -136,6 +150,14 @@ export default async function AppLayout({
     ? activeSchool.roles.map(translateRole).join(" · ")
     : session.platformRoles.map(translateRole).join(" · ") ||
       "Không có tư cách thành viên hoạt động";
+  const schoolActor = activeSchool
+    ? selectSchoolAuthorizationContext(session, activeSchool.schoolSlug)
+    : null;
+  const notificationSummary =
+    schoolActor &&
+    hasPermission(effectivePermissions, permissions.notificationReadOwn)
+      ? await getNotificationSummary(schoolActor)
+      : null;
 
   return (
     <AppShell
@@ -148,6 +170,21 @@ export default async function AppLayout({
       }
       canSwitchSchool={session.schoolContexts.length > 1}
       navItems={visibleNavItems}
+      notificationSummary={
+        notificationSummary
+          ? {
+              unreadCount: notificationSummary.unreadCount,
+              items: notificationSummary.items.map((item) => ({
+                id: item.id,
+                title: item.title,
+                body: item.body,
+                href: item.href,
+                createdAt: item.createdAt.toISOString(),
+                read: item.readAt !== null,
+              })),
+            }
+          : undefined
+      }
     >
       {children}
     </AppShell>

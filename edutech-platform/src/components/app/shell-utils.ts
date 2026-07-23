@@ -4,6 +4,8 @@ export type NavIcon =
   | "resources"
   | "appointments"
   | "clubs"
+  | "messages"
+  | "notifications"
   | "members"
   | "settings"
   | "schools";

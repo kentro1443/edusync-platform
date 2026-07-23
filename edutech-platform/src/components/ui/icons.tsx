@@ -134,6 +134,15 @@ export function BellIcon(props: IconProps) {
   );
 }
 
+export function MessageIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M5.5 18.5 3 21v-5.25A8.5 8.5 0 1 1 6.7 19" />
+      <path d="M8 10h8M8 14h5" />
+    </svg>
+  );
+}
+
 export function PlusIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>

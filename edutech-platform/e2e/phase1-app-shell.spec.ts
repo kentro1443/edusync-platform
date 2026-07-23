@@ -64,6 +64,8 @@ test.describe("App shell Phase 1", () => {
     await expect(page.getByText("Sắp có")).toHaveCount(0);
     await expect(page.locator('a[href="/dashboard/mentoring"]')).toHaveCount(1);
     await expect(page.locator('a[href="/dashboard/clubs-events"]')).toHaveCount(1);
+    await expect(page.locator('a[href="/dashboard/messages"]')).toHaveCount(1);
+    await expect(page.locator('a[href="/dashboard/notifications"]')).toHaveCount(2);
 
     const search = page.getByRole("button", { name: "Tìm kiếm trong ứng dụng" });
     await search.click();

@@ -23,6 +23,7 @@ import {
   ChevronLeftIcon,
   CloseIcon,
   MenuIcon,
+  MessageIcon,
   MentorIcon,
   PlusIcon,
   SearchIcon,
@@ -44,6 +45,17 @@ interface AppShellProps {
   activeSchoolName?: string;
   canSwitchSchool: boolean;
   navItems: AppNavItem[];
+  notificationSummary?: {
+    unreadCount: number;
+    items: readonly {
+      id: string;
+      title: string;
+      body: string | null;
+      href: string | null;
+      createdAt: string;
+      read: boolean;
+    }[];
+  };
 }
 
 const icons: Record<NavIcon, IconComponent> = {
@@ -52,6 +64,8 @@ const icons: Record<NavIcon, IconComponent> = {
   resources: BookIcon,
   appointments: CalendarIcon,
   clubs: BuildingIcon,
+  messages: MessageIcon,
+  notifications: BellIcon,
   members: MentorIcon,
   settings: ShieldIcon,
   schools: BuildingIcon,
@@ -139,6 +153,7 @@ export function AppShell({
   activeSchoolName,
   canSwitchSchool,
   navItems,
+  notificationSummary,
 }: AppShellProps) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -342,19 +357,86 @@ export function AppShell({
               </Link>
             ) : null}
 
-            <details className="group relative">
-              <summary className="relative flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-[var(--radius-md)] text-[var(--color-ink-600)] hover:bg-[var(--color-ink-100)] marker:hidden">
-                <span className="sr-only">Mở thông báo</span>
-                <BellIcon width={20} height={20} aria-hidden="true" />
-              </summary>
-              <div className="absolute right-0 mt-2 w-[min(22rem,calc(100vw-2rem))] rounded-[var(--radius-md)] border border-[var(--color-ink-200)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-lg)]">
-                <p className="text-sm font-semibold text-[var(--color-ink-900)]">Thông báo</p>
-                <div className="mt-3 rounded-[var(--radius-md)] bg-[var(--color-ink-50)] px-4 py-5 text-center">
-                  <p className="text-sm font-medium text-[var(--color-ink-700)]">Chưa có thông báo mới</p>
-                  <p className="mt-1 text-xs text-[var(--color-ink-500)]">Cập nhật quan trọng sẽ xuất hiện tại đây.</p>
+            {notificationSummary ? (
+              <details className="group relative">
+                <summary className="relative flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-[var(--radius-md)] text-[var(--color-ink-600)] hover:bg-[var(--color-ink-100)] marker:hidden">
+                  <span className="sr-only">
+                    Mở thông báo, {notificationSummary.unreadCount} chưa đọc
+                  </span>
+                  <BellIcon width={20} height={20} aria-hidden="true" />
+                  {notificationSummary.unreadCount ? (
+                    <span
+                      aria-hidden="true"
+                      className="absolute right-1 top-1 flex min-h-4 min-w-4 items-center justify-center rounded-full bg-[var(--color-danger-600)] px-1 text-[9px] font-bold text-white"
+                    >
+                      {Math.min(notificationSummary.unreadCount, 99)}
+                    </span>
+                  ) : null}
+                </summary>
+                <div className="absolute right-0 mt-2 w-[min(23rem,calc(100vw-2rem))] rounded-[var(--radius-md)] border border-[var(--color-ink-200)] bg-[var(--color-surface)] p-3 shadow-[var(--shadow-lg)]">
+                  <div className="flex items-center justify-between gap-3 px-1">
+                    <p className="text-sm font-semibold text-[var(--color-ink-900)]">
+                      Thông báo
+                    </p>
+                    <span className="text-xs text-[var(--color-ink-500)]">
+                      {notificationSummary.unreadCount} chưa đọc
+                    </span>
+                  </div>
+                  {notificationSummary.items.length ? (
+                    <ol className="mt-2 divide-y divide-[var(--color-ink-100)]">
+                      {notificationSummary.items.map((item) => (
+                        <li key={item.id}>
+                          <Link
+                            href={item.href ?? "/dashboard/notifications"}
+                            className="relative block rounded-[var(--radius-sm)] px-3 py-3 hover:bg-[var(--color-ink-50)]"
+                          >
+                            {!item.read ? (
+                              <span
+                                aria-hidden="true"
+                                className="absolute left-0 top-5 h-2 w-2 rounded-full bg-[var(--color-brand-600)]"
+                              />
+                            ) : null}
+                            <p className="line-clamp-1 text-sm font-semibold text-[var(--color-ink-800)]">
+                              {item.title}
+                            </p>
+                            {item.body ? (
+                              <p className="mt-1 line-clamp-2 text-xs leading-5 text-[var(--color-ink-500)]">
+                                {item.body}
+                              </p>
+                            ) : null}
+                            <time
+                              dateTime={item.createdAt}
+                              className="mt-1 block text-[10px] text-[var(--color-ink-400)]"
+                            >
+                              {new Intl.DateTimeFormat("vi-VN", {
+                                dateStyle: "short",
+                                timeStyle: "short",
+                                timeZone: "Asia/Ho_Chi_Minh",
+                              }).format(new Date(item.createdAt))}
+                            </time>
+                          </Link>
+                        </li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <div className="mt-3 rounded-[var(--radius-md)] bg-[var(--color-ink-50)] px-4 py-5 text-center">
+                      <p className="text-sm font-medium text-[var(--color-ink-700)]">
+                        Chưa có thông báo
+                      </p>
+                      <p className="mt-1 text-xs text-[var(--color-ink-500)]">
+                        Tin nhắn và việc cần chú ý sẽ xuất hiện tại đây.
+                      </p>
+                    </div>
+                  )}
+                  <Link
+                    href="/dashboard/notifications"
+                    className="mt-2 block rounded-[var(--radius-sm)] px-3 py-2 text-center text-sm font-semibold text-[var(--color-brand-700)] hover:bg-[var(--color-brand-50)]"
+                  >
+                    Xem tất cả và cấu hình
+                  </Link>
                 </div>
-              </div>
-            </details>
+              </details>
+            ) : null}
 
             <details className="relative">
               <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full bg-[var(--color-brand-700)] text-xs font-semibold text-white marker:hidden">

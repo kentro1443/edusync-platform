@@ -589,53 +589,53 @@ Budget, safety-plan, post-event report and parent-consent UI remain follow-up ta
 
 ### Schema và domain
 
-- [ ] Thêm Conversation, Participant và Message.
-- [ ] Thêm MessageAttachment, Mention và generic Comment.
-- [ ] Thêm Notification và NotificationPreference.
-- [ ] Hoàn thiện DomainOutboxEvent/EmailOutbox idempotency.
-- [ ] Thêm ActivityFeed projection.
-- [ ] Thêm constraints/indexes.
-- [ ] Tạo/chạy migration và seed.
+- [x] Thêm Conversation, Participant và Message.
+- [x] Thêm MessageAttachment, Mention và generic Comment.
+- [x] Thêm Notification và NotificationPreference.
+- [x] Hoàn thiện DomainOutboxEvent/EmailOutbox idempotency.
+- [x] Thêm ActivityFeed projection.
+- [x] Thêm constraints/indexes.
+- [x] Tạo/chạy migration và seed.
 
 ### Policy/service/API
 
-- [ ] Conversation participant policy.
-- [ ] Message send/read service.
-- [ ] Attachment authorization.
-- [ ] Mention/comment service.
-- [ ] Domain event dispatcher.
-- [ ] Idempotent notification fan-out.
-- [ ] Preference-aware delivery.
-- [ ] Email outbox worker/retry.
-- [ ] Authenticated real-time channels.
-- [ ] Reconnect/catch-up/durable fallback.
-- [ ] Audit events.
+- [x] Conversation participant policy.
+- [x] Message send/read service.
+- [x] Attachment authorization.
+- [x] Mention/comment service.
+- [x] Domain event dispatcher.
+- [x] Idempotent notification fan-out.
+- [x] Preference-aware delivery.
+- [x] Email outbox worker/retry.
+- [x] Authenticated real-time channels.
+- [x] Reconnect/catch-up/durable fallback.
+- [x] Audit events.
 
 ### UI và luồng
 
-- [ ] Notification dropdown.
-- [ ] Notification history/filter/read state.
-- [ ] Notification preference.
-- [ ] Conversation list/detail.
-- [ ] Message composer/attachment/mention.
-- [ ] Contextual comments.
-- [ ] Activity timeline/feed.
-- [ ] Optimistic state chỉ nơi an toàn.
-- [ ] Reconnecting/offline/failure states.
-- [ ] Mobile messaging experience.
+- [x] Notification dropdown.
+- [x] Notification history/filter/read state.
+- [x] Notification preference.
+- [x] Conversation list/detail.
+- [x] Message composer/attachment/mention.
+- [x] Contextual comments.
+- [x] Activity timeline/feed.
+- [x] Optimistic state chỉ nơi an toàn.
+- [x] Reconnecting/offline/failure states.
+- [x] Mobile messaging experience.
 
 ### Gate Phase 8
 
-- [ ] Unit tests idempotency/preferences.
-- [ ] Unauthorized subscribe/read/send negative tests.
-- [ ] Integration outbox/retry tests.
-- [ ] Integration real-time-down persistence test.
-- [ ] E2E real-time delivery.
-- [ ] E2E reconnect/fallback.
-- [ ] Responsive/keyboard/a11y checks.
-- [ ] Lint, typecheck, tests, E2E và build xanh.
-- [ ] Cập nhật docs.
-- [ ] Đóng gate Phase 8.
+- [x] Unit tests idempotency/preferences.
+- [x] Unauthorized subscribe/read/send negative tests.
+- [x] Integration outbox/retry tests.
+- [x] Integration real-time-down persistence test.
+- [x] E2E real-time delivery.
+- [x] E2E reconnect/fallback.
+- [x] Responsive/keyboard/a11y checks.
+- [x] Lint, typecheck, tests, E2E và build xanh.
+- [x] Cập nhật docs.
+- [x] Đóng gate Phase 8.
 
 ## Phase 9 — Báo cáo, tìm kiếm, hardening và phát hành
 
