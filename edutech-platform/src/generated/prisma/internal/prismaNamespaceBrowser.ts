@@ -67,7 +67,24 @@ export const ModelName = {
   FileLink: 'FileLink',
   AuditEvent: 'AuditEvent',
   DomainOutboxEvent: 'DomainOutboxEvent',
-  EmailOutbox: 'EmailOutbox'
+  EmailOutbox: 'EmailOutbox',
+  MentorProfile: 'MentorProfile',
+  MentorSpecialty: 'MentorSpecialty',
+  MentorProfileSpecialty: 'MentorProfileSpecialty',
+  MentorStudentAssignment: 'MentorStudentAssignment',
+  MentorAvailabilityRule: 'MentorAvailabilityRule',
+  MentorAvailabilityException: 'MentorAvailabilityException',
+  AppointmentType: 'AppointmentType',
+  Appointment: 'Appointment',
+  AppointmentTransition: 'AppointmentTransition',
+  AppointmentWaitlistEntry: 'AppointmentWaitlistEntry',
+  AppointmentAttendance: 'AppointmentAttendance',
+  MentoringCase: 'MentoringCase',
+  MentoringGoal: 'MentoringGoal',
+  MentoringSessionOutcome: 'MentoringSessionOutcome',
+  MentoringTask: 'MentoringTask',
+  MentoringReferral: 'MentoringReferral',
+  MentoringNote: 'MentoringNote'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -350,6 +367,274 @@ export const EmailOutboxScalarFieldEnum = {
 } as const
 
 export type EmailOutboxScalarFieldEnum = (typeof EmailOutboxScalarFieldEnum)[keyof typeof EmailOutboxScalarFieldEnum]
+
+
+export const MentorProfileScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  userId: 'userId',
+  headline: 'headline',
+  bio: 'bio',
+  yearsExperience: 'yearsExperience',
+  verificationStatus: 'verificationStatus',
+  verifiedByUserId: 'verifiedByUserId',
+  verifiedAt: 'verifiedAt',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentorProfileScalarFieldEnum = (typeof MentorProfileScalarFieldEnum)[keyof typeof MentorProfileScalarFieldEnum]
+
+
+export const MentorSpecialtyScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  name: 'name',
+  slug: 'slug',
+  createdAt: 'createdAt'
+} as const
+
+export type MentorSpecialtyScalarFieldEnum = (typeof MentorSpecialtyScalarFieldEnum)[keyof typeof MentorSpecialtyScalarFieldEnum]
+
+
+export const MentorProfileSpecialtyScalarFieldEnum = {
+  mentorProfileId: 'mentorProfileId',
+  specialtyId: 'specialtyId'
+} as const
+
+export type MentorProfileSpecialtyScalarFieldEnum = (typeof MentorProfileSpecialtyScalarFieldEnum)[keyof typeof MentorProfileSpecialtyScalarFieldEnum]
+
+
+export const MentorStudentAssignmentScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  mentorProfileId: 'mentorProfileId',
+  studentUserId: 'studentUserId',
+  status: 'status',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  assignedByUserId: 'assignedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentorStudentAssignmentScalarFieldEnum = (typeof MentorStudentAssignmentScalarFieldEnum)[keyof typeof MentorStudentAssignmentScalarFieldEnum]
+
+
+export const MentorAvailabilityRuleScalarFieldEnum = {
+  id: 'id',
+  mentorProfileId: 'mentorProfileId',
+  weekday: 'weekday',
+  startsAtLocal: 'startsAtLocal',
+  endsAtLocal: 'endsAtLocal',
+  timezone: 'timezone',
+  capacity: 'capacity',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentorAvailabilityRuleScalarFieldEnum = (typeof MentorAvailabilityRuleScalarFieldEnum)[keyof typeof MentorAvailabilityRuleScalarFieldEnum]
+
+
+export const MentorAvailabilityExceptionScalarFieldEnum = {
+  id: 'id',
+  mentorProfileId: 'mentorProfileId',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  kind: 'kind',
+  reason: 'reason',
+  createdAt: 'createdAt'
+} as const
+
+export type MentorAvailabilityExceptionScalarFieldEnum = (typeof MentorAvailabilityExceptionScalarFieldEnum)[keyof typeof MentorAvailabilityExceptionScalarFieldEnum]
+
+
+export const AppointmentTypeScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  mentorProfileId: 'mentorProfileId',
+  name: 'name',
+  description: 'description',
+  durationMinutes: 'durationMinutes',
+  capacity: 'capacity',
+  requiresApproval: 'requiresApproval',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AppointmentTypeScalarFieldEnum = (typeof AppointmentTypeScalarFieldEnum)[keyof typeof AppointmentTypeScalarFieldEnum]
+
+
+export const AppointmentScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  appointmentTypeId: 'appointmentTypeId',
+  organizerUserId: 'organizerUserId',
+  studentUserId: 'studentUserId',
+  mentorUserId: 'mentorUserId',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  timezone: 'timezone',
+  status: 'status',
+  capacity: 'capacity',
+  location: 'location',
+  studentMessage: 'studentMessage',
+  cancellationReason: 'cancellationReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AppointmentScalarFieldEnum = (typeof AppointmentScalarFieldEnum)[keyof typeof AppointmentScalarFieldEnum]
+
+
+export const AppointmentTransitionScalarFieldEnum = {
+  id: 'id',
+  appointmentId: 'appointmentId',
+  fromStatus: 'fromStatus',
+  toStatus: 'toStatus',
+  action: 'action',
+  actorUserId: 'actorUserId',
+  reason: 'reason',
+  metadataJson: 'metadataJson',
+  createdAt: 'createdAt'
+} as const
+
+export type AppointmentTransitionScalarFieldEnum = (typeof AppointmentTransitionScalarFieldEnum)[keyof typeof AppointmentTransitionScalarFieldEnum]
+
+
+export const AppointmentWaitlistEntryScalarFieldEnum = {
+  id: 'id',
+  appointmentId: 'appointmentId',
+  userId: 'userId',
+  position: 'position',
+  status: 'status',
+  joinedAt: 'joinedAt',
+  promotedAt: 'promotedAt',
+  leftAt: 'leftAt'
+} as const
+
+export type AppointmentWaitlistEntryScalarFieldEnum = (typeof AppointmentWaitlistEntryScalarFieldEnum)[keyof typeof AppointmentWaitlistEntryScalarFieldEnum]
+
+
+export const AppointmentAttendanceScalarFieldEnum = {
+  id: 'id',
+  appointmentId: 'appointmentId',
+  userId: 'userId',
+  status: 'status',
+  checkedInAt: 'checkedInAt',
+  recordedByUserId: 'recordedByUserId',
+  note: 'note',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AppointmentAttendanceScalarFieldEnum = (typeof AppointmentAttendanceScalarFieldEnum)[keyof typeof AppointmentAttendanceScalarFieldEnum]
+
+
+export const MentoringCaseScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  studentUserId: 'studentUserId',
+  primaryMentorProfileId: 'primaryMentorProfileId',
+  title: 'title',
+  summary: 'summary',
+  priority: 'priority',
+  status: 'status',
+  openedAt: 'openedAt',
+  closedAt: 'closedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentoringCaseScalarFieldEnum = (typeof MentoringCaseScalarFieldEnum)[keyof typeof MentoringCaseScalarFieldEnum]
+
+
+export const MentoringGoalScalarFieldEnum = {
+  id: 'id',
+  caseId: 'caseId',
+  title: 'title',
+  description: 'description',
+  targetAt: 'targetAt',
+  status: 'status',
+  progressPercent: 'progressPercent',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentoringGoalScalarFieldEnum = (typeof MentoringGoalScalarFieldEnum)[keyof typeof MentoringGoalScalarFieldEnum]
+
+
+export const MentoringSessionOutcomeScalarFieldEnum = {
+  id: 'id',
+  caseId: 'caseId',
+  appointmentId: 'appointmentId',
+  summary: 'summary',
+  progress: 'progress',
+  nextSteps: 'nextSteps',
+  completedByUserId: 'completedByUserId',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentoringSessionOutcomeScalarFieldEnum = (typeof MentoringSessionOutcomeScalarFieldEnum)[keyof typeof MentoringSessionOutcomeScalarFieldEnum]
+
+
+export const MentoringTaskScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  caseId: 'caseId',
+  assigneeUserId: 'assigneeUserId',
+  title: 'title',
+  description: 'description',
+  dueAt: 'dueAt',
+  status: 'status',
+  createdByUserId: 'createdByUserId',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentoringTaskScalarFieldEnum = (typeof MentoringTaskScalarFieldEnum)[keyof typeof MentoringTaskScalarFieldEnum]
+
+
+export const MentoringReferralScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  caseId: 'caseId',
+  studentUserId: 'studentUserId',
+  destination: 'destination',
+  reason: 'reason',
+  status: 'status',
+  createdByUserId: 'createdByUserId',
+  sentAt: 'sentAt',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentoringReferralScalarFieldEnum = (typeof MentoringReferralScalarFieldEnum)[keyof typeof MentoringReferralScalarFieldEnum]
+
+
+export const MentoringNoteScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  caseId: 'caseId',
+  appointmentId: 'appointmentId',
+  studentUserId: 'studentUserId',
+  authorUserId: 'authorUserId',
+  visibility: 'visibility',
+  encryptedBody: 'encryptedBody',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentoringNoteScalarFieldEnum = (typeof MentoringNoteScalarFieldEnum)[keyof typeof MentoringNoteScalarFieldEnum]
 
 
 export const SortOrder = {

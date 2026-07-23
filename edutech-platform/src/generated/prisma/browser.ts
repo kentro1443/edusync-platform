@@ -102,3 +102,88 @@ export type DomainOutboxEvent = Prisma.DomainOutboxEventModel
  * 
  */
 export type EmailOutbox = Prisma.EmailOutboxModel
+/**
+ * Model MentorProfile
+ * 
+ */
+export type MentorProfile = Prisma.MentorProfileModel
+/**
+ * Model MentorSpecialty
+ * 
+ */
+export type MentorSpecialty = Prisma.MentorSpecialtyModel
+/**
+ * Model MentorProfileSpecialty
+ * 
+ */
+export type MentorProfileSpecialty = Prisma.MentorProfileSpecialtyModel
+/**
+ * Model MentorStudentAssignment
+ * 
+ */
+export type MentorStudentAssignment = Prisma.MentorStudentAssignmentModel
+/**
+ * Model MentorAvailabilityRule
+ * 
+ */
+export type MentorAvailabilityRule = Prisma.MentorAvailabilityRuleModel
+/**
+ * Model MentorAvailabilityException
+ * 
+ */
+export type MentorAvailabilityException = Prisma.MentorAvailabilityExceptionModel
+/**
+ * Model AppointmentType
+ * 
+ */
+export type AppointmentType = Prisma.AppointmentTypeModel
+/**
+ * Model Appointment
+ * 
+ */
+export type Appointment = Prisma.AppointmentModel
+/**
+ * Model AppointmentTransition
+ * 
+ */
+export type AppointmentTransition = Prisma.AppointmentTransitionModel
+/**
+ * Model AppointmentWaitlistEntry
+ * 
+ */
+export type AppointmentWaitlistEntry = Prisma.AppointmentWaitlistEntryModel
+/**
+ * Model AppointmentAttendance
+ * 
+ */
+export type AppointmentAttendance = Prisma.AppointmentAttendanceModel
+/**
+ * Model MentoringCase
+ * 
+ */
+export type MentoringCase = Prisma.MentoringCaseModel
+/**
+ * Model MentoringGoal
+ * 
+ */
+export type MentoringGoal = Prisma.MentoringGoalModel
+/**
+ * Model MentoringSessionOutcome
+ * 
+ */
+export type MentoringSessionOutcome = Prisma.MentoringSessionOutcomeModel
+/**
+ * Model MentoringTask
+ * 
+ */
+export type MentoringTask = Prisma.MentoringTaskModel
+/**
+ * Model MentoringReferral
+ * 
+ */
+export type MentoringReferral = Prisma.MentoringReferralModel
+/**
+ * Model MentoringNote
+ * 
+ */
+export type MentoringNote = Prisma.MentoringNoteModel

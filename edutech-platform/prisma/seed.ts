@@ -3,6 +3,8 @@ import { argon2id, hash } from "argon2";
 
 import {
   MembershipStatus,
+  MentorAssignmentStatus,
+  MentorVerificationStatus,
   ParentStudentLinkStatus,
   PlatformRole,
   SchoolRole,
@@ -218,6 +220,70 @@ const memberships = [
   },
 ] as const;
 
+const mentorProfiles = [
+  {
+    id: "60000000-0000-4000-8000-000000000001",
+    schoolId: schools[0].id,
+    userId: users[3].id,
+    headline: "Cố vấn phát triển năng lực và định hướng học tập",
+    bio: "Đồng hành cùng học sinh xây dựng mục tiêu, thói quen học tập và kế hoạch phát triển cá nhân.",
+    yearsExperience: 8,
+    verifiedByUserId: users[1].id,
+  },
+  {
+    id: "60000000-0000-4000-8000-000000000002",
+    schoolId: schools[1].id,
+    userId: users[10].id,
+    headline: "Cố vấn tâm lý học đường và kỹ năng thích nghi",
+    bio: "Hỗ trợ học sinh nhận diện sức mạnh, vượt qua áp lực và kết nối nguồn lực phù hợp.",
+    yearsExperience: 6,
+    verifiedByUserId: users[8].id,
+  },
+] as const;
+
+const mentorSpecialties = [
+  {
+    id: "61000000-0000-4000-8000-000000000001",
+    schoolId: schools[0].id,
+    name: "Định hướng học tập",
+    slug: "dinh-huong-hoc-tap",
+    mentorProfileId: mentorProfiles[0].id,
+  },
+  {
+    id: "61000000-0000-4000-8000-000000000002",
+    schoolId: schools[0].id,
+    name: "Kỹ năng cá nhân",
+    slug: "ky-nang-ca-nhan",
+    mentorProfileId: mentorProfiles[0].id,
+  },
+  {
+    id: "61000000-0000-4000-8000-000000000003",
+    schoolId: schools[1].id,
+    name: "Tâm lý học đường",
+    slug: "tam-ly-hoc-duong",
+    mentorProfileId: mentorProfiles[1].id,
+  },
+] as const;
+
+const appointmentTypes = [
+  {
+    id: "62000000-0000-4000-8000-000000000001",
+    schoolId: schools[0].id,
+    mentorProfileId: mentorProfiles[0].id,
+    name: "Phiên cố vấn cá nhân",
+    description: "Trao đổi 1:1 về mục tiêu và kế hoạch hành động.",
+    durationMinutes: 60,
+  },
+  {
+    id: "62000000-0000-4000-8000-000000000002",
+    schoolId: schools[1].id,
+    mentorProfileId: mentorProfiles[1].id,
+    name: "Phiên hỗ trợ học đường",
+    description: "Trao đổi 1:1 trong không gian an toàn và bảo mật.",
+    durationMinutes: 60,
+  },
+] as const;
+
 async function main() {
   const passwordHash = await hash(demoPassword, {
     type: argon2id,
@@ -378,8 +444,134 @@ async function main() {
     },
   });
 
+  for (const profile of mentorProfiles) {
+    await prisma.mentorProfile.upsert({
+      where: {
+        schoolId_userId: {
+          schoolId: profile.schoolId,
+          userId: profile.userId,
+        },
+      },
+      update: {
+        headline: profile.headline,
+        bio: profile.bio,
+        yearsExperience: profile.yearsExperience,
+        verificationStatus: MentorVerificationStatus.VERIFIED,
+        verifiedByUserId: profile.verifiedByUserId,
+        verifiedAt: seededAt,
+        active: true,
+      },
+      create: {
+        ...profile,
+        verificationStatus: MentorVerificationStatus.VERIFIED,
+        verifiedAt: seededAt,
+      },
+    });
+  }
+
+  for (const specialty of mentorSpecialties) {
+    await prisma.mentorSpecialty.upsert({
+      where: {
+        schoolId_slug: {
+          schoolId: specialty.schoolId,
+          slug: specialty.slug,
+        },
+      },
+      update: { name: specialty.name },
+      create: {
+        id: specialty.id,
+        schoolId: specialty.schoolId,
+        name: specialty.name,
+        slug: specialty.slug,
+      },
+    });
+    await prisma.mentorProfileSpecialty.upsert({
+      where: {
+        mentorProfileId_specialtyId: {
+          mentorProfileId: specialty.mentorProfileId,
+          specialtyId: specialty.id,
+        },
+      },
+      update: {},
+      create: {
+        mentorProfileId: specialty.mentorProfileId,
+        specialtyId: specialty.id,
+      },
+    });
+  }
+
+  for (const [profileIndex, profile] of mentorProfiles.entries()) {
+    for (const [weekdayIndex, weekday] of [1, 2, 3, 4, 5].entries()) {
+      const id = `63000000-0000-4000-800${profileIndex}-${String(
+        weekdayIndex + 1,
+      ).padStart(12, "0")}`;
+      await prisma.mentorAvailabilityRule.upsert({
+        where: { id },
+        update: {
+          weekday,
+          startsAtLocal: "09:00",
+          endsAtLocal: "16:00",
+          timezone: "Asia/Ho_Chi_Minh",
+          capacity: 1,
+          active: true,
+        },
+        create: {
+          id,
+          mentorProfileId: profile.id,
+          weekday,
+          startsAtLocal: "09:00",
+          endsAtLocal: "16:00",
+          timezone: "Asia/Ho_Chi_Minh",
+          capacity: 1,
+        },
+      });
+    }
+  }
+
+  for (const appointmentType of appointmentTypes) {
+    await prisma.appointmentType.upsert({
+      where: { id: appointmentType.id },
+      update: {
+        name: appointmentType.name,
+        description: appointmentType.description,
+        durationMinutes: appointmentType.durationMinutes,
+        requiresApproval: true,
+        active: true,
+      },
+      create: {
+        ...appointmentType,
+        requiresApproval: true,
+      },
+    });
+  }
+
+  await prisma.mentorStudentAssignment.upsert({
+    where: {
+      schoolId_mentorProfileId_studentUserId: {
+        schoolId: schools[0].id,
+        mentorProfileId: mentorProfiles[0].id,
+        studentUserId: users[4].id,
+      },
+    },
+    update: {
+      status: MentorAssignmentStatus.ACTIVE,
+      startsAt: seededAt,
+      endsAt: null,
+      assignedByUserId: users[1].id,
+    },
+    create: {
+      id: "64000000-0000-4000-8000-000000000001",
+      schoolId: schools[0].id,
+      mentorProfileId: mentorProfiles[0].id,
+      studentUserId: users[4].id,
+      status: MentorAssignmentStatus.ACTIVE,
+      startsAt: seededAt,
+      assignedByUserId: users[1].id,
+    },
+  });
+
   console.info(
-    `Seeded ${schools.length} schools and ${users.length} demo users. Shared password: ${demoPassword}`,
+    `Seeded ${schools.length} schools, ${users.length} demo users and ${mentorProfiles.length} mentor profiles. Shared password: ${demoPassword}`,
   );
 }
 

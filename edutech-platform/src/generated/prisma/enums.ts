@@ -94,3 +94,109 @@ export const EmailOutboxStatus = {
 } as const
 
 export type EmailOutboxStatus = (typeof EmailOutboxStatus)[keyof typeof EmailOutboxStatus]
+
+
+export const MentorVerificationStatus = {
+  PENDING: 'PENDING',
+  VERIFIED: 'VERIFIED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type MentorVerificationStatus = (typeof MentorVerificationStatus)[keyof typeof MentorVerificationStatus]
+
+
+export const MentorAssignmentStatus = {
+  ACTIVE: 'ACTIVE',
+  ENDED: 'ENDED'
+} as const
+
+export type MentorAssignmentStatus = (typeof MentorAssignmentStatus)[keyof typeof MentorAssignmentStatus]
+
+
+export const AvailabilityExceptionKind = {
+  AVAILABLE: 'AVAILABLE',
+  UNAVAILABLE: 'UNAVAILABLE'
+} as const
+
+export type AvailabilityExceptionKind = (typeof AvailabilityExceptionKind)[keyof typeof AvailabilityExceptionKind]
+
+
+export const AppointmentStatus = {
+  REQUESTED: 'REQUESTED',
+  CONFIRMED: 'CONFIRMED',
+  WAITLISTED: 'WAITLISTED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED',
+  DECLINED: 'DECLINED'
+} as const
+
+export type AppointmentStatus = (typeof AppointmentStatus)[keyof typeof AppointmentStatus]
+
+
+export const AppointmentWaitlistStatus = {
+  WAITING: 'WAITING',
+  PROMOTED: 'PROMOTED',
+  LEFT: 'LEFT'
+} as const
+
+export type AppointmentWaitlistStatus = (typeof AppointmentWaitlistStatus)[keyof typeof AppointmentWaitlistStatus]
+
+
+export const AttendanceStatus = {
+  SCHEDULED: 'SCHEDULED',
+  PRESENT: 'PRESENT',
+  ABSENT: 'ABSENT',
+  EXCUSED: 'EXCUSED'
+} as const
+
+export type AttendanceStatus = (typeof AttendanceStatus)[keyof typeof AttendanceStatus]
+
+
+export const MentoringCaseStatus = {
+  OPEN: 'OPEN',
+  ON_HOLD: 'ON_HOLD',
+  CLOSED: 'CLOSED'
+} as const
+
+export type MentoringCaseStatus = (typeof MentoringCaseStatus)[keyof typeof MentoringCaseStatus]
+
+
+export const MentoringGoalStatus = {
+  ACTIVE: 'ACTIVE',
+  ACHIEVED: 'ACHIEVED',
+  PAUSED: 'PAUSED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type MentoringGoalStatus = (typeof MentoringGoalStatus)[keyof typeof MentoringGoalStatus]
+
+
+export const MentoringTaskStatus = {
+  TODO: 'TODO',
+  IN_PROGRESS: 'IN_PROGRESS',
+  DONE: 'DONE',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type MentoringTaskStatus = (typeof MentoringTaskStatus)[keyof typeof MentoringTaskStatus]
+
+
+export const MentoringReferralStatus = {
+  DRAFT: 'DRAFT',
+  SENT: 'SENT',
+  ACCEPTED: 'ACCEPTED',
+  DECLINED: 'DECLINED',
+  CLOSED: 'CLOSED'
+} as const
+
+export type MentoringReferralStatus = (typeof MentoringReferralStatus)[keyof typeof MentoringReferralStatus]
+
+
+export const MentoringNoteVisibility = {
+  PRIVATE_COUNSELOR: 'PRIVATE_COUNSELOR',
+  STUDENT_VISIBLE: 'STUDENT_VISIBLE',
+  GUARDIAN_VISIBLE: 'GUARDIAN_VISIBLE',
+  STAFF_VISIBLE: 'STAFF_VISIBLE'
+} as const
+
+export type MentoringNoteVisibility = (typeof MentoringNoteVisibility)[keyof typeof MentoringNoteVisibility]

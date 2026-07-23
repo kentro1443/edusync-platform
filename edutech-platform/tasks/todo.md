@@ -214,6 +214,45 @@
 
 ## Phase 3 — Cố vấn và tư vấn
 
+### Lát dọc 1 — Domain foundation
+
+- [ ] RED unit tests availability, appointment transition và note projection.
+- [ ] Prisma enums/models/relations/indexes Phase 3.
+- [ ] PostgreSQL exclusion constraints chống lịch chồng lấn.
+- [ ] Migration, Prisma client và demo seed cố vấn.
+- [ ] GREEN unit tests + Prisma validate/generate.
+
+### Lát dọc 2 — Discovery và booking
+
+- [ ] RED integration concurrent booking/waitlist/audit/outbox.
+- [ ] Mentor directory/profile/availability services.
+- [ ] Transactional booking và deterministic waitlist.
+- [ ] Directory, profile và booking UI.
+- [ ] GREEN integration tests, lint, typecheck.
+
+### Lát dọc 3 — Appointment operations
+
+- [ ] RED tests approve/reschedule/cancel/attendance.
+- [ ] Appointment lifecycle service và actions.
+- [ ] Agenda ngày/tuần và appointment detail.
+- [ ] Dashboard học sinh/cố vấn/quản trị.
+- [ ] GREEN tests và E2E lifecycle.
+
+### Lát dọc 4 — Counseling cases và privacy
+
+- [ ] RED tests case lifecycle/goals/tasks/referral/note visibility.
+- [ ] Case services, session outcome và activity projection.
+- [ ] Case list/detail UI đủ tabs/states.
+- [ ] Confidential-note editor/marker/explanation.
+- [ ] GREEN negative privacy tests mọi role/tenant và E2E parent privacy.
+
+### Lát dọc 5 — Closeout
+
+- [ ] Responsive 320/768/1024/1440, keyboard và reduced-motion.
+- [ ] Cập nhật docs/README/checklist.
+- [ ] Chạy full verification gate và browser verification.
+- [ ] Code review correctness/readability/architecture/security/performance.
+
 ### Schema và domain
 
 - [ ] Thêm MentorProfile, specialty và verification.

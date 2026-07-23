@@ -67,6 +67,79 @@ enum EmailOutboxStatus {
   FAILED
 }
 
+enum MentorVerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum MentorAssignmentStatus {
+  ACTIVE
+  ENDED
+}
+
+enum AvailabilityExceptionKind {
+  AVAILABLE
+  UNAVAILABLE
+}
+
+enum AppointmentStatus {
+  REQUESTED
+  CONFIRMED
+  WAITLISTED
+  COMPLETED
+  CANCELLED
+  DECLINED
+}
+
+enum AppointmentWaitlistStatus {
+  WAITING
+  PROMOTED
+  LEFT
+}
+
+enum AttendanceStatus {
+  SCHEDULED
+  PRESENT
+  ABSENT
+  EXCUSED
+}
+
+enum MentoringCaseStatus {
+  OPEN
+  ON_HOLD
+  CLOSED
+}
+
+enum MentoringGoalStatus {
+  ACTIVE
+  ACHIEVED
+  PAUSED
+  CANCELLED
+}
+
+enum MentoringTaskStatus {
+  TODO
+  IN_PROGRESS
+  DONE
+  CANCELLED
+}
+
+enum MentoringReferralStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  DECLINED
+  CLOSED
+}
+
+enum MentoringNoteVisibility {
+  PRIVATE_COUNSELOR
+  STUDENT_VISIBLE
+  GUARDIAN_VISIBLE
+  STAFF_VISIBLE
+}
+
 model User {
   id                 String     @id @default(uuid()) @db.Uuid
   email              String
@@ -82,20 +155,40 @@ model User {
   createdAt          DateTime   @default(now()) @db.Timestamptz(6)
   updatedAt          DateTime   @updatedAt @db.Timestamptz(6)
 
-  platformRoleAssignments PlatformRoleAssignment[] @relation("PlatformRoleUser")
-  platformRolesAssigned   PlatformRoleAssignment[] @relation("PlatformRoleAssigner")
-  memberships             SchoolMembership[]
-  schoolRolesAssigned     SchoolRoleAssignment[]   @relation("SchoolRoleAssigner")
-  parentLinks              ParentStudentLink[]      @relation("ParentLinks")
-  studentLinks             ParentStudentLink[]      @relation("StudentLinks")
-  invitationsCreated      Invitation[]             @relation("InvitationCreator")
-  sessions                 Session[]
-  passwordResetTokens      PasswordResetToken[]
-  filesCreated             StoredFile[]             @relation("StoredFileCreator")
-  fileVersionsCreated      FileVersion[]            @relation("FileVersionCreator")
-  fileLinksCreated         FileLink[]                @relation("FileLinkCreator")
-  auditEvents              AuditEvent[]              @relation("AuditActor")
-  emailOutboxItems         EmailOutbox[]             @relation("EmailRecipient")
+  platformRoleAssignments   PlatformRoleAssignment[]   @relation("PlatformRoleUser")
+  platformRolesAssigned     PlatformRoleAssignment[]   @relation("PlatformRoleAssigner")
+  memberships               SchoolMembership[]
+  schoolRolesAssigned       SchoolRoleAssignment[]     @relation("SchoolRoleAssigner")
+  parentLinks               ParentStudentLink[]        @relation("ParentLinks")
+  studentLinks              ParentStudentLink[]        @relation("StudentLinks")
+  invitationsCreated        Invitation[]               @relation("InvitationCreator")
+  sessions                  Session[]
+  passwordResetTokens       PasswordResetToken[]
+  filesCreated              StoredFile[]               @relation("StoredFileCreator")
+  fileVersionsCreated       FileVersion[]              @relation("FileVersionCreator")
+  fileLinksCreated          FileLink[]                 @relation("FileLinkCreator")
+  auditEvents               AuditEvent[]               @relation("AuditActor")
+  emailOutboxItems          EmailOutbox[]              @relation("EmailRecipient")
+  mentorProfiles            MentorProfile[]            @relation("MentorProfileUser")
+  mentorProfilesVerified    MentorProfile[]            @relation("MentorProfileVerifier")
+  mentorAssignmentsCreated  MentorStudentAssignment[]  @relation("MentorAssignmentCreator")
+  mentorAssignments         MentorStudentAssignment[]  @relation("MentorAssignmentStudent")
+  appointmentsOrganized     Appointment[]              @relation("AppointmentOrganizer")
+  studentAppointments       Appointment[]              @relation("AppointmentStudent")
+  mentorAppointments        Appointment[]              @relation("AppointmentMentor")
+  appointmentTransitions    AppointmentTransition[]    @relation("AppointmentTransitionActor")
+  appointmentWaitlist       AppointmentWaitlistEntry[]
+  attendanceRecords         AppointmentAttendance[]    @relation("AttendanceUser")
+  attendanceRecorded        AppointmentAttendance[]    @relation("AttendanceRecorder")
+  mentoringCases            MentoringCase[]            @relation("MentoringCaseStudent")
+  mentoringCasesCreated     MentoringCase[]            @relation("MentoringCaseCreator")
+  mentoringGoalsCreated     MentoringGoal[]            @relation("MentoringGoalCreator")
+  mentoringTasksAssigned    MentoringTask[]            @relation("MentoringTaskAssignee")
+  mentoringTasksCreated     MentoringTask[]            @relation("MentoringTaskCreator")
+  mentoringReferrals        MentoringReferral[]        @relation("MentoringReferralStudent")
+  mentoringReferralsCreated MentoringReferral[]        @relation("MentoringReferralCreator")
+  mentoringNotes            MentoringNote[]            @relation("MentoringNoteAuthor")
+  sessionOutcomesCompleted  MentoringSessionOutcome[]  @relation("SessionOutcomeCompleter")
 }
 
 model DemoRequest {
@@ -142,14 +235,23 @@ model School {
   createdAt         DateTime     @default(now()) @db.Timestamptz(6)
   updatedAt         DateTime     @updatedAt @db.Timestamptz(6)
 
-  memberships       SchoolMembership[]
+  memberships        SchoolMembership[]
   parentStudentLinks ParentStudentLink[]
-  invitations       Invitation[]
-  storedFiles       StoredFile[]
-  fileLinks         FileLink[]
-  auditEvents       AuditEvent[]
+  invitations        Invitation[]
+  storedFiles        StoredFile[]
+  fileLinks          FileLink[]
+  auditEvents        AuditEvent[]
   domainOutboxEvents DomainOutboxEvent[]
-  emailOutboxItems  EmailOutbox[]
+  emailOutboxItems   EmailOutbox[]
+  mentorProfiles     MentorProfile[]
+  mentorSpecialties  MentorSpecialty[]
+  mentorAssignments  MentorStudentAssignment[]
+  appointmentTypes   AppointmentType[]
+  appointments       Appointment[]
+  mentoringCases     MentoringCase[]
+  mentoringTasks     MentoringTask[]
+  mentoringReferrals MentoringReferral[]
+  mentoringNotes     MentoringNote[]
 
   @@index([status])
 }
@@ -212,19 +314,19 @@ model ParentStudentLink {
 }
 
 model Invitation {
-  id              String   @id @default(uuid()) @db.Uuid
-  schoolId        String   @db.Uuid
+  id              String    @id @default(uuid()) @db.Uuid
+  schoolId        String    @db.Uuid
   email           String
   normalizedEmail String
-  tokenHash       String   @unique
-  roleHintsJson   Json     @default("[]")
-  expiresAt       DateTime @db.Timestamptz(6)
+  tokenHash       String    @unique
+  roleHintsJson   Json      @default("[]")
+  expiresAt       DateTime  @db.Timestamptz(6)
   acceptedAt      DateTime? @db.Timestamptz(6)
   revokedAt       DateTime? @db.Timestamptz(6)
-  lastSentAt      DateTime @default(now()) @db.Timestamptz(6)
-  sendCount       Int      @default(1)
-  createdByUserId String   @db.Uuid
-  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+  lastSentAt      DateTime  @default(now()) @db.Timestamptz(6)
+  sendCount       Int       @default(1)
+  createdByUserId String    @db.Uuid
+  createdAt       DateTime  @default(now()) @db.Timestamptz(6)
 
   school    School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
   createdBy User   @relation("InvitationCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
@@ -234,17 +336,17 @@ model Invitation {
 }
 
 model Session {
-  id               String   @default(uuid()) @unique @db.Uuid
-  sessionTokenHash String   @id
-  userId           String   @db.Uuid
-  expires          DateTime @db.Timestamptz(6)
+  id               String    @unique @default(uuid()) @db.Uuid
+  sessionTokenHash String    @id
+  userId           String    @db.Uuid
+  expires          DateTime  @db.Timestamptz(6)
   revokedAt        DateTime? @db.Timestamptz(6)
   revokeReason     String?
-  lastSeenAt       DateTime @default(now()) @db.Timestamptz(6)
+  lastSeenAt       DateTime  @default(now()) @db.Timestamptz(6)
   userAgent        String?
   ipHash           String?
-  createdAt        DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt        DateTime @updatedAt @db.Timestamptz(6)
+  createdAt        DateTime  @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime  @updatedAt @db.Timestamptz(6)
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -267,12 +369,12 @@ model PasswordResetToken {
 }
 
 model AuthRateLimit {
-  keyHash      String   @id
+  keyHash      String    @id
   action       String
-  attempts     Int      @default(0)
-  windowStart DateTime  @db.Timestamptz(6)
+  attempts     Int       @default(0)
+  windowStart  DateTime  @db.Timestamptz(6)
   blockedUntil DateTime? @db.Timestamptz(6)
-  updatedAt    DateTime @updatedAt @db.Timestamptz(6)
+  updatedAt    DateTime  @updatedAt @db.Timestamptz(6)
 
   @@index([action, updatedAt])
   @@index([blockedUntil])
@@ -290,10 +392,10 @@ model StoredFile {
   createdByUserId String           @db.Uuid
   createdAt       DateTime         @default(now()) @db.Timestamptz(6)
 
-  school      School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
-  createdBy   User          @relation("StoredFileCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
-  versions    FileVersion[]
-  links       FileLink[]
+  school    School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy User          @relation("StoredFileCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  versions  FileVersion[]
+  links     FileLink[]
 
   @@unique([id, schoolId])
   @@index([schoolId, status])
@@ -394,8 +496,362 @@ model EmailOutbox {
   updatedAt       DateTime          @updatedAt @db.Timestamptz(6)
 
   school        School? @relation(fields: [schoolId], references: [id], onDelete: Restrict)
-  recipientUser User?  @relation("EmailRecipient", fields: [recipientUserId], references: [id], onDelete: SetNull)
+  recipientUser User?   @relation("EmailRecipient", fields: [recipientUserId], references: [id], onDelete: SetNull)
 
   @@index([status, createdAt])
   @@index([schoolId, status])
+}
+
+model MentorProfile {
+  id                 String                   @id @default(uuid()) @db.Uuid
+  schoolId           String                   @db.Uuid
+  userId             String                   @db.Uuid
+  headline           String
+  bio                String
+  yearsExperience    Int                      @default(0)
+  verificationStatus MentorVerificationStatus @default(PENDING)
+  verifiedByUserId   String?                  @db.Uuid
+  verifiedAt         DateTime?                @db.Timestamptz(6)
+  active             Boolean                  @default(true)
+  createdAt          DateTime                 @default(now()) @db.Timestamptz(6)
+  updatedAt          DateTime                 @updatedAt @db.Timestamptz(6)
+
+  school                 School                        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  user                   User                          @relation("MentorProfileUser", fields: [userId], references: [id], onDelete: Restrict)
+  verifiedBy             User?                         @relation("MentorProfileVerifier", fields: [verifiedByUserId], references: [id], onDelete: SetNull)
+  specialties            MentorProfileSpecialty[]
+  availabilityRules      MentorAvailabilityRule[]
+  availabilityExceptions MentorAvailabilityException[]
+  studentAssignments     MentorStudentAssignment[]
+  appointmentTypes       AppointmentType[]
+  primaryCases           MentoringCase[]
+
+  @@unique([schoolId, userId])
+  @@unique([id, schoolId])
+  @@index([schoolId, verificationStatus, active])
+}
+
+model MentorSpecialty {
+  id        String   @id @default(uuid()) @db.Uuid
+  schoolId  String   @db.Uuid
+  name      String
+  slug      String
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  school   School                   @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  profiles MentorProfileSpecialty[]
+
+  @@unique([schoolId, slug])
+  @@index([schoolId, name])
+}
+
+model MentorProfileSpecialty {
+  mentorProfileId String @db.Uuid
+  specialtyId     String @db.Uuid
+
+  mentorProfile MentorProfile   @relation(fields: [mentorProfileId], references: [id], onDelete: Cascade)
+  specialty     MentorSpecialty @relation(fields: [specialtyId], references: [id], onDelete: Cascade)
+
+  @@id([mentorProfileId, specialtyId])
+  @@index([specialtyId])
+}
+
+model MentorStudentAssignment {
+  id               String                 @id @default(uuid()) @db.Uuid
+  schoolId         String                 @db.Uuid
+  mentorProfileId  String                 @db.Uuid
+  studentUserId    String                 @db.Uuid
+  status           MentorAssignmentStatus @default(ACTIVE)
+  startsAt         DateTime               @db.Timestamptz(6)
+  endsAt           DateTime?              @db.Timestamptz(6)
+  assignedByUserId String                 @db.Uuid
+  createdAt        DateTime               @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime               @updatedAt @db.Timestamptz(6)
+
+  school        School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  mentorProfile MentorProfile @relation(fields: [mentorProfileId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  student       User          @relation("MentorAssignmentStudent", fields: [studentUserId], references: [id], onDelete: Restrict)
+  assignedBy    User          @relation("MentorAssignmentCreator", fields: [assignedByUserId], references: [id], onDelete: Restrict)
+
+  @@unique([schoolId, mentorProfileId, studentUserId])
+  @@index([schoolId, studentUserId, status])
+  @@index([mentorProfileId, status])
+}
+
+model MentorAvailabilityRule {
+  id              String   @id @default(uuid()) @db.Uuid
+  mentorProfileId String   @db.Uuid
+  weekday         Int
+  startsAtLocal   String
+  endsAtLocal     String
+  timezone        String
+  capacity        Int      @default(1)
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime @updatedAt @db.Timestamptz(6)
+
+  mentorProfile MentorProfile @relation(fields: [mentorProfileId], references: [id], onDelete: Cascade)
+
+  @@index([mentorProfileId, weekday, active])
+}
+
+model MentorAvailabilityException {
+  id              String                    @id @default(uuid()) @db.Uuid
+  mentorProfileId String                    @db.Uuid
+  startsAt        DateTime                  @db.Timestamptz(6)
+  endsAt          DateTime                  @db.Timestamptz(6)
+  kind            AvailabilityExceptionKind
+  reason          String?
+  createdAt       DateTime                  @default(now()) @db.Timestamptz(6)
+
+  mentorProfile MentorProfile @relation(fields: [mentorProfileId], references: [id], onDelete: Cascade)
+
+  @@index([mentorProfileId, startsAt, endsAt])
+}
+
+model AppointmentType {
+  id               String   @id @default(uuid()) @db.Uuid
+  schoolId         String   @db.Uuid
+  mentorProfileId  String?  @db.Uuid
+  name             String
+  description      String?
+  durationMinutes  Int
+  capacity         Int      @default(1)
+  requiresApproval Boolean  @default(true)
+  active           Boolean  @default(true)
+  createdAt        DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime @updatedAt @db.Timestamptz(6)
+
+  school        School         @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  mentorProfile MentorProfile? @relation(fields: [mentorProfileId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  appointments  Appointment[]
+
+  @@unique([schoolId, name, mentorProfileId])
+  @@unique([id, schoolId])
+  @@index([schoolId, active])
+}
+
+model Appointment {
+  id                 String            @id @default(uuid()) @db.Uuid
+  schoolId           String            @db.Uuid
+  appointmentTypeId  String            @db.Uuid
+  organizerUserId    String            @db.Uuid
+  studentUserId      String            @db.Uuid
+  mentorUserId       String            @db.Uuid
+  startsAt           DateTime          @db.Timestamptz(6)
+  endsAt             DateTime          @db.Timestamptz(6)
+  timezone           String
+  status             AppointmentStatus @default(REQUESTED)
+  capacity           Int               @default(1)
+  location           String?
+  studentMessage     String?
+  cancellationReason String?
+  createdAt          DateTime          @default(now()) @db.Timestamptz(6)
+  updatedAt          DateTime          @updatedAt @db.Timestamptz(6)
+
+  school          School                    @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  appointmentType AppointmentType           @relation(fields: [appointmentTypeId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  organizer       User                      @relation("AppointmentOrganizer", fields: [organizerUserId], references: [id], onDelete: Restrict)
+  student         User                      @relation("AppointmentStudent", fields: [studentUserId], references: [id], onDelete: Restrict)
+  mentor          User                      @relation("AppointmentMentor", fields: [mentorUserId], references: [id], onDelete: Restrict)
+  transitions     AppointmentTransition[]
+  waitlistEntry   AppointmentWaitlistEntry?
+  attendance      AppointmentAttendance[]
+  sessionOutcome  MentoringSessionOutcome?
+  notes           MentoringNote[]
+
+  @@unique([id, schoolId])
+  @@index([schoolId, startsAt])
+  @@index([schoolId, mentorUserId, startsAt])
+  @@index([schoolId, studentUserId, startsAt])
+  @@index([schoolId, status, startsAt])
+}
+
+model AppointmentTransition {
+  id            String            @id @default(uuid()) @db.Uuid
+  appointmentId String            @db.Uuid
+  fromStatus    AppointmentStatus
+  toStatus      AppointmentStatus
+  action        String
+  actorUserId   String            @db.Uuid
+  reason        String?
+  metadataJson  Json              @default("{}")
+  createdAt     DateTime          @default(now()) @db.Timestamptz(6)
+
+  appointment Appointment @relation(fields: [appointmentId], references: [id], onDelete: Restrict)
+  actor       User        @relation("AppointmentTransitionActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+
+  @@index([appointmentId, createdAt])
+  @@index([actorUserId, createdAt])
+}
+
+model AppointmentWaitlistEntry {
+  id            String                    @id @default(uuid()) @db.Uuid
+  appointmentId String                    @unique @db.Uuid
+  userId        String                    @db.Uuid
+  position      Int
+  status        AppointmentWaitlistStatus @default(WAITING)
+  joinedAt      DateTime                  @default(now()) @db.Timestamptz(6)
+  promotedAt    DateTime?                 @db.Timestamptz(6)
+  leftAt        DateTime?                 @db.Timestamptz(6)
+
+  appointment Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  user        User        @relation(fields: [userId], references: [id], onDelete: Restrict)
+
+  @@index([status, joinedAt, id])
+  @@index([userId, status])
+}
+
+model AppointmentAttendance {
+  id               String           @id @default(uuid()) @db.Uuid
+  appointmentId    String           @db.Uuid
+  userId           String           @db.Uuid
+  status           AttendanceStatus @default(SCHEDULED)
+  checkedInAt      DateTime?        @db.Timestamptz(6)
+  recordedByUserId String?          @db.Uuid
+  note             String?
+  createdAt        DateTime         @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime         @updatedAt @db.Timestamptz(6)
+
+  appointment Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  user        User        @relation("AttendanceUser", fields: [userId], references: [id], onDelete: Restrict)
+  recordedBy  User?       @relation("AttendanceRecorder", fields: [recordedByUserId], references: [id], onDelete: SetNull)
+
+  @@unique([appointmentId, userId])
+  @@index([userId, status])
+}
+
+model MentoringCase {
+  id                     String              @id @default(uuid()) @db.Uuid
+  schoolId               String              @db.Uuid
+  studentUserId          String              @db.Uuid
+  primaryMentorProfileId String              @db.Uuid
+  title                  String
+  summary                String?
+  priority               String              @default("NORMAL")
+  status                 MentoringCaseStatus @default(OPEN)
+  openedAt               DateTime            @default(now()) @db.Timestamptz(6)
+  closedAt               DateTime?           @db.Timestamptz(6)
+  createdByUserId        String              @db.Uuid
+  createdAt              DateTime            @default(now()) @db.Timestamptz(6)
+  updatedAt              DateTime            @updatedAt @db.Timestamptz(6)
+
+  school          School                    @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  student         User                      @relation("MentoringCaseStudent", fields: [studentUserId], references: [id], onDelete: Restrict)
+  primaryMentor   MentorProfile             @relation(fields: [primaryMentorProfileId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  createdBy       User                      @relation("MentoringCaseCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  goals           MentoringGoal[]
+  sessionOutcomes MentoringSessionOutcome[]
+  tasks           MentoringTask[]
+  referrals       MentoringReferral[]
+  notes           MentoringNote[]
+
+  @@unique([id, schoolId])
+  @@index([schoolId, studentUserId, status])
+  @@index([primaryMentorProfileId, status])
+}
+
+model MentoringGoal {
+  id              String              @id @default(uuid()) @db.Uuid
+  caseId          String              @db.Uuid
+  title           String
+  description     String?
+  targetAt        DateTime?           @db.Timestamptz(6)
+  status          MentoringGoalStatus @default(ACTIVE)
+  progressPercent Int                 @default(0)
+  createdByUserId String              @db.Uuid
+  createdAt       DateTime            @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime            @updatedAt @db.Timestamptz(6)
+
+  mentoringCase MentoringCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  createdBy     User          @relation("MentoringGoalCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+
+  @@index([caseId, status])
+}
+
+model MentoringSessionOutcome {
+  id                String   @id @default(uuid()) @db.Uuid
+  caseId            String   @db.Uuid
+  appointmentId     String   @unique @db.Uuid
+  summary           String
+  progress          String?
+  nextSteps         String?
+  completedByUserId String   @db.Uuid
+  completedAt       DateTime @default(now()) @db.Timestamptz(6)
+  createdAt         DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt         DateTime @updatedAt @db.Timestamptz(6)
+
+  mentoringCase MentoringCase @relation(fields: [caseId], references: [id], onDelete: Restrict)
+  appointment   Appointment   @relation(fields: [appointmentId], references: [id], onDelete: Restrict)
+  completedBy   User          @relation("SessionOutcomeCompleter", fields: [completedByUserId], references: [id], onDelete: Restrict)
+
+  @@index([caseId, completedAt])
+}
+
+model MentoringTask {
+  id              String              @id @default(uuid()) @db.Uuid
+  schoolId        String              @db.Uuid
+  caseId          String              @db.Uuid
+  assigneeUserId  String              @db.Uuid
+  title           String
+  description     String?
+  dueAt           DateTime?           @db.Timestamptz(6)
+  status          MentoringTaskStatus @default(TODO)
+  createdByUserId String              @db.Uuid
+  completedAt     DateTime?           @db.Timestamptz(6)
+  createdAt       DateTime            @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime            @updatedAt @db.Timestamptz(6)
+
+  school        School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  mentoringCase MentoringCase @relation(fields: [caseId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  assignee      User          @relation("MentoringTaskAssignee", fields: [assigneeUserId], references: [id], onDelete: Restrict)
+  createdBy     User          @relation("MentoringTaskCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, assigneeUserId, status, dueAt])
+  @@index([caseId, status])
+}
+
+model MentoringReferral {
+  id              String                  @id @default(uuid()) @db.Uuid
+  schoolId        String                  @db.Uuid
+  caseId          String                  @db.Uuid
+  studentUserId   String                  @db.Uuid
+  destination     String
+  reason          String
+  status          MentoringReferralStatus @default(DRAFT)
+  createdByUserId String                  @db.Uuid
+  sentAt          DateTime?               @db.Timestamptz(6)
+  resolvedAt      DateTime?               @db.Timestamptz(6)
+  createdAt       DateTime                @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime                @updatedAt @db.Timestamptz(6)
+
+  school        School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  mentoringCase MentoringCase @relation(fields: [caseId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  student       User          @relation("MentoringReferralStudent", fields: [studentUserId], references: [id], onDelete: Restrict)
+  createdBy     User          @relation("MentoringReferralCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, studentUserId, status])
+  @@index([caseId, status])
+}
+
+model MentoringNote {
+  id            String                  @id @default(uuid()) @db.Uuid
+  schoolId      String                  @db.Uuid
+  caseId        String                  @db.Uuid
+  appointmentId String?                 @db.Uuid
+  studentUserId String                  @db.Uuid
+  authorUserId  String                  @db.Uuid
+  visibility    MentoringNoteVisibility
+  encryptedBody String
+  createdAt     DateTime                @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime                @updatedAt @db.Timestamptz(6)
+
+  school        School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  mentoringCase MentoringCase @relation(fields: [caseId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  appointment   Appointment?  @relation(fields: [appointmentId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  author        User          @relation("MentoringNoteAuthor", fields: [authorUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, studentUserId, createdAt])
+  @@index([caseId, createdAt])
+  @@index([authorUserId, createdAt])
 }

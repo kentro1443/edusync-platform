@@ -275,6 +275,39 @@ Hoàn thiện school, user, membership, role assignment, parent-student link, in
 
 ## Phase 3 — Cố vấn và tư vấn
 
+### Kế hoạch lát dọc
+
+1. **Nền tảng domain**
+   - Mở rộng Prisma schema, migration và demo seed cho hồ sơ cố vấn, lịch rảnh, lịch hẹn, waitlist, hồ sơ tư vấn và ghi chú.
+   - Viết unit test trước cho availability, state transition và note visibility.
+   - Gate: Prisma validate/generate, unit test domain, lint và typecheck.
+2. **Khám phá cố vấn và đặt lịch**
+   - Directory có tìm kiếm/lọc, trang hồ sơ, slot khả dụng và booking ngắn gọn.
+   - Booking chạy trong transaction, constraint PostgreSQL chặn trùng lịch cố vấn/học sinh; conflict có lựa chọn waitlist.
+   - Mọi mutation tạo audit event và domain outbox trong cùng transaction.
+   - Gate: integration test concurrent booking, waitlist, audit và outbox.
+3. **Vận hành lịch hẹn**
+   - Agenda ngày/tuần, duyệt, đổi lịch, hủy, attendance và promotion waitlist deterministic.
+   - Dashboard theo vai trò học sinh, cố vấn và quản trị.
+   - Gate: integration test transition hợp lệ/không hợp lệ và E2E vòng đời lịch hẹn.
+4. **Hồ sơ tư vấn**
+   - Case list/detail; Overview, Goals, Sessions, Tasks, Files và Activity.
+   - Session outcome, referral, confidential note với projection theo role/relationship.
+   - Gate: negative privacy test mọi role/tenant và E2E parent privacy.
+5. **Đóng phase**
+   - Responsive, keyboard, reduced-motion, empty/loading/error/conflict/forbidden.
+   - Cập nhật data model, permission matrix, README và checklist.
+   - Chạy unit, lint, typecheck, build, E2E, diff check; kiểm tra trình duyệt và code review năm trục.
+
+### Acceptance criteria chi tiết
+
+- Hai request đồng thời không thể tạo hai lịch hẹn chồng lấn cho cùng cố vấn hoặc học sinh.
+- Mỗi transition lịch hẹn/case tạo history, audit và outbox tương ứng.
+- Waitlist luôn được xếp/promote theo `joinedAt`, sau đó `id`; promotion không vượt capacity.
+- Học sinh/phụ huynh không nhận trường dữ liệu của note không được phép trong query projection, UI hoặc export.
+- Directory, booking, agenda và case hoạt động bằng dữ liệu thật, không có nút chính giả.
+- Luồng học sinh đặt lịch, cố vấn duyệt, ghi kết quả và điểm danh chạy hoàn chỉnh.
+
 ### Mô hình/chức năng
 
 - Mentor profile, verification, specialty.
