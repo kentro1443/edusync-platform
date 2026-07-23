@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import {
@@ -56,12 +57,20 @@ function RoleCheckboxes({
 }
 
 export function InviteMemberDialog() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
+
+  async function inviteMember(formData: FormData) {
+    const status = await inviteMemberAction(formData);
+    setOpen(false);
+    router.replace(`/dashboard/admin/members?result=${status}`);
+  }
+
   return (
     <>
       <Button type="button" onClick={() => setOpen(true)}>Mời thành viên</Button>
       <Dialog open={open} onClose={() => setOpen(false)} title="Mời thành viên" description="Lời mời có hiệu lực 7 ngày và có thể thu hồi bất cứ lúc nào.">
-        <form action={inviteMemberAction} className="space-y-5">
+        <form action={inviteMember} className="space-y-5">
           <Field id="invite-email" label="Email người nhận" required>
             <Input id="invite-email" name="email" type="email" autoComplete="email" required />
           </Field>

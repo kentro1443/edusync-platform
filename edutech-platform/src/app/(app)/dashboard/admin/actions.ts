@@ -19,14 +19,14 @@ import {
 } from "@/lib/auth/invitation";
 import { permissions } from "@/lib/auth/permissions";
 
-export async function inviteMemberAction(formData: FormData): Promise<never> {
+export async function inviteMemberAction(formData: FormData) {
   const { actor } = await requireSchoolContext(permissions.schoolUserInvite);
   const result = await createSchoolInvitation(actor, {
     email: formData.get("email"),
     roles: formData.getAll("roles"),
   });
-  const status = result.success ? "invited" : result.error;
-  redirect(`/dashboard/admin/members?result=${status}`);
+  revalidatePath("/dashboard/admin/members");
+  return result.success ? "invited" : result.error;
 }
 
 export async function resendInvitationAction(formData: FormData): Promise<void> {

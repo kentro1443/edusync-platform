@@ -1,10 +1,9 @@
 import { notFound } from "next/navigation";
 
-import { restoreSchoolAction, suspendSchoolAction } from "@/app/(app)/dashboard/platform/actions";
+import { SchoolStatusAction } from "@/app/(app)/dashboard/platform/schools/[schoolId]/SchoolStatusAction";
 import { PageHeader } from "@/components/app/PageHeader";
 import { translatePlanCode } from "@/components/app/shell-utils";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Alert } from "@/components/ui/Feedback";
 import { getPlatformSchool } from "@/lib/admin/platform-admin";
@@ -18,7 +17,7 @@ export default async function PlatformSchoolDetailPage({ params, searchParams }:
   if (!school) notFound();
   return (
     <div className="space-y-8">
-      <PageHeader eyebrow="Phạm vi nền tảng" title={school.name} description={`Không gian trường · ${school.slug}`} actions={school.status === "ACTIVE" ? <form action={suspendSchoolAction}><input type="hidden" name="schoolId" value={school.id} /><Button type="submit" variant="danger">Tạm dừng trường</Button></form> : <form action={restoreSchoolAction}><input type="hidden" name="schoolId" value={school.id} /><Button type="submit">Khôi phục trường</Button></form>} />
+      <PageHeader eyebrow="Phạm vi nền tảng" title={school.name} description={`Không gian trường · ${school.slug}`} actions={<SchoolStatusAction key={school.status} schoolId={school.id} status={school.status} />} />
       {query.created === "1" ? <Alert tone="success" title="Đã khởi tạo trường và gửi lời mời quản trị viên" /> : null}
       <Alert tone="warning" title="Đang thao tác ở phạm vi nền tảng">Tạm dừng trường sẽ thu hồi các phiên đăng nhập liên quan.</Alert>
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
