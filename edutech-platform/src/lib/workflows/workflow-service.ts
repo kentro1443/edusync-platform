@@ -5,9 +5,11 @@ import { getSchoolPermissions, hasPermission, permissions } from "@/lib/auth/per
 import { db } from "@/lib/db";
 import type { Prisma } from "@/generated/prisma/client";
 import {
-  getNextWorkflowStep,
+  getNextWorkflowStepIds,
+  resolveWorkflowRouting,
   validateWorkflowValues,
   type WorkflowField,
+  type WorkflowCondition,
 } from "@/lib/workflows/workflow-domain";
 
 export class WorkflowAuthorizationError extends Error {}
@@ -108,14 +110,44 @@ export async function addWorkflowField(
 export async function addWorkflowStep(
   actor: AuthorizationContext,
   templateId: string,
-  input: Readonly<{ name: string; role: "SCHOOL_ADMIN" | "TEACHER_STAFF" | "MENTOR_COUNSELOR" | "APPROVER_REVIEWER" }>,
+  input: Readonly<{
+    name: string;
+    role: "SCHOOL_ADMIN" | "TEACHER_STAFF" | "MENTOR_COUNSELOR" | "APPROVER_REVIEWER";
+    condition?: WorkflowCondition;
+    parallelGroup?: number;
+  }>,
 ) {
   requireWorkflowActor(actor, permissions.workflowTemplateUpdateDraft);
   if (!input.name.trim()) throw new WorkflowValidationError("Bước duyệt cần có tên.");
+  if (!["SCHOOL_ADMIN", "TEACHER_STAFF", "MENTOR_COUNSELOR", "APPROVER_REVIEWER"].includes(input.role)) {
+    throw new WorkflowValidationError("Vai trò duyệt không hợp lệ.");
+  }
+  if (input.parallelGroup !== undefined && (!Number.isInteger(input.parallelGroup) || input.parallelGroup < 1 || input.parallelGroup > 1000)) {
+    throw new WorkflowValidationError("Nhóm song song không hợp lệ.");
+  }
+  if (input.condition?.field && !["equals", "notEquals", "truthy", "falsy"].includes(input.condition.operator ?? "")) {
+    throw new WorkflowValidationError("Điều kiện duyệt không hợp lệ.");
+  }
+  const conditionField = input.condition?.field ? slugify(input.condition.field).replaceAll("-", "_") : "";
+  if (input.condition?.field && !conditionField) throw new WorkflowValidationError("Mã trường điều kiện không hợp lệ.");
+  const condition = input.condition?.field
+    ? {
+        field: conditionField,
+        operator: input.condition.operator,
+        value: input.condition.value == null ? "" : String(input.condition.value),
+      }
+    : undefined;
   return db.$transaction(async (transaction) => {
     const { draft } = await getDraft(transaction, actor, templateId);
     return transaction.workflowApprovalStep.create({
-      data: { versionId: draft.id, name: input.name.trim(), role: input.role, position: draft.steps.length },
+      data: {
+        versionId: draft.id,
+        name: input.name.trim(),
+        role: input.role,
+        position: draft.steps.length,
+        conditionJson: (condition ?? {}) as Prisma.InputJsonValue,
+        parallelGroup: input.parallelGroup && input.parallelGroup > 0 ? input.parallelGroup : undefined,
+      },
     });
   });
 }
@@ -131,7 +163,16 @@ export async function publishWorkflowTemplate(actor: AuthorizationContext, templ
         templateId: template.id,
         version: draft.version + 1,
         fields: { create: draft.fields.map(({ key, label, type, position, required }) => ({ key, label, type, position, required })) },
-        steps: { create: draft.steps.map(({ name, position, role, deadlineHours }) => ({ name, position, role, deadlineHours })) },
+        steps: {
+          create: draft.steps.map(({ name, position, role, deadlineHours, conditionJson, parallelGroup }) => ({
+            name,
+            position,
+            role,
+            deadlineHours,
+            conditionJson: (conditionJson ?? {}) as Prisma.InputJsonValue,
+            parallelGroup,
+          })),
+        },
       },
     });
     return transaction.workflowTemplate.update({ where: { id: template.id }, data: { status: "PUBLISHED", currentVersionId: nextVersion.id } });
@@ -158,7 +199,7 @@ export async function createWorkflowSubmission(actor: AuthorizationContext, temp
         templateId: template.id,
         versionId: version.id,
         ownerUserId: actor.userId,
-        steps: { create: version.steps.map((step, index) => ({ stepId: step.id, status: index === 0 ? "ACTIVE" : "PENDING" })) },
+        steps: { create: version.steps.map((step) => ({ stepId: step.id, status: "PENDING" })) },
         history: { create: { actorUserId: actor.userId, action: "CREATE", toStatus: "DRAFT" } },
       },
     });
@@ -170,7 +211,7 @@ export async function submitWorkflowSubmission(actor: AuthorizationContext, subm
   requireWorkflowActor(actor, permissions.workflowSubmissionUpdate);
   const submission = await db.workflowSubmission.findFirst({
     where: { id: submissionId, schoolId: actor.schoolId, ownerUserId: actor.userId, status: { in: ["DRAFT", "CHANGES_REQUESTED"] } },
-    include: { version: { include: { fields: true } }, steps: true },
+    include: { version: { include: { fields: true, steps: { orderBy: { position: "asc" } } } }, steps: true },
   });
   if (!submission) throw new WorkflowValidationError("Không tìm thấy bản nháp được phép sửa.");
   const fields: WorkflowField[] = submission.version.fields.map((field) => ({ key: field.key, label: field.label, type: field.type, required: field.required }));
@@ -182,9 +223,24 @@ export async function submitWorkflowSubmission(actor: AuthorizationContext, subm
       create: { submissionId, fieldKey, valueJson: value as never },
       update: { valueJson: value as never },
     })));
+    const routing = resolveWorkflowRouting(
+      submission.version.steps.map((step) => ({
+        id: step.id,
+        position: step.position,
+        status: "PENDING" as const,
+        condition: step.conditionJson as WorkflowCondition,
+        parallelGroup: step.parallelGroup,
+      })),
+      values,
+    );
+    await Promise.all(routing.map((step) => transaction.workflowSubmissionStep.updateMany({
+      where: { submissionId, stepId: step.id },
+      data: { status: step.status },
+    })));
+    const nextStatus = routing.some((step) => step.status === "ACTIVE") ? "IN_REVIEW" : "APPROVED";
     return transaction.workflowSubmission.update({
       where: { id: submissionId },
-      data: { status: "IN_REVIEW", submittedAt: new Date(), history: { create: { actorUserId: actor.userId, action: "SUBMIT", fromStatus: submission.status, toStatus: "IN_REVIEW" } } },
+      data: { status: nextStatus, submittedAt: new Date(), history: { create: { actorUserId: actor.userId, action: "SUBMIT", fromStatus: submission.status, toStatus: nextStatus } } },
     });
   });
 }
@@ -253,20 +309,36 @@ export async function decideWorkflowSubmission(
     where: { id: submissionId, schoolId: actor.schoolId, status: "IN_REVIEW" },
     include: { steps: { include: { step: true }, orderBy: { step: { position: "asc" } } } },
   });
-  const active = submission?.steps.find((step) => step.status === "ACTIVE");
-  if (!submission || !active || !actor.schoolRoles.includes(active.step.role)) {
+  const active = submission?.steps.find((step) => step.status === "ACTIVE" && actor.schoolRoles.includes(step.step.role));
+  if (!submission || !active) {
     throw new WorkflowAuthorizationError("Bạn không phải người duyệt bước hiện tại.");
   }
-  const next = getNextWorkflowStep(submission.steps.map((step) => ({
-    id: step.id,
-    position: step.step.position,
-    status: step.id === active.id && input.type === "APPROVE" ? "APPROVED" : step.status,
-  })));
-  const nextStatus = input.type === "APPROVE" && !next ? "APPROVED" : input.type === "REJECT" ? "REJECTED" : input.type === "REQUEST_CHANGES" ? "CHANGES_REQUESTED" : "IN_REVIEW";
   return db.$transaction(async (transaction) => {
-    await transaction.workflowSubmissionStep.update({ where: { id: active.id }, data: { status: input.type === "APPROVE" ? "APPROVED" : input.type === "REJECT" ? "REJECTED" : "CHANGES_REQUESTED", actedAt: new Date() } });
-    if (input.type === "APPROVE" && next) {
-      await transaction.workflowSubmissionStep.update({ where: { id: next.id }, data: { status: "ACTIVE" } });
+    const decisionStatus = input.type === "APPROVE" ? "APPROVED" : input.type === "REJECT" ? "REJECTED" : "CHANGES_REQUESTED";
+    const acted = await transaction.workflowSubmissionStep.updateMany({
+      where: { id: active.id, status: "ACTIVE" },
+      data: { status: decisionStatus, actedAt: new Date() },
+    });
+    if (acted.count !== 1) throw new WorkflowValidationError("Bước duyệt đã được xử lý.");
+    let nextStatus: "IN_REVIEW" | "APPROVED" | "REJECTED" | "CHANGES_REQUESTED";
+    if (input.type === "APPROVE") {
+      const currentSteps = await transaction.workflowSubmissionStep.findMany({
+        where: { submissionId: submission.id },
+        include: { step: true },
+        orderBy: { step: { position: "asc" } },
+      });
+      const nextIds = getNextWorkflowStepIds(currentSteps.map((step) => ({
+        id: step.id,
+        position: step.step.position,
+        status: step.status,
+        parallelGroup: step.step.parallelGroup,
+      })));
+      if (nextIds.length) {
+        await transaction.workflowSubmissionStep.updateMany({ where: { id: { in: nextIds }, status: "PENDING" }, data: { status: "ACTIVE" } });
+      }
+      nextStatus = currentSteps.some((step) => step.status === "ACTIVE") || nextIds.length ? "IN_REVIEW" : "APPROVED";
+    } else {
+      nextStatus = input.type === "REJECT" ? "REJECTED" : "CHANGES_REQUESTED";
     }
     return transaction.workflowSubmission.update({
       where: { id: submission.id },

@@ -1465,6 +1465,7 @@ model WorkflowApprovalStep {
   role        SchoolRole
   deadlineHours Int?
   conditionJson Json @default("{}")
+  parallelGroup Int?
 
   version WorkflowVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
   submissions WorkflowSubmissionStep[]

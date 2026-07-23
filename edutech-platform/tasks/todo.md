@@ -371,11 +371,12 @@
 - [x] Scoped school calendar with day/week/month views and calendar filter.
 - [x] Conflict-safe event creation with tenant authorization.
 - [x] Recurrence rule storage and recurrence-domain expansion with exceptions.
+- [x] Recurrence exception editor for cancel/move of one occurrence.
 - [x] Capacity-aware booking/waitlist and deterministic positions.
 - [x] Attendance check-in UI and authorized iCalendar export.
 - [x] Phase 5 unit/E2E coverage.
 
-Room CRUD, reminder worker/outbox, real-time invalidation, and advanced recurrence editing remain follow-up tasks.
+Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up tasks.
 
 ### Schema và domain
 
@@ -410,7 +411,7 @@ Room CRUD, reminder worker/outbox, real-time invalidation, and advanced recurren
 - [ ] Conflict explanation và alternative.
 - [ ] Capacity/waitlist state.
 - [ ] Room/resource management.
-- [ ] Recurrence/exception editor.
+- [x] Recurrence/exception editor.
 - [ ] Attendance check-in.
 - [ ] Reminder settings.
 - [ ] iCal export.
@@ -420,10 +421,10 @@ Room CRUD, reminder worker/outbox, real-time invalidation, and advanced recurren
 
 - [ ] Unit tests recurrence/conflict/waitlist.
 - [ ] Integration concurrent reservation.
-- [ ] Integration recurrence exceptions.
+- [x] Integration recurrence exceptions.
 - [ ] Export authorization tests.
 - [ ] E2E booking/conflict/waitlist/promotion.
-- [ ] E2E recurrence exception.
+- [x] E2E recurrence exception.
 - [ ] Responsive/keyboard/a11y checks.
 - [ ] Lint, typecheck, tests, E2E và build xanh.
 - [ ] Cập nhật docs.
@@ -435,16 +436,16 @@ Room CRUD, reminder worker/outbox, real-time invalidation, and advanced recurren
 
 - [x] Tenant-scoped template, draft version, field definition, and approval-step schema.
 - [x] Immutable publish creates a new draft version and preserves source version on submissions.
-- [x] Runtime required-field validation and sequential approval state machine.
+- [x] Runtime required-field validation, conditional routing, and sequential/parallel approval state machine.
 - [x] Builder, submission form, reviewer decision UI, status timeline, and authorized CSV export.
 - [x] Phase 6 unit/E2E coverage.
 
-Conditional routing, parallel graphs, attachments/comments, delegation/escalation workers, and advanced analytics remain follow-up tasks.
+Attachments/comments, delegation/escalation workers, and advanced analytics remain follow-up tasks.
 
 ### Schema và domain
 
 - [ ] Thêm WorkflowTemplate và immutable WorkflowVersion.
-- [ ] Thêm FieldDefinition và validation/conditional rules.
+- [x] Thêm FieldDefinition và validation/conditional rules.
 - [ ] Thêm ApprovalStep/edge/assignment.
 - [ ] Thêm Submission và SubmissionValue.
 - [ ] Thêm SubmissionStep/Decision/Delegation.
@@ -458,8 +459,8 @@ Conditional routing, parallel graphs, attachments/comments, delegation/escalatio
 - [ ] Builder/admin policy.
 - [ ] Publish/version service.
 - [ ] Runtime form-schema validation.
-- [ ] Conditional visibility/routing evaluator.
-- [ ] Sequential/parallel approval engine.
+- [x] Conditional visibility/routing evaluator.
+- [x] Sequential/parallel approval engine.
 - [ ] Reviewer assignment.
 - [ ] Draft/autosave/submit service.
 - [ ] Approve/reject/request-changes.
@@ -475,8 +476,8 @@ Conditional routing, parallel graphs, attachments/comments, delegation/escalatio
 - [ ] Ordered form canvas.
 - [ ] Field configuration.
 - [ ] Validation rules.
-- [ ] Conditional rules.
-- [ ] Approval graph/step editor.
+- [x] Conditional rules.
+- [x] Approval graph/step editor.
 - [ ] Reviewer/deadline settings.
 - [ ] Preview.
 - [ ] Draft/publish/version history.
@@ -497,10 +498,10 @@ Conditional routing, parallel graphs, attachments/comments, delegation/escalatio
 
 ### Gate Phase 6
 
-- [ ] Unit tests evaluator/routing/state transitions.
+- [x] Unit tests evaluator/routing/state transitions.
 - [ ] Published immutability/historical-version tests.
 - [ ] Unauthorized approver negative tests.
-- [ ] Integration sequential/parallel/escalation tests.
+- [x] Integration sequential/parallel routing tests.
 - [ ] E2E ba workflow mẫu.
 - [ ] E2E request-changes/resubmit.
 - [ ] Responsive/keyboard/a11y checks.

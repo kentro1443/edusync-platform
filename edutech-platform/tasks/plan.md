@@ -391,6 +391,8 @@ Hoàn thiện school, user, membership, role assignment, parent-student link, in
   mentor appointments; calendar events are a separate auditable aggregate.
 - Ship responsive controls, explicit empty/error states, and keyboard-friendly
   forms before adding broader room/resource administration.
+- Increment 2 expands recurrence into the selected day/week/month range and
+  adds an event-detail editor to cancel or move one occurrence.
 
 ### Mô hình/chức năng
 
@@ -432,6 +434,8 @@ Hoàn thiện school, user, membership, role assignment, parent-student link, in
 - Ship a compact builder for template/field/step configuration plus a
   submission/reviewer experience; keep analytics/export as a follow-up slice
   after the runtime state machine is proven.
+- Increment 2 adds field-value conditions, skipped branches, parallel approval
+  groups, and atomic advancement after each reviewer decision.
 
 ### Mô hình/chức năng
 

@@ -216,14 +216,14 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | Route | Purpose | Required scope |
 | --- | --- | --- |
 | `/dashboard/calendar` | Day/week/month calendar, event creation, conflict-safe booking, recurrence, iCalendar export | Calendar read/create |
-| `/dashboard/calendar/[eventId]` | Booking roster and attendance check-in | Calendar read/attendance |
+| `/dashboard/calendar/[eventId]` | Booking roster, attendance, and cancel/move editor for recurring occurrences | Calendar read/update/attendance |
 | `/dashboard/calendar/ical` | Private iCalendar stream for permitted events | Calendar export |
 | `/dashboard/workflows` | Template catalog, submission launcher, and recent hồ sơ | Workflow template read |
-| `/dashboard/workflows/[templateId]` | Draft builder for fields/approval steps and immutable publish | Template create/update/publish |
+| `/dashboard/workflows/[templateId]` | Draft builder for fields, conditional/parallel approval steps, and immutable publish | Template create/update/publish |
 | `/dashboard/workflows/submissions` | Reviewer queue and authorized CSV export | Submission read/analytics |
 | `/dashboard/workflows/submissions/[submissionId]` | Form submission, status timeline, and approve/reject/request-changes | Submission scope |
 
-The Phase 5–6 delivery slice deliberately leaves room/resource CRUD, reminder workers, delegation/escalation, attachments/comments, and advanced analytics for the next increment. They are modeled as follow-up work, not silently represented as complete.
+The Phase 5–6 delivery slice deliberately leaves room/resource CRUD, reminder workers, delegation/escalation, attachments/comments, and advanced analytics for the next increment. Recurrence exceptions plus conditional and parallel routing are implemented and covered by unit/E2E tests.
 
 ## Verification status
 

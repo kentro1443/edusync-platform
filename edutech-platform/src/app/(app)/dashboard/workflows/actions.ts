@@ -59,6 +59,14 @@ export async function addWorkflowStepAction(formData: FormData): Promise<never> 
     await addWorkflowStep(actor, templateId, {
       name: value(formData, "name"),
       role: value(formData, "role") as "SCHOOL_ADMIN" | "TEACHER_STAFF" | "MENTOR_COUNSELOR" | "APPROVER_REVIEWER",
+      parallelGroup: Number(value(formData, "parallelGroup") || 0) || undefined,
+      condition: value(formData, "conditionField")
+        ? {
+            field: value(formData, "conditionField"),
+            operator: value(formData, "conditionOperator") as "equals" | "notEquals" | "truthy" | "falsy",
+            value: value(formData, "conditionValue"),
+          }
+        : undefined,
     });
   } catch (error) {
     redirect(`/dashboard/workflows/${templateId}?error=${errorCode(error)}`);

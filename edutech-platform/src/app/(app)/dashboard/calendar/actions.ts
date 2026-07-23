@@ -10,6 +10,7 @@ import {
   CalendarValidationError,
   createCalendarEvent,
   recordCalendarAttendance,
+  setRecurrenceException,
 } from "@/lib/calendar/calendar-service";
 
 function value(formData: FormData, key: string): string {
@@ -69,4 +70,21 @@ export async function bookCalendarEventAction(formData: FormData): Promise<never
     redirect("/dashboard/calendar?error=booking");
   }
   redirect("/dashboard/calendar?result=booked");
+}
+
+export async function setRecurrenceExceptionAction(formData: FormData): Promise<never> {
+  const eventId = value(formData, "eventId");
+  const { actor } = await requireSchoolContext(permissions.calendarEventUpdate);
+  try {
+    const movedTo = value(formData, "movedTo");
+    await setRecurrenceException(actor, {
+      eventId,
+      startsAt: new Date(value(formData, "startsAt")),
+      cancelled: value(formData, "mode") === "cancel",
+      movedTo: movedTo ? new Date(movedTo) : undefined,
+    });
+  } catch {
+    redirect(`/dashboard/calendar/${eventId}?error=recurrence`);
+  }
+  redirect(`/dashboard/calendar/${eventId}?result=recurrence`);
 }

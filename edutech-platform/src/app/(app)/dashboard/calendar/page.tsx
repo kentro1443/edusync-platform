@@ -116,12 +116,12 @@ export default async function CalendarPage({
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <p className="text-sm font-semibold text-[var(--color-brand-800)]">{dateTime.format(event.startsAt)} – {new Intl.DateTimeFormat("vi-VN", { hour: "2-digit", minute: "2-digit" }).format(event.endsAt)}</p>
-                      <h3 className="mt-1 text-base font-bold text-[var(--color-ink-900)]"><Link href={`/dashboard/calendar/${event.id}`} className="hover:text-[var(--color-brand-700)] hover:underline">{event.title}</Link></h3>
+                      <h3 className="mt-1 text-base font-bold text-[var(--color-ink-900)]"><Link href={`/dashboard/calendar/${event.sourceEventId}`} className="hover:text-[var(--color-brand-700)] hover:underline">{event.title}</Link></h3>
                       <p className="mt-1 text-sm text-[var(--color-ink-500)]">{event.location || "Chưa có địa điểm"} · {event._count.bookings} lượt giữ chỗ{event.capacity > 0 ? ` / ${event.capacity}` : ""}</p>
                     </div>
                     {canCreate ? (
                       <form action={bookCalendarEventAction}>
-                        <input type="hidden" name="eventId" value={event.id} />
+                        <input type="hidden" name="eventId" value={event.sourceEventId} />
                         <Button type="submit" size="sm" variant="outline">Giữ chỗ</Button>
                       </form>
                     ) : null}

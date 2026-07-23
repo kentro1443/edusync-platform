@@ -3,7 +3,7 @@ import "server-only";
 import type { AuthorizationContext } from "@/lib/auth/policies";
 import { hasPermission, getSchoolPermissions, permissions } from "@/lib/auth/permissions";
 import { db } from "@/lib/db";
-import { nextWaitlistPosition } from "@/lib/calendar/calendar-domain";
+import { expandRecurringEvent, nextWaitlistPosition } from "@/lib/calendar/calendar-domain";
 
 export class CalendarAuthorizationError extends Error {}
 export class CalendarValidationError extends Error {}
@@ -76,13 +76,12 @@ export async function listCalendarEvents(
       })
     : await ensureDefaultCalendar(actor);
   if (!calendar) throw new CalendarAuthorizationError("Không tìm thấy lịch được phép xem.");
-  return db.calendarEvent.findMany({
+  const events = await db.calendarEvent.findMany({
     where: {
       schoolId: actor.schoolId,
       calendarId: calendar.id,
       status: "CONFIRMED",
       startsAt: { lt: input.to },
-      endsAt: { gt: input.from },
     },
     include: {
       recurrenceRule: true,
@@ -92,6 +91,37 @@ export async function listCalendarEvents(
     },
     orderBy: { startsAt: "asc" },
   });
+  const expanded = events.flatMap((event) => {
+    if (!event.recurrenceRule) {
+      return event.endsAt > input.from
+        ? [{ ...event, sourceEventId: event.id, occurrenceStartsAt: event.startsAt.toISOString() }]
+        : [];
+    }
+    const instances = expandRecurringEvent({
+      startsAt: event.startsAt,
+      endsAt: event.endsAt,
+      frequency: event.recurrenceRule.frequency,
+      interval: event.recurrenceRule.interval,
+      count: event.recurrenceRule.count ?? undefined,
+      until: event.recurrenceRule.until ?? undefined,
+      exceptions: event.exceptions.map((exception) => ({
+        startsAt: exception.startsAt.toISOString(),
+        cancelled: exception.cancelled,
+        movedTo: exception.movedTo?.toISOString(),
+      })),
+    });
+    return instances
+      .map((instance) => ({
+        ...event,
+        id: `${event.id}:${instance.startsAt}`,
+        sourceEventId: event.id,
+        occurrenceStartsAt: instance.startsAt,
+        startsAt: new Date(instance.startsAt),
+        endsAt: new Date(instance.endsAt),
+      }))
+      .filter((instance) => instance.startsAt < input.to && instance.endsAt > input.from);
+  });
+  return expanded.sort((left, right) => left.startsAt.getTime() - right.startsAt.getTime());
 }
 
 export async function createCalendarEvent(
@@ -252,9 +282,45 @@ export async function getCalendarEvent(actor: AuthorizationContext, eventId: str
     },
     include: {
       calendar: { select: { name: true } },
+      recurrenceRule: true,
+      exceptions: { orderBy: { startsAt: "asc" } },
       resource: { select: { name: true, capacity: true } },
       bookings: { where: { status: { in: ["BOOKED", "WAITLISTED"] } }, include: { user: { select: { id: true, displayName: true } } }, orderBy: { position: "asc" } },
       attendance: { include: { user: { select: { id: true, displayName: true } } } },
+    },
+  });
+}
+
+export async function setRecurrenceException(
+  actor: AuthorizationContext,
+  input: Readonly<{ eventId: string; startsAt: Date; cancelled: boolean; movedTo?: Date }>,
+) {
+  requireCalendarActor(actor, permissions.calendarEventUpdate);
+  if (!(input.startsAt instanceof Date) || Number.isNaN(input.startsAt.getTime())) {
+    throw new CalendarValidationError("Ngày ngoại lệ không hợp lệ.");
+  }
+  if (!input.cancelled && (!input.movedTo || Number.isNaN(input.movedTo.getTime()))) {
+    throw new CalendarValidationError("Cần chọn thời điểm chuyển lịch.");
+  }
+  const event = await db.calendarEvent.findFirst({
+    where: { id: input.eventId, schoolId: actor.schoolId, recurrenceRuleId: { not: null } },
+    select: { id: true },
+  });
+  if (!event) throw new CalendarValidationError("Sự kiện không có lịch lặp.");
+  if (!input.cancelled && input.movedTo && input.movedTo <= input.startsAt) {
+    throw new CalendarValidationError("Ngày chuyển phải sau ngày gốc.");
+  }
+  return db.recurrenceException.upsert({
+    where: { eventId_startsAt: { eventId: input.eventId, startsAt: input.startsAt } },
+    create: {
+      eventId: input.eventId,
+      startsAt: input.startsAt,
+      cancelled: input.cancelled,
+      movedTo: input.cancelled ? null : input.movedTo,
+    },
+    update: {
+      cancelled: input.cancelled,
+      movedTo: input.cancelled ? null : input.movedTo,
     },
   });
 }

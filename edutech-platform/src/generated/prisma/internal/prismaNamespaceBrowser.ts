@@ -1031,7 +1031,8 @@ export const WorkflowApprovalStepScalarFieldEnum = {
   position: 'position',
   role: 'role',
   deadlineHours: 'deadlineHours',
-  conditionJson: 'conditionJson'
+  conditionJson: 'conditionJson',
+  parallelGroup: 'parallelGroup'
 } as const
 
 export type WorkflowApprovalStepScalarFieldEnum = (typeof WorkflowApprovalStepScalarFieldEnum)[keyof typeof WorkflowApprovalStepScalarFieldEnum]

@@ -29,11 +29,13 @@ export type AggregateWorkflowApprovalStep = {
 export type WorkflowApprovalStepAvgAggregateOutputType = {
   position: number | null
   deadlineHours: number | null
+  parallelGroup: number | null
 }
 
 export type WorkflowApprovalStepSumAggregateOutputType = {
   position: number | null
   deadlineHours: number | null
+  parallelGroup: number | null
 }
 
 export type WorkflowApprovalStepMinAggregateOutputType = {
@@ -43,6 +45,7 @@ export type WorkflowApprovalStepMinAggregateOutputType = {
   position: number | null
   role: $Enums.SchoolRole | null
   deadlineHours: number | null
+  parallelGroup: number | null
 }
 
 export type WorkflowApprovalStepMaxAggregateOutputType = {
@@ -52,6 +55,7 @@ export type WorkflowApprovalStepMaxAggregateOutputType = {
   position: number | null
   role: $Enums.SchoolRole | null
   deadlineHours: number | null
+  parallelGroup: number | null
 }
 
 export type WorkflowApprovalStepCountAggregateOutputType = {
@@ -62,6 +66,7 @@ export type WorkflowApprovalStepCountAggregateOutputType = {
   role: number
   deadlineHours: number
   conditionJson: number
+  parallelGroup: number
   _all: number
 }
 
@@ -69,11 +74,13 @@ export type WorkflowApprovalStepCountAggregateOutputType = {
 export type WorkflowApprovalStepAvgAggregateInputType = {
   position?: true
   deadlineHours?: true
+  parallelGroup?: true
 }
 
 export type WorkflowApprovalStepSumAggregateInputType = {
   position?: true
   deadlineHours?: true
+  parallelGroup?: true
 }
 
 export type WorkflowApprovalStepMinAggregateInputType = {
@@ -83,6 +90,7 @@ export type WorkflowApprovalStepMinAggregateInputType = {
   position?: true
   role?: true
   deadlineHours?: true
+  parallelGroup?: true
 }
 
 export type WorkflowApprovalStepMaxAggregateInputType = {
@@ -92,6 +100,7 @@ export type WorkflowApprovalStepMaxAggregateInputType = {
   position?: true
   role?: true
   deadlineHours?: true
+  parallelGroup?: true
 }
 
 export type WorkflowApprovalStepCountAggregateInputType = {
@@ -102,6 +111,7 @@ export type WorkflowApprovalStepCountAggregateInputType = {
   role?: true
   deadlineHours?: true
   conditionJson?: true
+  parallelGroup?: true
   _all?: true
 }
 
@@ -199,6 +209,7 @@ export type WorkflowApprovalStepGroupByOutputType = {
   role: $Enums.SchoolRole
   deadlineHours: number | null
   conditionJson: runtime.JsonValue
+  parallelGroup: number | null
   _count: WorkflowApprovalStepCountAggregateOutputType | null
   _avg: WorkflowApprovalStepAvgAggregateOutputType | null
   _sum: WorkflowApprovalStepSumAggregateOutputType | null
@@ -232,6 +243,7 @@ export type WorkflowApprovalStepWhereInput = {
   role?: Prisma.EnumSchoolRoleFilter<"WorkflowApprovalStep"> | $Enums.SchoolRole
   deadlineHours?: Prisma.IntNullableFilter<"WorkflowApprovalStep"> | number | null
   conditionJson?: Prisma.JsonFilter<"WorkflowApprovalStep">
+  parallelGroup?: Prisma.IntNullableFilter<"WorkflowApprovalStep"> | number | null
   version?: Prisma.XOR<Prisma.WorkflowVersionScalarRelationFilter, Prisma.WorkflowVersionWhereInput>
   submissions?: Prisma.WorkflowSubmissionStepListRelationFilter
 }
@@ -244,6 +256,7 @@ export type WorkflowApprovalStepOrderByWithRelationInput = {
   role?: Prisma.SortOrder
   deadlineHours?: Prisma.SortOrderInput | Prisma.SortOrder
   conditionJson?: Prisma.SortOrder
+  parallelGroup?: Prisma.SortOrderInput | Prisma.SortOrder
   version?: Prisma.WorkflowVersionOrderByWithRelationInput
   submissions?: Prisma.WorkflowSubmissionStepOrderByRelationAggregateInput
 }
@@ -260,6 +273,7 @@ export type WorkflowApprovalStepWhereUniqueInput = Prisma.AtLeast<{
   role?: Prisma.EnumSchoolRoleFilter<"WorkflowApprovalStep"> | $Enums.SchoolRole
   deadlineHours?: Prisma.IntNullableFilter<"WorkflowApprovalStep"> | number | null
   conditionJson?: Prisma.JsonFilter<"WorkflowApprovalStep">
+  parallelGroup?: Prisma.IntNullableFilter<"WorkflowApprovalStep"> | number | null
   version?: Prisma.XOR<Prisma.WorkflowVersionScalarRelationFilter, Prisma.WorkflowVersionWhereInput>
   submissions?: Prisma.WorkflowSubmissionStepListRelationFilter
 }, "id" | "versionId_position">
@@ -272,6 +286,7 @@ export type WorkflowApprovalStepOrderByWithAggregationInput = {
   role?: Prisma.SortOrder
   deadlineHours?: Prisma.SortOrderInput | Prisma.SortOrder
   conditionJson?: Prisma.SortOrder
+  parallelGroup?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.WorkflowApprovalStepCountOrderByAggregateInput
   _avg?: Prisma.WorkflowApprovalStepAvgOrderByAggregateInput
   _max?: Prisma.WorkflowApprovalStepMaxOrderByAggregateInput
@@ -290,6 +305,7 @@ export type WorkflowApprovalStepScalarWhereWithAggregatesInput = {
   role?: Prisma.EnumSchoolRoleWithAggregatesFilter<"WorkflowApprovalStep"> | $Enums.SchoolRole
   deadlineHours?: Prisma.IntNullableWithAggregatesFilter<"WorkflowApprovalStep"> | number | null
   conditionJson?: Prisma.JsonWithAggregatesFilter<"WorkflowApprovalStep">
+  parallelGroup?: Prisma.IntNullableWithAggregatesFilter<"WorkflowApprovalStep"> | number | null
 }
 
 export type WorkflowApprovalStepCreateInput = {
@@ -299,6 +315,7 @@ export type WorkflowApprovalStepCreateInput = {
   role: $Enums.SchoolRole
   deadlineHours?: number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: number | null
   version: Prisma.WorkflowVersionCreateNestedOneWithoutStepsInput
   submissions?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutStepInput
 }
@@ -311,6 +328,7 @@ export type WorkflowApprovalStepUncheckedCreateInput = {
   role: $Enums.SchoolRole
   deadlineHours?: number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: number | null
   submissions?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutStepInput
 }
 
@@ -321,6 +339,7 @@ export type WorkflowApprovalStepUpdateInput = {
   role?: Prisma.EnumSchoolRoleFieldUpdateOperationsInput | $Enums.SchoolRole
   deadlineHours?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   version?: Prisma.WorkflowVersionUpdateOneRequiredWithoutStepsNestedInput
   submissions?: Prisma.WorkflowSubmissionStepUpdateManyWithoutStepNestedInput
 }
@@ -333,6 +352,7 @@ export type WorkflowApprovalStepUncheckedUpdateInput = {
   role?: Prisma.EnumSchoolRoleFieldUpdateOperationsInput | $Enums.SchoolRole
   deadlineHours?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   submissions?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutStepNestedInput
 }
 
@@ -344,6 +364,7 @@ export type WorkflowApprovalStepCreateManyInput = {
   role: $Enums.SchoolRole
   deadlineHours?: number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: number | null
 }
 
 export type WorkflowApprovalStepUpdateManyMutationInput = {
@@ -353,6 +374,7 @@ export type WorkflowApprovalStepUpdateManyMutationInput = {
   role?: Prisma.EnumSchoolRoleFieldUpdateOperationsInput | $Enums.SchoolRole
   deadlineHours?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type WorkflowApprovalStepUncheckedUpdateManyInput = {
@@ -363,6 +385,7 @@ export type WorkflowApprovalStepUncheckedUpdateManyInput = {
   role?: Prisma.EnumSchoolRoleFieldUpdateOperationsInput | $Enums.SchoolRole
   deadlineHours?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type WorkflowApprovalStepListRelationFilter = {
@@ -388,11 +411,13 @@ export type WorkflowApprovalStepCountOrderByAggregateInput = {
   role?: Prisma.SortOrder
   deadlineHours?: Prisma.SortOrder
   conditionJson?: Prisma.SortOrder
+  parallelGroup?: Prisma.SortOrder
 }
 
 export type WorkflowApprovalStepAvgOrderByAggregateInput = {
   position?: Prisma.SortOrder
   deadlineHours?: Prisma.SortOrder
+  parallelGroup?: Prisma.SortOrder
 }
 
 export type WorkflowApprovalStepMaxOrderByAggregateInput = {
@@ -402,6 +427,7 @@ export type WorkflowApprovalStepMaxOrderByAggregateInput = {
   position?: Prisma.SortOrder
   role?: Prisma.SortOrder
   deadlineHours?: Prisma.SortOrder
+  parallelGroup?: Prisma.SortOrder
 }
 
 export type WorkflowApprovalStepMinOrderByAggregateInput = {
@@ -411,11 +437,13 @@ export type WorkflowApprovalStepMinOrderByAggregateInput = {
   position?: Prisma.SortOrder
   role?: Prisma.SortOrder
   deadlineHours?: Prisma.SortOrder
+  parallelGroup?: Prisma.SortOrder
 }
 
 export type WorkflowApprovalStepSumOrderByAggregateInput = {
   position?: Prisma.SortOrder
   deadlineHours?: Prisma.SortOrder
+  parallelGroup?: Prisma.SortOrder
 }
 
 export type WorkflowApprovalStepScalarRelationFilter = {
@@ -486,6 +514,7 @@ export type WorkflowApprovalStepCreateWithoutVersionInput = {
   role: $Enums.SchoolRole
   deadlineHours?: number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: number | null
   submissions?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutStepInput
 }
 
@@ -496,6 +525,7 @@ export type WorkflowApprovalStepUncheckedCreateWithoutVersionInput = {
   role: $Enums.SchoolRole
   deadlineHours?: number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: number | null
   submissions?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutStepInput
 }
 
@@ -536,6 +566,7 @@ export type WorkflowApprovalStepScalarWhereInput = {
   role?: Prisma.EnumSchoolRoleFilter<"WorkflowApprovalStep"> | $Enums.SchoolRole
   deadlineHours?: Prisma.IntNullableFilter<"WorkflowApprovalStep"> | number | null
   conditionJson?: Prisma.JsonFilter<"WorkflowApprovalStep">
+  parallelGroup?: Prisma.IntNullableFilter<"WorkflowApprovalStep"> | number | null
 }
 
 export type WorkflowApprovalStepCreateWithoutSubmissionsInput = {
@@ -545,6 +576,7 @@ export type WorkflowApprovalStepCreateWithoutSubmissionsInput = {
   role: $Enums.SchoolRole
   deadlineHours?: number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: number | null
   version: Prisma.WorkflowVersionCreateNestedOneWithoutStepsInput
 }
 
@@ -556,6 +588,7 @@ export type WorkflowApprovalStepUncheckedCreateWithoutSubmissionsInput = {
   role: $Enums.SchoolRole
   deadlineHours?: number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: number | null
 }
 
 export type WorkflowApprovalStepCreateOrConnectWithoutSubmissionsInput = {
@@ -581,6 +614,7 @@ export type WorkflowApprovalStepUpdateWithoutSubmissionsInput = {
   role?: Prisma.EnumSchoolRoleFieldUpdateOperationsInput | $Enums.SchoolRole
   deadlineHours?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   version?: Prisma.WorkflowVersionUpdateOneRequiredWithoutStepsNestedInput
 }
 
@@ -592,6 +626,7 @@ export type WorkflowApprovalStepUncheckedUpdateWithoutSubmissionsInput = {
   role?: Prisma.EnumSchoolRoleFieldUpdateOperationsInput | $Enums.SchoolRole
   deadlineHours?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type WorkflowApprovalStepCreateManyVersionInput = {
@@ -601,6 +636,7 @@ export type WorkflowApprovalStepCreateManyVersionInput = {
   role: $Enums.SchoolRole
   deadlineHours?: number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: number | null
 }
 
 export type WorkflowApprovalStepUpdateWithoutVersionInput = {
@@ -610,6 +646,7 @@ export type WorkflowApprovalStepUpdateWithoutVersionInput = {
   role?: Prisma.EnumSchoolRoleFieldUpdateOperationsInput | $Enums.SchoolRole
   deadlineHours?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   submissions?: Prisma.WorkflowSubmissionStepUpdateManyWithoutStepNestedInput
 }
 
@@ -620,6 +657,7 @@ export type WorkflowApprovalStepUncheckedUpdateWithoutVersionInput = {
   role?: Prisma.EnumSchoolRoleFieldUpdateOperationsInput | $Enums.SchoolRole
   deadlineHours?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   submissions?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutStepNestedInput
 }
 
@@ -630,6 +668,7 @@ export type WorkflowApprovalStepUncheckedUpdateManyWithoutVersionInput = {
   role?: Prisma.EnumSchoolRoleFieldUpdateOperationsInput | $Enums.SchoolRole
   deadlineHours?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   conditionJson?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  parallelGroup?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 
@@ -671,6 +710,7 @@ export type WorkflowApprovalStepSelect<ExtArgs extends runtime.Types.Extensions.
   role?: boolean
   deadlineHours?: boolean
   conditionJson?: boolean
+  parallelGroup?: boolean
   version?: boolean | Prisma.WorkflowVersionDefaultArgs<ExtArgs>
   submissions?: boolean | Prisma.WorkflowApprovalStep$submissionsArgs<ExtArgs>
   _count?: boolean | Prisma.WorkflowApprovalStepCountOutputTypeDefaultArgs<ExtArgs>
@@ -684,6 +724,7 @@ export type WorkflowApprovalStepSelectCreateManyAndReturn<ExtArgs extends runtim
   role?: boolean
   deadlineHours?: boolean
   conditionJson?: boolean
+  parallelGroup?: boolean
   version?: boolean | Prisma.WorkflowVersionDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workflowApprovalStep"]>
 
@@ -695,6 +736,7 @@ export type WorkflowApprovalStepSelectUpdateManyAndReturn<ExtArgs extends runtim
   role?: boolean
   deadlineHours?: boolean
   conditionJson?: boolean
+  parallelGroup?: boolean
   version?: boolean | Prisma.WorkflowVersionDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workflowApprovalStep"]>
 
@@ -706,9 +748,10 @@ export type WorkflowApprovalStepSelectScalar = {
   role?: boolean
   deadlineHours?: boolean
   conditionJson?: boolean
+  parallelGroup?: boolean
 }
 
-export type WorkflowApprovalStepOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "versionId" | "name" | "position" | "role" | "deadlineHours" | "conditionJson", ExtArgs["result"]["workflowApprovalStep"]>
+export type WorkflowApprovalStepOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "versionId" | "name" | "position" | "role" | "deadlineHours" | "conditionJson" | "parallelGroup", ExtArgs["result"]["workflowApprovalStep"]>
 export type WorkflowApprovalStepInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   version?: boolean | Prisma.WorkflowVersionDefaultArgs<ExtArgs>
   submissions?: boolean | Prisma.WorkflowApprovalStep$submissionsArgs<ExtArgs>
@@ -735,6 +778,7 @@ export type $WorkflowApprovalStepPayload<ExtArgs extends runtime.Types.Extension
     role: $Enums.SchoolRole
     deadlineHours: number | null
     conditionJson: runtime.JsonValue
+    parallelGroup: number | null
   }, ExtArgs["result"]["workflowApprovalStep"]>
   composites: {}
 }
@@ -1167,6 +1211,7 @@ export interface WorkflowApprovalStepFieldRefs {
   readonly role: Prisma.FieldRef<"WorkflowApprovalStep", 'SchoolRole'>
   readonly deadlineHours: Prisma.FieldRef<"WorkflowApprovalStep", 'Int'>
   readonly conditionJson: Prisma.FieldRef<"WorkflowApprovalStep", 'Json'>
+  readonly parallelGroup: Prisma.FieldRef<"WorkflowApprovalStep", 'Int'>
 }
     
 
