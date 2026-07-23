@@ -227,19 +227,16 @@ The service layer verifies that the linked entity belongs to the same school.
 
 ## Mentoring
 
-- `MentorProfile`: schoolId, userId, bio, expertiseJson, verificationStatus, verifiedByUserId, verifiedAt.
-- `MentorAvailabilityRule`: mentorProfileId, weekday, startsAtLocal, endsAtLocal, timezone, capacity, active.
-- `MentorAvailabilityException`: mentorProfileId, startsAt, endsAt, kind, reason.
-- `MentoringRequest`: schoolId, studentUserId, mentorProfileId, status, goals, requestedAt.
-- `Appointment`: schoolId, organizerUserId, studentUserId, mentorUserId, startsAt, endsAt, timezone, status, capacity, location, cancellationReason.
-- `AppointmentParticipant`: appointmentId, userId, participantType, attendanceStatus.
-- `AppointmentWaitlistEntry`: appointmentId, userId, position, status, joinedAt.
-- `MentoringSession`: appointmentId, agenda, outcome, completedAt.
-- `CounselingNote`: sessionId, authorUserId, visibility, encryptedBody, createdAt, updatedAt.
-- `FollowUpTask`: schoolId, sessionId, assigneeUserId, title, dueAt, status.
-- `MentorFeedback`: schoolId, appointmentId, authorUserId, rating, body, status.
+- `MentorProfile`, `MentorSpecialty`, `MentorProfileSpecialty`: verified mentor directory, specialties, and school-scoped ownership.
+- `MentorStudentAssignment`: active primary mentor assignment for a student.
+- `MentorAvailabilityRule`, `MentorAvailabilityException`: recurring local-time availability, timezone, capacity, and explicit exceptions.
+- `AppointmentType`, `Appointment`, `AppointmentTransition`: appointment policy, lifecycle state, and append-only transition history.
+- `AppointmentWaitlistEntry`, `AppointmentAttendance`: deterministic queue promotion and per-participant attendance.
+- `MentoringCase`, `MentoringGoal`, `MentoringSessionOutcome`, `MentoringTask`, `MentoringReferral`: the counseling case workspace and follow-up workflow.
+- `MentoringNote`: encrypted AES-256-GCM body with explicit `PRIVATE_COUNSELOR`, `STUDENT_VISIBLE`, `GUARDIAN_VISIBLE`, and `STAFF_VISIBLE` projections.
 
-Appointments have indexes on `(schoolId, startsAt)`, `(schoolId, mentorUserId, startsAt)`, and `(schoolId, studentUserId, startsAt)`. Conflict checks remain transactional and must not rely only on application-side reads.
+Appointments have school/mentor/student indexes and PostgreSQL exclusion constraints on half-open
+`tstzrange(startsAt, endsAt, '[)')` for live `REQUESTED`/`CONFIRMED` reservations. Booking and waitlist promotion are transactional and emit audit/outbox records in the same transaction.
 
 ## Resources
 

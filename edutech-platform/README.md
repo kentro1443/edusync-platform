@@ -185,9 +185,22 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | `/dat-lai-mat-khau` | Consume-once password reset | Valid token |
 | `/chap-nhan-loi-moi` | Consume-once school invitation | Valid token |
 
+## Phase 3 mentoring routes
+
+| Route | Purpose | Required scope |
+| --- | --- | --- |
+| `/dashboard/mentoring` | Role-aware mentoring dashboard and agenda | Active school member |
+| `/dashboard/mentoring/mentors` | Search verified mentors and specialties | Directory permission |
+| `/dashboard/mentoring/mentors/[mentorProfileId]` | Mentor profile, slots, booking/waitlist | Appointment create |
+| `/dashboard/appointments` | Day/14-day appointment agenda | Appointment read |
+| `/dashboard/appointments/[appointmentId]` | Approval, reschedule, cancel, complete, attendance | Appointment transition |
+| `/dashboard/mentoring/availability` | Weekly rules and exceptions | Availability manage |
+| `/dashboard/mentoring/cases` | Case list, filter, and create | Case read/create |
+| `/dashboard/mentoring/cases/[caseId]` | Overview, goals, sessions, tasks, files, activity, notes, referral | Case access + note projection |
+
 ## Verification status
 
-On July 23, 2026, Phase 1 and Phase 2 passed their complete verification gates: 78 unit/integration tests, lint, typecheck, production build, 24 Playwright scenarios, and Git whitespace validation all pass. Re-run `npm run verify` after future changes.
+On July 23, 2026, Phase 1 and Phase 2 passed their complete verification gates: 78 unit/integration tests, lint, typecheck, production build, 24 Playwright scenarios, and Git whitespace validation all pass. Phase 3 adds transactional mentoring booking, waitlist, appointment lifecycle, counseling cases, encrypted note projection, and role-aware dashboards; rerun the full verification gate after future changes.
 
 ## Architecture documentation
 

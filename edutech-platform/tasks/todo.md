@@ -216,101 +216,101 @@
 
 ### Lát dọc 1 — Domain foundation
 
-- [ ] RED unit tests availability, appointment transition và note projection.
-- [ ] Prisma enums/models/relations/indexes Phase 3.
-- [ ] PostgreSQL exclusion constraints chống lịch chồng lấn.
-- [ ] Migration, Prisma client và demo seed cố vấn.
-- [ ] GREEN unit tests + Prisma validate/generate.
+- [x] RED unit tests availability, appointment transition và note projection.
+- [x] Prisma enums/models/relations/indexes Phase 3.
+- [x] PostgreSQL exclusion constraints chống lịch chồng lấn.
+- [x] Migration, Prisma client và demo seed cố vấn.
+- [x] GREEN unit tests + Prisma validate/generate.
 
 ### Lát dọc 2 — Discovery và booking
 
-- [ ] RED integration concurrent booking/waitlist/audit/outbox.
-- [ ] Mentor directory/profile/availability services.
-- [ ] Transactional booking và deterministic waitlist.
-- [ ] Directory, profile và booking UI.
-- [ ] GREEN integration tests, lint, typecheck.
+- [x] RED integration concurrent booking/waitlist/audit/outbox.
+- [x] Mentor directory/profile/availability services.
+- [x] Transactional booking và deterministic waitlist.
+- [x] Directory, profile và booking UI.
+- [x] GREEN integration tests, lint, typecheck.
 
 ### Lát dọc 3 — Appointment operations
 
-- [ ] RED tests approve/reschedule/cancel/attendance.
-- [ ] Appointment lifecycle service và actions.
-- [ ] Agenda ngày/tuần và appointment detail.
-- [ ] Dashboard học sinh/cố vấn/quản trị.
-- [ ] GREEN tests và E2E lifecycle.
+- [x] RED tests approve/reschedule/cancel/attendance.
+- [x] Appointment lifecycle service và actions.
+- [x] Agenda ngày/tuần và appointment detail.
+- [x] Dashboard học sinh/cố vấn/quản trị.
+- [x] GREEN tests và E2E lifecycle.
 
 ### Lát dọc 4 — Counseling cases và privacy
 
-- [ ] RED tests case lifecycle/goals/tasks/referral/note visibility.
-- [ ] Case services, session outcome và activity projection.
-- [ ] Case list/detail UI đủ tabs/states.
-- [ ] Confidential-note editor/marker/explanation.
-- [ ] GREEN negative privacy tests mọi role/tenant và E2E parent privacy.
+- [x] RED tests case lifecycle/goals/tasks/referral/note visibility.
+- [x] Case services, session outcome và activity projection.
+- [x] Case list/detail UI đủ tabs/states.
+- [x] Confidential-note editor/marker/explanation.
+- [x] GREEN negative privacy tests mọi role/tenant và E2E parent privacy.
 
 ### Lát dọc 5 — Closeout
 
-- [ ] Responsive 320/768/1024/1440, keyboard và reduced-motion.
-- [ ] Cập nhật docs/README/checklist.
-- [ ] Chạy full verification gate và browser verification.
-- [ ] Code review correctness/readability/architecture/security/performance.
+- [x] Responsive 320/768/1024/1440, keyboard và reduced-motion.
+- [x] Cập nhật docs/README/checklist.
+- [x] Chạy full verification gate và browser verification.
+- [x] Code review correctness/readability/architecture/security/performance.
 
 ### Schema và domain
 
-- [ ] Thêm MentorProfile, specialty và verification.
-- [ ] Thêm MentorStudentAssignment.
-- [ ] Thêm AvailabilityRule và AvailabilityException.
-- [ ] Thêm AppointmentType, Appointment và AppointmentTransition.
-- [ ] Thêm AppointmentWaitlist và Attendance.
-- [ ] Thêm MentoringCase, Goal, SessionOutcome, Task và Referral.
-- [ ] Thêm MentoringNote với visibility.
-- [ ] Thêm constraints/indexes chống conflict.
-- [ ] Tạo/chạy migration và seed dữ liệu cố vấn.
+- [x] Thêm MentorProfile, specialty và verification.
+- [x] Thêm MentorStudentAssignment.
+- [x] Thêm AvailabilityRule và AvailabilityException.
+- [x] Thêm AppointmentType, Appointment và AppointmentTransition.
+- [x] Thêm AppointmentWaitlist và Attendance.
+- [x] Thêm MentoringCase, Goal, SessionOutcome, Task và Referral.
+- [x] Thêm MentoringNote với visibility.
+- [x] Thêm constraints/indexes chống conflict.
+- [x] Tạo/chạy migration và seed dữ liệu cố vấn.
 
 ### Policy/service/API
 
-- [ ] Mentor directory/search policy.
-- [ ] Availability calculation service.
-- [ ] Transactional booking service.
-- [ ] Approval/reschedule/cancel transitions.
-- [ ] Deterministic waitlist promotion.
-- [ ] Attendance recording.
-- [ ] Case lifecycle service.
-- [ ] Goal/task/referral services.
-- [ ] Note visibility projection.
-- [ ] Audit/outbox events.
-- [ ] Validation và rate/abuse limits phù hợp.
+- [x] Mentor directory/search policy.
+- [x] Availability calculation service.
+- [x] Transactional booking service.
+- [x] Approval/reschedule/cancel transitions.
+- [x] Deterministic waitlist promotion.
+- [x] Attendance recording.
+- [x] Case lifecycle service.
+- [x] Goal/task/referral services.
+- [x] Note visibility projection.
+- [x] Audit/outbox events.
+- [x] Validation và rate/abuse limits phù hợp.
 
 ### UI và luồng
 
-- [ ] Dashboard học sinh cho lịch/case/action.
-- [ ] Dashboard cố vấn cho lịch/follow-up/case.
-- [ ] Dashboard quản trị module.
-- [ ] Mentor directory/search/filter.
-- [ ] Mentor profile.
-- [ ] Booking flow.
-- [ ] Agenda/day/week views.
-- [ ] Appointment detail/approval/reschedule/cancel.
-- [ ] Waitlist state và promotion feedback.
-- [ ] Attendance controls.
-- [ ] Case list/search/filter.
-- [ ] Case detail: tổng quan, mục tiêu, buổi gặp, công việc, file, hoạt động.
-- [ ] Session outcome editor.
-- [ ] Confidential note editor/marker/explanation.
-- [ ] Referral flow.
-- [ ] Loading/empty/error/conflict/forbidden states.
+- [x] Dashboard học sinh cho lịch/case/action.
+- [x] Dashboard cố vấn cho lịch/follow-up/case.
+- [x] Dashboard quản trị module.
+- [x] Mentor directory/search/filter.
+- [x] Mentor profile.
+- [x] Booking flow.
+- [x] Agenda/day/week views.
+- [x] Appointment detail/approval/reschedule/cancel.
+- [x] Waitlist state và promotion feedback.
+- [x] Attendance controls.
+- [x] Case list/search/filter.
+- [x] Case detail: tổng quan, mục tiêu, buổi gặp, công việc, file, hoạt động.
+- [x] Session outcome editor.
+- [x] Confidential note editor/marker/explanation.
+- [x] Referral flow.
+- [x] Loading/empty/error/conflict/forbidden states.
 
 ### Gate Phase 3
 
-- [ ] Unit tests transitions/availability/privacy.
-- [ ] Integration concurrent-booking test.
-- [ ] Integration waitlist/audit/outbox tests.
-- [ ] Negative note-visibility tests cho mọi role.
-- [ ] E2E student → booking → mentor approval → session → attendance.
-- [ ] E2E reschedule/cancel/waitlist.
-- [ ] E2E parent privacy.
-- [ ] Responsive/keyboard/a11y checks.
-- [ ] Lint, typecheck, tests, E2E và build xanh.
-- [ ] Cập nhật docs.
-- [ ] Đóng gate Phase 3.
+- [x] Unit tests transitions/availability/privacy.
+- [x] Integration concurrent-booking test.
+- [x] Integration waitlist/audit/outbox tests.
+- [x] Negative note-visibility tests cho mọi role.
+- [x] E2E student → booking → mentor approval → session → attendance.
+- [x] E2E reschedule/cancel/waitlist.
+- [x] E2E parent privacy.
+- [x] Responsive/keyboard/a11y checks.
+- [x] Lint, typecheck, tests, E2E và build xanh.
+- [x] Cập nhật docs.
+- [x] Đóng gate Phase 3.
 
 ## Phase 4 — Tài nguyên và file
 

@@ -284,6 +284,15 @@ const appointmentTypes = [
   },
 ] as const;
 
+const demoMentoringCase = {
+  id: "65000000-0000-4000-8000-000000000001",
+  goalId: "65000000-0000-4000-8000-000000000002",
+  taskId: "65000000-0000-4000-8000-000000000003",
+  title: "Kế hoạch học tập học kỳ I",
+  summary:
+    "Theo dõi mục tiêu học tập, thói quen tự học và các mốc cần hỗ trợ trong học kỳ.",
+};
+
 async function main() {
   const passwordHash = await hash(demoPassword, {
     type: argon2id,
@@ -567,6 +576,71 @@ async function main() {
       status: MentorAssignmentStatus.ACTIVE,
       startsAt: seededAt,
       assignedByUserId: users[1].id,
+    },
+  });
+
+  await prisma.mentoringCase.upsert({
+    where: { id: demoMentoringCase.id },
+    update: {
+      title: demoMentoringCase.title,
+      summary: demoMentoringCase.summary,
+      status: "OPEN",
+      primaryMentorProfileId: mentorProfiles[0].id,
+      studentUserId: users[4].id,
+      createdByUserId: users[1].id,
+    },
+    create: {
+      id: demoMentoringCase.id,
+      schoolId: schools[0].id,
+      studentUserId: users[4].id,
+      primaryMentorProfileId: mentorProfiles[0].id,
+      title: demoMentoringCase.title,
+      summary: demoMentoringCase.summary,
+      status: "OPEN",
+      priority: "NORMAL",
+      createdByUserId: users[1].id,
+      openedAt: seededAt,
+    },
+  });
+
+  await prisma.mentoringGoal.upsert({
+    where: { id: demoMentoringCase.goalId },
+    update: {
+      title: "Duy trì 4 buổi tự học mỗi tuần",
+      description: "Ghi nhận tiến độ hằng tuần cùng cố vấn.",
+      status: "ACTIVE",
+      progressPercent: 25,
+      createdByUserId: users[3].id,
+    },
+    create: {
+      id: demoMentoringCase.goalId,
+      caseId: demoMentoringCase.id,
+      title: "Duy trì 4 buổi tự học mỗi tuần",
+      description: "Ghi nhận tiến độ hằng tuần cùng cố vấn.",
+      status: "ACTIVE",
+      progressPercent: 25,
+      createdByUserId: users[3].id,
+    },
+  });
+
+  await prisma.mentoringTask.upsert({
+    where: { id: demoMentoringCase.taskId },
+    update: {
+      title: "Chuẩn bị kế hoạch tuần tiếp theo",
+      description: "Học sinh cập nhật kế hoạch trước phiên cố vấn.",
+      status: "TODO",
+      assigneeUserId: users[4].id,
+      createdByUserId: users[3].id,
+    },
+    create: {
+      id: demoMentoringCase.taskId,
+      schoolId: schools[0].id,
+      caseId: demoMentoringCase.id,
+      assigneeUserId: users[4].id,
+      title: "Chuẩn bị kế hoạch tuần tiếp theo",
+      description: "Học sinh cập nhật kế hoạch trước phiên cố vấn.",
+      status: "TODO",
+      createdByUserId: users[3].id,
     },
   });
 

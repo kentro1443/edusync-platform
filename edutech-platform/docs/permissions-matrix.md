@@ -4,10 +4,10 @@
 
 This matrix defines the initial capability baseline for server-side authorization. It is not a substitute for resource ownership, school policy, privacy rules, or workflow state validation.
 
-Phase 2 enforces platform and school administration only through shared
-server-side guards. UI visibility is derived from the same typed registry and is
-never treated as an authorization boundary. Later-domain capabilities remain a
-design baseline until their services ship.
+Phase 2 enforces platform and school administration, and Phase 3 now enforces
+mentoring/appointment/case access through shared server-side guards. UI
+visibility is derived from the same typed registry and is never treated as an
+authorization boundary.
 
 A check succeeds only when:
 
@@ -78,6 +78,18 @@ Platform capabilities do not grant unrestricted school-content access. Support a
   not grant private counseling-note access.
 - Only `SCHOOL_ADMIN` can list, invite, update, suspend, or assign school members
   in Phase 2.
+
+### Phase 3 mentoring invariants
+
+- Directory, appointment, and case queries always include the active `schoolId`.
+- Mentor case access requires the actor to be the primary mentor or the active
+  assignment owner; same-school mentor role alone is insufficient.
+- Parent access requires an active `ParentStudentLink` and never includes
+  `PRIVATE_COUNSELOR` notes.
+- Note bodies are encrypted at rest and decrypted only after the server-side
+  visibility projection succeeds.
+- Appointment overlap protection is enforced by PostgreSQL plus transaction
+  locks; waitlist promotion is ordered by `joinedAt, id`.
 
 ## Mentoring
 

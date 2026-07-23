@@ -40,7 +40,6 @@ const navItems = [
     label: "Cố vấn & Gia sư",
     icon: "mentoring",
     schoolPermission: permissions.mentorDirectoryRead,
-    available: false,
   },
   {
     href: "/dashboard/resources",
@@ -54,7 +53,6 @@ const navItems = [
     label: "Lịch hẹn & Đơn từ",
     icon: "appointments",
     schoolPermission: permissions.calendarEventRead,
-    available: false,
   },
   {
     href: "/dashboard/clubs-events",
