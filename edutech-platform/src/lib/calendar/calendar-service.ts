@@ -5,9 +5,15 @@ import { hasPermission, getSchoolPermissions, permissions } from "@/lib/auth/per
 import { db } from "@/lib/db";
 import { expandRecurringEvent, nextWaitlistPosition } from "@/lib/calendar/calendar-domain";
 
-export class CalendarAuthorizationError extends Error {}
-export class CalendarValidationError extends Error {}
-export class CalendarConflictError extends Error {}
+export class CalendarAuthorizationError extends Error {
+  readonly code = "CALENDAR_FORBIDDEN";
+}
+export class CalendarValidationError extends Error {
+  readonly code = "CALENDAR_INVALID";
+}
+export class CalendarConflictError extends Error {
+  readonly code = "CALENDAR_CONFLICT";
+}
 
 type SchoolActor = AuthorizationContext & { schoolId: string; membershipId: string };
 
@@ -58,6 +64,125 @@ export async function listCalendars(actor: AuthorizationContext) {
     orderBy: { name: "asc" },
     select: { id: true, name: true, description: true, visibility: true, timezone: true },
   });
+}
+
+export async function listBookableResources(actor: AuthorizationContext) {
+  requireCalendarActor(actor, permissions.calendarEventRead);
+  return db.bookableResource.findMany({
+    where: { schoolId: actor.schoolId },
+    include: {
+      blockedPeriods: {
+        where: { endsAt: { gt: new Date() } },
+        orderBy: { startsAt: "asc" },
+        take: 20,
+      },
+      _count: { select: { events: true } },
+    },
+    orderBy: [{ active: "desc" }, { name: "asc" }],
+  });
+}
+
+export async function createBookableResource(
+  actor: AuthorizationContext,
+  input: Readonly<{ name: string; kind?: string; capacity?: number }>,
+) {
+  requireCalendarActor(actor, permissions.calendarSchoolManage);
+  const name = input.name.trim().replace(/\s+/g, " ");
+  if (name.length < 2 || name.length > 120) {
+    throw new CalendarValidationError("Tên phòng hoặc tài nguyên phải dài 2–120 ký tự.");
+  }
+  const capacity = Math.max(1, Math.min(input.capacity ?? 1, 10_000));
+  const kind = input.kind?.trim().toUpperCase() || "ROOM";
+  if (!["ROOM", "HALL", "EQUIPMENT"].includes(kind)) {
+    throw new CalendarValidationError("Loại tài nguyên không hợp lệ.");
+  }
+  return db.bookableResource.create({
+    data: {
+      schoolId: actor.schoolId,
+      createdById: actor.userId,
+      name,
+      kind,
+      capacity,
+    },
+  });
+}
+
+export async function updateBookableResource(
+  actor: AuthorizationContext,
+  input: Readonly<{ resourceId: string; active: boolean; capacity?: number }>,
+) {
+  requireCalendarActor(actor, permissions.calendarSchoolManage);
+  const resource = await db.bookableResource.findFirst({
+    where: { id: input.resourceId, schoolId: actor.schoolId },
+    select: { id: true },
+  });
+  if (!resource) throw new CalendarAuthorizationError("Không tìm thấy tài nguyên.");
+  return db.bookableResource.update({
+    where: { id: resource.id },
+    data: {
+      active: input.active,
+      capacity: Math.max(1, Math.min(input.capacity ?? 1, 10_000)),
+    },
+  });
+}
+
+export async function createBlockedPeriod(
+  actor: AuthorizationContext,
+  input: Readonly<{ resourceId: string; startsAt: Date; endsAt: Date; reason?: string }>,
+) {
+  requireCalendarActor(actor, permissions.calendarSchoolManage);
+  if (
+    Number.isNaN(input.startsAt.getTime()) ||
+    Number.isNaN(input.endsAt.getTime()) ||
+    input.startsAt >= input.endsAt ||
+    input.endsAt <= new Date()
+  ) {
+    throw new CalendarValidationError("Khoảng thời gian khóa không hợp lệ.");
+  }
+  const reason = input.reason?.trim();
+  if (reason && reason.length > 300) {
+    throw new CalendarValidationError("Lý do khóa không được quá 300 ký tự.");
+  }
+  const resource = await db.bookableResource.findFirst({
+    where: { id: input.resourceId, schoolId: actor.schoolId },
+    select: { id: true },
+  });
+  if (!resource) throw new CalendarAuthorizationError("Không tìm thấy tài nguyên.");
+  return db.$transaction(async (transaction) => {
+    await transaction.$queryRaw<Array<{ locked: string }>>`
+      SELECT pg_advisory_xact_lock(hashtextextended(${`resource:${actor.schoolId}:${resource.id}`}, 0))::text AS locked
+    `;
+    const conflict = await transaction.calendarEvent.findFirst({
+      where: {
+        schoolId: actor.schoolId,
+        resourceId: resource.id,
+        status: "CONFIRMED",
+        startsAt: { lt: input.endsAt },
+        endsAt: { gt: input.startsAt },
+      },
+      select: { title: true },
+    });
+    if (conflict) throw new CalendarConflictError(`Đã có sự kiện “${conflict.title}” trong khung giờ này.`);
+    return transaction.blockedPeriod.create({
+      data: {
+        schoolId: actor.schoolId,
+        resourceId: resource.id,
+        startsAt: input.startsAt,
+        endsAt: input.endsAt,
+        reason: reason || undefined,
+      },
+    });
+  });
+}
+
+export async function deleteBlockedPeriod(actor: AuthorizationContext, blockedPeriodId: string) {
+  requireCalendarActor(actor, permissions.calendarSchoolManage);
+  const blockedPeriod = await db.blockedPeriod.findFirst({
+    where: { id: blockedPeriodId, schoolId: actor.schoolId },
+    select: { id: true },
+  });
+  if (!blockedPeriod) throw new CalendarAuthorizationError("Không tìm thấy khoảng khóa.");
+  return db.blockedPeriod.delete({ where: { id: blockedPeriod.id } });
 }
 
 export async function listCalendarEvents(
@@ -158,20 +283,52 @@ export async function createCalendarEvent(
     ? await db.calendar.findFirst({ where: { id: input.calendarId, schoolId: actor.schoolId, active: true } })
     : await ensureDefaultCalendar(actor);
   if (!calendar) throw new CalendarAuthorizationError("Không tìm thấy lịch.");
+  const resource = input.resourceId
+    ? await db.bookableResource.findFirst({
+        where: { id: input.resourceId, schoolId: actor.schoolId, active: true },
+        select: { id: true, capacity: true },
+      })
+    : null;
+  if (input.resourceId && !resource) {
+    throw new CalendarValidationError("Phòng hoặc tài nguyên không khả dụng.");
+  }
+  if (resource && input.capacity && input.capacity > resource.capacity) {
+    throw new CalendarValidationError("Sức chứa sự kiện vượt quá sức chứa tài nguyên.");
+  }
   return db.$transaction(async (transaction) => {
-    await transaction.$queryRaw<Array<{ locked: string }>>`SELECT pg_advisory_xact_lock(hashtextextended(${`calendar:${actor.schoolId}:${calendar.id}`}, 0))::text AS locked`;
+    const lockKey = input.resourceId
+      ? `resource:${actor.schoolId}:${input.resourceId}`
+      : `calendar:${actor.schoolId}:${calendar.id}`;
+    await transaction.$queryRaw<Array<{ locked: string }>>`
+      SELECT pg_advisory_xact_lock(hashtextextended(${lockKey}, 0))::text AS locked
+    `;
     const conflict = await transaction.calendarEvent.findFirst({
       where: {
         schoolId: actor.schoolId,
-        calendarId: calendar.id,
         status: "CONFIRMED",
         startsAt: { lt: input.endsAt },
         endsAt: { gt: input.startsAt },
-        ...(input.resourceId ? { resourceId: input.resourceId } : {}),
+        ...(input.resourceId ? { resourceId: input.resourceId } : { calendarId: calendar.id }),
       },
       select: { id: true, title: true, startsAt: true, endsAt: true },
     });
     if (conflict) throw new CalendarConflictError(`Trùng lịch với “${conflict.title}”.`);
+    if (input.resourceId) {
+      const blocked = await transaction.blockedPeriod.findFirst({
+        where: {
+          schoolId: actor.schoolId,
+          resourceId: input.resourceId,
+          startsAt: { lt: input.endsAt },
+          endsAt: { gt: input.startsAt },
+        },
+        select: { reason: true },
+      });
+      if (blocked) {
+        throw new CalendarConflictError(
+          blocked.reason ? `Tài nguyên đang khóa: ${blocked.reason}.` : "Tài nguyên đang bị khóa.",
+        );
+      }
+    }
     let recurrenceRuleId: string | undefined;
     if (input.recurrence) {
       const recurrence = await transaction.recurrenceRule.create({

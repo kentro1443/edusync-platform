@@ -383,7 +383,7 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 - [ ] Thêm Calendar, CalendarSource và membership/visibility.
 - [ ] Thêm CalendarEvent/Reservation.
 - [ ] Thêm RecurrenceRule và RecurrenceException.
-- [ ] Thêm Room/BookableResource và BlockedPeriod.
+- [x] Thêm Room/BookableResource và BlockedPeriod.
 - [ ] Thêm Capacity/Waitlist/Attendance/Reminder.
 - [ ] Thêm constraints/indexes.
 - [ ] Tạo/chạy migration và seed.
@@ -392,7 +392,7 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 
 - [ ] Scoped-calendar policy.
 - [ ] Recurrence expansion service.
-- [ ] Conflict-detection service.
+- [x] Conflict-detection service.
 - [ ] Transactional reservation.
 - [ ] Deterministic waitlist promotion.
 - [ ] Attendance service.
@@ -410,7 +410,7 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 - [ ] Booking create/detail/edit.
 - [ ] Conflict explanation và alternative.
 - [ ] Capacity/waitlist state.
-- [ ] Room/resource management.
+- [x] Room/resource management.
 - [x] Recurrence/exception editor.
 - [ ] Attendance check-in.
 - [ ] Reminder settings.
@@ -419,7 +419,7 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 
 ### Gate Phase 5
 
-- [ ] Unit tests recurrence/conflict/waitlist.
+- [x] Unit tests recurrence/conflict/waitlist.
 - [ ] Integration concurrent reservation.
 - [x] Integration recurrence exceptions.
 - [ ] Export authorization tests.

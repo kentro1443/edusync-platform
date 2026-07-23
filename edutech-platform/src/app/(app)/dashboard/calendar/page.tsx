@@ -9,7 +9,7 @@ import { Alert, EmptyState } from "@/components/ui/Feedback";
 import { Field, Input, Select, Textarea } from "@/components/ui/Field";
 import { requireSchoolContext } from "@/lib/auth/guards";
 import { permissions } from "@/lib/auth/permissions";
-import { listCalendarEvents, listCalendars } from "@/lib/calendar/calendar-service";
+import { listBookableResources, listCalendarEvents, listCalendars } from "@/lib/calendar/calendar-service";
 
 function rangeFor(view: string, dateValue?: string) {
   const anchor = dateValue ? new Date(`${dateValue}T00:00:00`) : new Date();
@@ -46,9 +46,10 @@ export default async function CalendarPage({
   ]);
   const view = ["day", "week", "month"].includes(params.view ?? "") ? params.view! : "week";
   const range = rangeFor(view, params.date);
-  const [calendars, events] = await Promise.all([
+  const [calendars, events, resources] = await Promise.all([
     listCalendars(actor),
     listCalendarEvents(actor, { calendarId: params.calendarId, ...range }),
+    listBookableResources(actor),
   ]);
   const calendarId = params.calendarId ?? calendars[0]?.id;
   const canCreate = actor.schoolRoles.some((role) =>
@@ -70,6 +71,7 @@ export default async function CalendarPage({
               Xuất iCalendar
             </a>
             <LinkButton href="/dashboard/appointments" variant="outline" size="sm">Lịch hẹn cố vấn</LinkButton>
+            {actor.schoolRoles.includes("SCHOOL_ADMIN") ? <LinkButton href="/dashboard/calendar/resources" variant="outline" size="sm">Phòng & tài nguyên</LinkButton> : null}
           </div>
         }
       />
@@ -144,6 +146,12 @@ export default async function CalendarPage({
                 <Field id="endsAt" label="Kết thúc" required><Input id="endsAt" name="endsAt" type="datetime-local" required /></Field>
               </div>
               <Field id="location" label="Địa điểm"><Input id="location" name="location" placeholder="Phòng 203 hoặc trực tuyến" /></Field>
+              <Field id="resourceId" label="Tài nguyên đặt chỗ">
+                <Select id="resourceId" name="resourceId" defaultValue="">
+                  <option value="">Không chọn tài nguyên</option>
+                  {resources.filter((resource) => resource.active).map((resource) => <option key={resource.id} value={resource.id}>{resource.name} · sức chứa {resource.capacity}</option>)}
+                </Select>
+              </Field>
               <Field id="capacity" label="Sức chứa (0 = không giới hạn)"><Input id="capacity" name="capacity" type="number" min="0" max="10000" defaultValue="0" /></Field>
               <Field id="description" label="Mô tả"><Textarea id="description" name="description" rows={3} maxLength={1000} /></Field>
               <div className="grid gap-4 sm:grid-cols-2">
