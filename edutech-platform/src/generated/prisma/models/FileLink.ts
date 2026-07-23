@@ -28,6 +28,7 @@ export type FileLinkMinAggregateOutputType = {
   id: string | null
   schoolId: string | null
   fileId: string | null
+  resourceId: string | null
   entityType: string | null
   entityId: string | null
   visibility: string | null
@@ -39,6 +40,7 @@ export type FileLinkMaxAggregateOutputType = {
   id: string | null
   schoolId: string | null
   fileId: string | null
+  resourceId: string | null
   entityType: string | null
   entityId: string | null
   visibility: string | null
@@ -50,6 +52,7 @@ export type FileLinkCountAggregateOutputType = {
   id: number
   schoolId: number
   fileId: number
+  resourceId: number
   entityType: number
   entityId: number
   visibility: number
@@ -63,6 +66,7 @@ export type FileLinkMinAggregateInputType = {
   id?: true
   schoolId?: true
   fileId?: true
+  resourceId?: true
   entityType?: true
   entityId?: true
   visibility?: true
@@ -74,6 +78,7 @@ export type FileLinkMaxAggregateInputType = {
   id?: true
   schoolId?: true
   fileId?: true
+  resourceId?: true
   entityType?: true
   entityId?: true
   visibility?: true
@@ -85,6 +90,7 @@ export type FileLinkCountAggregateInputType = {
   id?: true
   schoolId?: true
   fileId?: true
+  resourceId?: true
   entityType?: true
   entityId?: true
   visibility?: true
@@ -169,6 +175,7 @@ export type FileLinkGroupByOutputType = {
   id: string
   schoolId: string
   fileId: string
+  resourceId: string | null
   entityType: string
   entityId: string
   visibility: string
@@ -201,6 +208,7 @@ export type FileLinkWhereInput = {
   id?: Prisma.UuidFilter<"FileLink"> | string
   schoolId?: Prisma.UuidFilter<"FileLink"> | string
   fileId?: Prisma.UuidFilter<"FileLink"> | string
+  resourceId?: Prisma.UuidNullableFilter<"FileLink"> | string | null
   entityType?: Prisma.StringFilter<"FileLink"> | string
   entityId?: Prisma.UuidFilter<"FileLink"> | string
   visibility?: Prisma.StringFilter<"FileLink"> | string
@@ -208,6 +216,7 @@ export type FileLinkWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"FileLink"> | Date | string
   school?: Prisma.XOR<Prisma.SchoolScalarRelationFilter, Prisma.SchoolWhereInput>
   file?: Prisma.XOR<Prisma.StoredFileScalarRelationFilter, Prisma.StoredFileWhereInput>
+  resource?: Prisma.XOR<Prisma.ResourceNullableScalarRelationFilter, Prisma.ResourceWhereInput> | null
   createdBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
@@ -215,6 +224,7 @@ export type FileLinkOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   schoolId?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
+  resourceId?: Prisma.SortOrderInput | Prisma.SortOrder
   entityType?: Prisma.SortOrder
   entityId?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
@@ -222,6 +232,7 @@ export type FileLinkOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   school?: Prisma.SchoolOrderByWithRelationInput
   file?: Prisma.StoredFileOrderByWithRelationInput
+  resource?: Prisma.ResourceOrderByWithRelationInput
   createdBy?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -232,6 +243,7 @@ export type FileLinkWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.FileLinkWhereInput | Prisma.FileLinkWhereInput[]
   schoolId?: Prisma.UuidFilter<"FileLink"> | string
   fileId?: Prisma.UuidFilter<"FileLink"> | string
+  resourceId?: Prisma.UuidNullableFilter<"FileLink"> | string | null
   entityType?: Prisma.StringFilter<"FileLink"> | string
   entityId?: Prisma.UuidFilter<"FileLink"> | string
   visibility?: Prisma.StringFilter<"FileLink"> | string
@@ -239,6 +251,7 @@ export type FileLinkWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"FileLink"> | Date | string
   school?: Prisma.XOR<Prisma.SchoolScalarRelationFilter, Prisma.SchoolWhereInput>
   file?: Prisma.XOR<Prisma.StoredFileScalarRelationFilter, Prisma.StoredFileWhereInput>
+  resource?: Prisma.XOR<Prisma.ResourceNullableScalarRelationFilter, Prisma.ResourceWhereInput> | null
   createdBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
@@ -246,6 +259,7 @@ export type FileLinkOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   schoolId?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
+  resourceId?: Prisma.SortOrderInput | Prisma.SortOrder
   entityType?: Prisma.SortOrder
   entityId?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
@@ -263,6 +277,7 @@ export type FileLinkScalarWhereWithAggregatesInput = {
   id?: Prisma.UuidWithAggregatesFilter<"FileLink"> | string
   schoolId?: Prisma.UuidWithAggregatesFilter<"FileLink"> | string
   fileId?: Prisma.UuidWithAggregatesFilter<"FileLink"> | string
+  resourceId?: Prisma.UuidNullableWithAggregatesFilter<"FileLink"> | string | null
   entityType?: Prisma.StringWithAggregatesFilter<"FileLink"> | string
   entityId?: Prisma.UuidWithAggregatesFilter<"FileLink"> | string
   visibility?: Prisma.StringWithAggregatesFilter<"FileLink"> | string
@@ -278,6 +293,7 @@ export type FileLinkCreateInput = {
   createdAt?: Date | string
   school: Prisma.SchoolCreateNestedOneWithoutFileLinksInput
   file: Prisma.StoredFileCreateNestedOneWithoutLinksInput
+  resource?: Prisma.ResourceCreateNestedOneWithoutFileLinksInput
   createdBy: Prisma.UserCreateNestedOneWithoutFileLinksCreatedInput
 }
 
@@ -285,6 +301,7 @@ export type FileLinkUncheckedCreateInput = {
   id?: string
   schoolId: string
   fileId: string
+  resourceId?: string | null
   entityType: string
   entityId: string
   visibility: string
@@ -300,6 +317,7 @@ export type FileLinkUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   school?: Prisma.SchoolUpdateOneRequiredWithoutFileLinksNestedInput
   file?: Prisma.StoredFileUpdateOneRequiredWithoutLinksNestedInput
+  resource?: Prisma.ResourceUpdateOneWithoutFileLinksNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutFileLinksCreatedNestedInput
 }
 
@@ -307,6 +325,7 @@ export type FileLinkUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   schoolId?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
+  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   entityType?: Prisma.StringFieldUpdateOperationsInput | string
   entityId?: Prisma.StringFieldUpdateOperationsInput | string
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
@@ -318,6 +337,7 @@ export type FileLinkCreateManyInput = {
   id?: string
   schoolId: string
   fileId: string
+  resourceId?: string | null
   entityType: string
   entityId: string
   visibility: string
@@ -337,6 +357,7 @@ export type FileLinkUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   schoolId?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
+  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   entityType?: Prisma.StringFieldUpdateOperationsInput | string
   entityId?: Prisma.StringFieldUpdateOperationsInput | string
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
@@ -358,6 +379,7 @@ export type FileLinkCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   schoolId?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
+  resourceId?: Prisma.SortOrder
   entityType?: Prisma.SortOrder
   entityId?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
@@ -369,6 +391,7 @@ export type FileLinkMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   schoolId?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
+  resourceId?: Prisma.SortOrder
   entityType?: Prisma.SortOrder
   entityId?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
@@ -380,6 +403,7 @@ export type FileLinkMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   schoolId?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
+  resourceId?: Prisma.SortOrder
   entityType?: Prisma.SortOrder
   entityId?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
@@ -513,6 +537,48 @@ export type FileLinkUncheckedUpdateManyWithoutFileNestedInput = {
   deleteMany?: Prisma.FileLinkScalarWhereInput | Prisma.FileLinkScalarWhereInput[]
 }
 
+export type FileLinkCreateNestedManyWithoutResourceInput = {
+  create?: Prisma.XOR<Prisma.FileLinkCreateWithoutResourceInput, Prisma.FileLinkUncheckedCreateWithoutResourceInput> | Prisma.FileLinkCreateWithoutResourceInput[] | Prisma.FileLinkUncheckedCreateWithoutResourceInput[]
+  connectOrCreate?: Prisma.FileLinkCreateOrConnectWithoutResourceInput | Prisma.FileLinkCreateOrConnectWithoutResourceInput[]
+  createMany?: Prisma.FileLinkCreateManyResourceInputEnvelope
+  connect?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+}
+
+export type FileLinkUncheckedCreateNestedManyWithoutResourceInput = {
+  create?: Prisma.XOR<Prisma.FileLinkCreateWithoutResourceInput, Prisma.FileLinkUncheckedCreateWithoutResourceInput> | Prisma.FileLinkCreateWithoutResourceInput[] | Prisma.FileLinkUncheckedCreateWithoutResourceInput[]
+  connectOrCreate?: Prisma.FileLinkCreateOrConnectWithoutResourceInput | Prisma.FileLinkCreateOrConnectWithoutResourceInput[]
+  createMany?: Prisma.FileLinkCreateManyResourceInputEnvelope
+  connect?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+}
+
+export type FileLinkUpdateManyWithoutResourceNestedInput = {
+  create?: Prisma.XOR<Prisma.FileLinkCreateWithoutResourceInput, Prisma.FileLinkUncheckedCreateWithoutResourceInput> | Prisma.FileLinkCreateWithoutResourceInput[] | Prisma.FileLinkUncheckedCreateWithoutResourceInput[]
+  connectOrCreate?: Prisma.FileLinkCreateOrConnectWithoutResourceInput | Prisma.FileLinkCreateOrConnectWithoutResourceInput[]
+  upsert?: Prisma.FileLinkUpsertWithWhereUniqueWithoutResourceInput | Prisma.FileLinkUpsertWithWhereUniqueWithoutResourceInput[]
+  createMany?: Prisma.FileLinkCreateManyResourceInputEnvelope
+  set?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+  disconnect?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+  delete?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+  connect?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+  update?: Prisma.FileLinkUpdateWithWhereUniqueWithoutResourceInput | Prisma.FileLinkUpdateWithWhereUniqueWithoutResourceInput[]
+  updateMany?: Prisma.FileLinkUpdateManyWithWhereWithoutResourceInput | Prisma.FileLinkUpdateManyWithWhereWithoutResourceInput[]
+  deleteMany?: Prisma.FileLinkScalarWhereInput | Prisma.FileLinkScalarWhereInput[]
+}
+
+export type FileLinkUncheckedUpdateManyWithoutResourceNestedInput = {
+  create?: Prisma.XOR<Prisma.FileLinkCreateWithoutResourceInput, Prisma.FileLinkUncheckedCreateWithoutResourceInput> | Prisma.FileLinkCreateWithoutResourceInput[] | Prisma.FileLinkUncheckedCreateWithoutResourceInput[]
+  connectOrCreate?: Prisma.FileLinkCreateOrConnectWithoutResourceInput | Prisma.FileLinkCreateOrConnectWithoutResourceInput[]
+  upsert?: Prisma.FileLinkUpsertWithWhereUniqueWithoutResourceInput | Prisma.FileLinkUpsertWithWhereUniqueWithoutResourceInput[]
+  createMany?: Prisma.FileLinkCreateManyResourceInputEnvelope
+  set?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+  disconnect?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+  delete?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+  connect?: Prisma.FileLinkWhereUniqueInput | Prisma.FileLinkWhereUniqueInput[]
+  update?: Prisma.FileLinkUpdateWithWhereUniqueWithoutResourceInput | Prisma.FileLinkUpdateWithWhereUniqueWithoutResourceInput[]
+  updateMany?: Prisma.FileLinkUpdateManyWithWhereWithoutResourceInput | Prisma.FileLinkUpdateManyWithWhereWithoutResourceInput[]
+  deleteMany?: Prisma.FileLinkScalarWhereInput | Prisma.FileLinkScalarWhereInput[]
+}
+
 export type FileLinkCreateWithoutCreatedByInput = {
   id?: string
   entityType: string
@@ -521,12 +587,14 @@ export type FileLinkCreateWithoutCreatedByInput = {
   createdAt?: Date | string
   school: Prisma.SchoolCreateNestedOneWithoutFileLinksInput
   file: Prisma.StoredFileCreateNestedOneWithoutLinksInput
+  resource?: Prisma.ResourceCreateNestedOneWithoutFileLinksInput
 }
 
 export type FileLinkUncheckedCreateWithoutCreatedByInput = {
   id?: string
   schoolId: string
   fileId: string
+  resourceId?: string | null
   entityType: string
   entityId: string
   visibility: string
@@ -566,6 +634,7 @@ export type FileLinkScalarWhereInput = {
   id?: Prisma.UuidFilter<"FileLink"> | string
   schoolId?: Prisma.UuidFilter<"FileLink"> | string
   fileId?: Prisma.UuidFilter<"FileLink"> | string
+  resourceId?: Prisma.UuidNullableFilter<"FileLink"> | string | null
   entityType?: Prisma.StringFilter<"FileLink"> | string
   entityId?: Prisma.UuidFilter<"FileLink"> | string
   visibility?: Prisma.StringFilter<"FileLink"> | string
@@ -580,12 +649,14 @@ export type FileLinkCreateWithoutSchoolInput = {
   visibility: string
   createdAt?: Date | string
   file: Prisma.StoredFileCreateNestedOneWithoutLinksInput
+  resource?: Prisma.ResourceCreateNestedOneWithoutFileLinksInput
   createdBy: Prisma.UserCreateNestedOneWithoutFileLinksCreatedInput
 }
 
 export type FileLinkUncheckedCreateWithoutSchoolInput = {
   id?: string
   fileId: string
+  resourceId?: string | null
   entityType: string
   entityId: string
   visibility: string
@@ -626,11 +697,13 @@ export type FileLinkCreateWithoutFileInput = {
   visibility: string
   createdAt?: Date | string
   school: Prisma.SchoolCreateNestedOneWithoutFileLinksInput
+  resource?: Prisma.ResourceCreateNestedOneWithoutFileLinksInput
   createdBy: Prisma.UserCreateNestedOneWithoutFileLinksCreatedInput
 }
 
 export type FileLinkUncheckedCreateWithoutFileInput = {
   id?: string
+  resourceId?: string | null
   entityType: string
   entityId: string
   visibility: string
@@ -664,10 +737,58 @@ export type FileLinkUpdateManyWithWhereWithoutFileInput = {
   data: Prisma.XOR<Prisma.FileLinkUpdateManyMutationInput, Prisma.FileLinkUncheckedUpdateManyWithoutFileInput>
 }
 
+export type FileLinkCreateWithoutResourceInput = {
+  id?: string
+  entityType: string
+  entityId: string
+  visibility: string
+  createdAt?: Date | string
+  school: Prisma.SchoolCreateNestedOneWithoutFileLinksInput
+  file: Prisma.StoredFileCreateNestedOneWithoutLinksInput
+  createdBy: Prisma.UserCreateNestedOneWithoutFileLinksCreatedInput
+}
+
+export type FileLinkUncheckedCreateWithoutResourceInput = {
+  id?: string
+  fileId: string
+  entityType: string
+  entityId: string
+  visibility: string
+  createdByUserId: string
+  createdAt?: Date | string
+}
+
+export type FileLinkCreateOrConnectWithoutResourceInput = {
+  where: Prisma.FileLinkWhereUniqueInput
+  create: Prisma.XOR<Prisma.FileLinkCreateWithoutResourceInput, Prisma.FileLinkUncheckedCreateWithoutResourceInput>
+}
+
+export type FileLinkCreateManyResourceInputEnvelope = {
+  data: Prisma.FileLinkCreateManyResourceInput | Prisma.FileLinkCreateManyResourceInput[]
+  skipDuplicates?: boolean
+}
+
+export type FileLinkUpsertWithWhereUniqueWithoutResourceInput = {
+  where: Prisma.FileLinkWhereUniqueInput
+  update: Prisma.XOR<Prisma.FileLinkUpdateWithoutResourceInput, Prisma.FileLinkUncheckedUpdateWithoutResourceInput>
+  create: Prisma.XOR<Prisma.FileLinkCreateWithoutResourceInput, Prisma.FileLinkUncheckedCreateWithoutResourceInput>
+}
+
+export type FileLinkUpdateWithWhereUniqueWithoutResourceInput = {
+  where: Prisma.FileLinkWhereUniqueInput
+  data: Prisma.XOR<Prisma.FileLinkUpdateWithoutResourceInput, Prisma.FileLinkUncheckedUpdateWithoutResourceInput>
+}
+
+export type FileLinkUpdateManyWithWhereWithoutResourceInput = {
+  where: Prisma.FileLinkScalarWhereInput
+  data: Prisma.XOR<Prisma.FileLinkUpdateManyMutationInput, Prisma.FileLinkUncheckedUpdateManyWithoutResourceInput>
+}
+
 export type FileLinkCreateManyCreatedByInput = {
   id?: string
   schoolId: string
   fileId: string
+  resourceId?: string | null
   entityType: string
   entityId: string
   visibility: string
@@ -682,12 +803,14 @@ export type FileLinkUpdateWithoutCreatedByInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   school?: Prisma.SchoolUpdateOneRequiredWithoutFileLinksNestedInput
   file?: Prisma.StoredFileUpdateOneRequiredWithoutLinksNestedInput
+  resource?: Prisma.ResourceUpdateOneWithoutFileLinksNestedInput
 }
 
 export type FileLinkUncheckedUpdateWithoutCreatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   schoolId?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
+  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   entityType?: Prisma.StringFieldUpdateOperationsInput | string
   entityId?: Prisma.StringFieldUpdateOperationsInput | string
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
@@ -698,6 +821,7 @@ export type FileLinkUncheckedUpdateManyWithoutCreatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   schoolId?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
+  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   entityType?: Prisma.StringFieldUpdateOperationsInput | string
   entityId?: Prisma.StringFieldUpdateOperationsInput | string
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
@@ -707,6 +831,7 @@ export type FileLinkUncheckedUpdateManyWithoutCreatedByInput = {
 export type FileLinkCreateManySchoolInput = {
   id?: string
   fileId: string
+  resourceId?: string | null
   entityType: string
   entityId: string
   visibility: string
@@ -721,12 +846,14 @@ export type FileLinkUpdateWithoutSchoolInput = {
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   file?: Prisma.StoredFileUpdateOneRequiredWithoutLinksNestedInput
+  resource?: Prisma.ResourceUpdateOneWithoutFileLinksNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutFileLinksCreatedNestedInput
 }
 
 export type FileLinkUncheckedUpdateWithoutSchoolInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
+  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   entityType?: Prisma.StringFieldUpdateOperationsInput | string
   entityId?: Prisma.StringFieldUpdateOperationsInput | string
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
@@ -737,6 +864,7 @@ export type FileLinkUncheckedUpdateWithoutSchoolInput = {
 export type FileLinkUncheckedUpdateManyWithoutSchoolInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
+  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   entityType?: Prisma.StringFieldUpdateOperationsInput | string
   entityId?: Prisma.StringFieldUpdateOperationsInput | string
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
@@ -746,6 +874,7 @@ export type FileLinkUncheckedUpdateManyWithoutSchoolInput = {
 
 export type FileLinkCreateManyFileInput = {
   id?: string
+  resourceId?: string | null
   entityType: string
   entityId: string
   visibility: string
@@ -760,11 +889,13 @@ export type FileLinkUpdateWithoutFileInput = {
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   school?: Prisma.SchoolUpdateOneRequiredWithoutFileLinksNestedInput
+  resource?: Prisma.ResourceUpdateOneWithoutFileLinksNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutFileLinksCreatedNestedInput
 }
 
 export type FileLinkUncheckedUpdateWithoutFileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   entityType?: Prisma.StringFieldUpdateOperationsInput | string
   entityId?: Prisma.StringFieldUpdateOperationsInput | string
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
@@ -774,6 +905,48 @@ export type FileLinkUncheckedUpdateWithoutFileInput = {
 
 export type FileLinkUncheckedUpdateManyWithoutFileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  entityType?: Prisma.StringFieldUpdateOperationsInput | string
+  entityId?: Prisma.StringFieldUpdateOperationsInput | string
+  visibility?: Prisma.StringFieldUpdateOperationsInput | string
+  createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type FileLinkCreateManyResourceInput = {
+  id?: string
+  fileId: string
+  entityType: string
+  entityId: string
+  visibility: string
+  createdByUserId: string
+  createdAt?: Date | string
+}
+
+export type FileLinkUpdateWithoutResourceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  entityType?: Prisma.StringFieldUpdateOperationsInput | string
+  entityId?: Prisma.StringFieldUpdateOperationsInput | string
+  visibility?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  school?: Prisma.SchoolUpdateOneRequiredWithoutFileLinksNestedInput
+  file?: Prisma.StoredFileUpdateOneRequiredWithoutLinksNestedInput
+  createdBy?: Prisma.UserUpdateOneRequiredWithoutFileLinksCreatedNestedInput
+}
+
+export type FileLinkUncheckedUpdateWithoutResourceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  fileId?: Prisma.StringFieldUpdateOperationsInput | string
+  entityType?: Prisma.StringFieldUpdateOperationsInput | string
+  entityId?: Prisma.StringFieldUpdateOperationsInput | string
+  visibility?: Prisma.StringFieldUpdateOperationsInput | string
+  createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type FileLinkUncheckedUpdateManyWithoutResourceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  fileId?: Prisma.StringFieldUpdateOperationsInput | string
   entityType?: Prisma.StringFieldUpdateOperationsInput | string
   entityId?: Prisma.StringFieldUpdateOperationsInput | string
   visibility?: Prisma.StringFieldUpdateOperationsInput | string
@@ -787,6 +960,7 @@ export type FileLinkSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   id?: boolean
   schoolId?: boolean
   fileId?: boolean
+  resourceId?: boolean
   entityType?: boolean
   entityId?: boolean
   visibility?: boolean
@@ -794,6 +968,7 @@ export type FileLinkSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   createdAt?: boolean
   school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
   file?: boolean | Prisma.StoredFileDefaultArgs<ExtArgs>
+  resource?: boolean | Prisma.FileLink$resourceArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fileLink"]>
 
@@ -801,6 +976,7 @@ export type FileLinkSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   id?: boolean
   schoolId?: boolean
   fileId?: boolean
+  resourceId?: boolean
   entityType?: boolean
   entityId?: boolean
   visibility?: boolean
@@ -808,6 +984,7 @@ export type FileLinkSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   createdAt?: boolean
   school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
   file?: boolean | Prisma.StoredFileDefaultArgs<ExtArgs>
+  resource?: boolean | Prisma.FileLink$resourceArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fileLink"]>
 
@@ -815,6 +992,7 @@ export type FileLinkSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   id?: boolean
   schoolId?: boolean
   fileId?: boolean
+  resourceId?: boolean
   entityType?: boolean
   entityId?: boolean
   visibility?: boolean
@@ -822,6 +1000,7 @@ export type FileLinkSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   createdAt?: boolean
   school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
   file?: boolean | Prisma.StoredFileDefaultArgs<ExtArgs>
+  resource?: boolean | Prisma.FileLink$resourceArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fileLink"]>
 
@@ -829,6 +1008,7 @@ export type FileLinkSelectScalar = {
   id?: boolean
   schoolId?: boolean
   fileId?: boolean
+  resourceId?: boolean
   entityType?: boolean
   entityId?: boolean
   visibility?: boolean
@@ -836,20 +1016,23 @@ export type FileLinkSelectScalar = {
   createdAt?: boolean
 }
 
-export type FileLinkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "schoolId" | "fileId" | "entityType" | "entityId" | "visibility" | "createdByUserId" | "createdAt", ExtArgs["result"]["fileLink"]>
+export type FileLinkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "schoolId" | "fileId" | "resourceId" | "entityType" | "entityId" | "visibility" | "createdByUserId" | "createdAt", ExtArgs["result"]["fileLink"]>
 export type FileLinkInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
   file?: boolean | Prisma.StoredFileDefaultArgs<ExtArgs>
+  resource?: boolean | Prisma.FileLink$resourceArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type FileLinkIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
   file?: boolean | Prisma.StoredFileDefaultArgs<ExtArgs>
+  resource?: boolean | Prisma.FileLink$resourceArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type FileLinkIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
   file?: boolean | Prisma.StoredFileDefaultArgs<ExtArgs>
+  resource?: boolean | Prisma.FileLink$resourceArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
@@ -858,12 +1041,14 @@ export type $FileLinkPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   objects: {
     school: Prisma.$SchoolPayload<ExtArgs>
     file: Prisma.$StoredFilePayload<ExtArgs>
+    resource: Prisma.$ResourcePayload<ExtArgs> | null
     createdBy: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     schoolId: string
     fileId: string
+    resourceId: string | null
     entityType: string
     entityId: string
     visibility: string
@@ -1265,6 +1450,7 @@ export interface Prisma__FileLinkClient<T, Null = never, ExtArgs extends runtime
   readonly [Symbol.toStringTag]: "PrismaPromise"
   school<T extends Prisma.SchoolDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SchoolDefaultArgs<ExtArgs>>): Prisma.Prisma__SchoolClient<runtime.Types.Result.GetResult<Prisma.$SchoolPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   file<T extends Prisma.StoredFileDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StoredFileDefaultArgs<ExtArgs>>): Prisma.Prisma__StoredFileClient<runtime.Types.Result.GetResult<Prisma.$StoredFilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  resource<T extends Prisma.FileLink$resourceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.FileLink$resourceArgs<ExtArgs>>): Prisma.Prisma__ResourceClient<runtime.Types.Result.GetResult<Prisma.$ResourcePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   createdBy<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1298,6 +1484,7 @@ export interface FileLinkFieldRefs {
   readonly id: Prisma.FieldRef<"FileLink", 'String'>
   readonly schoolId: Prisma.FieldRef<"FileLink", 'String'>
   readonly fileId: Prisma.FieldRef<"FileLink", 'String'>
+  readonly resourceId: Prisma.FieldRef<"FileLink", 'String'>
   readonly entityType: Prisma.FieldRef<"FileLink", 'String'>
   readonly entityId: Prisma.FieldRef<"FileLink", 'String'>
   readonly visibility: Prisma.FieldRef<"FileLink", 'String'>
@@ -1701,6 +1888,25 @@ export type FileLinkDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Limit how many FileLinks to delete.
    */
   limit?: number
+}
+
+/**
+ * FileLink.resource
+ */
+export type FileLink$resourceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Resource
+   */
+  select?: Prisma.ResourceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Resource
+   */
+  omit?: Prisma.ResourceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceInclude<ExtArgs> | null
+  where?: Prisma.ResourceWhereInput
 }
 
 /**

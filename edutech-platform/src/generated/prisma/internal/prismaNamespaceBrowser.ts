@@ -65,6 +65,18 @@ export const ModelName = {
   StoredFile: 'StoredFile',
   FileVersion: 'FileVersion',
   FileLink: 'FileLink',
+  Resource: 'Resource',
+  ResourceVersion: 'ResourceVersion',
+  ResourceCategory: 'ResourceCategory',
+  ResourceTag: 'ResourceTag',
+  ResourceTransition: 'ResourceTransition',
+  ResourceComment: 'ResourceComment',
+  ResourceReport: 'ResourceReport',
+  ResourceBookmark: 'ResourceBookmark',
+  ResourceCollection: 'ResourceCollection',
+  ResourceCollectionItem: 'ResourceCollectionItem',
+  ResourceAnalyticsEvent: 'ResourceAnalyticsEvent',
+  ResourceAnalyticsCounter: 'ResourceAnalyticsCounter',
   AuditEvent: 'AuditEvent',
   DomainOutboxEvent: 'DomainOutboxEvent',
   EmailOutbox: 'EmailOutbox',
@@ -307,6 +319,7 @@ export const FileLinkScalarFieldEnum = {
   id: 'id',
   schoolId: 'schoolId',
   fileId: 'fileId',
+  resourceId: 'resourceId',
   entityType: 'entityType',
   entityId: 'entityId',
   visibility: 'visibility',
@@ -315,6 +328,170 @@ export const FileLinkScalarFieldEnum = {
 } as const
 
 export type FileLinkScalarFieldEnum = (typeof FileLinkScalarFieldEnum)[keyof typeof FileLinkScalarFieldEnum]
+
+
+export const ResourceScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  createdByUserId: 'createdByUserId',
+  title: 'title',
+  slug: 'slug',
+  summary: 'summary',
+  status: 'status',
+  visibility: 'visibility',
+  currentVersionId: 'currentVersionId',
+  publishedAt: 'publishedAt',
+  archivedAt: 'archivedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ResourceScalarFieldEnum = (typeof ResourceScalarFieldEnum)[keyof typeof ResourceScalarFieldEnum]
+
+
+export const ResourceVersionScalarFieldEnum = {
+  id: 'id',
+  resourceId: 'resourceId',
+  versionNumber: 'versionNumber',
+  title: 'title',
+  summary: 'summary',
+  body: 'body',
+  metadataJson: 'metadataJson',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type ResourceVersionScalarFieldEnum = (typeof ResourceVersionScalarFieldEnum)[keyof typeof ResourceVersionScalarFieldEnum]
+
+
+export const ResourceCategoryScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  name: 'name',
+  slug: 'slug',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type ResourceCategoryScalarFieldEnum = (typeof ResourceCategoryScalarFieldEnum)[keyof typeof ResourceCategoryScalarFieldEnum]
+
+
+export const ResourceTagScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  name: 'name',
+  slug: 'slug',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type ResourceTagScalarFieldEnum = (typeof ResourceTagScalarFieldEnum)[keyof typeof ResourceTagScalarFieldEnum]
+
+
+export const ResourceTransitionScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  resourceId: 'resourceId',
+  action: 'action',
+  fromStatus: 'fromStatus',
+  toStatus: 'toStatus',
+  reason: 'reason',
+  actorUserId: 'actorUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type ResourceTransitionScalarFieldEnum = (typeof ResourceTransitionScalarFieldEnum)[keyof typeof ResourceTransitionScalarFieldEnum]
+
+
+export const ResourceCommentScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  resourceId: 'resourceId',
+  authorUserId: 'authorUserId',
+  body: 'body',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ResourceCommentScalarFieldEnum = (typeof ResourceCommentScalarFieldEnum)[keyof typeof ResourceCommentScalarFieldEnum]
+
+
+export const ResourceReportScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  resourceId: 'resourceId',
+  reporterUserId: 'reporterUserId',
+  reason: 'reason',
+  status: 'status',
+  resolution: 'resolution',
+  resolvedByUserId: 'resolvedByUserId',
+  createdAt: 'createdAt',
+  resolvedAt: 'resolvedAt'
+} as const
+
+export type ResourceReportScalarFieldEnum = (typeof ResourceReportScalarFieldEnum)[keyof typeof ResourceReportScalarFieldEnum]
+
+
+export const ResourceBookmarkScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  resourceId: 'resourceId',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type ResourceBookmarkScalarFieldEnum = (typeof ResourceBookmarkScalarFieldEnum)[keyof typeof ResourceBookmarkScalarFieldEnum]
+
+
+export const ResourceCollectionScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  ownerUserId: 'ownerUserId',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ResourceCollectionScalarFieldEnum = (typeof ResourceCollectionScalarFieldEnum)[keyof typeof ResourceCollectionScalarFieldEnum]
+
+
+export const ResourceCollectionItemScalarFieldEnum = {
+  id: 'id',
+  collectionId: 'collectionId',
+  resourceId: 'resourceId',
+  createdAt: 'createdAt'
+} as const
+
+export type ResourceCollectionItemScalarFieldEnum = (typeof ResourceCollectionItemScalarFieldEnum)[keyof typeof ResourceCollectionItemScalarFieldEnum]
+
+
+export const ResourceAnalyticsEventScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  resourceId: 'resourceId',
+  actorUserId: 'actorUserId',
+  eventType: 'eventType',
+  versionId: 'versionId',
+  createdAt: 'createdAt'
+} as const
+
+export type ResourceAnalyticsEventScalarFieldEnum = (typeof ResourceAnalyticsEventScalarFieldEnum)[keyof typeof ResourceAnalyticsEventScalarFieldEnum]
+
+
+export const ResourceAnalyticsCounterScalarFieldEnum = {
+  resourceId: 'resourceId',
+  views: 'views',
+  downloads: 'downloads',
+  previews: 'previews',
+  bookmarks: 'bookmarks',
+  comments: 'comments',
+  reports: 'reports',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ResourceAnalyticsCounterScalarFieldEnum = (typeof ResourceAnalyticsCounterScalarFieldEnum)[keyof typeof ResourceAnalyticsCounterScalarFieldEnum]
 
 
 export const AuditEventScalarFieldEnum = {

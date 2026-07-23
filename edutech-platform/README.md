@@ -198,9 +198,21 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | `/dashboard/mentoring/cases` | Case list, filter, and create | Case read/create |
 | `/dashboard/mentoring/cases/[caseId]` | Overview, goals, sessions, tasks, files, activity, notes, referral | Case access + note projection |
 
+## Phase 4 resource routes
+
+| Route | Purpose | Required scope |
+| --- | --- | --- |
+| `/dashboard/resources` | Search-first library with status filters and tenant-scoped cards | Resource read |
+| `/dashboard/resources/new` | Create a draft resource | Resource create |
+| `/dashboard/resources/[resourceId]` | Detail, preview, comments, reports, lifecycle, versions and rollback | Resource visibility |
+| `/dashboard/resources/[resourceId]/download` | Authorized private download | Resource download |
+| `/dashboard/resources/moderation` | Review queue for pending resources | Resource review |
+| `/dashboard/resources/bookmarks` | Personal bookmarks and collections | Resource read |
+| `/dashboard/resources/analytics` | Published-resource usage counters | Resource analytics |
+
 ## Verification status
 
-On July 23, 2026, Phase 1 and Phase 2 passed their complete verification gates: 78 unit/integration tests, lint, typecheck, production build, 24 Playwright scenarios, and Git whitespace validation all pass. Phase 3 adds transactional mentoring booking, waitlist, appointment lifecycle, counseling cases, encrypted note projection, and role-aware dashboards; rerun the full verification gate after future changes.
+On July 23, 2026, Phase 1–4 passed their complete verification gates. Phase 4 adds tenant-scoped resource discovery, moderation lifecycle, immutable versions, local secure file upload/download, comments, reports, bookmarks, collections, analytics counters and rollback-as-new-version. Demo seed includes one published and one private resource for Trường Minh Khai.
 
 ## Architecture documentation
 

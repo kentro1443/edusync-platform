@@ -61,7 +61,7 @@ test.describe("App shell Phase 1", () => {
 
     await expect(page.getByRole("heading", { name: "Xin chào, Nguyễn Minh Anh" })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "Đường dẫn trang" })).toBeVisible();
-    await expect(page.getByText("Sắp có")).toHaveCount(2);
+    await expect(page.getByText("Sắp có")).toHaveCount(1);
     await expect(page.locator('a[href="/dashboard/mentoring"]')).toHaveCount(1);
 
     const search = page.getByRole("button", { name: "Tìm kiếm trong ứng dụng" });

@@ -316,53 +316,53 @@
 
 ### Schema và domain
 
-- [ ] Thêm Resource, ResourceVersion, Category và Tag.
-- [ ] Hoàn thiện StoredFile/FileVersion/FileLink liên kết resource.
-- [ ] Thêm moderation lifecycle và transitions.
-- [ ] Thêm Comment, ResourceReport, Bookmark và Collection.
-- [ ] Thêm analytics events/counters.
-- [ ] Thêm constraints/indexes.
-- [ ] Tạo/chạy migration và seed.
+- [x] Thêm Resource, ResourceVersion, Category và Tag.
+- [x] Hoàn thiện StoredFile/FileVersion/FileLink liên kết resource.
+- [x] Thêm moderation lifecycle và transitions.
+- [x] Thêm Comment, ResourceReport, Bookmark và Collection.
+- [x] Thêm analytics events/counters.
+- [x] Thêm constraints/indexes.
+- [x] Tạo/chạy migration và seed.
 
 ### Policy/service/API
 
-- [ ] Resource visibility policy.
-- [ ] Upload validation dung lượng/MIME/tên file.
-- [ ] Authorized upload/download/preview.
-- [ ] Draft/review/publish/reject/archive service.
-- [ ] Immutable version enforcement.
-- [ ] Rollback bằng version mới.
-- [ ] Comment/report moderation.
-- [ ] Bookmark/collection service.
-- [ ] Analytics aggregation.
-- [ ] Audit/outbox events.
+- [x] Resource visibility policy.
+- [x] Upload validation dung lượng/MIME/tên file.
+- [x] Authorized upload/download/preview.
+- [x] Draft/review/publish/reject/archive service.
+- [x] Immutable version enforcement.
+- [x] Rollback bằng version mới.
+- [x] Comment/report moderation.
+- [x] Bookmark/collection service.
+- [x] Analytics aggregation.
+- [x] Audit/outbox events.
 
 ### UI và luồng
 
-- [ ] Library grid/list search-first.
-- [ ] Category/tag/status filters.
-- [ ] Resource detail/preview.
-- [ ] Upload/editor flow với progress/retry.
-- [ ] Moderation queue.
-- [ ] Version history và rollback.
-- [ ] Access/privacy settings.
-- [ ] Comment/report flow.
-- [ ] Bookmarks và collections.
-- [ ] Analytics view.
-- [ ] Loading/empty/error/forbidden states.
+- [x] Library grid/list search-first.
+- [x] Category/tag/status filters.
+- [x] Resource detail/preview.
+- [x] Upload/editor flow với progress/retry.
+- [x] Moderation queue.
+- [x] Version history và rollback.
+- [x] Access/privacy settings.
+- [x] Comment/report flow.
+- [x] Bookmarks và collections.
+- [x] Analytics view.
+- [x] Loading/empty/error/forbidden states.
 
 ### Gate Phase 4
 
-- [ ] Unit tests lifecycle/file rules.
-- [ ] Integration upload/storage/version tests.
-- [ ] Cross-tenant/private-file negative tests.
-- [ ] Published immutability test.
-- [ ] E2E author → reviewer → publish → reader → rollback.
-- [ ] E2E invalid upload/recovery.
-- [ ] Responsive/keyboard/a11y checks.
-- [ ] Lint, typecheck, tests, E2E và build xanh.
-- [ ] Cập nhật docs.
-- [ ] Đóng gate Phase 4.
+- [x] Unit tests lifecycle/file rules.
+- [x] Integration upload/storage/version tests.
+- [x] Cross-tenant/private-file negative tests.
+- [x] Published immutability test.
+- [x] E2E author → reviewer → publish → reader → rollback.
+- [x] E2E invalid upload/recovery.
+- [x] Responsive/keyboard/a11y checks.
+- [x] Lint, typecheck, tests, E2E và build xanh.
+- [x] Cập nhật docs.
+- [x] Đóng gate Phase 4.
 
 ## Phase 5 — Lịch và đặt chỗ
 

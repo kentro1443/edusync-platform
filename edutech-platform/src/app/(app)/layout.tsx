@@ -46,7 +46,6 @@ const navItems = [
     label: "Kho tài liệu",
     icon: "resources",
     schoolPermission: permissions.resourceRead,
-    available: false,
   },
   {
     href: "/dashboard/appointments",

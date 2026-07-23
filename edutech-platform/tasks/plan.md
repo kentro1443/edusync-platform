@@ -367,6 +367,18 @@ Hoàn thiện school, user, membership, role assignment, parent-student link, in
 - Upload limit/MIME hoạt động.
 - E2E author → reviewer → reader → rollback xanh.
 
+### Phase 4 implementation checkpoint
+
+- `20260723070524_phase4_resources` adds the resource, taxonomy, version,
+  file-link, collaboration and analytics tables with tenant indexes.
+- `src/lib/resources/resource-service.ts` owns visibility, lifecycle,
+  immutable version, storage authorization, comments/reports, bookmarks,
+  collections and analytics mutations.
+- `/dashboard/resources/**` exposes search-first library, detail/editor,
+  moderation, bookmarks and analytics views.
+- Unit, integration and Playwright coverage proves cross-tenant rejection,
+  invalid upload recovery, publish flow and rollback-as-new-version.
+
 ## Phase 5 — Lịch và đặt chỗ
 
 ### Mô hình/chức năng

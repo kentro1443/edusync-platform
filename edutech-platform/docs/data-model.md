@@ -318,6 +318,31 @@ Conversation membership and every message read/send operation are authorization-
 
 Audit and outbox records are append-only from application code. Administrative retention jobs may archive according to policy but may not silently rewrite history.
 
+## Resource library implementation
+
+`Resource` is the tenant-scoped aggregate. It owns metadata, visibility,
+moderation status, current version pointer and explicit transition history.
+`ResourceVersion` is append-only: published content is never mutated in place;
+rollback copies an older version into a new version number.
+
+Supporting models:
+
+- `ResourceCategory` and `ResourceTag` use school-scoped slugs.
+- `StoredFile` is the logical file and `FileVersion` stores immutable bytes
+  metadata. `FileLink` carries the resource link and visibility projection.
+- `ResourceComment`, `ResourceReport`, `ResourceBookmark`,
+  `ResourceCollection`/`ResourceCollectionItem` cover collaboration and
+  personal organization.
+- `ResourceAnalyticsEvent` is the durable event stream and
+  `ResourceAnalyticsCounter` is the read-optimized aggregate.
+
+Resource reads and file downloads require an active membership in the same
+school. Draft/private resources are limited to the author or moderation roles;
+students and parents see only published non-private content. Uploads use opaque
+storage keys, safe original names, allow-listed MIME types and a 25 MiB limit.
+Audit and domain-outbox records are written in the same transaction as lifecycle
+mutations.
+
 ## Index and constraint baseline
 
 - Index every tenant-owned table by `schoolId`.

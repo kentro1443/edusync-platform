@@ -258,6 +258,16 @@ export type UserWhereInput = {
   filesCreated?: Prisma.StoredFileListRelationFilter
   fileVersionsCreated?: Prisma.FileVersionListRelationFilter
   fileLinksCreated?: Prisma.FileLinkListRelationFilter
+  resourcesCreated?: Prisma.ResourceListRelationFilter
+  resourceVersionsCreated?: Prisma.ResourceVersionListRelationFilter
+  resourceTransitions?: Prisma.ResourceTransitionListRelationFilter
+  categoriesCreated?: Prisma.ResourceCategoryListRelationFilter
+  tagsCreated?: Prisma.ResourceTagListRelationFilter
+  resourceComments?: Prisma.ResourceCommentListRelationFilter
+  resourceReports?: Prisma.ResourceReportListRelationFilter
+  resourceBookmarks?: Prisma.ResourceBookmarkListRelationFilter
+  resourceCollections?: Prisma.ResourceCollectionListRelationFilter
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventListRelationFilter
   auditEvents?: Prisma.AuditEventListRelationFilter
   emailOutboxItems?: Prisma.EmailOutboxListRelationFilter
   mentorProfiles?: Prisma.MentorProfileListRelationFilter
@@ -308,6 +318,16 @@ export type UserOrderByWithRelationInput = {
   filesCreated?: Prisma.StoredFileOrderByRelationAggregateInput
   fileVersionsCreated?: Prisma.FileVersionOrderByRelationAggregateInput
   fileLinksCreated?: Prisma.FileLinkOrderByRelationAggregateInput
+  resourcesCreated?: Prisma.ResourceOrderByRelationAggregateInput
+  resourceVersionsCreated?: Prisma.ResourceVersionOrderByRelationAggregateInput
+  resourceTransitions?: Prisma.ResourceTransitionOrderByRelationAggregateInput
+  categoriesCreated?: Prisma.ResourceCategoryOrderByRelationAggregateInput
+  tagsCreated?: Prisma.ResourceTagOrderByRelationAggregateInput
+  resourceComments?: Prisma.ResourceCommentOrderByRelationAggregateInput
+  resourceReports?: Prisma.ResourceReportOrderByRelationAggregateInput
+  resourceBookmarks?: Prisma.ResourceBookmarkOrderByRelationAggregateInput
+  resourceCollections?: Prisma.ResourceCollectionOrderByRelationAggregateInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventOrderByRelationAggregateInput
   auditEvents?: Prisma.AuditEventOrderByRelationAggregateInput
   emailOutboxItems?: Prisma.EmailOutboxOrderByRelationAggregateInput
   mentorProfiles?: Prisma.MentorProfileOrderByRelationAggregateInput
@@ -361,6 +381,16 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   filesCreated?: Prisma.StoredFileListRelationFilter
   fileVersionsCreated?: Prisma.FileVersionListRelationFilter
   fileLinksCreated?: Prisma.FileLinkListRelationFilter
+  resourcesCreated?: Prisma.ResourceListRelationFilter
+  resourceVersionsCreated?: Prisma.ResourceVersionListRelationFilter
+  resourceTransitions?: Prisma.ResourceTransitionListRelationFilter
+  categoriesCreated?: Prisma.ResourceCategoryListRelationFilter
+  tagsCreated?: Prisma.ResourceTagListRelationFilter
+  resourceComments?: Prisma.ResourceCommentListRelationFilter
+  resourceReports?: Prisma.ResourceReportListRelationFilter
+  resourceBookmarks?: Prisma.ResourceBookmarkListRelationFilter
+  resourceCollections?: Prisma.ResourceCollectionListRelationFilter
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventListRelationFilter
   auditEvents?: Prisma.AuditEventListRelationFilter
   emailOutboxItems?: Prisma.EmailOutboxListRelationFilter
   mentorProfiles?: Prisma.MentorProfileListRelationFilter
@@ -449,6 +479,16 @@ export type UserCreateInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -499,6 +539,16 @@ export type UserUncheckedCreateInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -549,6 +599,16 @@ export type UserUpdateInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -599,6 +659,16 @@ export type UserUncheckedUpdateInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -923,6 +993,148 @@ export type UserUpdateOneRequiredWithoutFileLinksCreatedNestedInput = {
   upsert?: Prisma.UserUpsertWithoutFileLinksCreatedInput
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFileLinksCreatedInput, Prisma.UserUpdateWithoutFileLinksCreatedInput>, Prisma.UserUncheckedUpdateWithoutFileLinksCreatedInput>
+}
+
+export type UserCreateNestedOneWithoutResourcesCreatedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourcesCreatedInput, Prisma.UserUncheckedCreateWithoutResourcesCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourcesCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutResourcesCreatedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourcesCreatedInput, Prisma.UserUncheckedCreateWithoutResourcesCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourcesCreatedInput
+  upsert?: Prisma.UserUpsertWithoutResourcesCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResourcesCreatedInput, Prisma.UserUpdateWithoutResourcesCreatedInput>, Prisma.UserUncheckedUpdateWithoutResourcesCreatedInput>
+}
+
+export type UserCreateNestedOneWithoutResourceVersionsCreatedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceVersionsCreatedInput, Prisma.UserUncheckedCreateWithoutResourceVersionsCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceVersionsCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutResourceVersionsCreatedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceVersionsCreatedInput, Prisma.UserUncheckedCreateWithoutResourceVersionsCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceVersionsCreatedInput
+  upsert?: Prisma.UserUpsertWithoutResourceVersionsCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResourceVersionsCreatedInput, Prisma.UserUpdateWithoutResourceVersionsCreatedInput>, Prisma.UserUncheckedUpdateWithoutResourceVersionsCreatedInput>
+}
+
+export type UserCreateNestedOneWithoutCategoriesCreatedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCategoriesCreatedInput, Prisma.UserUncheckedCreateWithoutCategoriesCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCategoriesCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutCategoriesCreatedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCategoriesCreatedInput, Prisma.UserUncheckedCreateWithoutCategoriesCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCategoriesCreatedInput
+  upsert?: Prisma.UserUpsertWithoutCategoriesCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutCategoriesCreatedInput, Prisma.UserUpdateWithoutCategoriesCreatedInput>, Prisma.UserUncheckedUpdateWithoutCategoriesCreatedInput>
+}
+
+export type UserCreateNestedOneWithoutTagsCreatedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTagsCreatedInput, Prisma.UserUncheckedCreateWithoutTagsCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTagsCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutTagsCreatedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTagsCreatedInput, Prisma.UserUncheckedCreateWithoutTagsCreatedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTagsCreatedInput
+  upsert?: Prisma.UserUpsertWithoutTagsCreatedInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTagsCreatedInput, Prisma.UserUpdateWithoutTagsCreatedInput>, Prisma.UserUncheckedUpdateWithoutTagsCreatedInput>
+}
+
+export type UserCreateNestedOneWithoutResourceTransitionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceTransitionsInput, Prisma.UserUncheckedCreateWithoutResourceTransitionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceTransitionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutResourceTransitionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceTransitionsInput, Prisma.UserUncheckedCreateWithoutResourceTransitionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceTransitionsInput
+  upsert?: Prisma.UserUpsertWithoutResourceTransitionsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResourceTransitionsInput, Prisma.UserUpdateWithoutResourceTransitionsInput>, Prisma.UserUncheckedUpdateWithoutResourceTransitionsInput>
+}
+
+export type UserCreateNestedOneWithoutResourceCommentsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceCommentsInput, Prisma.UserUncheckedCreateWithoutResourceCommentsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceCommentsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutResourceCommentsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceCommentsInput, Prisma.UserUncheckedCreateWithoutResourceCommentsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceCommentsInput
+  upsert?: Prisma.UserUpsertWithoutResourceCommentsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResourceCommentsInput, Prisma.UserUpdateWithoutResourceCommentsInput>, Prisma.UserUncheckedUpdateWithoutResourceCommentsInput>
+}
+
+export type UserCreateNestedOneWithoutResourceReportsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceReportsInput, Prisma.UserUncheckedCreateWithoutResourceReportsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceReportsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutResourceReportsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceReportsInput, Prisma.UserUncheckedCreateWithoutResourceReportsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceReportsInput
+  upsert?: Prisma.UserUpsertWithoutResourceReportsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResourceReportsInput, Prisma.UserUpdateWithoutResourceReportsInput>, Prisma.UserUncheckedUpdateWithoutResourceReportsInput>
+}
+
+export type UserCreateNestedOneWithoutResourceBookmarksInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceBookmarksInput, Prisma.UserUncheckedCreateWithoutResourceBookmarksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceBookmarksInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutResourceBookmarksNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceBookmarksInput, Prisma.UserUncheckedCreateWithoutResourceBookmarksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceBookmarksInput
+  upsert?: Prisma.UserUpsertWithoutResourceBookmarksInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResourceBookmarksInput, Prisma.UserUpdateWithoutResourceBookmarksInput>, Prisma.UserUncheckedUpdateWithoutResourceBookmarksInput>
+}
+
+export type UserCreateNestedOneWithoutResourceCollectionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceCollectionsInput, Prisma.UserUncheckedCreateWithoutResourceCollectionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceCollectionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutResourceCollectionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceCollectionsInput, Prisma.UserUncheckedCreateWithoutResourceCollectionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceCollectionsInput
+  upsert?: Prisma.UserUpsertWithoutResourceCollectionsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResourceCollectionsInput, Prisma.UserUpdateWithoutResourceCollectionsInput>, Prisma.UserUncheckedUpdateWithoutResourceCollectionsInput>
+}
+
+export type UserCreateNestedOneWithoutResourceAnalyticsEventsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceAnalyticsEventsInput, Prisma.UserUncheckedCreateWithoutResourceAnalyticsEventsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceAnalyticsEventsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutResourceAnalyticsEventsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResourceAnalyticsEventsInput, Prisma.UserUncheckedCreateWithoutResourceAnalyticsEventsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResourceAnalyticsEventsInput
+  upsert?: Prisma.UserUpsertWithoutResourceAnalyticsEventsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResourceAnalyticsEventsInput, Prisma.UserUpdateWithoutResourceAnalyticsEventsInput>, Prisma.UserUncheckedUpdateWithoutResourceAnalyticsEventsInput>
 }
 
 export type UserCreateNestedOneWithoutAuditEventsInput = {
@@ -1266,6 +1478,16 @@ export type UserCreateWithoutPlatformRoleAssignmentsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -1315,6 +1537,16 @@ export type UserUncheckedCreateWithoutPlatformRoleAssignmentsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -1369,6 +1601,16 @@ export type UserCreateWithoutPlatformRolesAssignedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -1418,6 +1660,16 @@ export type UserUncheckedCreateWithoutPlatformRolesAssignedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -1483,6 +1735,16 @@ export type UserUpdateWithoutPlatformRoleAssignmentsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -1532,6 +1794,16 @@ export type UserUncheckedUpdateWithoutPlatformRoleAssignmentsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -1592,6 +1864,16 @@ export type UserUpdateWithoutPlatformRolesAssignedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -1641,6 +1923,16 @@ export type UserUncheckedUpdateWithoutPlatformRolesAssignedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -1690,6 +1982,16 @@ export type UserCreateWithoutMembershipsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -1739,6 +2041,16 @@ export type UserUncheckedCreateWithoutMembershipsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -1804,6 +2116,16 @@ export type UserUpdateWithoutMembershipsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -1853,6 +2175,16 @@ export type UserUncheckedUpdateWithoutMembershipsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -1902,6 +2234,16 @@ export type UserCreateWithoutSchoolRolesAssignedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -1951,6 +2293,16 @@ export type UserUncheckedCreateWithoutSchoolRolesAssignedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -2016,6 +2368,16 @@ export type UserUpdateWithoutSchoolRolesAssignedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -2065,6 +2427,16 @@ export type UserUncheckedUpdateWithoutSchoolRolesAssignedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -2114,6 +2486,16 @@ export type UserCreateWithoutParentLinksInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -2163,6 +2545,16 @@ export type UserUncheckedCreateWithoutParentLinksInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -2217,6 +2609,16 @@ export type UserCreateWithoutStudentLinksInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -2266,6 +2668,16 @@ export type UserUncheckedCreateWithoutStudentLinksInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -2331,6 +2743,16 @@ export type UserUpdateWithoutParentLinksInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -2380,6 +2802,16 @@ export type UserUncheckedUpdateWithoutParentLinksInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -2440,6 +2872,16 @@ export type UserUpdateWithoutStudentLinksInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -2489,6 +2931,16 @@ export type UserUncheckedUpdateWithoutStudentLinksInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -2538,6 +2990,16 @@ export type UserCreateWithoutInvitationsCreatedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -2587,6 +3049,16 @@ export type UserUncheckedCreateWithoutInvitationsCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -2652,6 +3124,16 @@ export type UserUpdateWithoutInvitationsCreatedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -2701,6 +3183,16 @@ export type UserUncheckedUpdateWithoutInvitationsCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -2750,6 +3242,16 @@ export type UserCreateWithoutSessionsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -2799,6 +3301,16 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -2864,6 +3376,16 @@ export type UserUpdateWithoutSessionsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -2913,6 +3435,16 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -2962,6 +3494,16 @@ export type UserCreateWithoutPasswordResetTokensInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -3011,6 +3553,16 @@ export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -3076,6 +3628,16 @@ export type UserUpdateWithoutPasswordResetTokensInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -3125,6 +3687,16 @@ export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -3174,6 +3746,16 @@ export type UserCreateWithoutFilesCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -3223,6 +3805,16 @@ export type UserUncheckedCreateWithoutFilesCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -3288,6 +3880,16 @@ export type UserUpdateWithoutFilesCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -3337,6 +3939,16 @@ export type UserUncheckedUpdateWithoutFilesCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -3386,6 +3998,16 @@ export type UserCreateWithoutFileVersionsCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -3435,6 +4057,16 @@ export type UserUncheckedCreateWithoutFileVersionsCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -3500,6 +4132,16 @@ export type UserUpdateWithoutFileVersionsCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -3549,6 +4191,16 @@ export type UserUncheckedUpdateWithoutFileVersionsCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -3598,6 +4250,16 @@ export type UserCreateWithoutFileLinksCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -3647,6 +4309,16 @@ export type UserUncheckedCreateWithoutFileLinksCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -3712,6 +4384,16 @@ export type UserUpdateWithoutFileLinksCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -3761,6 +4443,2536 @@ export type UserUncheckedUpdateWithoutFileLinksCreatedInput = {
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutResourcesCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutResourcesCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutResourcesCreatedInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourcesCreatedInput, Prisma.UserUncheckedCreateWithoutResourcesCreatedInput>
+}
+
+export type UserUpsertWithoutResourcesCreatedInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResourcesCreatedInput, Prisma.UserUncheckedUpdateWithoutResourcesCreatedInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourcesCreatedInput, Prisma.UserUncheckedCreateWithoutResourcesCreatedInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResourcesCreatedInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResourcesCreatedInput, Prisma.UserUncheckedUpdateWithoutResourcesCreatedInput>
+}
+
+export type UserUpdateWithoutResourcesCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResourcesCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutResourceVersionsCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutResourceVersionsCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutResourceVersionsCreatedInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceVersionsCreatedInput, Prisma.UserUncheckedCreateWithoutResourceVersionsCreatedInput>
+}
+
+export type UserUpsertWithoutResourceVersionsCreatedInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResourceVersionsCreatedInput, Prisma.UserUncheckedUpdateWithoutResourceVersionsCreatedInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceVersionsCreatedInput, Prisma.UserUncheckedCreateWithoutResourceVersionsCreatedInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResourceVersionsCreatedInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResourceVersionsCreatedInput, Prisma.UserUncheckedUpdateWithoutResourceVersionsCreatedInput>
+}
+
+export type UserUpdateWithoutResourceVersionsCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResourceVersionsCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutCategoriesCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutCategoriesCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutCategoriesCreatedInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutCategoriesCreatedInput, Prisma.UserUncheckedCreateWithoutCategoriesCreatedInput>
+}
+
+export type UserUpsertWithoutCategoriesCreatedInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutCategoriesCreatedInput, Prisma.UserUncheckedUpdateWithoutCategoriesCreatedInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutCategoriesCreatedInput, Prisma.UserUncheckedCreateWithoutCategoriesCreatedInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutCategoriesCreatedInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutCategoriesCreatedInput, Prisma.UserUncheckedUpdateWithoutCategoriesCreatedInput>
+}
+
+export type UserUpdateWithoutCategoriesCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutCategoriesCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutTagsCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutTagsCreatedInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutTagsCreatedInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutTagsCreatedInput, Prisma.UserUncheckedCreateWithoutTagsCreatedInput>
+}
+
+export type UserUpsertWithoutTagsCreatedInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutTagsCreatedInput, Prisma.UserUncheckedUpdateWithoutTagsCreatedInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutTagsCreatedInput, Prisma.UserUncheckedCreateWithoutTagsCreatedInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutTagsCreatedInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutTagsCreatedInput, Prisma.UserUncheckedUpdateWithoutTagsCreatedInput>
+}
+
+export type UserUpdateWithoutTagsCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutTagsCreatedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutResourceTransitionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutResourceTransitionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutResourceTransitionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceTransitionsInput, Prisma.UserUncheckedCreateWithoutResourceTransitionsInput>
+}
+
+export type UserUpsertWithoutResourceTransitionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResourceTransitionsInput, Prisma.UserUncheckedUpdateWithoutResourceTransitionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceTransitionsInput, Prisma.UserUncheckedCreateWithoutResourceTransitionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResourceTransitionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResourceTransitionsInput, Prisma.UserUncheckedUpdateWithoutResourceTransitionsInput>
+}
+
+export type UserUpdateWithoutResourceTransitionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResourceTransitionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutResourceCommentsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutResourceCommentsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutResourceCommentsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceCommentsInput, Prisma.UserUncheckedCreateWithoutResourceCommentsInput>
+}
+
+export type UserUpsertWithoutResourceCommentsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResourceCommentsInput, Prisma.UserUncheckedUpdateWithoutResourceCommentsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceCommentsInput, Prisma.UserUncheckedCreateWithoutResourceCommentsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResourceCommentsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResourceCommentsInput, Prisma.UserUncheckedUpdateWithoutResourceCommentsInput>
+}
+
+export type UserUpdateWithoutResourceCommentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResourceCommentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutResourceReportsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutResourceReportsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutResourceReportsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceReportsInput, Prisma.UserUncheckedCreateWithoutResourceReportsInput>
+}
+
+export type UserUpsertWithoutResourceReportsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResourceReportsInput, Prisma.UserUncheckedUpdateWithoutResourceReportsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceReportsInput, Prisma.UserUncheckedCreateWithoutResourceReportsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResourceReportsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResourceReportsInput, Prisma.UserUncheckedUpdateWithoutResourceReportsInput>
+}
+
+export type UserUpdateWithoutResourceReportsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResourceReportsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutResourceBookmarksInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutResourceBookmarksInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutResourceBookmarksInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceBookmarksInput, Prisma.UserUncheckedCreateWithoutResourceBookmarksInput>
+}
+
+export type UserUpsertWithoutResourceBookmarksInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResourceBookmarksInput, Prisma.UserUncheckedUpdateWithoutResourceBookmarksInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceBookmarksInput, Prisma.UserUncheckedCreateWithoutResourceBookmarksInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResourceBookmarksInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResourceBookmarksInput, Prisma.UserUncheckedUpdateWithoutResourceBookmarksInput>
+}
+
+export type UserUpdateWithoutResourceBookmarksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResourceBookmarksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutResourceCollectionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutResourceCollectionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutResourceCollectionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceCollectionsInput, Prisma.UserUncheckedCreateWithoutResourceCollectionsInput>
+}
+
+export type UserUpsertWithoutResourceCollectionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResourceCollectionsInput, Prisma.UserUncheckedUpdateWithoutResourceCollectionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceCollectionsInput, Prisma.UserUncheckedCreateWithoutResourceCollectionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResourceCollectionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResourceCollectionsInput, Prisma.UserUncheckedUpdateWithoutResourceCollectionsInput>
+}
+
+export type UserUpdateWithoutResourceCollectionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResourceCollectionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserCreateWithoutResourceAnalyticsEventsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserUncheckedCreateWithoutResourceAnalyticsEventsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+}
+
+export type UserCreateOrConnectWithoutResourceAnalyticsEventsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceAnalyticsEventsInput, Prisma.UserUncheckedCreateWithoutResourceAnalyticsEventsInput>
+}
+
+export type UserUpsertWithoutResourceAnalyticsEventsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResourceAnalyticsEventsInput, Prisma.UserUncheckedUpdateWithoutResourceAnalyticsEventsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResourceAnalyticsEventsInput, Prisma.UserUncheckedCreateWithoutResourceAnalyticsEventsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResourceAnalyticsEventsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResourceAnalyticsEventsInput, Prisma.UserUncheckedUpdateWithoutResourceAnalyticsEventsInput>
+}
+
+export type UserUpdateWithoutResourceAnalyticsEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResourceAnalyticsEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -3811,6 +7023,16 @@ export type UserCreateWithoutAuditEventsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
   mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
@@ -3860,6 +7082,16 @@ export type UserUncheckedCreateWithoutAuditEventsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
   mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
@@ -3925,6 +7157,16 @@ export type UserUpdateWithoutAuditEventsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
   mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
@@ -3974,6 +7216,16 @@ export type UserUncheckedUpdateWithoutAuditEventsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
   mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
@@ -4023,6 +7275,16 @@ export type UserCreateWithoutEmailOutboxItemsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
   mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
@@ -4072,6 +7334,16 @@ export type UserUncheckedCreateWithoutEmailOutboxItemsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
   mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
@@ -4137,6 +7409,16 @@ export type UserUpdateWithoutEmailOutboxItemsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
   mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
@@ -4186,6 +7468,16 @@ export type UserUncheckedUpdateWithoutEmailOutboxItemsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
   mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
@@ -4235,6 +7527,16 @@ export type UserCreateWithoutMentorProfilesInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
@@ -4284,6 +7586,16 @@ export type UserUncheckedCreateWithoutMentorProfilesInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
@@ -4338,6 +7650,16 @@ export type UserCreateWithoutMentorProfilesVerifiedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -4387,6 +7709,16 @@ export type UserUncheckedCreateWithoutMentorProfilesVerifiedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -4452,6 +7784,16 @@ export type UserUpdateWithoutMentorProfilesInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
@@ -4501,6 +7843,16 @@ export type UserUncheckedUpdateWithoutMentorProfilesInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
@@ -4561,6 +7913,16 @@ export type UserUpdateWithoutMentorProfilesVerifiedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -4610,6 +7972,16 @@ export type UserUncheckedUpdateWithoutMentorProfilesVerifiedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -4659,6 +8031,16 @@ export type UserCreateWithoutMentorAssignmentsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -4708,6 +8090,16 @@ export type UserUncheckedCreateWithoutMentorAssignmentsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -4762,6 +8154,16 @@ export type UserCreateWithoutMentorAssignmentsCreatedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -4811,6 +8213,16 @@ export type UserUncheckedCreateWithoutMentorAssignmentsCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -4876,6 +8288,16 @@ export type UserUpdateWithoutMentorAssignmentsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -4925,6 +8347,16 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -4985,6 +8417,16 @@ export type UserUpdateWithoutMentorAssignmentsCreatedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -5034,6 +8476,16 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -5083,6 +8535,16 @@ export type UserCreateWithoutAppointmentsOrganizedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -5132,6 +8594,16 @@ export type UserUncheckedCreateWithoutAppointmentsOrganizedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -5186,6 +8658,16 @@ export type UserCreateWithoutStudentAppointmentsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -5235,6 +8717,16 @@ export type UserUncheckedCreateWithoutStudentAppointmentsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -5289,6 +8781,16 @@ export type UserCreateWithoutMentorAppointmentsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -5338,6 +8840,16 @@ export type UserUncheckedCreateWithoutMentorAppointmentsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -5403,6 +8915,16 @@ export type UserUpdateWithoutAppointmentsOrganizedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -5452,6 +8974,16 @@ export type UserUncheckedUpdateWithoutAppointmentsOrganizedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -5512,6 +9044,16 @@ export type UserUpdateWithoutStudentAppointmentsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -5561,6 +9103,16 @@ export type UserUncheckedUpdateWithoutStudentAppointmentsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -5621,6 +9173,16 @@ export type UserUpdateWithoutMentorAppointmentsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -5670,6 +9232,16 @@ export type UserUncheckedUpdateWithoutMentorAppointmentsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -5719,6 +9291,16 @@ export type UserCreateWithoutAppointmentTransitionsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -5768,6 +9350,16 @@ export type UserUncheckedCreateWithoutAppointmentTransitionsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -5833,6 +9425,16 @@ export type UserUpdateWithoutAppointmentTransitionsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -5882,6 +9484,16 @@ export type UserUncheckedUpdateWithoutAppointmentTransitionsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -5931,6 +9543,16 @@ export type UserCreateWithoutAppointmentWaitlistInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -5980,6 +9602,16 @@ export type UserUncheckedCreateWithoutAppointmentWaitlistInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -6045,6 +9677,16 @@ export type UserUpdateWithoutAppointmentWaitlistInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -6094,6 +9736,16 @@ export type UserUncheckedUpdateWithoutAppointmentWaitlistInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -6143,6 +9795,16 @@ export type UserCreateWithoutAttendanceRecordsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -6192,6 +9854,16 @@ export type UserUncheckedCreateWithoutAttendanceRecordsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -6246,6 +9918,16 @@ export type UserCreateWithoutAttendanceRecordedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -6295,6 +9977,16 @@ export type UserUncheckedCreateWithoutAttendanceRecordedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -6360,6 +10052,16 @@ export type UserUpdateWithoutAttendanceRecordsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -6409,6 +10111,16 @@ export type UserUncheckedUpdateWithoutAttendanceRecordsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -6469,6 +10181,16 @@ export type UserUpdateWithoutAttendanceRecordedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -6518,6 +10240,16 @@ export type UserUncheckedUpdateWithoutAttendanceRecordedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -6567,6 +10299,16 @@ export type UserCreateWithoutMentoringCasesInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -6616,6 +10358,16 @@ export type UserUncheckedCreateWithoutMentoringCasesInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -6670,6 +10422,16 @@ export type UserCreateWithoutMentoringCasesCreatedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -6719,6 +10481,16 @@ export type UserUncheckedCreateWithoutMentoringCasesCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -6784,6 +10556,16 @@ export type UserUpdateWithoutMentoringCasesInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -6833,6 +10615,16 @@ export type UserUncheckedUpdateWithoutMentoringCasesInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -6893,6 +10685,16 @@ export type UserUpdateWithoutMentoringCasesCreatedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -6942,6 +10744,16 @@ export type UserUncheckedUpdateWithoutMentoringCasesCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -6991,6 +10803,16 @@ export type UserCreateWithoutMentoringGoalsCreatedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -7040,6 +10862,16 @@ export type UserUncheckedCreateWithoutMentoringGoalsCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -7105,6 +10937,16 @@ export type UserUpdateWithoutMentoringGoalsCreatedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -7154,6 +10996,16 @@ export type UserUncheckedUpdateWithoutMentoringGoalsCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -7203,6 +11055,16 @@ export type UserCreateWithoutSessionOutcomesCompletedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -7252,6 +11114,16 @@ export type UserUncheckedCreateWithoutSessionOutcomesCompletedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -7317,6 +11189,16 @@ export type UserUpdateWithoutSessionOutcomesCompletedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -7366,6 +11248,16 @@ export type UserUncheckedUpdateWithoutSessionOutcomesCompletedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -7415,6 +11307,16 @@ export type UserCreateWithoutMentoringTasksAssignedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -7464,6 +11366,16 @@ export type UserUncheckedCreateWithoutMentoringTasksAssignedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -7518,6 +11430,16 @@ export type UserCreateWithoutMentoringTasksCreatedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -7567,6 +11489,16 @@ export type UserUncheckedCreateWithoutMentoringTasksCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -7632,6 +11564,16 @@ export type UserUpdateWithoutMentoringTasksAssignedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -7681,6 +11623,16 @@ export type UserUncheckedUpdateWithoutMentoringTasksAssignedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -7741,6 +11693,16 @@ export type UserUpdateWithoutMentoringTasksCreatedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -7790,6 +11752,16 @@ export type UserUncheckedUpdateWithoutMentoringTasksCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -7839,6 +11811,16 @@ export type UserCreateWithoutMentoringReferralsInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -7888,6 +11870,16 @@ export type UserUncheckedCreateWithoutMentoringReferralsInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -7942,6 +11934,16 @@ export type UserCreateWithoutMentoringReferralsCreatedInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -7991,6 +11993,16 @@ export type UserUncheckedCreateWithoutMentoringReferralsCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -8056,6 +12068,16 @@ export type UserUpdateWithoutMentoringReferralsInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -8105,6 +12127,16 @@ export type UserUncheckedUpdateWithoutMentoringReferralsInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -8165,6 +12197,16 @@ export type UserUpdateWithoutMentoringReferralsCreatedInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -8214,6 +12256,16 @@ export type UserUncheckedUpdateWithoutMentoringReferralsCreatedInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -8263,6 +12315,16 @@ export type UserCreateWithoutMentoringNotesInput = {
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
@@ -8312,6 +12374,16 @@ export type UserUncheckedCreateWithoutMentoringNotesInput = {
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
   mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
@@ -8377,6 +12449,16 @@ export type UserUpdateWithoutMentoringNotesInput = {
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
@@ -8426,6 +12508,16 @@ export type UserUncheckedUpdateWithoutMentoringNotesInput = {
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
   emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
   mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
@@ -8467,6 +12559,16 @@ export type UserCountOutputType = {
   filesCreated: number
   fileVersionsCreated: number
   fileLinksCreated: number
+  resourcesCreated: number
+  resourceVersionsCreated: number
+  resourceTransitions: number
+  categoriesCreated: number
+  tagsCreated: number
+  resourceComments: number
+  resourceReports: number
+  resourceBookmarks: number
+  resourceCollections: number
+  resourceAnalyticsEvents: number
   auditEvents: number
   emailOutboxItems: number
   mentorProfiles: number
@@ -8504,6 +12606,16 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   filesCreated?: boolean | UserCountOutputTypeCountFilesCreatedArgs
   fileVersionsCreated?: boolean | UserCountOutputTypeCountFileVersionsCreatedArgs
   fileLinksCreated?: boolean | UserCountOutputTypeCountFileLinksCreatedArgs
+  resourcesCreated?: boolean | UserCountOutputTypeCountResourcesCreatedArgs
+  resourceVersionsCreated?: boolean | UserCountOutputTypeCountResourceVersionsCreatedArgs
+  resourceTransitions?: boolean | UserCountOutputTypeCountResourceTransitionsArgs
+  categoriesCreated?: boolean | UserCountOutputTypeCountCategoriesCreatedArgs
+  tagsCreated?: boolean | UserCountOutputTypeCountTagsCreatedArgs
+  resourceComments?: boolean | UserCountOutputTypeCountResourceCommentsArgs
+  resourceReports?: boolean | UserCountOutputTypeCountResourceReportsArgs
+  resourceBookmarks?: boolean | UserCountOutputTypeCountResourceBookmarksArgs
+  resourceCollections?: boolean | UserCountOutputTypeCountResourceCollectionsArgs
+  resourceAnalyticsEvents?: boolean | UserCountOutputTypeCountResourceAnalyticsEventsArgs
   auditEvents?: boolean | UserCountOutputTypeCountAuditEventsArgs
   emailOutboxItems?: boolean | UserCountOutputTypeCountEmailOutboxItemsArgs
   mentorProfiles?: boolean | UserCountOutputTypeCountMentorProfilesArgs
@@ -8620,6 +12732,76 @@ export type UserCountOutputTypeCountFileVersionsCreatedArgs<ExtArgs extends runt
  */
 export type UserCountOutputTypeCountFileLinksCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.FileLinkWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResourcesCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResourceVersionsCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceVersionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResourceTransitionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceTransitionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCategoriesCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceCategoryWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountTagsCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceTagWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResourceCommentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceCommentWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResourceReportsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceReportWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResourceBookmarksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceBookmarkWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResourceCollectionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceCollectionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResourceAnalyticsEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ResourceAnalyticsEventWhereInput
 }
 
 /**
@@ -8803,6 +12985,16 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   filesCreated?: boolean | Prisma.User$filesCreatedArgs<ExtArgs>
   fileVersionsCreated?: boolean | Prisma.User$fileVersionsCreatedArgs<ExtArgs>
   fileLinksCreated?: boolean | Prisma.User$fileLinksCreatedArgs<ExtArgs>
+  resourcesCreated?: boolean | Prisma.User$resourcesCreatedArgs<ExtArgs>
+  resourceVersionsCreated?: boolean | Prisma.User$resourceVersionsCreatedArgs<ExtArgs>
+  resourceTransitions?: boolean | Prisma.User$resourceTransitionsArgs<ExtArgs>
+  categoriesCreated?: boolean | Prisma.User$categoriesCreatedArgs<ExtArgs>
+  tagsCreated?: boolean | Prisma.User$tagsCreatedArgs<ExtArgs>
+  resourceComments?: boolean | Prisma.User$resourceCommentsArgs<ExtArgs>
+  resourceReports?: boolean | Prisma.User$resourceReportsArgs<ExtArgs>
+  resourceBookmarks?: boolean | Prisma.User$resourceBookmarksArgs<ExtArgs>
+  resourceCollections?: boolean | Prisma.User$resourceCollectionsArgs<ExtArgs>
+  resourceAnalyticsEvents?: boolean | Prisma.User$resourceAnalyticsEventsArgs<ExtArgs>
   auditEvents?: boolean | Prisma.User$auditEventsArgs<ExtArgs>
   emailOutboxItems?: boolean | Prisma.User$emailOutboxItemsArgs<ExtArgs>
   mentorProfiles?: boolean | Prisma.User$mentorProfilesArgs<ExtArgs>
@@ -8890,6 +13082,16 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   filesCreated?: boolean | Prisma.User$filesCreatedArgs<ExtArgs>
   fileVersionsCreated?: boolean | Prisma.User$fileVersionsCreatedArgs<ExtArgs>
   fileLinksCreated?: boolean | Prisma.User$fileLinksCreatedArgs<ExtArgs>
+  resourcesCreated?: boolean | Prisma.User$resourcesCreatedArgs<ExtArgs>
+  resourceVersionsCreated?: boolean | Prisma.User$resourceVersionsCreatedArgs<ExtArgs>
+  resourceTransitions?: boolean | Prisma.User$resourceTransitionsArgs<ExtArgs>
+  categoriesCreated?: boolean | Prisma.User$categoriesCreatedArgs<ExtArgs>
+  tagsCreated?: boolean | Prisma.User$tagsCreatedArgs<ExtArgs>
+  resourceComments?: boolean | Prisma.User$resourceCommentsArgs<ExtArgs>
+  resourceReports?: boolean | Prisma.User$resourceReportsArgs<ExtArgs>
+  resourceBookmarks?: boolean | Prisma.User$resourceBookmarksArgs<ExtArgs>
+  resourceCollections?: boolean | Prisma.User$resourceCollectionsArgs<ExtArgs>
+  resourceAnalyticsEvents?: boolean | Prisma.User$resourceAnalyticsEventsArgs<ExtArgs>
   auditEvents?: boolean | Prisma.User$auditEventsArgs<ExtArgs>
   emailOutboxItems?: boolean | Prisma.User$emailOutboxItemsArgs<ExtArgs>
   mentorProfiles?: boolean | Prisma.User$mentorProfilesArgs<ExtArgs>
@@ -8932,6 +13134,16 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     filesCreated: Prisma.$StoredFilePayload<ExtArgs>[]
     fileVersionsCreated: Prisma.$FileVersionPayload<ExtArgs>[]
     fileLinksCreated: Prisma.$FileLinkPayload<ExtArgs>[]
+    resourcesCreated: Prisma.$ResourcePayload<ExtArgs>[]
+    resourceVersionsCreated: Prisma.$ResourceVersionPayload<ExtArgs>[]
+    resourceTransitions: Prisma.$ResourceTransitionPayload<ExtArgs>[]
+    categoriesCreated: Prisma.$ResourceCategoryPayload<ExtArgs>[]
+    tagsCreated: Prisma.$ResourceTagPayload<ExtArgs>[]
+    resourceComments: Prisma.$ResourceCommentPayload<ExtArgs>[]
+    resourceReports: Prisma.$ResourceReportPayload<ExtArgs>[]
+    resourceBookmarks: Prisma.$ResourceBookmarkPayload<ExtArgs>[]
+    resourceCollections: Prisma.$ResourceCollectionPayload<ExtArgs>[]
+    resourceAnalyticsEvents: Prisma.$ResourceAnalyticsEventPayload<ExtArgs>[]
     auditEvents: Prisma.$AuditEventPayload<ExtArgs>[]
     emailOutboxItems: Prisma.$EmailOutboxPayload<ExtArgs>[]
     mentorProfiles: Prisma.$MentorProfilePayload<ExtArgs>[]
@@ -9375,6 +13587,16 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   filesCreated<T extends Prisma.User$filesCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$filesCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StoredFilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   fileVersionsCreated<T extends Prisma.User$fileVersionsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$fileVersionsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FileVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   fileLinksCreated<T extends Prisma.User$fileLinksCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$fileLinksCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FileLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  resourcesCreated<T extends Prisma.User$resourcesCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$resourcesCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourcePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  resourceVersionsCreated<T extends Prisma.User$resourceVersionsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$resourceVersionsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  resourceTransitions<T extends Prisma.User$resourceTransitionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$resourceTransitionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceTransitionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  categoriesCreated<T extends Prisma.User$categoriesCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$categoriesCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  tagsCreated<T extends Prisma.User$tagsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$tagsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceTagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  resourceComments<T extends Prisma.User$resourceCommentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$resourceCommentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceCommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  resourceReports<T extends Prisma.User$resourceReportsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$resourceReportsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  resourceBookmarks<T extends Prisma.User$resourceBookmarksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$resourceBookmarksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceBookmarkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  resourceCollections<T extends Prisma.User$resourceCollectionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$resourceCollectionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceCollectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  resourceAnalyticsEvents<T extends Prisma.User$resourceAnalyticsEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$resourceAnalyticsEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceAnalyticsEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   auditEvents<T extends Prisma.User$auditEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$auditEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuditEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   emailOutboxItems<T extends Prisma.User$emailOutboxItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$emailOutboxItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EmailOutboxPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   mentorProfiles<T extends Prisma.User$mentorProfilesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$mentorProfilesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -10117,6 +14339,246 @@ export type User$fileLinksCreatedArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.FileLinkScalarFieldEnum | Prisma.FileLinkScalarFieldEnum[]
+}
+
+/**
+ * User.resourcesCreated
+ */
+export type User$resourcesCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Resource
+   */
+  select?: Prisma.ResourceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Resource
+   */
+  omit?: Prisma.ResourceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceInclude<ExtArgs> | null
+  where?: Prisma.ResourceWhereInput
+  orderBy?: Prisma.ResourceOrderByWithRelationInput | Prisma.ResourceOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceScalarFieldEnum | Prisma.ResourceScalarFieldEnum[]
+}
+
+/**
+ * User.resourceVersionsCreated
+ */
+export type User$resourceVersionsCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ResourceVersion
+   */
+  select?: Prisma.ResourceVersionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ResourceVersion
+   */
+  omit?: Prisma.ResourceVersionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceVersionInclude<ExtArgs> | null
+  where?: Prisma.ResourceVersionWhereInput
+  orderBy?: Prisma.ResourceVersionOrderByWithRelationInput | Prisma.ResourceVersionOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceVersionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceVersionScalarFieldEnum | Prisma.ResourceVersionScalarFieldEnum[]
+}
+
+/**
+ * User.resourceTransitions
+ */
+export type User$resourceTransitionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ResourceTransition
+   */
+  select?: Prisma.ResourceTransitionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ResourceTransition
+   */
+  omit?: Prisma.ResourceTransitionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceTransitionInclude<ExtArgs> | null
+  where?: Prisma.ResourceTransitionWhereInput
+  orderBy?: Prisma.ResourceTransitionOrderByWithRelationInput | Prisma.ResourceTransitionOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceTransitionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceTransitionScalarFieldEnum | Prisma.ResourceTransitionScalarFieldEnum[]
+}
+
+/**
+ * User.categoriesCreated
+ */
+export type User$categoriesCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ResourceCategory
+   */
+  select?: Prisma.ResourceCategorySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ResourceCategory
+   */
+  omit?: Prisma.ResourceCategoryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceCategoryInclude<ExtArgs> | null
+  where?: Prisma.ResourceCategoryWhereInput
+  orderBy?: Prisma.ResourceCategoryOrderByWithRelationInput | Prisma.ResourceCategoryOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceCategoryWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceCategoryScalarFieldEnum | Prisma.ResourceCategoryScalarFieldEnum[]
+}
+
+/**
+ * User.tagsCreated
+ */
+export type User$tagsCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ResourceTag
+   */
+  select?: Prisma.ResourceTagSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ResourceTag
+   */
+  omit?: Prisma.ResourceTagOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceTagInclude<ExtArgs> | null
+  where?: Prisma.ResourceTagWhereInput
+  orderBy?: Prisma.ResourceTagOrderByWithRelationInput | Prisma.ResourceTagOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceTagWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceTagScalarFieldEnum | Prisma.ResourceTagScalarFieldEnum[]
+}
+
+/**
+ * User.resourceComments
+ */
+export type User$resourceCommentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ResourceComment
+   */
+  select?: Prisma.ResourceCommentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ResourceComment
+   */
+  omit?: Prisma.ResourceCommentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceCommentInclude<ExtArgs> | null
+  where?: Prisma.ResourceCommentWhereInput
+  orderBy?: Prisma.ResourceCommentOrderByWithRelationInput | Prisma.ResourceCommentOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceCommentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceCommentScalarFieldEnum | Prisma.ResourceCommentScalarFieldEnum[]
+}
+
+/**
+ * User.resourceReports
+ */
+export type User$resourceReportsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ResourceReport
+   */
+  select?: Prisma.ResourceReportSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ResourceReport
+   */
+  omit?: Prisma.ResourceReportOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceReportInclude<ExtArgs> | null
+  where?: Prisma.ResourceReportWhereInput
+  orderBy?: Prisma.ResourceReportOrderByWithRelationInput | Prisma.ResourceReportOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceReportWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceReportScalarFieldEnum | Prisma.ResourceReportScalarFieldEnum[]
+}
+
+/**
+ * User.resourceBookmarks
+ */
+export type User$resourceBookmarksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ResourceBookmark
+   */
+  select?: Prisma.ResourceBookmarkSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ResourceBookmark
+   */
+  omit?: Prisma.ResourceBookmarkOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceBookmarkInclude<ExtArgs> | null
+  where?: Prisma.ResourceBookmarkWhereInput
+  orderBy?: Prisma.ResourceBookmarkOrderByWithRelationInput | Prisma.ResourceBookmarkOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceBookmarkWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceBookmarkScalarFieldEnum | Prisma.ResourceBookmarkScalarFieldEnum[]
+}
+
+/**
+ * User.resourceCollections
+ */
+export type User$resourceCollectionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ResourceCollection
+   */
+  select?: Prisma.ResourceCollectionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ResourceCollection
+   */
+  omit?: Prisma.ResourceCollectionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceCollectionInclude<ExtArgs> | null
+  where?: Prisma.ResourceCollectionWhereInput
+  orderBy?: Prisma.ResourceCollectionOrderByWithRelationInput | Prisma.ResourceCollectionOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceCollectionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceCollectionScalarFieldEnum | Prisma.ResourceCollectionScalarFieldEnum[]
+}
+
+/**
+ * User.resourceAnalyticsEvents
+ */
+export type User$resourceAnalyticsEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ResourceAnalyticsEvent
+   */
+  select?: Prisma.ResourceAnalyticsEventSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ResourceAnalyticsEvent
+   */
+  omit?: Prisma.ResourceAnalyticsEventOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ResourceAnalyticsEventInclude<ExtArgs> | null
+  where?: Prisma.ResourceAnalyticsEventWhereInput
+  orderBy?: Prisma.ResourceAnalyticsEventOrderByWithRelationInput | Prisma.ResourceAnalyticsEventOrderByWithRelationInput[]
+  cursor?: Prisma.ResourceAnalyticsEventWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ResourceAnalyticsEventScalarFieldEnum | Prisma.ResourceAnalyticsEventScalarFieldEnum[]
 }
 
 /**

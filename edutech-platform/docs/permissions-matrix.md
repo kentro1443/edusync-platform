@@ -209,6 +209,21 @@ Platform capabilities do not grant unrestricted school-content access. Support a
 
 ## Resource and Privacy Rules
 
+Resource visibility is evaluated server-side on every list, detail, download,
+comment, report and analytics query. School membership alone never grants
+cross-tenant access. `PRIVATE` resources are author/moderator-only; `SCHOOL`
+resources become readable to ordinary school members only after publication;
+`PUBLIC` still remains tenant-scoped in this local deployment.
+
+Published `ResourceVersion` rows are immutable. Editing or rollback creates a
+new version and updates `Resource.currentVersionId`; old bytes and metadata
+remain addressable for audit and history.
+
+Uploads are validated before storage writes: safe filename, allow-listed MIME,
+positive integer size and 25 MiB maximum. Storage keys are opaque and never
+derived from user input. Download and preview return data only after the same
+resource visibility check used by the detail page.
+
 ### Parent and guardian access
 
 - A parent may access only active, explicitly linked students.

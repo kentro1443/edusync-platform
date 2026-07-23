@@ -76,6 +76,45 @@ export const StoredFileStatus = {
 export type StoredFileStatus = (typeof StoredFileStatus)[keyof typeof StoredFileStatus]
 
 
+export const ResourceStatus = {
+  DRAFT: 'DRAFT',
+  PENDING_REVIEW: 'PENDING_REVIEW',
+  PUBLISHED: 'PUBLISHED',
+  REJECTED: 'REJECTED',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus]
+
+
+export const ResourceVisibility = {
+  PRIVATE: 'PRIVATE',
+  SCHOOL: 'SCHOOL',
+  PUBLIC: 'PUBLIC'
+} as const
+
+export type ResourceVisibility = (typeof ResourceVisibility)[keyof typeof ResourceVisibility]
+
+
+export const CommentStatus = {
+  PUBLISHED: 'PUBLISHED',
+  HIDDEN: 'HIDDEN',
+  DELETED: 'DELETED'
+} as const
+
+export type CommentStatus = (typeof CommentStatus)[keyof typeof CommentStatus]
+
+
+export const ResourceReportStatus = {
+  OPEN: 'OPEN',
+  REVIEWING: 'REVIEWING',
+  RESOLVED: 'RESOLVED',
+  DISMISSED: 'DISMISSED'
+} as const
+
+export type ResourceReportStatus = (typeof ResourceReportStatus)[keyof typeof ResourceReportStatus]
+
+
 export const OutboxStatus = {
   PENDING: 'PENDING',
   PROCESSING: 'PROCESSING',

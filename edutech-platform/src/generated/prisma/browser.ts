@@ -88,6 +88,66 @@ export type FileVersion = Prisma.FileVersionModel
  */
 export type FileLink = Prisma.FileLinkModel
 /**
+ * Model Resource
+ * 
+ */
+export type Resource = Prisma.ResourceModel
+/**
+ * Model ResourceVersion
+ * 
+ */
+export type ResourceVersion = Prisma.ResourceVersionModel
+/**
+ * Model ResourceCategory
+ * 
+ */
+export type ResourceCategory = Prisma.ResourceCategoryModel
+/**
+ * Model ResourceTag
+ * 
+ */
+export type ResourceTag = Prisma.ResourceTagModel
+/**
+ * Model ResourceTransition
+ * 
+ */
+export type ResourceTransition = Prisma.ResourceTransitionModel
+/**
+ * Model ResourceComment
+ * 
+ */
+export type ResourceComment = Prisma.ResourceCommentModel
+/**
+ * Model ResourceReport
+ * 
+ */
+export type ResourceReport = Prisma.ResourceReportModel
+/**
+ * Model ResourceBookmark
+ * 
+ */
+export type ResourceBookmark = Prisma.ResourceBookmarkModel
+/**
+ * Model ResourceCollection
+ * 
+ */
+export type ResourceCollection = Prisma.ResourceCollectionModel
+/**
+ * Model ResourceCollectionItem
+ * 
+ */
+export type ResourceCollectionItem = Prisma.ResourceCollectionItemModel
+/**
+ * Model ResourceAnalyticsEvent
+ * 
+ */
+export type ResourceAnalyticsEvent = Prisma.ResourceAnalyticsEventModel
+/**
+ * Model ResourceAnalyticsCounter
+ * 
+ */
+export type ResourceAnalyticsCounter = Prisma.ResourceAnalyticsCounterModel
+/**
  * Model AuditEvent
  * 
  */

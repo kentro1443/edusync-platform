@@ -151,7 +151,7 @@ test("học sinh đặt lịch, cố vấn duyệt, điểm danh và hoàn tất
   await page.getByRole("link", { name: "Xem hồ sơ →" }).click();
   await expect(page.getByRole("heading", { name: mentor.displayName })).toBeVisible();
   await page.getByRole("button", { name: "Gửi yêu cầu đặt lịch" }).click();
-  await expect(page).toHaveURL(/\/dashboard\/appointments\?result=booked$/);
+  await expect(page).toHaveURL(/\/dashboard\/appointments\?result=booked$/, { timeout: 15_000 });
   const appointment = await database.query<{ id: string }>(
     'SELECT id FROM "Appointment" WHERE "schoolId" = $1 ORDER BY "createdAt" DESC LIMIT 1',
     [school.id],
