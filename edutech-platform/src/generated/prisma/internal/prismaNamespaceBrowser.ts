@@ -116,6 +116,7 @@ export const ModelName = {
   WorkflowSubmissionStep: 'WorkflowSubmissionStep',
   WorkflowDecision: 'WorkflowDecision',
   WorkflowSubmissionHistory: 'WorkflowSubmissionHistory',
+  WorkflowSubmissionComment: 'WorkflowSubmissionComment',
   Club: 'Club',
   ClubApplication: 'ClubApplication',
   ClubMembership: 'ClubMembership',
@@ -1115,6 +1116,18 @@ export const WorkflowSubmissionHistoryScalarFieldEnum = {
 } as const
 
 export type WorkflowSubmissionHistoryScalarFieldEnum = (typeof WorkflowSubmissionHistoryScalarFieldEnum)[keyof typeof WorkflowSubmissionHistoryScalarFieldEnum]
+
+
+export const WorkflowSubmissionCommentScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  submissionId: 'submissionId',
+  authorUserId: 'authorUserId',
+  body: 'body',
+  createdAt: 'createdAt'
+} as const
+
+export type WorkflowSubmissionCommentScalarFieldEnum = (typeof WorkflowSubmissionCommentScalarFieldEnum)[keyof typeof WorkflowSubmissionCommentScalarFieldEnum]
 
 
 export const ClubScalarFieldEnum = {

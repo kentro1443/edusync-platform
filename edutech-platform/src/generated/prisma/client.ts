@@ -367,6 +367,11 @@ export type WorkflowDecision = Prisma.WorkflowDecisionModel
  */
 export type WorkflowSubmissionHistory = Prisma.WorkflowSubmissionHistoryModel
 /**
+ * Model WorkflowSubmissionComment
+ * 
+ */
+export type WorkflowSubmissionComment = Prisma.WorkflowSubmissionCommentModel
+/**
  * Model Club
  * 
  */

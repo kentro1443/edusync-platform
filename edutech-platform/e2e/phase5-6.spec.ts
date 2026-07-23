@@ -9,6 +9,7 @@ const databaseUrl = process.env.DATABASE_URL ?? "postgresql://edutech:edutech_lo
 const suffix = randomUUID().slice(0, 8);
 const school = { id: randomUUID(), slug: `phase56-e2e-${suffix}`, name: `Trường E2E Phase 5 6 ${suffix}`, shortName: "E2E P56" };
 const admin = { id: randomUUID(), membershipId: randomUUID(), email: `admin-${suffix}@phase56-e2e.local`, displayName: "E2E Điều phối" };
+const student = { id: randomUUID(), membershipId: randomUUID(), email: `student-${suffix}@phase56-e2e.local`, displayName: "E2E Học sinh" };
 const password = "Phase56-E2E-Password-2026!";
 let database: Client;
 let submissionId = "";
@@ -31,11 +32,15 @@ test.beforeAll(async () => {
   const passwordHash = await hash(password, { type: argon2id, memoryCost: 19_456, timeCost: 2, parallelism: 1, hashLength: 32 });
   await database.query('INSERT INTO "School" (id, slug, name, "shortName", "updatedAt") VALUES ($1, $2, $3, $4, NOW())', [school.id, school.slug, school.name, school.shortName]);
   await database.query('INSERT INTO "User" (id, email, "normalizedEmail", "passwordHash", "displayName", "mustChangePassword", "updatedAt") VALUES ($1, $2, $2, $3, $4, false, NOW())', [admin.id, admin.email, passwordHash, admin.displayName]);
+  await database.query('INSERT INTO "User" (id, email, "normalizedEmail", "passwordHash", "displayName", "mustChangePassword", "updatedAt") VALUES ($1, $2, $2, $3, $4, false, NOW())', [student.id, student.email, passwordHash, student.displayName]);
   await database.query('INSERT INTO "SchoolMembership" (id, "schoolId", "userId", status, "joinedAt", "updatedAt") VALUES ($1, $2, $3, \'ACTIVE\', NOW(), NOW())', [admin.membershipId, school.id, admin.id]);
+  await database.query('INSERT INTO "SchoolMembership" (id, "schoolId", "userId", status, "joinedAt", "updatedAt") VALUES ($1, $2, $3, \'ACTIVE\', NOW(), NOW())', [student.membershipId, school.id, student.id]);
   await database.query('INSERT INTO "SchoolRoleAssignment" (id, "membershipId", role) VALUES ($1, $2, \'SCHOOL_ADMIN\')', [randomUUID(), admin.membershipId]);
+  await database.query('INSERT INTO "SchoolRoleAssignment" (id, "membershipId", role) VALUES ($1, $2, \'STUDENT\')', [randomUUID(), student.membershipId]);
 });
 
 test.afterAll(async () => {
+  await database.query('DELETE FROM "WorkflowSubmissionComment" WHERE "submissionId" IN (SELECT id FROM "WorkflowSubmission" WHERE "schoolId" = $1)', [school.id]);
   await database.query('DELETE FROM "WorkflowSubmissionHistory" WHERE "submissionId" IN (SELECT id FROM "WorkflowSubmission" WHERE "schoolId" = $1)', [school.id]);
   await database.query('DELETE FROM "WorkflowDecision" WHERE "submissionId" IN (SELECT id FROM "WorkflowSubmission" WHERE "schoolId" = $1)', [school.id]);
   await database.query('DELETE FROM "WorkflowSubmissionStep" WHERE "submissionId" IN (SELECT id FROM "WorkflowSubmission" WHERE "schoolId" = $1)', [school.id]);
@@ -56,9 +61,13 @@ test.afterAll(async () => {
   await database.query('DELETE FROM "Calendar" WHERE "schoolId" = $1', [school.id]);
   await database.query('DELETE FROM "CalendarSource" WHERE "schoolId" = $1', [school.id]);
   await database.query('DELETE FROM "SchoolRoleAssignment" WHERE "membershipId" = $1', [admin.membershipId]);
+  await database.query('DELETE FROM "SchoolRoleAssignment" WHERE "membershipId" = $1', [student.membershipId]);
   await database.query('DELETE FROM "SchoolMembership" WHERE id = $1', [admin.membershipId]);
+  await database.query('DELETE FROM "SchoolMembership" WHERE id = $1', [student.membershipId]);
   await database.query('DELETE FROM "Session" WHERE "userId" = $1', [admin.id]);
+  await database.query('DELETE FROM "Session" WHERE "userId" = $1', [student.id]);
   await database.query('DELETE FROM "User" WHERE id = $1', [admin.id]);
+  await database.query('DELETE FROM "User" WHERE id = $1', [student.id]);
   await database.query('DELETE FROM "School" WHERE id = $1', [school.id]);
   await database.end();
 });
@@ -127,7 +136,7 @@ test("calendar tạo sự kiện, chặn trùng và xuất iCalendar", async ({ 
   expect(ical.body).toContain("Họp điều phối E2E");
 });
 
-test("workflow builder publish, submit và approve giữ version lịch sử", async ({ page }) => {
+test("workflow builder publish, submit và approve giữ version lịch sử", async ({ page, browser }) => {
   await login(page);
   const templateId = randomUUID();
   const versionId = randomUUID();
@@ -157,6 +166,20 @@ test("workflow builder publish, submit và approve giữ version lịch sử", a
   await page.getByRole("button", { name: "Gửi hồ sơ" }).click();
   await expect(page).toHaveURL(/result=submitted/);
   await expect(page.getByText("SKIPPED · SCHOOL_ADMIN")).toBeVisible();
+  const studentContext = await browser.newContext();
+  const studentPage = await studentContext.newPage();
+  await studentPage.goto("/login");
+  await studentPage.locator("#email").fill(student.email);
+  await studentPage.locator("#password").fill(password);
+  await studentPage.getByRole("button", { name: "Đăng nhập" }).click();
+  await expect(studentPage).not.toHaveURL(/\/login(?:\?|$)/);
+  await studentPage.goto(`/dashboard/workflows/submissions/${submissionId}`);
+  await expect(studentPage.getByRole("heading", { name: "Không tìm thấy trang" })).toBeVisible();
+  await studentContext.close();
+  await page.getByLabel("Bình luận mới").fill("Đã kiểm tra hồ sơ và nội dung đính kèm.");
+  await page.getByRole("button", { name: "Gửi bình luận" }).click();
+  await expect(page).toHaveURL(/result=comment/);
+  await expect(page.getByText("Đã kiểm tra hồ sơ và nội dung đính kèm.")).toBeVisible();
   await page.getByRole("button", { name: "Duyệt" }).click();
   await expect(page).toHaveURL(/result=decision/);
   expect((await database.query<{ count: string }>('SELECT COUNT(*)::text AS count FROM "WorkflowSubmissionStep" WHERE "submissionId" = $1 AND status = \'ACTIVE\'', [submissionId])).rows[0].count).toBe("2");

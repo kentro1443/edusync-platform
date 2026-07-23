@@ -222,6 +222,7 @@ export type WorkflowSubmissionWhereInput = {
   steps?: Prisma.WorkflowSubmissionStepListRelationFilter
   decisions?: Prisma.WorkflowDecisionListRelationFilter
   history?: Prisma.WorkflowSubmissionHistoryListRelationFilter
+  comments?: Prisma.WorkflowSubmissionCommentListRelationFilter
 }
 
 export type WorkflowSubmissionOrderByWithRelationInput = {
@@ -242,6 +243,7 @@ export type WorkflowSubmissionOrderByWithRelationInput = {
   steps?: Prisma.WorkflowSubmissionStepOrderByRelationAggregateInput
   decisions?: Prisma.WorkflowDecisionOrderByRelationAggregateInput
   history?: Prisma.WorkflowSubmissionHistoryOrderByRelationAggregateInput
+  comments?: Prisma.WorkflowSubmissionCommentOrderByRelationAggregateInput
 }
 
 export type WorkflowSubmissionWhereUniqueInput = Prisma.AtLeast<{
@@ -265,6 +267,7 @@ export type WorkflowSubmissionWhereUniqueInput = Prisma.AtLeast<{
   steps?: Prisma.WorkflowSubmissionStepListRelationFilter
   decisions?: Prisma.WorkflowDecisionListRelationFilter
   history?: Prisma.WorkflowSubmissionHistoryListRelationFilter
+  comments?: Prisma.WorkflowSubmissionCommentListRelationFilter
 }, "id">
 
 export type WorkflowSubmissionOrderByWithAggregationInput = {
@@ -311,6 +314,7 @@ export type WorkflowSubmissionCreateInput = {
   steps?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUncheckedCreateInput = {
@@ -327,6 +331,7 @@ export type WorkflowSubmissionUncheckedCreateInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUpdateInput = {
@@ -343,6 +348,7 @@ export type WorkflowSubmissionUpdateInput = {
   steps?: Prisma.WorkflowSubmissionStepUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateInput = {
@@ -359,6 +365,7 @@ export type WorkflowSubmissionUncheckedUpdateInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionCreateManyInput = {
@@ -672,6 +679,20 @@ export type WorkflowSubmissionUpdateOneRequiredWithoutHistoryNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.WorkflowSubmissionUpdateToOneWithWhereWithoutHistoryInput, Prisma.WorkflowSubmissionUpdateWithoutHistoryInput>, Prisma.WorkflowSubmissionUncheckedUpdateWithoutHistoryInput>
 }
 
+export type WorkflowSubmissionCreateNestedOneWithoutCommentsInput = {
+  create?: Prisma.XOR<Prisma.WorkflowSubmissionCreateWithoutCommentsInput, Prisma.WorkflowSubmissionUncheckedCreateWithoutCommentsInput>
+  connectOrCreate?: Prisma.WorkflowSubmissionCreateOrConnectWithoutCommentsInput
+  connect?: Prisma.WorkflowSubmissionWhereUniqueInput
+}
+
+export type WorkflowSubmissionUpdateOneRequiredWithoutCommentsNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkflowSubmissionCreateWithoutCommentsInput, Prisma.WorkflowSubmissionUncheckedCreateWithoutCommentsInput>
+  connectOrCreate?: Prisma.WorkflowSubmissionCreateOrConnectWithoutCommentsInput
+  upsert?: Prisma.WorkflowSubmissionUpsertWithoutCommentsInput
+  connect?: Prisma.WorkflowSubmissionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkflowSubmissionUpdateToOneWithWhereWithoutCommentsInput, Prisma.WorkflowSubmissionUpdateWithoutCommentsInput>, Prisma.WorkflowSubmissionUncheckedUpdateWithoutCommentsInput>
+}
+
 export type WorkflowSubmissionCreateWithoutOwnerInput = {
   id?: string
   status?: $Enums.WorkflowSubmissionStatus
@@ -685,6 +706,7 @@ export type WorkflowSubmissionCreateWithoutOwnerInput = {
   steps?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUncheckedCreateWithoutOwnerInput = {
@@ -700,6 +722,7 @@ export type WorkflowSubmissionUncheckedCreateWithoutOwnerInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionCreateOrConnectWithoutOwnerInput = {
@@ -756,6 +779,7 @@ export type WorkflowSubmissionCreateWithoutSchoolInput = {
   steps?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUncheckedCreateWithoutSchoolInput = {
@@ -771,6 +795,7 @@ export type WorkflowSubmissionUncheckedCreateWithoutSchoolInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionCreateOrConnectWithoutSchoolInput = {
@@ -812,6 +837,7 @@ export type WorkflowSubmissionCreateWithoutTemplateInput = {
   steps?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUncheckedCreateWithoutTemplateInput = {
@@ -827,6 +853,7 @@ export type WorkflowSubmissionUncheckedCreateWithoutTemplateInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionCreateOrConnectWithoutTemplateInput = {
@@ -868,6 +895,7 @@ export type WorkflowSubmissionCreateWithoutVersionInput = {
   steps?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUncheckedCreateWithoutVersionInput = {
@@ -883,6 +911,7 @@ export type WorkflowSubmissionUncheckedCreateWithoutVersionInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionCreateOrConnectWithoutVersionInput = {
@@ -924,6 +953,7 @@ export type WorkflowSubmissionCreateWithoutValuesInput = {
   steps?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUncheckedCreateWithoutValuesInput = {
@@ -939,6 +969,7 @@ export type WorkflowSubmissionUncheckedCreateWithoutValuesInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionCreateOrConnectWithoutValuesInput = {
@@ -970,6 +1001,7 @@ export type WorkflowSubmissionUpdateWithoutValuesInput = {
   steps?: Prisma.WorkflowSubmissionStepUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateWithoutValuesInput = {
@@ -985,6 +1017,7 @@ export type WorkflowSubmissionUncheckedUpdateWithoutValuesInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionCreateWithoutStepsInput = {
@@ -1000,6 +1033,7 @@ export type WorkflowSubmissionCreateWithoutStepsInput = {
   values?: Prisma.WorkflowSubmissionValueCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUncheckedCreateWithoutStepsInput = {
@@ -1015,6 +1049,7 @@ export type WorkflowSubmissionUncheckedCreateWithoutStepsInput = {
   values?: Prisma.WorkflowSubmissionValueUncheckedCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionCreateOrConnectWithoutStepsInput = {
@@ -1046,6 +1081,7 @@ export type WorkflowSubmissionUpdateWithoutStepsInput = {
   values?: Prisma.WorkflowSubmissionValueUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateWithoutStepsInput = {
@@ -1061,6 +1097,7 @@ export type WorkflowSubmissionUncheckedUpdateWithoutStepsInput = {
   values?: Prisma.WorkflowSubmissionValueUncheckedUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionCreateWithoutDecisionsInput = {
@@ -1076,6 +1113,7 @@ export type WorkflowSubmissionCreateWithoutDecisionsInput = {
   values?: Prisma.WorkflowSubmissionValueCreateNestedManyWithoutSubmissionInput
   steps?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUncheckedCreateWithoutDecisionsInput = {
@@ -1091,6 +1129,7 @@ export type WorkflowSubmissionUncheckedCreateWithoutDecisionsInput = {
   values?: Prisma.WorkflowSubmissionValueUncheckedCreateNestedManyWithoutSubmissionInput
   steps?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutSubmissionInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionCreateOrConnectWithoutDecisionsInput = {
@@ -1122,6 +1161,7 @@ export type WorkflowSubmissionUpdateWithoutDecisionsInput = {
   values?: Prisma.WorkflowSubmissionValueUpdateManyWithoutSubmissionNestedInput
   steps?: Prisma.WorkflowSubmissionStepUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateWithoutDecisionsInput = {
@@ -1137,6 +1177,7 @@ export type WorkflowSubmissionUncheckedUpdateWithoutDecisionsInput = {
   values?: Prisma.WorkflowSubmissionValueUncheckedUpdateManyWithoutSubmissionNestedInput
   steps?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionCreateWithoutHistoryInput = {
@@ -1152,6 +1193,7 @@ export type WorkflowSubmissionCreateWithoutHistoryInput = {
   values?: Prisma.WorkflowSubmissionValueCreateNestedManyWithoutSubmissionInput
   steps?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionUncheckedCreateWithoutHistoryInput = {
@@ -1167,6 +1209,7 @@ export type WorkflowSubmissionUncheckedCreateWithoutHistoryInput = {
   values?: Prisma.WorkflowSubmissionValueUncheckedCreateNestedManyWithoutSubmissionInput
   steps?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutSubmissionInput
   decisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutSubmissionInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutSubmissionInput
 }
 
 export type WorkflowSubmissionCreateOrConnectWithoutHistoryInput = {
@@ -1198,6 +1241,7 @@ export type WorkflowSubmissionUpdateWithoutHistoryInput = {
   values?: Prisma.WorkflowSubmissionValueUpdateManyWithoutSubmissionNestedInput
   steps?: Prisma.WorkflowSubmissionStepUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateWithoutHistoryInput = {
@@ -1213,6 +1257,87 @@ export type WorkflowSubmissionUncheckedUpdateWithoutHistoryInput = {
   values?: Prisma.WorkflowSubmissionValueUncheckedUpdateManyWithoutSubmissionNestedInput
   steps?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSubmissionNestedInput
+}
+
+export type WorkflowSubmissionCreateWithoutCommentsInput = {
+  id?: string
+  status?: $Enums.WorkflowSubmissionStatus
+  submittedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  school: Prisma.SchoolCreateNestedOneWithoutWorkflowSubmissionsInput
+  template: Prisma.WorkflowTemplateCreateNestedOneWithoutSubmissionsInput
+  version: Prisma.WorkflowVersionCreateNestedOneWithoutSubmissionsInput
+  owner: Prisma.UserCreateNestedOneWithoutWorkflowSubmissionsInput
+  values?: Prisma.WorkflowSubmissionValueCreateNestedManyWithoutSubmissionInput
+  steps?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutSubmissionInput
+  decisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutSubmissionInput
+  history?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutSubmissionInput
+}
+
+export type WorkflowSubmissionUncheckedCreateWithoutCommentsInput = {
+  id?: string
+  schoolId: string
+  templateId: string
+  versionId: string
+  ownerUserId: string
+  status?: $Enums.WorkflowSubmissionStatus
+  submittedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  values?: Prisma.WorkflowSubmissionValueUncheckedCreateNestedManyWithoutSubmissionInput
+  steps?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutSubmissionInput
+  decisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutSubmissionInput
+  history?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutSubmissionInput
+}
+
+export type WorkflowSubmissionCreateOrConnectWithoutCommentsInput = {
+  where: Prisma.WorkflowSubmissionWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkflowSubmissionCreateWithoutCommentsInput, Prisma.WorkflowSubmissionUncheckedCreateWithoutCommentsInput>
+}
+
+export type WorkflowSubmissionUpsertWithoutCommentsInput = {
+  update: Prisma.XOR<Prisma.WorkflowSubmissionUpdateWithoutCommentsInput, Prisma.WorkflowSubmissionUncheckedUpdateWithoutCommentsInput>
+  create: Prisma.XOR<Prisma.WorkflowSubmissionCreateWithoutCommentsInput, Prisma.WorkflowSubmissionUncheckedCreateWithoutCommentsInput>
+  where?: Prisma.WorkflowSubmissionWhereInput
+}
+
+export type WorkflowSubmissionUpdateToOneWithWhereWithoutCommentsInput = {
+  where?: Prisma.WorkflowSubmissionWhereInput
+  data: Prisma.XOR<Prisma.WorkflowSubmissionUpdateWithoutCommentsInput, Prisma.WorkflowSubmissionUncheckedUpdateWithoutCommentsInput>
+}
+
+export type WorkflowSubmissionUpdateWithoutCommentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumWorkflowSubmissionStatusFieldUpdateOperationsInput | $Enums.WorkflowSubmissionStatus
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  school?: Prisma.SchoolUpdateOneRequiredWithoutWorkflowSubmissionsNestedInput
+  template?: Prisma.WorkflowTemplateUpdateOneRequiredWithoutSubmissionsNestedInput
+  version?: Prisma.WorkflowVersionUpdateOneRequiredWithoutSubmissionsNestedInput
+  owner?: Prisma.UserUpdateOneRequiredWithoutWorkflowSubmissionsNestedInput
+  values?: Prisma.WorkflowSubmissionValueUpdateManyWithoutSubmissionNestedInput
+  steps?: Prisma.WorkflowSubmissionStepUpdateManyWithoutSubmissionNestedInput
+  decisions?: Prisma.WorkflowDecisionUpdateManyWithoutSubmissionNestedInput
+  history?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutSubmissionNestedInput
+}
+
+export type WorkflowSubmissionUncheckedUpdateWithoutCommentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolId?: Prisma.StringFieldUpdateOperationsInput | string
+  templateId?: Prisma.StringFieldUpdateOperationsInput | string
+  versionId?: Prisma.StringFieldUpdateOperationsInput | string
+  ownerUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumWorkflowSubmissionStatusFieldUpdateOperationsInput | $Enums.WorkflowSubmissionStatus
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  values?: Prisma.WorkflowSubmissionValueUncheckedUpdateManyWithoutSubmissionNestedInput
+  steps?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionNestedInput
+  decisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutSubmissionNestedInput
+  history?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionCreateManyOwnerInput = {
@@ -1239,6 +1364,7 @@ export type WorkflowSubmissionUpdateWithoutOwnerInput = {
   steps?: Prisma.WorkflowSubmissionStepUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateWithoutOwnerInput = {
@@ -1254,6 +1380,7 @@ export type WorkflowSubmissionUncheckedUpdateWithoutOwnerInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateManyWithoutOwnerInput = {
@@ -1291,6 +1418,7 @@ export type WorkflowSubmissionUpdateWithoutSchoolInput = {
   steps?: Prisma.WorkflowSubmissionStepUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateWithoutSchoolInput = {
@@ -1306,6 +1434,7 @@ export type WorkflowSubmissionUncheckedUpdateWithoutSchoolInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateManyWithoutSchoolInput = {
@@ -1343,6 +1472,7 @@ export type WorkflowSubmissionUpdateWithoutTemplateInput = {
   steps?: Prisma.WorkflowSubmissionStepUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateWithoutTemplateInput = {
@@ -1358,6 +1488,7 @@ export type WorkflowSubmissionUncheckedUpdateWithoutTemplateInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateManyWithoutTemplateInput = {
@@ -1395,6 +1526,7 @@ export type WorkflowSubmissionUpdateWithoutVersionInput = {
   steps?: Prisma.WorkflowSubmissionStepUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateWithoutVersionInput = {
@@ -1410,6 +1542,7 @@ export type WorkflowSubmissionUncheckedUpdateWithoutVersionInput = {
   steps?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionNestedInput
   decisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutSubmissionNestedInput
   history?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutSubmissionNestedInput
+  comments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutSubmissionNestedInput
 }
 
 export type WorkflowSubmissionUncheckedUpdateManyWithoutVersionInput = {
@@ -1433,6 +1566,7 @@ export type WorkflowSubmissionCountOutputType = {
   steps: number
   decisions: number
   history: number
+  comments: number
 }
 
 export type WorkflowSubmissionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1440,6 +1574,7 @@ export type WorkflowSubmissionCountOutputTypeSelect<ExtArgs extends runtime.Type
   steps?: boolean | WorkflowSubmissionCountOutputTypeCountStepsArgs
   decisions?: boolean | WorkflowSubmissionCountOutputTypeCountDecisionsArgs
   history?: boolean | WorkflowSubmissionCountOutputTypeCountHistoryArgs
+  comments?: boolean | WorkflowSubmissionCountOutputTypeCountCommentsArgs
 }
 
 /**
@@ -1480,6 +1615,13 @@ export type WorkflowSubmissionCountOutputTypeCountHistoryArgs<ExtArgs extends ru
   where?: Prisma.WorkflowSubmissionHistoryWhereInput
 }
 
+/**
+ * WorkflowSubmissionCountOutputType without action
+ */
+export type WorkflowSubmissionCountOutputTypeCountCommentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WorkflowSubmissionCommentWhereInput
+}
+
 
 export type WorkflowSubmissionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1499,6 +1641,7 @@ export type WorkflowSubmissionSelect<ExtArgs extends runtime.Types.Extensions.In
   steps?: boolean | Prisma.WorkflowSubmission$stepsArgs<ExtArgs>
   decisions?: boolean | Prisma.WorkflowSubmission$decisionsArgs<ExtArgs>
   history?: boolean | Prisma.WorkflowSubmission$historyArgs<ExtArgs>
+  comments?: boolean | Prisma.WorkflowSubmission$commentsArgs<ExtArgs>
   _count?: boolean | Prisma.WorkflowSubmissionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workflowSubmission"]>
 
@@ -1556,6 +1699,7 @@ export type WorkflowSubmissionInclude<ExtArgs extends runtime.Types.Extensions.I
   steps?: boolean | Prisma.WorkflowSubmission$stepsArgs<ExtArgs>
   decisions?: boolean | Prisma.WorkflowSubmission$decisionsArgs<ExtArgs>
   history?: boolean | Prisma.WorkflowSubmission$historyArgs<ExtArgs>
+  comments?: boolean | Prisma.WorkflowSubmission$commentsArgs<ExtArgs>
   _count?: boolean | Prisma.WorkflowSubmissionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type WorkflowSubmissionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1582,6 +1726,7 @@ export type $WorkflowSubmissionPayload<ExtArgs extends runtime.Types.Extensions.
     steps: Prisma.$WorkflowSubmissionStepPayload<ExtArgs>[]
     decisions: Prisma.$WorkflowDecisionPayload<ExtArgs>[]
     history: Prisma.$WorkflowSubmissionHistoryPayload<ExtArgs>[]
+    comments: Prisma.$WorkflowSubmissionCommentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1995,6 +2140,7 @@ export interface Prisma__WorkflowSubmissionClient<T, Null = never, ExtArgs exten
   steps<T extends Prisma.WorkflowSubmission$stepsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkflowSubmission$stepsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowSubmissionStepPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   decisions<T extends Prisma.WorkflowSubmission$decisionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkflowSubmission$decisionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowDecisionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   history<T extends Prisma.WorkflowSubmission$historyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkflowSubmission$historyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowSubmissionHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  comments<T extends Prisma.WorkflowSubmission$commentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkflowSubmission$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkflowSubmissionCommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2527,6 +2673,30 @@ export type WorkflowSubmission$historyArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.WorkflowSubmissionHistoryScalarFieldEnum | Prisma.WorkflowSubmissionHistoryScalarFieldEnum[]
+}
+
+/**
+ * WorkflowSubmission.comments
+ */
+export type WorkflowSubmission$commentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WorkflowSubmissionComment
+   */
+  select?: Prisma.WorkflowSubmissionCommentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WorkflowSubmissionComment
+   */
+  omit?: Prisma.WorkflowSubmissionCommentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WorkflowSubmissionCommentInclude<ExtArgs> | null
+  where?: Prisma.WorkflowSubmissionCommentWhereInput
+  orderBy?: Prisma.WorkflowSubmissionCommentOrderByWithRelationInput | Prisma.WorkflowSubmissionCommentOrderByWithRelationInput[]
+  cursor?: Prisma.WorkflowSubmissionCommentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WorkflowSubmissionCommentScalarFieldEnum | Prisma.WorkflowSubmissionCommentScalarFieldEnum[]
 }
 
 /**

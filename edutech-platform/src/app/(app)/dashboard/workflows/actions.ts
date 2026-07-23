@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { requireSchoolContext } from "@/lib/auth/guards";
 import { permissions } from "@/lib/auth/permissions";
 import {
+  addWorkflowSubmissionComment,
   addWorkflowField,
   addWorkflowStep,
   createWorkflowSubmission,
@@ -125,4 +126,15 @@ export async function decideWorkflowSubmissionAction(formData: FormData): Promis
     redirect(`/dashboard/workflows/submissions/${submissionId}?error=${errorCode(error)}`);
   }
   redirect(`/dashboard/workflows/submissions/${submissionId}?result=decision`);
+}
+
+export async function addWorkflowSubmissionCommentAction(formData: FormData): Promise<never> {
+  const submissionId = value(formData, "submissionId");
+  const { actor } = await requireSchoolContext(permissions.workflowSubmissionComment);
+  try {
+    await addWorkflowSubmissionComment(actor, submissionId, value(formData, "body"));
+  } catch (error) {
+    redirect(`/dashboard/workflows/submissions/${submissionId}?error=${errorCode(error)}`);
+  }
+  redirect(`/dashboard/workflows/submissions/${submissionId}?result=comment`);
 }

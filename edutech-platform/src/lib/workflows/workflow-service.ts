@@ -36,6 +36,24 @@ function slugify(value: string): string {
     .slice(0, 80);
 }
 
+function workflowSubmissionAccess(actor: SchoolActor): Prisma.WorkflowSubmissionWhereInput {
+  return {
+    schoolId: actor.schoolId,
+    OR: [
+      { ownerUserId: actor.userId },
+      {
+        steps: {
+          some: {
+            status: "ACTIVE",
+            step: { role: { in: [...actor.schoolRoles] } },
+          },
+        },
+      },
+      { decisions: { some: { actorUserId: actor.userId } } },
+    ],
+  };
+}
+
 async function getDraft(transaction: Prisma.TransactionClient, actor: SchoolActor, templateId: string) {
   const template = await transaction.workflowTemplate.findFirst({
     where: { id: templateId, schoolId: actor.schoolId },
@@ -248,13 +266,7 @@ export async function submitWorkflowSubmission(actor: AuthorizationContext, subm
 export async function listWorkflowSubmissions(actor: AuthorizationContext) {
   requireWorkflowActor(actor, permissions.workflowSubmissionRead);
   return db.workflowSubmission.findMany({
-    where: {
-      schoolId: actor.schoolId,
-      OR: [
-        { ownerUserId: actor.userId },
-        { steps: { some: { status: "ACTIVE" } } },
-      ],
-    },
+    where: workflowSubmissionAccess(actor),
     include: { template: { select: { name: true } }, owner: { select: { displayName: true } }, steps: { include: { step: true }, orderBy: { step: { position: "asc" } } } },
     orderBy: { updatedAt: "desc" },
     take: 100,
@@ -266,8 +278,7 @@ export async function getWorkflowSubmission(actor: AuthorizationContext, submiss
   return db.workflowSubmission.findFirst({
     where: {
       id: submissionId,
-      schoolId: actor.schoolId,
-      OR: [{ ownerUserId: actor.userId }, { steps: { some: { status: "ACTIVE" } } }],
+      ...workflowSubmissionAccess(actor),
     },
     include: {
       template: { select: { id: true, name: true } },
@@ -275,8 +286,35 @@ export async function getWorkflowSubmission(actor: AuthorizationContext, submiss
       version: { include: { fields: { orderBy: { position: "asc" } }, steps: { orderBy: { position: "asc" } } } },
       values: true,
       steps: { include: { step: true }, orderBy: { step: { position: "asc" } } },
-      decisions: { orderBy: { createdAt: "asc" }, include: { actor: { select: { displayName: true } } } },
-      history: { orderBy: { createdAt: "asc" }, include: { actor: { select: { displayName: true } } } },
+      history: { orderBy: { createdAt: "desc" }, take: 200, include: { actor: { select: { displayName: true } } } },
+      comments: { orderBy: { createdAt: "desc" }, take: 100, include: { author: { select: { displayName: true } } } },
+    },
+  });
+}
+
+export async function addWorkflowSubmissionComment(
+  actor: AuthorizationContext,
+  submissionId: string,
+  bodyInput: string,
+) {
+  requireWorkflowActor(actor, permissions.workflowSubmissionComment);
+  const body = bodyInput.trim();
+  if (!body || body.length > 2_000) {
+    throw new WorkflowValidationError("Bình luận cần từ 1 đến 2.000 ký tự.");
+  }
+  const submission = await db.workflowSubmission.findFirst({
+    where: { id: submissionId, ...workflowSubmissionAccess(actor) },
+    select: { id: true },
+  });
+  if (!submission) {
+    throw new WorkflowAuthorizationError("Bạn không có quyền bình luận hồ sơ này.");
+  }
+  return db.workflowSubmissionComment.create({
+    data: {
+      schoolId: actor.schoolId,
+      submissionId: submission.id,
+      authorUserId: actor.userId,
+      body,
     },
   });
 }

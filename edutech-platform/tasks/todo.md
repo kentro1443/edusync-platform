@@ -438,35 +438,38 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 - [x] Immutable publish creates a new draft version and preserves source version on submissions.
 - [x] Runtime required-field validation, conditional routing, and sequential/parallel approval state machine.
 - [x] Builder, submission form, reviewer decision UI, status timeline, and authorized CSV export.
+- [x] Tenant-scoped submission comments, processing history UI, and role-aware record visibility.
 - [x] Phase 6 unit/E2E coverage.
 
-Attachments/comments, delegation/escalation workers, and advanced analytics remain follow-up tasks.
+Attachments, delegation/escalation workers, and advanced analytics remain follow-up tasks.
 
 ### Schema và domain
 
-- [ ] Thêm WorkflowTemplate và immutable WorkflowVersion.
+- [x] Thêm WorkflowTemplate và immutable WorkflowVersion.
 - [x] Thêm FieldDefinition và validation/conditional rules.
 - [ ] Thêm ApprovalStep/edge/assignment.
-- [ ] Thêm Submission và SubmissionValue.
-- [ ] Thêm SubmissionStep/Decision/Delegation.
-- [ ] Thêm submission attachment/comment/history.
+- [x] Thêm Submission và SubmissionValue.
+- [x] Thêm SubmissionStep/Decision.
+- [ ] Thêm Delegation.
+- [x] Thêm submission comment/history.
+- [ ] Thêm submission attachment.
 - [ ] Thêm deadline/escalation jobs.
-- [ ] Thêm constraints/indexes.
+- [x] Thêm constraints/indexes.
 - [ ] Tạo/chạy migration và seed ba workflow mẫu.
 
 ### Policy/service/API
 
-- [ ] Builder/admin policy.
-- [ ] Publish/version service.
-- [ ] Runtime form-schema validation.
+- [x] Builder/admin policy.
+- [x] Publish/version service.
+- [x] Runtime form-schema validation.
 - [x] Conditional visibility/routing evaluator.
 - [x] Sequential/parallel approval engine.
 - [ ] Reviewer assignment.
 - [ ] Draft/autosave/submit service.
-- [ ] Approve/reject/request-changes.
+- [x] Approve/reject/request-changes.
 - [ ] Deadline/escalation/delegation.
-- [ ] Historical-version preservation.
-- [ ] Analytics/authorized CSV export.
+- [x] Historical-version preservation.
+- [x] Analytics/authorized CSV export.
 - [ ] Audit/outbox events.
 
 ### UI builder
@@ -484,22 +487,23 @@ Attachments/comments, delegation/escalation workers, and advanced analytics rema
 
 ### UI submission/review
 
-- [ ] Submission form renderer.
+- [x] Submission form renderer.
 - [ ] Draft/autosave feedback.
 - [ ] Validation summary.
-- [ ] Attachment/comment.
+- [x] Comment and shared discussion history.
+- [ ] Attachment.
 - [ ] Review-before-submit.
-- [ ] Confirmation/status timeline.
+- [x] Confirmation/status timeline.
 - [ ] Reviewer queue/filter/deadline.
-- [ ] Decision flow với reason.
+- [x] Decision flow với reason.
 - [ ] Delegation/escalation UI.
-- [ ] Workflow analytics/export.
+- [x] Workflow analytics/export.
 - [ ] Loading/empty/error/forbidden states.
 
 ### Gate Phase 6
 
 - [x] Unit tests evaluator/routing/state transitions.
-- [ ] Published immutability/historical-version tests.
+- [x] Published immutability/historical-version tests.
 - [ ] Unauthorized approver negative tests.
 - [x] Integration sequential/parallel routing tests.
 - [ ] E2E ba workflow mẫu.
