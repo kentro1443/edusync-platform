@@ -83,7 +83,7 @@ export default function HomePage() {
             <Badge tone="warning" className="bg-white/10 text-[var(--color-accent-400)]">
               Nền tảng vận hành trường học kết nối
             </Badge>
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]">
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.12] tracking-[-0.035em] sm:text-5xl lg:text-[3.7rem]">
               Mọi kết nối trong trường, vận hành trên một nền tảng đáng tin cậy.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-brand-100)]">

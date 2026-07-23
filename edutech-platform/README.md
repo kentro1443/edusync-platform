@@ -61,6 +61,8 @@ EduTech-Demo-2026!
 
 Seeded users carry the `mustChangePassword` flag. On first login, enter the shared temporary password again at `/doi-mat-khau`, choose a new password with at least 12 characters, and continue to the school selector or dashboard.
 
+Re-running `npm run db:seed` intentionally restores this shared password for every listed demo user, resets their first-login state, and revokes their existing sessions and password-reset tokens. Do not re-seed while preserving an active demo session.
+
 | Scope | Role | Email |
 | --- | --- | --- |
 | Platform | Platform super admin | `platform@edutech.local` |
@@ -90,7 +92,7 @@ These credentials are development fixtures only and must not be used in producti
 | `npm run db:generate` | Regenerate the Prisma client |
 | `npm run db:migrate` | Create or apply migrations during local development |
 | `npm run db:migrate:deploy` | Apply committed migrations non-interactively |
-| `npm run db:seed` | Upsert deterministic demo schools, users, roles, and parent links |
+| `npm run db:seed` | Restore deterministic demo schools, users, credentials, roles, and parent links |
 | `npm run db:studio` | Open Prisma Studio |
 
 Prisma configuration intentionally requires `DATABASE_URL`. Run database commands after creating `.env`, or provide the variable explicitly to the process.
@@ -185,7 +187,7 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 
 ## Verification status
 
-On July 23, 2026, Phase 1 and Phase 2 passed their complete verification gates: 77 unit/integration tests, lint, typecheck, production build, 22 Playwright scenarios, and Git whitespace validation all pass. Re-run `npm run verify` after future changes.
+On July 23, 2026, Phase 1 and Phase 2 passed their complete verification gates: 78 unit/integration tests, lint, typecheck, production build, 24 Playwright scenarios, and Git whitespace validation all pass. Re-run `npm run verify` after future changes.
 
 ## Architecture documentation
 

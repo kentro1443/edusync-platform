@@ -6,9 +6,9 @@ import {
   ParentStudentLinkStatus,
   PlatformRole,
   SchoolRole,
-  UserStatus,
 } from "../src/generated/prisma/enums";
 import { PrismaClient } from "../src/generated/prisma/client";
+import { buildDemoUserUpsertData } from "./seed-user";
 
 const databaseUrl =
   process.env.DATABASE_URL ??
@@ -238,23 +238,23 @@ async function main() {
     });
   }
 
-  for (const user of users) {
-    await prisma.user.upsert({
-      where: { normalizedEmail: user.email },
-      update: {
-        email: user.email,
-        displayName: user.displayName,
-        status: UserStatus.ACTIVE,
-      },
-      create: {
-        ...user,
-        normalizedEmail: user.email,
-        passwordHash,
-        mustChangePassword: true,
-        status: UserStatus.ACTIVE,
-      },
-    });
-  }
+  const demoUserIds = users.map(({ id }) => id);
+  await prisma.$transaction([
+    ...users.map((user) => {
+      const userData = buildDemoUserUpsertData(user, passwordHash);
+      return prisma.user.upsert({
+        where: { normalizedEmail: user.email },
+        update: userData.update,
+        create: userData.create,
+      });
+    }),
+    prisma.session.deleteMany({
+      where: { userId: { in: demoUserIds } },
+    }),
+    prisma.passwordResetToken.deleteMany({
+      where: { userId: { in: demoUserIds } },
+    }),
+  ]);
 
   await prisma.platformRoleAssignment.upsert({
     where: {
