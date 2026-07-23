@@ -293,6 +293,71 @@ const demoMentoringCase = {
     "Theo dõi mục tiêu học tập, thói quen tự học và các mốc cần hỗ trợ trong học kỳ.",
 };
 
+const resourceCategories = [
+  {
+    id: "67000000-0000-4000-8000-000000000001",
+    schoolId: schools[0].id,
+    name: "Phương pháp học tập",
+    slug: "phuong-phap-hoc-tap",
+    createdByUserId: users[1].id,
+  },
+  {
+    id: "67000000-0000-4000-8000-000000000002",
+    schoolId: schools[0].id,
+    name: "Kỹ năng sống",
+    slug: "ky-nang-song",
+    createdByUserId: users[1].id,
+  },
+] as const;
+
+const resourceTags = [
+  {
+    id: "68000000-0000-4000-8000-000000000001",
+    schoolId: schools[0].id,
+    name: "Học kỳ I",
+    slug: "hoc-ky-i",
+    createdByUserId: users[1].id,
+  },
+  {
+    id: "68000000-0000-4000-8000-000000000002",
+    schoolId: schools[0].id,
+    name: "Thực hành",
+    slug: "thuc-hanh",
+    createdByUserId: users[1].id,
+  },
+] as const;
+
+const demoResources = [
+  {
+    id: "69000000-0000-4000-8000-000000000001",
+    versionId: "69000000-0000-4000-8000-000000000101",
+    schoolId: schools[0].id,
+    createdByUserId: users[2].id,
+    title: "Bộ công cụ lập kế hoạch học tập",
+    slug: "bo-cong-cu-lap-ke-hoach-hoc-tap",
+    summary: "Mẫu kế hoạch tuần giúp học sinh bắt đầu từ mục tiêu nhỏ và đo được tiến độ.",
+    body: "Tài nguyên demo của EduTech. Hãy chọn một mục tiêu, chia thành hành động nhỏ và rà soát vào cuối tuần.",
+    status: "PUBLISHED" as const,
+    visibility: "SCHOOL" as const,
+    categoryId: resourceCategories[0].id,
+    tagId: resourceTags[0].id,
+  },
+  {
+    id: "69000000-0000-4000-8000-000000000002",
+    versionId: "69000000-0000-4000-8000-000000000102",
+    schoolId: schools[0].id,
+    createdByUserId: users[3].id,
+    title: "Bài tập phản tư sau phiên cố vấn",
+    slug: "bai-tap-phan-tu-sau-phien-co-van",
+    summary: "Bộ câu hỏi riêng tư để học sinh ghi lại điều đã học và bước tiếp theo.",
+    body: "Tài nguyên nháp demo, chỉ tác giả và người được cấp quyền nhìn thấy.",
+    status: "DRAFT" as const,
+    visibility: "PRIVATE" as const,
+    categoryId: resourceCategories[1].id,
+    tagId: resourceTags[1].id,
+  },
+] as const;
+
 async function main() {
   const passwordHash = await hash(demoPassword, {
     type: argon2id,
@@ -643,6 +708,91 @@ async function main() {
       createdByUserId: users[3].id,
     },
   });
+
+  for (const category of resourceCategories) {
+    await prisma.resourceCategory.upsert({
+      where: { id: category.id },
+      update: {
+        name: category.name,
+        slug: category.slug,
+        schoolId: category.schoolId,
+      },
+      create: category,
+    });
+  }
+
+  for (const tag of resourceTags) {
+    await prisma.resourceTag.upsert({
+      where: { id: tag.id },
+      update: {
+        name: tag.name,
+        slug: tag.slug,
+        schoolId: tag.schoolId,
+      },
+      create: tag,
+    });
+  }
+
+  for (const resource of demoResources) {
+    await prisma.resource.upsert({
+      where: { id: resource.id },
+      update: {
+        title: resource.title,
+        slug: resource.slug,
+        summary: resource.summary,
+        status: resource.status,
+        visibility: resource.visibility,
+        createdByUserId: resource.createdByUserId,
+        currentVersionId: null,
+        publishedAt: resource.status === "PUBLISHED" ? seededAt : null,
+      },
+      create: {
+        id: resource.id,
+        schoolId: resource.schoolId,
+        createdByUserId: resource.createdByUserId,
+        title: resource.title,
+        slug: resource.slug,
+        summary: resource.summary,
+        status: resource.status,
+        visibility: resource.visibility,
+        currentVersionId: null,
+        publishedAt: resource.status === "PUBLISHED" ? seededAt : null,
+      },
+    });
+    await prisma.resourceVersion.upsert({
+      where: { id: resource.versionId },
+      update: {
+        resourceId: resource.id,
+        versionNumber: 1,
+        title: resource.title,
+        summary: resource.summary,
+        body: resource.body,
+        createdByUserId: resource.createdByUserId,
+      },
+      create: {
+        id: resource.versionId,
+        resourceId: resource.id,
+        versionNumber: 1,
+        title: resource.title,
+        summary: resource.summary,
+        body: resource.body,
+        createdByUserId: resource.createdByUserId,
+      },
+    });
+    await prisma.resource.update({
+      where: { id: resource.id },
+      data: {
+        currentVersionId: resource.versionId,
+        categories: { set: [{ id: resource.categoryId }] },
+        tags: { set: [{ id: resource.tagId }] },
+      },
+    });
+    await prisma.resourceAnalyticsCounter.upsert({
+      where: { resourceId: resource.id },
+      update: {},
+      create: { resourceId: resource.id },
+    });
+  }
 
   console.info(
     `Seeded ${schools.length} schools, ${users.length} demo users and ${mentorProfiles.length} mentor profiles. Shared password: ${demoPassword}`,

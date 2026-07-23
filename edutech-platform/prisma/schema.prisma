@@ -53,6 +53,33 @@ enum StoredFileStatus {
   DELETED
 }
 
+enum ResourceStatus {
+  DRAFT
+  PENDING_REVIEW
+  PUBLISHED
+  REJECTED
+  ARCHIVED
+}
+
+enum ResourceVisibility {
+  PRIVATE
+  SCHOOL
+  PUBLIC
+}
+
+enum CommentStatus {
+  PUBLISHED
+  HIDDEN
+  DELETED
+}
+
+enum ResourceReportStatus {
+  OPEN
+  REVIEWING
+  RESOLVED
+  DISMISSED
+}
+
 enum OutboxStatus {
   PENDING
   PROCESSING
@@ -167,6 +194,16 @@ model User {
   filesCreated              StoredFile[]               @relation("StoredFileCreator")
   fileVersionsCreated       FileVersion[]              @relation("FileVersionCreator")
   fileLinksCreated          FileLink[]                 @relation("FileLinkCreator")
+  resourcesCreated          Resource[]                 @relation("ResourceCreator")
+  resourceVersionsCreated   ResourceVersion[]          @relation("ResourceVersionCreator")
+  resourceTransitions       ResourceTransition[]       @relation("ResourceTransitionActor")
+  categoriesCreated         ResourceCategory[]         @relation("ResourceCategoryCreator")
+  tagsCreated               ResourceTag[]              @relation("ResourceTagCreator")
+  resourceComments          ResourceComment[]           @relation("ResourceCommentAuthor")
+  resourceReports           ResourceReport[]            @relation("ResourceReportAuthor")
+  resourceBookmarks         ResourceBookmark[]
+  resourceCollections       ResourceCollection[]       @relation("ResourceCollectionOwner")
+  resourceAnalyticsEvents   ResourceAnalyticsEvent[]   @relation("ResourceAnalyticsActor")
   auditEvents               AuditEvent[]               @relation("AuditActor")
   emailOutboxItems          EmailOutbox[]              @relation("EmailRecipient")
   mentorProfiles            MentorProfile[]            @relation("MentorProfileUser")
@@ -240,6 +277,14 @@ model School {
   invitations        Invitation[]
   storedFiles        StoredFile[]
   fileLinks          FileLink[]
+  resources          Resource[]
+  resourceCategories ResourceCategory[]
+  resourceTags       ResourceTag[]
+  resourceComments   ResourceComment[]
+  resourceReports    ResourceReport[]
+  resourceBookmarks  ResourceBookmark[]
+  resourceCollections ResourceCollection[]
+  resourceAnalyticsEvents ResourceAnalyticsEvent[]
   auditEvents        AuditEvent[]
   domainOutboxEvents DomainOutboxEvent[]
   emailOutboxItems   EmailOutbox[]
@@ -425,6 +470,7 @@ model FileLink {
   id              String   @id @default(uuid()) @db.Uuid
   schoolId        String   @db.Uuid
   fileId          String   @db.Uuid
+  resourceId      String?  @db.Uuid
   entityType      String
   entityId        String   @db.Uuid
   visibility      String
@@ -433,10 +479,229 @@ model FileLink {
 
   school    School     @relation(fields: [schoolId], references: [id], onDelete: Restrict)
   file      StoredFile @relation(fields: [fileId, schoolId], references: [id, schoolId], onDelete: Restrict)
+  resource  Resource?  @relation(fields: [resourceId, schoolId], references: [id, schoolId], onDelete: Restrict)
   createdBy User       @relation("FileLinkCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
 
   @@index([schoolId, entityType, entityId])
   @@index([schoolId, fileId])
+  @@index([schoolId, resourceId])
+}
+
+model Resource {
+  id                 String            @id @default(uuid()) @db.Uuid
+  schoolId           String            @db.Uuid
+  createdByUserId    String            @db.Uuid
+  title              String
+  slug               String
+  summary            String?
+  status             ResourceStatus    @default(DRAFT)
+  visibility         ResourceVisibility @default(SCHOOL)
+  currentVersionId   String?           @unique @db.Uuid
+  publishedAt        DateTime?         @db.Timestamptz(6)
+  archivedAt         DateTime?         @db.Timestamptz(6)
+  createdAt          DateTime          @default(now()) @db.Timestamptz(6)
+  updatedAt          DateTime          @updatedAt @db.Timestamptz(6)
+
+  school             School             @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy          User               @relation("ResourceCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  currentVersion     ResourceVersion?   @relation("ResourceCurrentVersion", fields: [currentVersionId], references: [id], onDelete: SetNull)
+  versions           ResourceVersion[]   @relation("ResourceVersions")
+  transitions        ResourceTransition[]
+  categories         ResourceCategory[]
+  tags               ResourceTag[]
+  fileLinks          FileLink[]
+  comments           ResourceComment[]
+  reports            ResourceReport[]
+  bookmarks          ResourceBookmark[]
+  collectionItems    ResourceCollectionItem[]
+  analyticsEvents    ResourceAnalyticsEvent[]
+  analyticsCounter   ResourceAnalyticsCounter?
+
+  @@unique([id, schoolId])
+  @@unique([schoolId, slug])
+  @@index([schoolId, status, updatedAt])
+  @@index([schoolId, visibility, status])
+}
+
+model ResourceVersion {
+  id              String   @id @default(uuid()) @db.Uuid
+  resourceId      String   @db.Uuid
+  versionNumber   Int
+  title           String
+  summary         String?
+  body            String?
+  metadataJson    Json     @default("{}")
+  createdByUserId String   @db.Uuid
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+
+  resource        Resource @relation("ResourceVersions", fields: [resourceId], references: [id], onDelete: Restrict)
+  currentFor      Resource? @relation("ResourceCurrentVersion")
+  createdBy       User     @relation("ResourceVersionCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+
+  @@unique([resourceId, versionNumber])
+  @@index([resourceId, createdAt])
+}
+
+model ResourceCategory {
+  id              String   @id @default(uuid()) @db.Uuid
+  schoolId        String   @db.Uuid
+  name            String
+  slug            String
+  createdByUserId String   @db.Uuid
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+
+  school        School     @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy     User       @relation("ResourceCategoryCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  resources     Resource[]
+
+  @@unique([schoolId, slug])
+  @@index([schoolId, name])
+}
+
+model ResourceTag {
+  id              String   @id @default(uuid()) @db.Uuid
+  schoolId        String   @db.Uuid
+  name            String
+  slug            String
+  createdByUserId String   @db.Uuid
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+
+  school        School     @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy     User       @relation("ResourceTagCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  resources     Resource[]
+
+  @@unique([schoolId, slug])
+  @@index([schoolId, name])
+}
+
+model ResourceTransition {
+  id          String   @id @default(uuid()) @db.Uuid
+  schoolId    String   @db.Uuid
+  resourceId  String   @db.Uuid
+  action      String
+  fromStatus  ResourceStatus?
+  toStatus    ResourceStatus
+  reason      String?
+  actorUserId String   @db.Uuid
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+
+  resource Resource @relation(fields: [resourceId], references: [id], onDelete: Restrict)
+  actor    User     @relation("ResourceTransitionActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, resourceId, createdAt])
+  @@index([schoolId, toStatus, createdAt])
+}
+
+model ResourceComment {
+  id          String        @id @default(uuid()) @db.Uuid
+  schoolId    String        @db.Uuid
+  resourceId  String        @db.Uuid
+  authorUserId String        @db.Uuid
+  body        String
+  status      CommentStatus  @default(PUBLISHED)
+  createdAt   DateTime      @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime      @updatedAt @db.Timestamptz(6)
+
+  school   School   @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  resource Resource @relation(fields: [resourceId], references: [id], onDelete: Restrict)
+  author   User     @relation("ResourceCommentAuthor", fields: [authorUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, resourceId, status, createdAt])
+}
+
+model ResourceReport {
+  id           String               @id @default(uuid()) @db.Uuid
+  schoolId     String               @db.Uuid
+  resourceId   String               @db.Uuid
+  reporterUserId String              @db.Uuid
+  reason       String
+  status       ResourceReportStatus  @default(OPEN)
+  resolution   String?
+  resolvedByUserId String?          @db.Uuid
+  createdAt    DateTime             @default(now()) @db.Timestamptz(6)
+  resolvedAt   DateTime?            @db.Timestamptz(6)
+
+  school   School   @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  resource Resource @relation(fields: [resourceId], references: [id], onDelete: Restrict)
+  reporter User     @relation("ResourceReportAuthor", fields: [reporterUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, status, createdAt])
+  @@index([schoolId, resourceId, createdAt])
+}
+
+model ResourceBookmark {
+  id         String   @id @default(uuid()) @db.Uuid
+  schoolId   String   @db.Uuid
+  resourceId String   @db.Uuid
+  userId     String   @db.Uuid
+  createdAt  DateTime @default(now()) @db.Timestamptz(6)
+
+  school   School   @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  resource Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([schoolId, resourceId, userId])
+  @@index([schoolId, userId, createdAt])
+}
+
+model ResourceCollection {
+  id          String   @id @default(uuid()) @db.Uuid
+  schoolId    String   @db.Uuid
+  ownerUserId String   @db.Uuid
+  name        String
+  description String?
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  school School                  @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  owner  User                    @relation("ResourceCollectionOwner", fields: [ownerUserId], references: [id], onDelete: Cascade)
+  items  ResourceCollectionItem[]
+
+  @@unique([schoolId, ownerUserId, name])
+  @@index([schoolId, ownerUserId, updatedAt])
+}
+
+model ResourceCollectionItem {
+  id           String   @id @default(uuid()) @db.Uuid
+  collectionId String   @db.Uuid
+  resourceId   String   @db.Uuid
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  collection ResourceCollection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  resource   Resource           @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+
+  @@unique([collectionId, resourceId])
+  @@index([resourceId])
+}
+
+model ResourceAnalyticsEvent {
+  id          String   @id @default(uuid()) @db.Uuid
+  schoolId    String   @db.Uuid
+  resourceId  String   @db.Uuid
+  actorUserId String?  @db.Uuid
+  eventType   String
+  versionId   String?  @db.Uuid
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+
+  school  School   @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  resource Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  actor   User?    @relation("ResourceAnalyticsActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([schoolId, resourceId, eventType, createdAt])
+  @@index([schoolId, eventType, createdAt])
+}
+
+model ResourceAnalyticsCounter {
+  resourceId  String   @id @db.Uuid
+  views       Int      @default(0)
+  downloads   Int      @default(0)
+  previews    Int      @default(0)
+  bookmarks   Int      @default(0)
+  comments    Int      @default(0)
+  reports     Int      @default(0)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  resource Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
 }
 
 model AuditEvent {
