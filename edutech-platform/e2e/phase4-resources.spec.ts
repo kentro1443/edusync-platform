@@ -21,6 +21,27 @@ const startedAt = new Date();
 let database: Client;
 let resourceId = "";
 
+function createMinimalPdf(): Buffer {
+  const objects = [
+    "<< /Type /Catalog /Pages 2 0 R >>",
+    "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+    "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>",
+    "<< /Length 45 >>\nstream\nBT /F1 24 Tf 72 720 Td (EduTech PDF) Tj ET\nendstream",
+    "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+  ];
+  let pdf = "%PDF-1.4\n";
+  const offsets = [0];
+  objects.forEach((object, index) => {
+    offsets.push(Buffer.byteLength(pdf));
+    pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
+  });
+  const xrefOffset = Buffer.byteLength(pdf);
+  pdf += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`;
+  pdf += offsets.slice(1).map((offset) => `${offset.toString().padStart(10, "0")} 00000 n \n`).join("");
+  pdf += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF\n`;
+  return Buffer.from(pdf);
+}
+
 async function removeStoredKey(storageKey: string): Promise<void> {
   const root = path.resolve(process.env.FILE_STORAGE_ROOT ?? "./storage");
   await rm(path.join(root, storageKey.slice(0, 2), storageKey.slice(2, 4), storageKey), { force: true });
@@ -117,11 +138,39 @@ test("invalid upload bị chặn, version mới và rollback không mutate versi
   await page.getByRole("button", { name: "Lưu phiên bản mới" }).click();
   await expect(page).toHaveURL(/error=invalid/);
   await page.reload();
-  await fileInput.setInputFiles({ name: "guide.pdf", mimeType: "application/pdf", buffer: Buffer.from("valid demo") });
+  await fileInput.setInputFiles({ name: "guide.pdf", mimeType: "application/pdf", buffer: createMinimalPdf() });
   await page.getByLabel("Tiêu đề phiên bản").fill("Tài nguyên E2E Phase 4 — bản hai");
   await page.getByRole("button", { name: "Lưu phiên bản mới" }).click();
   await expect.poll(async () => (await database.query<{ count: string }>('SELECT COUNT(*)::text AS count FROM "ResourceVersion" WHERE "resourceId" = $1', [resourceId])).rows[0]?.count).toBe("2");
   await page.reload();
+  const secondVersion = await database.query<{ id: string }>(
+    'SELECT id FROM "ResourceVersion" WHERE "resourceId" = $1 ORDER BY "versionNumber" DESC LIMIT 1',
+    [resourceId],
+  );
+  const secondVersionId = secondVersion.rows[0]?.id ?? "";
+  const preview = page.getByTitle("Xem trước PDF guide.pdf");
+  await expect(preview).toBeVisible();
+  await expect(preview).toHaveAttribute(
+    "src",
+    `/dashboard/resources/${resourceId}/preview?versionId=${secondVersionId}`,
+  );
+  const previewResponse = await page.evaluate(async (url) => {
+    const response = await fetch(url);
+    return {
+      status: response.status,
+      contentType: response.headers.get("content-type"),
+      contentDisposition: response.headers.get("content-disposition"),
+    };
+  }, `/dashboard/resources/${resourceId}/preview?versionId=${secondVersionId}`);
+  expect(previewResponse.status).toBe(200);
+  expect(previewResponse.contentType).toContain("application/pdf");
+  expect(previewResponse.contentDisposition).toContain("inline");
+  await expect.poll(async () => (
+    await database.query<{ previews: number }>(
+      'SELECT previews FROM "ResourceAnalyticsCounter" WHERE "resourceId" = $1',
+      [resourceId],
+    )
+  ).rows[0]?.previews).toBeGreaterThan(0);
   await page.getByRole("button", { name: "Khôi phục thành phiên bản mới" }).first().click();
   await expect.poll(async () => (await database.query<{ count: string }>('SELECT COUNT(*)::text AS count FROM "ResourceVersion" WHERE "resourceId" = $1', [resourceId])).rows[0]?.count).toBe("3");
 });

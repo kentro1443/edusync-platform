@@ -205,6 +205,13 @@ export async function getResource(actor: AuthorizationContext, resourceId: strin
       createdBy: { select: { id: true, displayName: true } },
       currentVersion: true,
       versions: { orderBy: { versionNumber: "desc" }, include: { createdBy: { select: { displayName: true } } } },
+      fileLinks: {
+        where: { entityType: "RESOURCE_VERSION" },
+        select: {
+          entityId: true,
+          file: { select: { originalName: true, mimeType: true } },
+        },
+      },
       categories: true,
       tags: true,
       comments: { where: { status: "PUBLISHED" }, orderBy: { createdAt: "asc" }, include: { author: { select: { displayName: true } } } },
