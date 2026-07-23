@@ -366,3 +366,68 @@ export type WorkflowDecision = Prisma.WorkflowDecisionModel
  * 
  */
 export type WorkflowSubmissionHistory = Prisma.WorkflowSubmissionHistoryModel
+/**
+ * Model Club
+ * 
+ */
+export type Club = Prisma.ClubModel
+/**
+ * Model ClubApplication
+ * 
+ */
+export type ClubApplication = Prisma.ClubApplicationModel
+/**
+ * Model ClubMembership
+ * 
+ */
+export type ClubMembership = Prisma.ClubMembershipModel
+/**
+ * Model ClubAnnouncement
+ * 
+ */
+export type ClubAnnouncement = Prisma.ClubAnnouncementModel
+/**
+ * Model ClubTask
+ * 
+ */
+export type ClubTask = Prisma.ClubTaskModel
+/**
+ * Model ClubEvent
+ * 
+ */
+export type ClubEvent = Prisma.ClubEventModel
+/**
+ * Model ClubRegistration
+ * 
+ */
+export type ClubRegistration = Prisma.ClubRegistrationModel
+/**
+ * Model ClubConsent
+ * 
+ */
+export type ClubConsent = Prisma.ClubConsentModel
+/**
+ * Model ClubAttendance
+ * 
+ */
+export type ClubAttendance = Prisma.ClubAttendanceModel
+/**
+ * Model ClubBudget
+ * 
+ */
+export type ClubBudget = Prisma.ClubBudgetModel
+/**
+ * Model ClubExpense
+ * 
+ */
+export type ClubExpense = Prisma.ClubExpenseModel
+/**
+ * Model ClubSafetyPlan
+ * 
+ */
+export type ClubSafetyPlan = Prisma.ClubSafetyPlanModel
+/**
+ * Model ClubPostEventReport
+ * 
+ */
+export type ClubPostEventReport = Prisma.ClubPostEventReportModel

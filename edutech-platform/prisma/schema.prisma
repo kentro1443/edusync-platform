@@ -236,6 +236,60 @@ enum WorkflowDecisionType {
   REQUEST_CHANGES
 }
 
+enum ClubStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+enum ClubApplicationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  WITHDRAWN
+}
+
+enum ClubMembershipStatus {
+  PENDING
+  ACTIVE
+  LEFT
+  REJECTED
+}
+
+enum ClubRole {
+  MEMBER
+  LEADER
+  ADVISOR
+}
+
+enum ClubTaskStatus {
+  TODO
+  IN_PROGRESS
+  DONE
+  CANCELLED
+}
+
+enum ClubEventStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+  CANCELLED
+  COMPLETED
+}
+
+enum ClubRegistrationStatus {
+  REGISTERED
+  WAITLISTED
+  CANCELLED
+}
+
+enum ClubConsentStatus {
+  PENDING
+  APPROVED
+  DECLINED
+}
+
 model User {
   id                 String     @id @default(uuid()) @db.Uuid
   email              String
@@ -305,6 +359,20 @@ model User {
   workflowSubmissions        WorkflowSubmission[]       @relation("WorkflowSubmissionOwner")
   workflowDecisions          WorkflowDecision[]         @relation("WorkflowDecisionActor")
   workflowHistory            WorkflowSubmissionHistory[] @relation("WorkflowHistoryActor")
+  clubsCreated               Club[]                    @relation("ClubCreator")
+  clubApplications           ClubApplication[]          @relation("ClubApplicant")
+  clubApplicationsReviewed   ClubApplication[]          @relation("ClubApplicationReviewer")
+  clubMemberships             ClubMembership[]
+  clubAnnouncements          ClubAnnouncement[]        @relation("ClubAnnouncementAuthor")
+  clubTasksCreated            ClubTask[]                @relation("ClubTaskCreator")
+  clubTasksAssigned           ClubTask[]                @relation("ClubTaskAssignee")
+  clubEventsCreated           ClubEvent[]               @relation("ClubEventCreator")
+  clubRegistrations           ClubRegistration[]
+  clubConsentsForStudent      ClubConsent[]              @relation("ClubConsentStudent")
+  clubConsentsForGuardian     ClubConsent[]              @relation("ClubConsentGuardian")
+  clubAttendance              ClubAttendance[]           @relation("ClubAttendanceUser")
+  clubAttendanceRecorded      ClubAttendance[]           @relation("ClubAttendanceRecorder")
+  clubPostEventReports        ClubPostEventReport[]
 }
 
 model DemoRequest {
@@ -386,6 +454,16 @@ model School {
   calendarReminders  CalendarReminder[]
   workflowSubmissions WorkflowSubmission[]
   workflowTemplates  WorkflowTemplate[]
+  clubs              Club[]
+  clubApplications   ClubApplication[]
+  clubMemberships    ClubMembership[]
+  clubAnnouncements  ClubAnnouncement[]
+  clubTasks          ClubTask[]
+  clubEvents         ClubEvent[]
+  clubRegistrations  ClubRegistration[]
+  clubConsents       ClubConsent[]
+  clubAttendance     ClubAttendance[]
+  clubBudgets        ClubBudget[]
 
   @@index([status])
 }
@@ -1554,4 +1632,251 @@ model WorkflowSubmissionHistory {
   actor      User               @relation("WorkflowHistoryActor", fields: [actorUserId], references: [id], onDelete: Restrict)
 
   @@index([submissionId, createdAt])
+}
+
+model Club {
+  id              String     @id @default(uuid()) @db.Uuid
+  schoolId        String     @db.Uuid
+  createdByUserId String     @db.Uuid
+  name            String
+  slug            String
+  description     String?
+  status          ClubStatus  @default(DRAFT)
+  capacity        Int?
+  createdAt       DateTime    @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime    @updatedAt @db.Timestamptz(6)
+
+  school        School           @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  createdBy     User             @relation("ClubCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  applications  ClubApplication[]
+  memberships   ClubMembership[]
+  announcements ClubAnnouncement[]
+  tasks         ClubTask[]
+  events        ClubEvent[]
+  budgets       ClubBudget[]
+
+  @@unique([schoolId, slug])
+  @@index([schoolId, status, updatedAt])
+}
+
+model ClubApplication {
+  id               String                @id @default(uuid()) @db.Uuid
+  schoolId         String                @db.Uuid
+  clubId           String                @db.Uuid
+  applicantUserId  String                @db.Uuid
+  status           ClubApplicationStatus @default(PENDING)
+  motivation       String?
+  reviewedByUserId String?               @db.Uuid
+  reviewedAt       DateTime?             @db.Timestamptz(6)
+  createdAt        DateTime              @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime              @updatedAt @db.Timestamptz(6)
+
+  school   School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  club     Club   @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  applicant User   @relation("ClubApplicant", fields: [applicantUserId], references: [id], onDelete: Restrict)
+  reviewer User?  @relation("ClubApplicationReviewer", fields: [reviewedByUserId], references: [id], onDelete: SetNull)
+
+  @@unique([clubId, applicantUserId])
+  @@index([schoolId, status, createdAt])
+}
+
+model ClubMembership {
+  id        String                @id @default(uuid()) @db.Uuid
+  schoolId  String                @db.Uuid
+  clubId    String                @db.Uuid
+  userId    String                @db.Uuid
+  role      ClubRole              @default(MEMBER)
+  status    ClubMembershipStatus  @default(PENDING)
+  joinedAt  DateTime?             @db.Timestamptz(6)
+  createdAt DateTime              @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime              @updatedAt @db.Timestamptz(6)
+
+  school School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  club   Club   @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Restrict)
+
+  @@unique([clubId, userId])
+  @@index([schoolId, status])
+  @@index([clubId, role, status])
+}
+
+model ClubAnnouncement {
+  id           String   @id @default(uuid()) @db.Uuid
+  schoolId     String   @db.Uuid
+  clubId       String   @db.Uuid
+  authorUserId String   @db.Uuid
+  title        String
+  body         String
+  publishedAt  DateTime? @db.Timestamptz(6)
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  school School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  club   Club   @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  author User   @relation("ClubAnnouncementAuthor", fields: [authorUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, clubId, publishedAt])
+}
+
+model ClubTask {
+  id            String         @id @default(uuid()) @db.Uuid
+  schoolId      String         @db.Uuid
+  clubId        String         @db.Uuid
+  createdById   String         @db.Uuid
+  assigneeUserId String?       @db.Uuid
+  title         String
+  description   String?
+  status        ClubTaskStatus @default(TODO)
+  dueAt         DateTime?      @db.Timestamptz(6)
+  createdAt     DateTime       @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime       @updatedAt @db.Timestamptz(6)
+
+  school   School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  club     Club   @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  createdBy User  @relation("ClubTaskCreator", fields: [createdById], references: [id], onDelete: Restrict)
+  assignee User? @relation("ClubTaskAssignee", fields: [assigneeUserId], references: [id], onDelete: SetNull)
+
+  @@index([schoolId, clubId, status, dueAt])
+}
+
+model ClubEvent {
+  id               String            @id @default(uuid()) @db.Uuid
+  schoolId         String            @db.Uuid
+  clubId           String            @db.Uuid
+  createdByUserId  String            @db.Uuid
+  title            String
+  description      String?
+  startsAt         DateTime          @db.Timestamptz(6)
+  endsAt           DateTime          @db.Timestamptz(6)
+  location         String?
+  capacity         Int               @default(0)
+  status           ClubEventStatus   @default(DRAFT)
+  createdAt        DateTime          @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime          @updatedAt @db.Timestamptz(6)
+
+  school       School             @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  club         Club               @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  createdBy    User               @relation("ClubEventCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  registrations ClubRegistration[]
+  consents     ClubConsent[]
+  attendance   ClubAttendance[]
+  safetyPlan   ClubSafetyPlan?
+  report       ClubPostEventReport?
+
+  @@index([schoolId, startsAt, endsAt])
+  @@index([clubId, status, startsAt])
+}
+
+model ClubRegistration {
+  id        String                   @id @default(uuid()) @db.Uuid
+  schoolId  String                   @db.Uuid
+  eventId   String                   @db.Uuid
+  userId    String                   @db.Uuid
+  status    ClubRegistrationStatus   @default(REGISTERED)
+  position  Int?
+  createdAt DateTime                 @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime                 @updatedAt @db.Timestamptz(6)
+
+  school School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  event  ClubEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user   User @relation(fields: [userId], references: [id], onDelete: Restrict)
+
+  @@unique([eventId, userId])
+  @@index([schoolId, status, createdAt])
+  @@index([eventId, status, position])
+}
+
+model ClubConsent {
+  id          String             @id @default(uuid()) @db.Uuid
+  schoolId    String             @db.Uuid
+  eventId     String             @db.Uuid
+  studentId   String             @db.Uuid
+  guardianId  String             @db.Uuid
+  status      ClubConsentStatus  @default(PENDING)
+  decidedAt   DateTime?          @db.Timestamptz(6)
+  createdAt   DateTime            @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime            @updatedAt @db.Timestamptz(6)
+
+  school   School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  event    ClubEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  student  User @relation("ClubConsentStudent", fields: [studentId], references: [id], onDelete: Restrict)
+  guardian User @relation("ClubConsentGuardian", fields: [guardianId], references: [id], onDelete: Restrict)
+
+  @@unique([eventId, studentId, guardianId])
+  @@index([schoolId, guardianId, status])
+}
+
+model ClubAttendance {
+  id               String                  @id @default(uuid()) @db.Uuid
+  schoolId         String                  @db.Uuid
+  eventId          String                  @db.Uuid
+  userId           String                  @db.Uuid
+  status           CalendarAttendanceStatus @default(SCHEDULED)
+  checkedInAt      DateTime?               @db.Timestamptz(6)
+  recordedByUserId String?                 @db.Uuid
+  note             String?
+  createdAt        DateTime                @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime                @updatedAt @db.Timestamptz(6)
+
+  school     School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  event      ClubEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user       User @relation("ClubAttendanceUser", fields: [userId], references: [id], onDelete: Restrict)
+  recordedBy User? @relation("ClubAttendanceRecorder", fields: [recordedByUserId], references: [id], onDelete: SetNull)
+
+  @@unique([eventId, userId])
+  @@index([schoolId, status])
+}
+
+model ClubBudget {
+  id          String   @id @default(uuid()) @db.Uuid
+  schoolId    String   @db.Uuid
+  clubId      String   @db.Uuid
+  name        String
+  amount      Decimal  @db.Decimal(12, 2)
+  spent       Decimal  @default(0) @db.Decimal(12, 2)
+  status      String   @default("DRAFT")
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  school  School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  club    Club @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  expenses ClubExpense[]
+
+  @@index([schoolId, clubId, status])
+}
+
+model ClubExpense {
+  id          String   @id @default(uuid()) @db.Uuid
+  budgetId    String   @db.Uuid
+  description String
+  amount      Decimal  @db.Decimal(12, 2)
+  spentAt     DateTime @db.Timestamptz(6)
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+
+  budget ClubBudget @relation(fields: [budgetId], references: [id], onDelete: Cascade)
+
+  @@index([budgetId, spentAt])
+}
+
+model ClubSafetyPlan {
+  id          String   @id @default(uuid()) @db.Uuid
+  eventId     String   @unique @db.Uuid
+  details     String
+  approvedById String? @db.Uuid
+  approvedAt  DateTime? @db.Timestamptz(6)
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  event ClubEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model ClubPostEventReport {
+  id          String   @id @default(uuid()) @db.Uuid
+  eventId     String   @unique @db.Uuid
+  submittedById String @db.Uuid
+  summary     String
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  event ClubEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  submittedBy User @relation(fields: [submittedById], references: [id], onDelete: Restrict)
 }

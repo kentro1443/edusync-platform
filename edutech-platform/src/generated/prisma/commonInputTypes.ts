@@ -997,6 +997,169 @@ export type EnumWorkflowSubmissionStatusNullableWithAggregatesFilter<$PrismaMode
   _max?: Prisma.NestedEnumWorkflowSubmissionStatusNullableFilter<$PrismaModel>
 }
 
+export type EnumClubStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubStatus | Prisma.EnumClubStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubStatus[] | Prisma.ListEnumClubStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubStatus[] | Prisma.ListEnumClubStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubStatusFilter<$PrismaModel> | $Enums.ClubStatus
+}
+
+export type EnumClubStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubStatus | Prisma.EnumClubStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubStatus[] | Prisma.ListEnumClubStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubStatus[] | Prisma.ListEnumClubStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubStatusFilter<$PrismaModel>
+}
+
+export type EnumClubApplicationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubApplicationStatus | Prisma.EnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubApplicationStatus[] | Prisma.ListEnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubApplicationStatus[] | Prisma.ListEnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubApplicationStatusFilter<$PrismaModel> | $Enums.ClubApplicationStatus
+}
+
+export type EnumClubApplicationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubApplicationStatus | Prisma.EnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubApplicationStatus[] | Prisma.ListEnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubApplicationStatus[] | Prisma.ListEnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubApplicationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubApplicationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubApplicationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubApplicationStatusFilter<$PrismaModel>
+}
+
+export type EnumClubRoleFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubRole | Prisma.EnumClubRoleFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubRole[] | Prisma.ListEnumClubRoleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubRole[] | Prisma.ListEnumClubRoleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubRoleFilter<$PrismaModel> | $Enums.ClubRole
+}
+
+export type EnumClubMembershipStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubMembershipStatus | Prisma.EnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubMembershipStatus[] | Prisma.ListEnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubMembershipStatus[] | Prisma.ListEnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubMembershipStatusFilter<$PrismaModel> | $Enums.ClubMembershipStatus
+}
+
+export type EnumClubRoleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubRole | Prisma.EnumClubRoleFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubRole[] | Prisma.ListEnumClubRoleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubRole[] | Prisma.ListEnumClubRoleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubRoleWithAggregatesFilter<$PrismaModel> | $Enums.ClubRole
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubRoleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubRoleFilter<$PrismaModel>
+}
+
+export type EnumClubMembershipStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubMembershipStatus | Prisma.EnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubMembershipStatus[] | Prisma.ListEnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubMembershipStatus[] | Prisma.ListEnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubMembershipStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubMembershipStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubMembershipStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubMembershipStatusFilter<$PrismaModel>
+}
+
+export type EnumClubTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubTaskStatus | Prisma.EnumClubTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubTaskStatus[] | Prisma.ListEnumClubTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubTaskStatus[] | Prisma.ListEnumClubTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubTaskStatusFilter<$PrismaModel> | $Enums.ClubTaskStatus
+}
+
+export type EnumClubTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubTaskStatus | Prisma.EnumClubTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubTaskStatus[] | Prisma.ListEnumClubTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubTaskStatus[] | Prisma.ListEnumClubTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubTaskStatusFilter<$PrismaModel>
+}
+
+export type EnumClubEventStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubEventStatus | Prisma.EnumClubEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubEventStatus[] | Prisma.ListEnumClubEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubEventStatus[] | Prisma.ListEnumClubEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubEventStatusFilter<$PrismaModel> | $Enums.ClubEventStatus
+}
+
+export type EnumClubEventStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubEventStatus | Prisma.EnumClubEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubEventStatus[] | Prisma.ListEnumClubEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubEventStatus[] | Prisma.ListEnumClubEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubEventStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubEventStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubEventStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubEventStatusFilter<$PrismaModel>
+}
+
+export type EnumClubRegistrationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubRegistrationStatus | Prisma.EnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubRegistrationStatus[] | Prisma.ListEnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubRegistrationStatus[] | Prisma.ListEnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubRegistrationStatusFilter<$PrismaModel> | $Enums.ClubRegistrationStatus
+}
+
+export type EnumClubRegistrationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubRegistrationStatus | Prisma.EnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubRegistrationStatus[] | Prisma.ListEnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubRegistrationStatus[] | Prisma.ListEnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubRegistrationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubRegistrationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubRegistrationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubRegistrationStatusFilter<$PrismaModel>
+}
+
+export type EnumClubConsentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubConsentStatus | Prisma.EnumClubConsentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubConsentStatus[] | Prisma.ListEnumClubConsentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubConsentStatus[] | Prisma.ListEnumClubConsentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubConsentStatusFilter<$PrismaModel> | $Enums.ClubConsentStatus
+}
+
+export type EnumClubConsentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubConsentStatus | Prisma.EnumClubConsentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubConsentStatus[] | Prisma.ListEnumClubConsentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubConsentStatus[] | Prisma.ListEnumClubConsentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubConsentStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubConsentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubConsentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubConsentStatusFilter<$PrismaModel>
+}
+
+export type DecimalFilter<$PrismaModel = never> = {
+  equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  notIn?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  lt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  lte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDecimalFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  notIn?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  lt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  lte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDecimalWithAggregatesFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _avg?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _sum?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _min?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _max?: Prisma.NestedDecimalFilter<$PrismaModel>
+}
+
 export type NestedUuidFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -1933,6 +2096,169 @@ export type NestedEnumWorkflowSubmissionStatusNullableWithAggregatesFilter<$Pris
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedEnumWorkflowSubmissionStatusNullableFilter<$PrismaModel>
   _max?: Prisma.NestedEnumWorkflowSubmissionStatusNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumClubStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubStatus | Prisma.EnumClubStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubStatus[] | Prisma.ListEnumClubStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubStatus[] | Prisma.ListEnumClubStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubStatusFilter<$PrismaModel> | $Enums.ClubStatus
+}
+
+export type NestedEnumClubStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubStatus | Prisma.EnumClubStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubStatus[] | Prisma.ListEnumClubStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubStatus[] | Prisma.ListEnumClubStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumClubApplicationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubApplicationStatus | Prisma.EnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubApplicationStatus[] | Prisma.ListEnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubApplicationStatus[] | Prisma.ListEnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubApplicationStatusFilter<$PrismaModel> | $Enums.ClubApplicationStatus
+}
+
+export type NestedEnumClubApplicationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubApplicationStatus | Prisma.EnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubApplicationStatus[] | Prisma.ListEnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubApplicationStatus[] | Prisma.ListEnumClubApplicationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubApplicationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubApplicationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubApplicationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubApplicationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumClubRoleFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubRole | Prisma.EnumClubRoleFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubRole[] | Prisma.ListEnumClubRoleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubRole[] | Prisma.ListEnumClubRoleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubRoleFilter<$PrismaModel> | $Enums.ClubRole
+}
+
+export type NestedEnumClubMembershipStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubMembershipStatus | Prisma.EnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubMembershipStatus[] | Prisma.ListEnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubMembershipStatus[] | Prisma.ListEnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubMembershipStatusFilter<$PrismaModel> | $Enums.ClubMembershipStatus
+}
+
+export type NestedEnumClubRoleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubRole | Prisma.EnumClubRoleFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubRole[] | Prisma.ListEnumClubRoleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubRole[] | Prisma.ListEnumClubRoleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubRoleWithAggregatesFilter<$PrismaModel> | $Enums.ClubRole
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubRoleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubRoleFilter<$PrismaModel>
+}
+
+export type NestedEnumClubMembershipStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubMembershipStatus | Prisma.EnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubMembershipStatus[] | Prisma.ListEnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubMembershipStatus[] | Prisma.ListEnumClubMembershipStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubMembershipStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubMembershipStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubMembershipStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubMembershipStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumClubTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubTaskStatus | Prisma.EnumClubTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubTaskStatus[] | Prisma.ListEnumClubTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubTaskStatus[] | Prisma.ListEnumClubTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubTaskStatusFilter<$PrismaModel> | $Enums.ClubTaskStatus
+}
+
+export type NestedEnumClubTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubTaskStatus | Prisma.EnumClubTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubTaskStatus[] | Prisma.ListEnumClubTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubTaskStatus[] | Prisma.ListEnumClubTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubTaskStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumClubEventStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubEventStatus | Prisma.EnumClubEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubEventStatus[] | Prisma.ListEnumClubEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubEventStatus[] | Prisma.ListEnumClubEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubEventStatusFilter<$PrismaModel> | $Enums.ClubEventStatus
+}
+
+export type NestedEnumClubEventStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubEventStatus | Prisma.EnumClubEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubEventStatus[] | Prisma.ListEnumClubEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubEventStatus[] | Prisma.ListEnumClubEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubEventStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubEventStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubEventStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubEventStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumClubRegistrationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubRegistrationStatus | Prisma.EnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubRegistrationStatus[] | Prisma.ListEnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubRegistrationStatus[] | Prisma.ListEnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubRegistrationStatusFilter<$PrismaModel> | $Enums.ClubRegistrationStatus
+}
+
+export type NestedEnumClubRegistrationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubRegistrationStatus | Prisma.EnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubRegistrationStatus[] | Prisma.ListEnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubRegistrationStatus[] | Prisma.ListEnumClubRegistrationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubRegistrationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubRegistrationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubRegistrationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubRegistrationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumClubConsentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubConsentStatus | Prisma.EnumClubConsentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubConsentStatus[] | Prisma.ListEnumClubConsentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubConsentStatus[] | Prisma.ListEnumClubConsentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubConsentStatusFilter<$PrismaModel> | $Enums.ClubConsentStatus
+}
+
+export type NestedEnumClubConsentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClubConsentStatus | Prisma.EnumClubConsentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClubConsentStatus[] | Prisma.ListEnumClubConsentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClubConsentStatus[] | Prisma.ListEnumClubConsentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClubConsentStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClubConsentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClubConsentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClubConsentStatusFilter<$PrismaModel>
+}
+
+export type NestedDecimalFilter<$PrismaModel = never> = {
+  equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  notIn?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  lt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  lte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDecimalFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  notIn?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  lt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  lte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDecimalWithAggregatesFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _avg?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _sum?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _min?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _max?: Prisma.NestedDecimalFilter<$PrismaModel>
 }
 
 

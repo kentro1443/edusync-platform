@@ -338,3 +338,81 @@ export const WorkflowDecisionType = {
 } as const
 
 export type WorkflowDecisionType = (typeof WorkflowDecisionType)[keyof typeof WorkflowDecisionType]
+
+
+export const ClubStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type ClubStatus = (typeof ClubStatus)[keyof typeof ClubStatus]
+
+
+export const ClubApplicationStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  WITHDRAWN: 'WITHDRAWN'
+} as const
+
+export type ClubApplicationStatus = (typeof ClubApplicationStatus)[keyof typeof ClubApplicationStatus]
+
+
+export const ClubMembershipStatus = {
+  PENDING: 'PENDING',
+  ACTIVE: 'ACTIVE',
+  LEFT: 'LEFT',
+  REJECTED: 'REJECTED'
+} as const
+
+export type ClubMembershipStatus = (typeof ClubMembershipStatus)[keyof typeof ClubMembershipStatus]
+
+
+export const ClubRole = {
+  MEMBER: 'MEMBER',
+  LEADER: 'LEADER',
+  ADVISOR: 'ADVISOR'
+} as const
+
+export type ClubRole = (typeof ClubRole)[keyof typeof ClubRole]
+
+
+export const ClubTaskStatus = {
+  TODO: 'TODO',
+  IN_PROGRESS: 'IN_PROGRESS',
+  DONE: 'DONE',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ClubTaskStatus = (typeof ClubTaskStatus)[keyof typeof ClubTaskStatus]
+
+
+export const ClubEventStatus = {
+  DRAFT: 'DRAFT',
+  PENDING_APPROVAL: 'PENDING_APPROVAL',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED',
+  COMPLETED: 'COMPLETED'
+} as const
+
+export type ClubEventStatus = (typeof ClubEventStatus)[keyof typeof ClubEventStatus]
+
+
+export const ClubRegistrationStatus = {
+  REGISTERED: 'REGISTERED',
+  WAITLISTED: 'WAITLISTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ClubRegistrationStatus = (typeof ClubRegistrationStatus)[keyof typeof ClubRegistrationStatus]
+
+
+export const ClubConsentStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  DECLINED: 'DECLINED'
+} as const
+
+export type ClubConsentStatus = (typeof ClubConsentStatus)[keyof typeof ClubConsentStatus]

@@ -358,6 +358,15 @@ const demoResources = [
   },
 ] as const;
 
+const demoClub = {
+  id: "6a000000-0000-4000-8000-000000000001",
+  eventId: "6a000000-0000-4000-8000-000000000101",
+  schoolId: schools[0].id,
+  createdByUserId: users[6].id,
+  name: "Robotics Lab Minh Khai",
+  slug: "robotics-lab-minh-khai",
+};
+
 async function main() {
   const passwordHash = await hash(demoPassword, {
     type: argon2id,
@@ -793,6 +802,75 @@ async function main() {
       create: { resourceId: resource.id },
     });
   }
+
+  await prisma.club.upsert({
+    where: { id: demoClub.id },
+    update: {
+      name: demoClub.name,
+      slug: demoClub.slug,
+      status: "ACTIVE",
+      description: "Không gian chế tạo, lập trình và thi đấu robot dành cho học sinh yêu công nghệ.",
+      capacity: 40,
+    },
+    create: {
+      id: demoClub.id,
+      schoolId: demoClub.schoolId,
+      createdByUserId: demoClub.createdByUserId,
+      name: demoClub.name,
+      slug: demoClub.slug,
+      description: "Không gian chế tạo, lập trình và thi đấu robot dành cho học sinh yêu công nghệ.",
+      status: "ACTIVE",
+      capacity: 40,
+    },
+  });
+  await prisma.clubMembership.upsert({
+    where: { clubId_userId: { clubId: demoClub.id, userId: users[6].id } },
+    update: { role: "LEADER", status: "ACTIVE", joinedAt: seededAt },
+    create: {
+      schoolId: demoClub.schoolId,
+      clubId: demoClub.id,
+      userId: users[6].id,
+      role: "LEADER",
+      status: "ACTIVE",
+      joinedAt: seededAt,
+    },
+  });
+  await prisma.clubMembership.upsert({
+    where: { clubId_userId: { clubId: demoClub.id, userId: users[4].id } },
+    update: { role: "MEMBER", status: "ACTIVE", joinedAt: seededAt },
+    create: {
+      schoolId: demoClub.schoolId,
+      clubId: demoClub.id,
+      userId: users[4].id,
+      role: "MEMBER",
+      status: "ACTIVE",
+      joinedAt: seededAt,
+    },
+  });
+  await prisma.clubEvent.upsert({
+    where: { id: demoClub.eventId },
+    update: {
+      title: "Ngày hội robot học đường",
+      startsAt: new Date("2026-08-15T02:00:00.000Z"),
+      endsAt: new Date("2026-08-15T05:00:00.000Z"),
+      status: "APPROVED",
+      capacity: 30,
+      location: "Phòng STEM 204",
+    },
+    create: {
+      id: demoClub.eventId,
+      schoolId: demoClub.schoolId,
+      clubId: demoClub.id,
+      createdByUserId: demoClub.createdByUserId,
+      title: "Ngày hội robot học đường",
+      description: "Trình diễn sản phẩm và vòng thi robot thân thiện.",
+      startsAt: new Date("2026-08-15T02:00:00.000Z"),
+      endsAt: new Date("2026-08-15T05:00:00.000Z"),
+      status: "APPROVED",
+      capacity: 30,
+      location: "Phòng STEM 204",
+    },
+  });
 
   console.info(
     `Seeded ${schools.length} schools, ${users.length} demo users and ${mentorProfiles.length} mentor profiles. Shared password: ${demoPassword}`,

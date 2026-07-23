@@ -222,8 +222,10 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | `/dashboard/workflows/[templateId]` | Draft builder for fields, conditional/parallel approval steps, and immutable publish | Template create/update/publish |
 | `/dashboard/workflows/submissions` | Reviewer queue and authorized CSV export | Submission read/analytics |
 | `/dashboard/workflows/submissions/[submissionId]` | Form submission, status timeline, and approve/reject/request-changes | Submission scope |
+| `/dashboard/clubs-events` | Câu lạc bộ trong trường, sự kiện sắp tới và tạo CLB | Club read/create |
+| `/dashboard/clubs-events/[clubId]` | Thành viên, đơn tham gia, đề xuất/duyệt sự kiện và đăng ký | Club scope |
 
-The Phase 5–6 delivery slice deliberately leaves room/resource CRUD, reminder workers, delegation/escalation, attachments/comments, and advanced analytics for the next increment. Recurrence exceptions plus conditional and parallel routing are implemented and covered by unit/E2E tests.
+The Phase 5–6 delivery slice deliberately leaves room/resource CRUD, reminder workers, delegation/escalation, attachments/comments, and advanced analytics for follow-up increments. Phase 7 now includes a tenant-scoped club/event vertical slice: club lifecycle, applications, membership, event approval, capacity-aware registration and deterministic waitlist.
 
 ## Verification status
 

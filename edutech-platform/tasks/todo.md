@@ -511,6 +511,17 @@ Attachments/comments, delegation/escalation workers, and advanced analytics rema
 
 ## Phase 7 — Câu lạc bộ và sự kiện
 
+### Delivery slice completed
+
+- [x] Tenant-scoped club catalog and lifecycle (draft/active/archive-ready).
+- [x] Club applications and membership review.
+- [x] Event proposal, approval and conflict-safe range validation.
+- [x] Capacity-aware registration with deterministic waitlist position.
+- [x] Demo seed and responsive club/event UI.
+- [x] Phase 7 domain/E2E coverage for admin and student paths.
+
+Budget, safety-plan, post-event report and parent-consent UI remain follow-up tasks.
+
 ### Schema và domain
 
 - [ ] Thêm Club, ClubApplication, ClubMembership và ClubRole.

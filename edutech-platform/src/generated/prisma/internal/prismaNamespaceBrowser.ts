@@ -115,7 +115,20 @@ export const ModelName = {
   WorkflowSubmissionValue: 'WorkflowSubmissionValue',
   WorkflowSubmissionStep: 'WorkflowSubmissionStep',
   WorkflowDecision: 'WorkflowDecision',
-  WorkflowSubmissionHistory: 'WorkflowSubmissionHistory'
+  WorkflowSubmissionHistory: 'WorkflowSubmissionHistory',
+  Club: 'Club',
+  ClubApplication: 'ClubApplication',
+  ClubMembership: 'ClubMembership',
+  ClubAnnouncement: 'ClubAnnouncement',
+  ClubTask: 'ClubTask',
+  ClubEvent: 'ClubEvent',
+  ClubRegistration: 'ClubRegistration',
+  ClubConsent: 'ClubConsent',
+  ClubAttendance: 'ClubAttendance',
+  ClubBudget: 'ClubBudget',
+  ClubExpense: 'ClubExpense',
+  ClubSafetyPlan: 'ClubSafetyPlan',
+  ClubPostEventReport: 'ClubPostEventReport'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1102,6 +1115,200 @@ export const WorkflowSubmissionHistoryScalarFieldEnum = {
 } as const
 
 export type WorkflowSubmissionHistoryScalarFieldEnum = (typeof WorkflowSubmissionHistoryScalarFieldEnum)[keyof typeof WorkflowSubmissionHistoryScalarFieldEnum]
+
+
+export const ClubScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  createdByUserId: 'createdByUserId',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  status: 'status',
+  capacity: 'capacity',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubScalarFieldEnum = (typeof ClubScalarFieldEnum)[keyof typeof ClubScalarFieldEnum]
+
+
+export const ClubApplicationScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  clubId: 'clubId',
+  applicantUserId: 'applicantUserId',
+  status: 'status',
+  motivation: 'motivation',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubApplicationScalarFieldEnum = (typeof ClubApplicationScalarFieldEnum)[keyof typeof ClubApplicationScalarFieldEnum]
+
+
+export const ClubMembershipScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  clubId: 'clubId',
+  userId: 'userId',
+  role: 'role',
+  status: 'status',
+  joinedAt: 'joinedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubMembershipScalarFieldEnum = (typeof ClubMembershipScalarFieldEnum)[keyof typeof ClubMembershipScalarFieldEnum]
+
+
+export const ClubAnnouncementScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  clubId: 'clubId',
+  authorUserId: 'authorUserId',
+  title: 'title',
+  body: 'body',
+  publishedAt: 'publishedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type ClubAnnouncementScalarFieldEnum = (typeof ClubAnnouncementScalarFieldEnum)[keyof typeof ClubAnnouncementScalarFieldEnum]
+
+
+export const ClubTaskScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  clubId: 'clubId',
+  createdById: 'createdById',
+  assigneeUserId: 'assigneeUserId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  dueAt: 'dueAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubTaskScalarFieldEnum = (typeof ClubTaskScalarFieldEnum)[keyof typeof ClubTaskScalarFieldEnum]
+
+
+export const ClubEventScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  clubId: 'clubId',
+  createdByUserId: 'createdByUserId',
+  title: 'title',
+  description: 'description',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  location: 'location',
+  capacity: 'capacity',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubEventScalarFieldEnum = (typeof ClubEventScalarFieldEnum)[keyof typeof ClubEventScalarFieldEnum]
+
+
+export const ClubRegistrationScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  eventId: 'eventId',
+  userId: 'userId',
+  status: 'status',
+  position: 'position',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubRegistrationScalarFieldEnum = (typeof ClubRegistrationScalarFieldEnum)[keyof typeof ClubRegistrationScalarFieldEnum]
+
+
+export const ClubConsentScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  eventId: 'eventId',
+  studentId: 'studentId',
+  guardianId: 'guardianId',
+  status: 'status',
+  decidedAt: 'decidedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubConsentScalarFieldEnum = (typeof ClubConsentScalarFieldEnum)[keyof typeof ClubConsentScalarFieldEnum]
+
+
+export const ClubAttendanceScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  eventId: 'eventId',
+  userId: 'userId',
+  status: 'status',
+  checkedInAt: 'checkedInAt',
+  recordedByUserId: 'recordedByUserId',
+  note: 'note',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubAttendanceScalarFieldEnum = (typeof ClubAttendanceScalarFieldEnum)[keyof typeof ClubAttendanceScalarFieldEnum]
+
+
+export const ClubBudgetScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  clubId: 'clubId',
+  name: 'name',
+  amount: 'amount',
+  spent: 'spent',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubBudgetScalarFieldEnum = (typeof ClubBudgetScalarFieldEnum)[keyof typeof ClubBudgetScalarFieldEnum]
+
+
+export const ClubExpenseScalarFieldEnum = {
+  id: 'id',
+  budgetId: 'budgetId',
+  description: 'description',
+  amount: 'amount',
+  spentAt: 'spentAt',
+  createdAt: 'createdAt'
+} as const
+
+export type ClubExpenseScalarFieldEnum = (typeof ClubExpenseScalarFieldEnum)[keyof typeof ClubExpenseScalarFieldEnum]
+
+
+export const ClubSafetyPlanScalarFieldEnum = {
+  id: 'id',
+  eventId: 'eventId',
+  details: 'details',
+  approvedById: 'approvedById',
+  approvedAt: 'approvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubSafetyPlanScalarFieldEnum = (typeof ClubSafetyPlanScalarFieldEnum)[keyof typeof ClubSafetyPlanScalarFieldEnum]
+
+
+export const ClubPostEventReportScalarFieldEnum = {
+  id: 'id',
+  eventId: 'eventId',
+  submittedById: 'submittedById',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClubPostEventReportScalarFieldEnum = (typeof ClubPostEventReportScalarFieldEnum)[keyof typeof ClubPostEventReportScalarFieldEnum]
 
 
 export const SortOrder = {

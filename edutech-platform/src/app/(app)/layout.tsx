@@ -70,7 +70,6 @@ const navItems = [
     label: "CLB & Sự kiện",
     icon: "clubs",
     schoolPermission: permissions.clubRead,
-    available: false,
   },
 ] satisfies readonly (AppNavItem & {
   schoolPermission?: Permission;
