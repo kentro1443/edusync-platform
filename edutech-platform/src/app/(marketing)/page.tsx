@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { moduleIcons, ShieldIcon, ArrowRightIcon, CheckIcon, CalendarIcon, BookIcon, WorkflowIcon } from "@/components/ui/icons";
 import { modules, roleBenefits } from "@/lib/site-data";
-import { Reveal, TiltCard } from "@/components/marketing/Motion";
+import { Reveal, TiltCard, Parallax, Counter } from "@/components/marketing/Motion";
 
 export const metadata: Metadata = {
   description:
@@ -108,14 +108,14 @@ export default function HomePage() {
             </div>
             <dl className="mt-14 grid grid-cols-2 gap-8 sm:grid-cols-4">
               {[
-                ["8", "Vai trò được phân quyền rõ"],
-                ["2", "Trường demo cô lập dữ liệu"],
-                ["5", "Mô-đun vận hành hợp nhất"],
-                ["1", "Bảng điều khiển xuyên suốt"],
+                [8, "Vai trò được phân quyền rõ"],
+                [2, "Trường demo cô lập dữ liệu"],
+                [6, "Mô-đun vận hành hợp nhất"],
+                [1, "Bảng điều khiển xuyên suốt"],
               ].map(([stat, label]) => (
-                <div key={label}>
+                <div key={label as string}>
                   <dt className="text-3xl font-bold text-[var(--color-accent-400)]">
-                    {stat}
+                    <Counter value={stat as number} />
                   </dt>
                   <dd className="mt-1 text-sm text-[var(--color-brand-200)]">
                     {label}
@@ -124,7 +124,11 @@ export default function HomePage() {
               ))}
             </dl>
           </Reveal>
-          <Reveal delay={120}><ProductPreview /></Reveal>
+          <Reveal delay={120}>
+            <Parallax strength={20}>
+              <ProductPreview />
+            </Parallax>
+          </Reveal>
         </Container>
       </section>
 

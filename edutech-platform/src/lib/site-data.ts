@@ -20,15 +20,15 @@ export const modules: ModuleSummary[] = [
     key: "mentoring",
     href: "/modules/mentoring",
     name: "Cố vấn & Gia sư",
-    tagline: "Kết nối học sinh với anh chị khóa trên đã được xác minh",
+    tagline: "Chợ cố vấn ngang hàng: học sinh đăng nhu cầu, anh chị khóa trên đề xuất mức phí",
     description:
-      "Một thị trường cố vấn có kiểm soát: nhà trường duyệt mentor, phụ huynh xác nhận đồng ý, thanh toán và lịch sử buổi học minh bạch qua nền tảng.",
+      "Một thị trường cố vấn có kiểm soát: học sinh đăng yêu cầu, anh chị khóa trên đã xác minh (SAT, IELTS, du học…) gửi đề xuất kèm mức phí, hai bên chốt thỏa thuận minh bạch — nhà trường duyệt mentor, mọi bước được ghi nhận.",
     icon: "mentor",
     outcomes: [
-      "Mentor được xác minh thành tích và lý lịch bởi nhà trường",
-      "Phụ huynh xác nhận đồng ý trước mỗi lượt đặt lịch",
-      "Thanh toán, hoàn tiền và đối soát minh bạch trong hệ thống",
-      "Chat có kiểm duyệt, không liên hệ ngoài nền tảng",
+      "Mentor được xác minh thành tích (SAT/IELTS/du học) bởi nhà trường",
+      "Học sinh đăng nhu cầu, mentor đấu giá bằng đề xuất mức phí",
+      "Thỏa thuận và trạng thái thanh toán minh bạch trong hệ thống",
+      "Chứng nhận đóng góp cộng đồng từ Ban Liên chi Đoàn cho mentor",
     ],
   },
   {

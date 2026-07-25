@@ -12,7 +12,10 @@ export function ReportSavedView({
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    setSavedHref(window.localStorage.getItem(storageKey) ?? undefined);
+    const raf = requestAnimationFrame(() =>
+      setSavedHref(window.localStorage.getItem(storageKey) ?? undefined),
+    );
+    return () => cancelAnimationFrame(raf);
   }, [storageKey]);
 
   function save() {

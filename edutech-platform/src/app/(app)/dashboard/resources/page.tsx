@@ -37,9 +37,9 @@ export default async function ResourcesPage({
   return (
     <div className="space-y-8">
       <PageHeader
-        eyebrow="Thư viện tài nguyên"
-        title="Kho tài liệu của trường"
-        description="Tìm, đọc và chia sẻ tài nguyên học tập trong phạm vi được cấp quyền. File riêng tư luôn qua kiểm tra tenant và vai trò."
+        eyebrow="Kho đề thi & tài liệu ôn tập"
+        title="Kho học liệu chia sẻ của trường"
+        description="Đề thi giữa kỳ, cuối kỳ, đề các năm trước và tài liệu ôn tập do anh chị khóa trên đóng góp — tìm theo môn/khối, đọc và chia sẻ trong phạm vi được cấp quyền."
         actions={<div className="flex flex-wrap gap-2"><LinkButton href="/dashboard/resources/bookmarks" variant="outline" size="sm">Đã lưu</LinkButton>{canCreate ? <LinkButton href="/dashboard/resources/new" size="sm">Tạo tài nguyên</LinkButton> : null}</div>}
       />
 
