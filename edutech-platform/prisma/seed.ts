@@ -225,18 +225,28 @@ const mentorProfiles = [
     id: "60000000-0000-4000-8000-000000000001",
     schoolId: schools[0].id,
     userId: users[3].id,
-    headline: "Cố vấn phát triển năng lực và định hướng học tập",
-    bio: "Đồng hành cùng học sinh xây dựng mục tiêu, thói quen học tập và kế hoạch phát triển cá nhân.",
-    yearsExperience: 8,
+    headline: "Anh khóa trên · SAT 1520, chuyên Toán & Business Case",
+    bio: "Từng đạt SAT 1520 và giải Nhì Business Case cấp thành phố. Mình kèm em khóa dưới ôn SAT Math, luyện tư duy giải case và định hướng hồ sơ du học Mỹ.",
+    yearsExperience: 3,
+    gradeLabel: "Lớp 12",
+    achievements: ["SAT 1520", "Giải Nhì Business Case TP", "Học bổng trại hè STEM"],
+    hourlyRateMinVnd: 100_000,
+    hourlyRateMaxVnd: 200_000,
+    certifiedByUnion: true,
     verifiedByUserId: users[1].id,
   },
   {
     id: "60000000-0000-4000-8000-000000000002",
     schoolId: schools[1].id,
     userId: users[10].id,
-    headline: "Cố vấn tâm lý học đường và kỹ năng thích nghi",
-    bio: "Hỗ trợ học sinh nhận diện sức mạnh, vượt qua áp lực và kết nối nguồn lực phù hợp.",
-    yearsExperience: 6,
+    headline: "Chị khóa trên · IELTS 8.0, mentor viết luận du học",
+    bio: "IELTS 8.0 và đã apply thành công học bổng bậc đại học. Mình hỗ trợ em khóa dưới luyện IELTS Writing/Speaking và xây dựng bài luận cá nhân.",
+    yearsExperience: 2,
+    gradeLabel: "Lớp 12",
+    achievements: ["IELTS 8.0", "Học bổng đại học 50%", "Chủ nhiệm CLB Tiếng Anh"],
+    hourlyRateMinVnd: 120_000,
+    hourlyRateMaxVnd: 250_000,
+    certifiedByUnion: true,
     verifiedByUserId: users[8].id,
   },
 ] as const;
@@ -245,22 +255,36 @@ const mentorSpecialties = [
   {
     id: "61000000-0000-4000-8000-000000000001",
     schoolId: schools[0].id,
-    name: "Định hướng học tập",
-    slug: "dinh-huong-hoc-tap",
+    name: "Luyện thi SAT",
+    slug: "luyen-thi-sat",
     mentorProfileId: mentorProfiles[0].id,
   },
   {
     id: "61000000-0000-4000-8000-000000000002",
     schoolId: schools[0].id,
-    name: "Kỹ năng cá nhân",
-    slug: "ky-nang-ca-nhan",
+    name: "Business Case & Hackathon",
+    slug: "business-case-hackathon",
+    mentorProfileId: mentorProfiles[0].id,
+  },
+  {
+    id: "61000000-0000-4000-8000-000000000004",
+    schoolId: schools[0].id,
+    name: "Định hướng du học Mỹ",
+    slug: "dinh-huong-du-hoc-my",
     mentorProfileId: mentorProfiles[0].id,
   },
   {
     id: "61000000-0000-4000-8000-000000000003",
     schoolId: schools[1].id,
-    name: "Tâm lý học đường",
-    slug: "tam-ly-hoc-duong",
+    name: "Luyện thi IELTS",
+    slug: "luyen-thi-ielts",
+    mentorProfileId: mentorProfiles[1].id,
+  },
+  {
+    id: "61000000-0000-4000-8000-000000000005",
+    schoolId: schools[1].id,
+    name: "Viết luận du học",
+    slug: "viet-luan-du-hoc",
     mentorProfileId: mentorProfiles[1].id,
   },
 ] as const;
@@ -539,6 +563,13 @@ async function main() {
         headline: profile.headline,
         bio: profile.bio,
         yearsExperience: profile.yearsExperience,
+        gradeLabel: profile.gradeLabel,
+        achievements: [...profile.achievements],
+        hourlyRateMinVnd: profile.hourlyRateMinVnd,
+        hourlyRateMaxVnd: profile.hourlyRateMaxVnd,
+        certifiedByUnion: profile.certifiedByUnion,
+        certifiedAt: profile.certifiedByUnion ? seededAt : null,
+        acceptingRequests: true,
         verificationStatus: MentorVerificationStatus.VERIFIED,
         verifiedByUserId: profile.verifiedByUserId,
         verifiedAt: seededAt,
@@ -546,6 +577,8 @@ async function main() {
       },
       create: {
         ...profile,
+        achievements: [...profile.achievements],
+        certifiedAt: profile.certifiedByUnion ? seededAt : null,
         verificationStatus: MentorVerificationStatus.VERIFIED,
         verifiedAt: seededAt,
       },
@@ -717,6 +750,280 @@ async function main() {
       createdByUserId: users[3].id,
     },
   });
+
+  // Peer-mentor marketplace demo (school Minh Khai): one open request awaiting a
+  // decision, and one matched request with a settled engagement to show income.
+  const openRequestId = "66000000-0000-4000-8000-000000000001";
+  const openOfferId = "66000000-0000-4000-8000-000000000002";
+  const matchedRequestId = "66000000-0000-4000-8000-000000000003";
+  const matchedOfferId = "66000000-0000-4000-8000-000000000004";
+  const engagementId = "66000000-0000-4000-8000-000000000005";
+
+  await prisma.mentorRequest.upsert({
+    where: { id: openRequestId },
+    update: { status: "OPEN" },
+    create: {
+      id: openRequestId,
+      schoolId: schools[0].id,
+      studentUserId: users[4].id,
+      specialtyId: mentorSpecialties[0].id,
+      title: "Luyện SAT Math 5 buổi trước kỳ thi tháng 12",
+      description:
+        "Em đang ở mức SAT Math 680, muốn anh chị đã đạt 750+ kèm 5 buổi tập trung vào phần Đại số và Data Analysis.",
+      preferredSessions: 5,
+      budgetHintVnd: 150_000,
+    },
+  });
+  await prisma.mentorOffer.upsert({
+    where: { id: openOfferId },
+    update: { status: "PENDING" },
+    create: {
+      id: openOfferId,
+      schoolId: schools[0].id,
+      requestId: openRequestId,
+      mentorProfileId: mentorProfiles[0].id,
+      mentorUserId: users[3].id,
+      pricePerSessionVnd: 140_000,
+      message:
+        "Mình từng đạt SAT 1520, có lộ trình 5 buổi bám sát điểm yếu Đại số. Buổi đầu mình test nhanh để cá nhân hóa.",
+    },
+  });
+
+  await prisma.mentorRequest.upsert({
+    where: { id: matchedRequestId },
+    update: { status: "MATCHED" },
+    create: {
+      id: matchedRequestId,
+      schoolId: schools[0].id,
+      studentUserId: users[4].id,
+      specialtyId: mentorSpecialties[1].id,
+      title: "Hỗ trợ vòng loại Business Case toàn trường",
+      description:
+        "Nhóm em cần mentor từng đoạt giải kèm 3 buổi xây khung phân tích và luyện phản biện trước vòng loại.",
+      preferredSessions: 3,
+      budgetHintVnd: 180_000,
+    },
+  });
+  await prisma.mentorOffer.upsert({
+    where: { id: matchedOfferId },
+    update: { status: "ACCEPTED" },
+    create: {
+      id: matchedOfferId,
+      schoolId: schools[0].id,
+      requestId: matchedRequestId,
+      mentorProfileId: mentorProfiles[0].id,
+      mentorUserId: users[3].id,
+      pricePerSessionVnd: 180_000,
+      message: "Mình có bộ khung Business Case đã dùng để đạt giải Nhì, sẽ luyện cùng nhóm 3 buổi.",
+      status: "ACCEPTED",
+    },
+  });
+  await prisma.mentorEngagement.upsert({
+    where: { id: engagementId },
+    update: { paymentStatus: "PENDING" },
+    create: {
+      id: engagementId,
+      schoolId: schools[0].id,
+      requestId: matchedRequestId,
+      offerId: matchedOfferId,
+      mentorProfileId: mentorProfiles[0].id,
+      mentorUserId: users[3].id,
+      studentUserId: users[4].id,
+      agreedPricePerSessionVnd: 180_000,
+      sessions: 3,
+      totalAmountVnd: 540_000,
+      paymentStatus: "PENDING",
+    },
+  });
+
+  // No-code approval workflows — digitising the paper CLB/event/admin forms the
+  // PDF calls out (4 signatures, 1–2 weeks → 24–48h with real-time tracking).
+  type SeedField = {
+    key: string;
+    label: string;
+    type: "TEXT" | "TEXTAREA" | "NUMBER" | "DATE" | "SELECT" | "CHECKBOX" | "FILE";
+    required?: boolean;
+  };
+  type SeedStep = { name: string; role: SchoolRole };
+  type SeedTemplate = {
+    idBase: string;
+    slug: string;
+    name: string;
+    description: string;
+    fields: SeedField[];
+    steps: SeedStep[];
+  };
+
+  const workflowTemplates: SeedTemplate[] = [
+    {
+      idBase: "67000000-0000-4000-8000-00000000000",
+      slug: "don-to-chuc-su-kien-clb",
+      name: "Đơn xin tổ chức sự kiện CLB",
+      description:
+        "Số hóa quy trình 4 chữ ký: Chủ tịch CLB → GV phụ trách CLB → GV Ban Liên chi Đoàn → Phó Hiệu trưởng.",
+      fields: [
+        { key: "ten_su_kien", label: "Tên sự kiện", type: "TEXT", required: true },
+        { key: "ngay_to_chuc", label: "Ngày tổ chức", type: "DATE", required: true },
+        { key: "dia_diem", label: "Địa điểm", type: "TEXT", required: true },
+        { key: "so_nguoi", label: "Số người dự kiến", type: "NUMBER", required: true },
+        { key: "mo_ta", label: "Mô tả & mục tiêu", type: "TEXTAREA", required: true },
+      ],
+      steps: [
+        { name: "Chủ tịch CLB duyệt", role: SchoolRole.CLUB_LEADER },
+        { name: "Giáo viên phụ trách CLB", role: SchoolRole.TEACHER_STAFF },
+        { name: "GV phụ trách Ban Liên chi Đoàn", role: SchoolRole.APPROVER_REVIEWER },
+        { name: "Phó Hiệu trưởng phê duyệt", role: SchoolRole.SCHOOL_ADMIN },
+      ],
+    },
+    {
+      idBase: "67000000-0000-4000-8000-00000000010",
+      slug: "don-muon-co-so-vat-chat",
+      name: "Đơn xin mượn cơ sở vật chất",
+      description: "Đề nghị mượn phòng học, hội trường hoặc thiết bị, theo dõi trạng thái real-time.",
+      fields: [
+        { key: "khu_vuc", label: "Phòng/khu vực", type: "TEXT", required: true },
+        { key: "thoi_gian", label: "Thời gian sử dụng", type: "DATE", required: true },
+        { key: "muc_dich", label: "Mục đích sử dụng", type: "TEXTAREA", required: true },
+      ],
+      steps: [
+        { name: "Giáo viên phụ trách", role: SchoolRole.TEACHER_STAFF },
+        { name: "Phó Hiệu trưởng phê duyệt", role: SchoolRole.SCHOOL_ADMIN },
+      ],
+    },
+    {
+      idBase: "67000000-0000-4000-8000-00000000020",
+      slug: "don-xin-nghi-hoc",
+      name: "Đơn xin nghỉ học có lý do",
+      description: "Thủ tục hành chính cá nhân: nộp và theo dõi đơn xin nghỉ minh bạch.",
+      fields: [
+        { key: "ngay_nghi", label: "Ngày nghỉ", type: "DATE", required: true },
+        { key: "ly_do", label: "Lý do", type: "TEXTAREA", required: true },
+      ],
+      steps: [{ name: "Giáo viên chủ nhiệm duyệt", role: SchoolRole.TEACHER_STAFF }],
+    },
+    {
+      idBase: "67000000-0000-4000-8000-00000000030",
+      slug: "don-xin-doi-mon",
+      name: "Đơn xin đổi môn học",
+      description: "Đề nghị đổi môn tự chọn, có xác nhận của giáo viên và nhà trường.",
+      fields: [
+        { key: "mon_hien_tai", label: "Môn hiện tại", type: "TEXT", required: true },
+        { key: "mon_muon_doi", label: "Môn muốn đổi", type: "TEXT", required: true },
+        { key: "ly_do", label: "Lý do", type: "TEXTAREA", required: true },
+      ],
+      steps: [
+        { name: "Giáo viên phụ trách", role: SchoolRole.TEACHER_STAFF },
+        { name: "Nhà trường xác nhận", role: SchoolRole.SCHOOL_ADMIN },
+      ],
+    },
+  ];
+
+  const templateVersionIds: Record<string, { versionId: string; stepIds: string[] }> = {};
+  for (const template of workflowTemplates) {
+    const templateId = `${template.idBase}1`;
+    const versionId = `${template.idBase}2`;
+    await prisma.workflowTemplate.upsert({
+      where: { id: templateId },
+      update: { name: template.name, description: template.description, status: "PUBLISHED", currentVersionId: versionId },
+      create: {
+        id: templateId,
+        schoolId: schools[0].id,
+        createdById: users[1].id,
+        name: template.name,
+        slug: template.slug,
+        description: template.description,
+        status: "PUBLISHED",
+      },
+    });
+    await prisma.workflowVersion.upsert({
+      where: { id: versionId },
+      update: { publishedAt: seededAt },
+      create: { id: versionId, templateId, version: 1, publishedAt: seededAt },
+    });
+    for (const [index, field] of template.fields.entries()) {
+      await prisma.workflowFieldDefinition.upsert({
+        where: { versionId_key: { versionId, key: field.key } },
+        update: { label: field.label, type: field.type, position: index, required: field.required ?? false },
+        create: { versionId, key: field.key, label: field.label, type: field.type, position: index, required: field.required ?? false },
+      });
+    }
+    const stepIds: string[] = [];
+    for (const [index, step] of template.steps.entries()) {
+      const stepId = `${template.idBase}${(index + 3).toString(16)}`;
+      stepIds.push(stepId);
+      await prisma.workflowApprovalStep.upsert({
+        where: { versionId_position: { versionId, position: index } },
+        update: { name: step.name, role: step.role },
+        create: { id: stepId, versionId, name: step.name, position: index, role: step.role },
+      });
+    }
+    await prisma.workflowTemplate.update({ where: { id: templateId }, data: { currentVersionId: versionId } });
+    templateVersionIds[template.slug] = { versionId, stepIds };
+  }
+
+  // A partially-approved event submission so reviewers have a live item and the
+  // status timeline shows the "2 weeks → 48h" progress story.
+  const eventTemplate = workflowTemplates[0];
+  const eventTemplateId = `${eventTemplate.idBase}1`;
+  const eventVersion = templateVersionIds[eventTemplate.slug];
+  const submissionId = "68000000-0000-4000-8000-000000000001";
+  await prisma.workflowSubmission.upsert({
+    where: { id: submissionId },
+    update: { status: "IN_REVIEW" },
+    create: {
+      id: submissionId,
+      schoolId: schools[0].id,
+      templateId: eventTemplateId,
+      versionId: eventVersion.versionId,
+      ownerUserId: users[4].id,
+      status: "IN_REVIEW",
+      submittedAt: seededAt,
+    },
+  });
+  const submissionValues: Record<string, unknown> = {
+    ten_su_kien: "Ngày hội STEM & Robot học đường",
+    ngay_to_chuc: "2026-09-15",
+    dia_diem: "Hội trường A",
+    so_nguoi: 220,
+    mo_ta: "Trưng bày dự án robot, workshop lập trình và giao lưu với cựu học sinh.",
+  };
+  for (const [key, value] of Object.entries(submissionValues)) {
+    await prisma.workflowSubmissionValue.upsert({
+      where: { submissionId_fieldKey: { submissionId, fieldKey: key } },
+      update: { valueJson: value as never },
+      create: { submissionId, fieldKey: key, valueJson: value as never },
+    });
+  }
+  // steps 0,1 approved; step 2 active (awaiting Ban Liên chi Đoàn); step 3 pending.
+  const stepStates: Array<"APPROVED" | "ACTIVE" | "PENDING"> = ["APPROVED", "APPROVED", "ACTIVE", "PENDING"];
+  const stepActors = [users[6].id, users[2].id, users[7].id, users[1].id];
+  for (const [index, stepId] of eventVersion.stepIds.entries()) {
+    await prisma.workflowSubmissionStep.upsert({
+      where: { submissionId_stepId: { submissionId, stepId } },
+      update: { status: stepStates[index] },
+      create: {
+        submissionId,
+        stepId,
+        status: stepStates[index],
+        assignedUserId: stepStates[index] === "ACTIVE" ? stepActors[index] : null,
+        actedAt: stepStates[index] === "APPROVED" ? seededAt : null,
+      },
+    });
+    if (stepStates[index] === "APPROVED") {
+      await prisma.workflowDecision.upsert({
+        where: { id: `68000000-0000-4000-8000-0000000001${(index + 1).toString(16)}0` },
+        update: {},
+        create: {
+          id: `68000000-0000-4000-8000-0000000001${(index + 1).toString(16)}0`,
+          submissionId,
+          stepId,
+          actorUserId: stepActors[index],
+          type: "APPROVE",
+          reason: "Đồng ý, kế hoạch rõ ràng.",
+        },
+      });
+    }
+  }
 
   for (const category of resourceCategories) {
     await prisma.resourceCategory.upsert({

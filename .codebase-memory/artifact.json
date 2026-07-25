@@ -1,11 +1,11 @@
 {
     "schema_version": 2,
-    "commit": "b9efbd0e60328f6592ba7a37b3a8ec84cc93a748",
-    "indexed_at": "2026-07-25T14:48:15Z",
+    "commit": "cc1a7ddf930d733cb91dda00dac80f4fd637fb16",
+    "indexed_at": "2026-07-25T22:24:49Z",
     "project": "Users-huan-EduTechTest",
-    "nodes": 16020,
-    "edges": 24874,
-    "original_size": 24444928,
-    "compressed_size": 3091905,
+    "nodes": 16057,
+    "edges": 25154,
+    "original_size": 24510464,
+    "compressed_size": 3121618,
     "compression_level": 3
 }

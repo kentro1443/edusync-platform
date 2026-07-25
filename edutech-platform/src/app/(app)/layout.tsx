@@ -44,6 +44,12 @@ const navItems = [
     schoolPermission: permissions.mentorDirectoryRead,
   },
   {
+    href: "/dashboard/mentoring/marketplace",
+    label: "Chợ cố vấn",
+    icon: "mentoring",
+    schoolPermission: permissions.marketplaceRead,
+  },
+  {
     href: "/dashboard/resources",
     label: "Kho tài liệu",
     icon: "resources",
