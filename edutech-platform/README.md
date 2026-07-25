@@ -1,6 +1,6 @@
 # EduTech Platform
 
-EduTech is a multi-tenant school operations platform built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. Phases 1–4 provide the foundation, identity, mentoring, and resource library. Phase 5 adds tenant-scoped school calendars and booking; Phase 6 adds immutable no-code workflow templates, submissions, and approvals.
+EduTech is a multi-tenant school operations platform built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. It combines identity and school administration, mentoring, private learning resources, scheduling, no-code workflows, clubs/events, collaboration, notifications, reporting, search, and audit in one permission-aware product.
 
 ## Prerequisites
 
@@ -59,9 +59,7 @@ The seed creates two schools (`Minh Khai` and `Nguyễn Du`) and every foundatio
 EduTech-Demo-2026!
 ```
 
-Seeded users carry the `mustChangePassword` flag. On first login, enter the shared temporary password again at `/doi-mat-khau`, choose a new password with at least 12 characters, and continue to the school selector or dashboard.
-
-Re-running `npm run db:seed` intentionally restores this shared password for every listed demo user, resets their first-login state, and revokes their existing sessions and password-reset tokens. Do not re-seed while preserving an active demo session.
+Demo users enter the dashboard directly; the seed does not force a first-login password change. Re-running `npm run db:seed` restores the shared password, clears the first-login flag, and revokes existing sessions and password-reset tokens. Do not re-seed while preserving an active demo session.
 
 | Scope | Role | Email |
 | --- | --- | --- |
@@ -94,6 +92,9 @@ These credentials are development fixtures only and must not be used in producti
 | `npm run db:migrate:deploy` | Apply committed migrations non-interactively |
 | `npm run db:seed` | Restore deterministic demo schools, users, credentials, roles, and parent links |
 | `npm run db:studio` | Open Prisma Studio |
+| `npm run outbox:process` | Process one durable notification/email outbox batch |
+| `npm run maintenance:cleanup -- --dry-run` | Preview retention cleanup counts |
+| `npm run maintenance:cleanup` | Apply the documented retention policy |
 
 Prisma configuration intentionally requires `DATABASE_URL`. Run database commands after creating `.env`, or provide the variable explicitly to the process.
 
@@ -211,7 +212,7 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | `/dashboard/resources/bookmarks` | Personal bookmarks and collections | Resource read |
 | `/dashboard/resources/analytics` | Published-resource usage counters | Resource analytics |
 
-## Phase 5–6 routes
+## Phase 5–9 routes
 
 | Route | Purpose | Required scope |
 | --- | --- | --- |
@@ -226,12 +227,24 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | `/dashboard/workflows/submissions/[submissionId]/attachments/[fileLinkId]` | Authorized inline PDF preview or private attachment download | Submission scope |
 | `/dashboard/clubs-events` | Câu lạc bộ trong trường, sự kiện sắp tới và tạo CLB | Club read/create |
 | `/dashboard/clubs-events/[clubId]` | Thành viên, đơn tham gia, đề xuất/duyệt sự kiện và đăng ký | Club scope |
+| `/dashboard/messages` | Hội thoại theo tenant, mention, tệp đính kèm và cập nhật SSE | Conversation participant |
+| `/dashboard/notifications` | Lịch sử thông báo, bộ lọc và tùy chọn nhận tin | Authenticated school member |
+| `/dashboard/search` | Tìm kiếm hợp nhất, khóa theo tenant và quyền | Authenticated school member |
+| `/dashboard/reports` | Báo cáo vận hành, date range, table alternative và CSV | School report permission |
+| `/dashboard/audit` | Bộ lọc và CSV nhật ký kiểm toán | School audit permission |
+| `/api/health` | Liveness không phụ thuộc database | Public |
+| `/api/readiness` | Readiness có kiểm tra database | Public |
 
-The Phase 5 delivery now includes room/resource CRUD, capacity validation, blocked periods, and cross-calendar resource conflict locking. Reminder workers and real-time invalidation remain follow-up work. Phase 6 now includes tenant-scoped comments, secure attachments with inline PDF preview, processing history, role-aware submission visibility, and audited reviewer delegation; deadline/escalation and advanced analytics remain follow-up increments. Phase 7 includes a tenant-scoped club/event vertical slice: club lifecycle, applications, membership, event approval, capacity-aware registration and deterministic waitlist.
+## Demo walkthrough
 
-## Verification status
-
-On July 23, 2026, Phase 1–4 passed their complete verification gates. Phase 4 adds tenant-scoped resource discovery, moderation lifecycle, immutable versions, local secure file upload/download, comments, reports, bookmarks, collections, analytics counters and rollback-as-new-version. Demo seed includes one published and one private resource for Trường Minh Khai.
+- `platform@edutech.local`: tenant directory and platform health counts.
+- `admin.minhkhai@edutech.local`: members/settings, all school modules, reports and audit.
+- `mentor.minhkhai@edutech.local`: mentor directory, availability, appointments and privacy-projected cases.
+- `approver.minhkhai@edutech.local`: workflow review queue and decisions.
+- `club.minhkhai@edutech.local`: club roster and event operations.
+- `student.minhkhai@edutech.local`: published resources, own bookings/submissions and visible clubs.
+- `parent.minhkhai@edutech.local`: linked-student scope only.
+- `admin.multischool@edutech.local`: validates explicit school switching and tenant isolation.
 
 ### Upload and PDF preview
 
@@ -249,5 +262,7 @@ Draft and private resources stay visible only to their author and moderation rol
 - [`docs/architecture.md`](docs/architecture.md)
 - [`docs/data-model.md`](docs/data-model.md)
 - [`docs/permissions-matrix.md`](docs/permissions-matrix.md)
+- [`docs/operations-runbook.md`](docs/operations-runbook.md)
+- [`docs/release-checklist.md`](docs/release-checklist.md)
 - [`docs/decisions/ADR-001-database-backed-identity-and-tenant-context.md`](docs/decisions/ADR-001-database-backed-identity-and-tenant-context.md)
 - [`tasks/todo.md`](tasks/todo.md)

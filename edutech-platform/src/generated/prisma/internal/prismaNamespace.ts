@@ -430,6 +430,9 @@ export const ModelName = {
   MentorSpecialty: 'MentorSpecialty',
   MentorProfileSpecialty: 'MentorProfileSpecialty',
   MentorStudentAssignment: 'MentorStudentAssignment',
+  MentorRequest: 'MentorRequest',
+  MentorOffer: 'MentorOffer',
+  MentorEngagement: 'MentorEngagement',
   MentorAvailabilityRule: 'MentorAvailabilityRule',
   MentorAvailabilityException: 'MentorAvailabilityException',
   AppointmentType: 'AppointmentType',
@@ -499,7 +502,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "demoRequest" | "platformRoleAssignment" | "school" | "schoolMembership" | "schoolRoleAssignment" | "parentStudentLink" | "invitation" | "session" | "passwordResetToken" | "authRateLimit" | "storedFile" | "fileVersion" | "fileLink" | "resource" | "resourceVersion" | "resourceCategory" | "resourceTag" | "resourceTransition" | "resourceComment" | "resourceReport" | "resourceBookmark" | "resourceCollection" | "resourceCollectionItem" | "resourceAnalyticsEvent" | "resourceAnalyticsCounter" | "auditEvent" | "domainOutboxEvent" | "emailOutbox" | "mentorProfile" | "mentorSpecialty" | "mentorProfileSpecialty" | "mentorStudentAssignment" | "mentorAvailabilityRule" | "mentorAvailabilityException" | "appointmentType" | "appointment" | "appointmentTransition" | "appointmentWaitlistEntry" | "appointmentAttendance" | "mentoringCase" | "mentoringGoal" | "mentoringSessionOutcome" | "mentoringTask" | "mentoringReferral" | "mentoringNote" | "calendarSource" | "calendar" | "recurrenceRule" | "recurrenceException" | "bookableResource" | "blockedPeriod" | "calendarEvent" | "calendarBooking" | "calendarAttendance" | "calendarReminder" | "workflowTemplate" | "workflowVersion" | "workflowFieldDefinition" | "workflowApprovalStep" | "workflowSubmission" | "workflowSubmissionValue" | "workflowSubmissionStep" | "workflowDelegation" | "workflowDecision" | "workflowSubmissionHistory" | "workflowSubmissionComment" | "club" | "clubApplication" | "clubMembership" | "clubAnnouncement" | "clubTask" | "clubEvent" | "clubRegistration" | "clubConsent" | "clubAttendance" | "clubBudget" | "clubExpense" | "clubSafetyPlan" | "clubPostEventReport" | "conversation" | "conversationParticipant" | "message" | "messageMention" | "notification" | "notificationPreference" | "activityFeedProjection"
+    modelProps: "user" | "demoRequest" | "platformRoleAssignment" | "school" | "schoolMembership" | "schoolRoleAssignment" | "parentStudentLink" | "invitation" | "session" | "passwordResetToken" | "authRateLimit" | "storedFile" | "fileVersion" | "fileLink" | "resource" | "resourceVersion" | "resourceCategory" | "resourceTag" | "resourceTransition" | "resourceComment" | "resourceReport" | "resourceBookmark" | "resourceCollection" | "resourceCollectionItem" | "resourceAnalyticsEvent" | "resourceAnalyticsCounter" | "auditEvent" | "domainOutboxEvent" | "emailOutbox" | "mentorProfile" | "mentorSpecialty" | "mentorProfileSpecialty" | "mentorStudentAssignment" | "mentorRequest" | "mentorOffer" | "mentorEngagement" | "mentorAvailabilityRule" | "mentorAvailabilityException" | "appointmentType" | "appointment" | "appointmentTransition" | "appointmentWaitlistEntry" | "appointmentAttendance" | "mentoringCase" | "mentoringGoal" | "mentoringSessionOutcome" | "mentoringTask" | "mentoringReferral" | "mentoringNote" | "calendarSource" | "calendar" | "recurrenceRule" | "recurrenceException" | "bookableResource" | "blockedPeriod" | "calendarEvent" | "calendarBooking" | "calendarAttendance" | "calendarReminder" | "workflowTemplate" | "workflowVersion" | "workflowFieldDefinition" | "workflowApprovalStep" | "workflowSubmission" | "workflowSubmissionValue" | "workflowSubmissionStep" | "workflowDelegation" | "workflowDecision" | "workflowSubmissionHistory" | "workflowSubmissionComment" | "club" | "clubApplication" | "clubMembership" | "clubAnnouncement" | "clubTask" | "clubEvent" | "clubRegistration" | "clubConsent" | "clubAttendance" | "clubBudget" | "clubExpense" | "clubSafetyPlan" | "clubPostEventReport" | "conversation" | "conversationParticipant" | "message" | "messageMention" | "notification" | "notificationPreference" | "activityFeedProjection"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2942,6 +2945,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.MentorStudentAssignmentCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.MentorStudentAssignmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    MentorRequest: {
+      payload: Prisma.$MentorRequestPayload<ExtArgs>
+      fields: Prisma.MentorRequestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.MentorRequestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.MentorRequestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload>
+        }
+        findFirst: {
+          args: Prisma.MentorRequestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.MentorRequestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload>
+        }
+        findMany: {
+          args: Prisma.MentorRequestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload>[]
+        }
+        create: {
+          args: Prisma.MentorRequestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload>
+        }
+        createMany: {
+          args: Prisma.MentorRequestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.MentorRequestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload>[]
+        }
+        delete: {
+          args: Prisma.MentorRequestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload>
+        }
+        update: {
+          args: Prisma.MentorRequestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload>
+        }
+        deleteMany: {
+          args: Prisma.MentorRequestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.MentorRequestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.MentorRequestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload>[]
+        }
+        upsert: {
+          args: Prisma.MentorRequestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorRequestPayload>
+        }
+        aggregate: {
+          args: Prisma.MentorRequestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateMentorRequest>
+        }
+        groupBy: {
+          args: Prisma.MentorRequestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MentorRequestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.MentorRequestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MentorRequestCountAggregateOutputType> | number
+        }
+      }
+    }
+    MentorOffer: {
+      payload: Prisma.$MentorOfferPayload<ExtArgs>
+      fields: Prisma.MentorOfferFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.MentorOfferFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.MentorOfferFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload>
+        }
+        findFirst: {
+          args: Prisma.MentorOfferFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.MentorOfferFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload>
+        }
+        findMany: {
+          args: Prisma.MentorOfferFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload>[]
+        }
+        create: {
+          args: Prisma.MentorOfferCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload>
+        }
+        createMany: {
+          args: Prisma.MentorOfferCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.MentorOfferCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload>[]
+        }
+        delete: {
+          args: Prisma.MentorOfferDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload>
+        }
+        update: {
+          args: Prisma.MentorOfferUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload>
+        }
+        deleteMany: {
+          args: Prisma.MentorOfferDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.MentorOfferUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.MentorOfferUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload>[]
+        }
+        upsert: {
+          args: Prisma.MentorOfferUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorOfferPayload>
+        }
+        aggregate: {
+          args: Prisma.MentorOfferAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateMentorOffer>
+        }
+        groupBy: {
+          args: Prisma.MentorOfferGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MentorOfferGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.MentorOfferCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MentorOfferCountAggregateOutputType> | number
+        }
+      }
+    }
+    MentorEngagement: {
+      payload: Prisma.$MentorEngagementPayload<ExtArgs>
+      fields: Prisma.MentorEngagementFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.MentorEngagementFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.MentorEngagementFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload>
+        }
+        findFirst: {
+          args: Prisma.MentorEngagementFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.MentorEngagementFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload>
+        }
+        findMany: {
+          args: Prisma.MentorEngagementFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload>[]
+        }
+        create: {
+          args: Prisma.MentorEngagementCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload>
+        }
+        createMany: {
+          args: Prisma.MentorEngagementCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.MentorEngagementCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload>[]
+        }
+        delete: {
+          args: Prisma.MentorEngagementDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload>
+        }
+        update: {
+          args: Prisma.MentorEngagementUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload>
+        }
+        deleteMany: {
+          args: Prisma.MentorEngagementDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.MentorEngagementUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.MentorEngagementUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload>[]
+        }
+        upsert: {
+          args: Prisma.MentorEngagementUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MentorEngagementPayload>
+        }
+        aggregate: {
+          args: Prisma.MentorEngagementAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateMentorEngagement>
+        }
+        groupBy: {
+          args: Prisma.MentorEngagementGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MentorEngagementGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.MentorEngagementCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MentorEngagementCountAggregateOutputType> | number
         }
       }
     }
@@ -7421,6 +7646,13 @@ export const MentorProfileScalarFieldEnum = {
   headline: 'headline',
   bio: 'bio',
   yearsExperience: 'yearsExperience',
+  gradeLabel: 'gradeLabel',
+  achievements: 'achievements',
+  hourlyRateMinVnd: 'hourlyRateMinVnd',
+  hourlyRateMaxVnd: 'hourlyRateMaxVnd',
+  certifiedByUnion: 'certifiedByUnion',
+  certifiedAt: 'certifiedAt',
+  acceptingRequests: 'acceptingRequests',
   verificationStatus: 'verificationStatus',
   verifiedByUserId: 'verifiedByUserId',
   verifiedAt: 'verifiedAt',
@@ -7465,6 +7697,58 @@ export const MentorStudentAssignmentScalarFieldEnum = {
 } as const
 
 export type MentorStudentAssignmentScalarFieldEnum = (typeof MentorStudentAssignmentScalarFieldEnum)[keyof typeof MentorStudentAssignmentScalarFieldEnum]
+
+
+export const MentorRequestScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  studentUserId: 'studentUserId',
+  specialtyId: 'specialtyId',
+  title: 'title',
+  description: 'description',
+  preferredSessions: 'preferredSessions',
+  budgetHintVnd: 'budgetHintVnd',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentorRequestScalarFieldEnum = (typeof MentorRequestScalarFieldEnum)[keyof typeof MentorRequestScalarFieldEnum]
+
+
+export const MentorOfferScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  requestId: 'requestId',
+  mentorProfileId: 'mentorProfileId',
+  mentorUserId: 'mentorUserId',
+  pricePerSessionVnd: 'pricePerSessionVnd',
+  message: 'message',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentorOfferScalarFieldEnum = (typeof MentorOfferScalarFieldEnum)[keyof typeof MentorOfferScalarFieldEnum]
+
+
+export const MentorEngagementScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  requestId: 'requestId',
+  offerId: 'offerId',
+  mentorProfileId: 'mentorProfileId',
+  mentorUserId: 'mentorUserId',
+  studentUserId: 'studentUserId',
+  agreedPricePerSessionVnd: 'agreedPricePerSessionVnd',
+  sessions: 'sessions',
+  totalAmountVnd: 'totalAmountVnd',
+  paymentStatus: 'paymentStatus',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentorEngagementScalarFieldEnum = (typeof MentorEngagementScalarFieldEnum)[keyof typeof MentorEngagementScalarFieldEnum]
 
 
 export const MentorAvailabilityRuleScalarFieldEnum = {
@@ -8609,6 +8893,48 @@ export type ListEnumMentorAssignmentStatusFieldRefInput<$PrismaModel> = FieldRef
 
 
 /**
+ * Reference to a field of type 'MentorRequestStatus'
+ */
+export type EnumMentorRequestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MentorRequestStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'MentorRequestStatus[]'
+ */
+export type ListEnumMentorRequestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MentorRequestStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'MentorOfferStatus'
+ */
+export type EnumMentorOfferStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MentorOfferStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'MentorOfferStatus[]'
+ */
+export type ListEnumMentorOfferStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MentorOfferStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'MentorPaymentStatus'
+ */
+export type EnumMentorPaymentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MentorPaymentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'MentorPaymentStatus[]'
+ */
+export type ListEnumMentorPaymentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MentorPaymentStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'AvailabilityExceptionKind'
  */
 export type EnumAvailabilityExceptionKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AvailabilityExceptionKind'>
@@ -9197,6 +9523,9 @@ export type GlobalOmitConfig = {
   mentorSpecialty?: Prisma.MentorSpecialtyOmit
   mentorProfileSpecialty?: Prisma.MentorProfileSpecialtyOmit
   mentorStudentAssignment?: Prisma.MentorStudentAssignmentOmit
+  mentorRequest?: Prisma.MentorRequestOmit
+  mentorOffer?: Prisma.MentorOfferOmit
+  mentorEngagement?: Prisma.MentorEngagementOmit
   mentorAvailabilityRule?: Prisma.MentorAvailabilityRuleOmit
   mentorAvailabilityException?: Prisma.MentorAvailabilityExceptionOmit
   appointmentType?: Prisma.AppointmentTypeOmit

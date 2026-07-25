@@ -314,3 +314,16 @@ The modular monolith may later extract:
 - Reporting/analytics.
 
 Extraction is deferred until load or operational evidence requires it. Stable interfaces for storage, notification delivery, search, and event publication are created from the beginning.
+
+## Implemented Reporting and Operations Boundary
+
+Phase 9 keeps reporting as read-side services inside the modular monolith:
+
+- `reporting-service` executes aggregate-only, tenant-scoped queries; mentoring data never returns note bodies.
+- `search-service` applies both tenant and capability filters before returning resources, calendars, clubs, workflows, conversations, or members.
+- CSV exports neutralize spreadsheet formulas, use UTF-8 BOM for Vietnamese, disable link prefetch, and append an audit record.
+- Liveness is process-only at `/api/health`; readiness verifies PostgreSQL at `/api/readiness`.
+- `cleanup-service` applies explicit retention windows. It supports dry-run and emits a structured completion log.
+- HTTP security headers are centralized in `next.config.ts`; mutation abuse controls are centralized in `proxy.ts`.
+
+The local file adapter stores bytes outside the public tree under opaque keys. The local email adapter stores rendered deliveries under an ignored directory. Server-sent events are hints; durable database queries remain authoritative.

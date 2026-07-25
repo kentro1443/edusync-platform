@@ -10,7 +10,7 @@ export function buildDemoUserUpsertData(
 ) {
   const credentialState = {
     passwordHash,
-    mustChangePassword: true,
+    mustChangePassword: false,
     status: "ACTIVE" as const,
   };
 

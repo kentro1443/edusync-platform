@@ -18,6 +18,7 @@ import {
   validateUploadMetadata,
 } from "@/lib/resources/resource-domain";
 import { LocalFileStorage } from "@/lib/storage/file-storage";
+import { assertSchoolStorageQuota } from "@/lib/storage/storage-quota";
 
 export class CollaborationAuthorizationError extends Error {}
 export class CollaborationNotFoundError extends Error {}
@@ -419,6 +420,11 @@ export async function addMessageAttachment(
   });
   try {
     return await db.$transaction(async (transaction) => {
+      await assertSchoolStorageQuota(
+        transaction,
+        actor.schoolId,
+        BigInt(stored.sizeBytes),
+      );
       const file = await transaction.storedFile.create({
         data: {
           schoolId: actor.schoolId,

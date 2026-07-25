@@ -1,0 +1,92 @@
+- generic [active] [ref=f2e1]:
+  - link "Chuyển đến nội dung chính" [ref=f2e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=f2e3]:
+    - complementary [ref=f2e4]:
+      - link "EduTech - Trang chủ" [ref=f2e6] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=f2e7]: ET
+        - generic [ref=f2e10]:
+          - generic [ref=f2e11]: EduTech
+          - generic [ref=f2e12]: Trường học kết nối
+      - generic [ref=f2e13]:
+        - paragraph [ref=f2e14]: Không gian làm việc
+        - navigation "Điều hướng ứng dụng" [ref=f2e15]:
+          - link "Tổng quan" [ref=f2e16] [cursor=pointer]:
+            - /url: /dashboard
+          - link "Thành viên" [ref=f2e21] [cursor=pointer]:
+            - /url: /dashboard/admin/members
+          - link "Cài đặt trường" [ref=f2e27] [cursor=pointer]:
+            - /url: /dashboard/admin/settings
+          - link "Hồ sơ cá nhân" [ref=f2e32] [cursor=pointer]:
+            - /url: /dashboard/profile
+          - link "Bảo mật" [ref=f2e37] [cursor=pointer]:
+            - /url: /dashboard/security
+          - link "Cố vấn & Gia sư" [ref=f2e42] [cursor=pointer]:
+            - /url: /dashboard/mentoring
+          - link "Kho tài liệu" [ref=f2e48] [cursor=pointer]:
+            - /url: /dashboard/resources
+          - link "Lịch trường" [ref=f2e54] [cursor=pointer]:
+            - /url: /dashboard/calendar
+          - link "Quy trình" [ref=f2e60] [cursor=pointer]:
+            - /url: /dashboard/workflows
+          - link "Lịch hẹn & Đơn từ" [ref=f2e65] [cursor=pointer]:
+            - /url: /dashboard/appointments
+          - link "CLB & Sự kiện" [ref=f2e71] [cursor=pointer]:
+            - /url: /dashboard/clubs-events
+          - link "Tin nhắn" [ref=f2e76] [cursor=pointer]:
+            - /url: /dashboard/messages
+          - link "Thông báo" [ref=f2e81] [cursor=pointer]:
+            - /url: /dashboard/notifications
+          - link "Báo cáo" [ref=f2e85] [cursor=pointer]:
+            - /url: /dashboard/reports
+          - link "Nhật ký kiểm toán" [ref=f2e89] [cursor=pointer]:
+            - /url: /dashboard/audit
+      - generic [ref=f2e94]:
+        - button "Thu gọn thanh bên" [expanded] [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]:
+          - generic [ref=f2e100]: MA
+          - generic [ref=f2e101]:
+            - paragraph [ref=f2e102]: Nguyễn Minh Anh
+            - paragraph [ref=f2e103]: Quản trị trường
+    - generic [ref=f2e104]:
+      - banner [ref=f2e105]:
+        - generic [ref=f2e106]:
+          - generic [ref=f2e107]:
+            - paragraph [ref=f2e108]: Trường Trung học Minh Khai
+            - navigation "Đường dẫn trang" [ref=f2e109]:
+              - list [ref=f2e110]:
+                - listitem [ref=f2e111]:
+                  - link "Tổng quan" [ref=f2e112] [cursor=pointer]:
+                    - /url: /dashboard
+                - listitem [ref=f2e113]: /
+                - listitem [ref=f2e114]:
+                  - link "Cố vấn & Gia sư" [ref=f2e115] [cursor=pointer]:
+                    - /url: /dashboard/mentoring
+                - listitem [ref=f2e116]: /
+                - listitem [ref=f2e117]: Chi tiết
+          - button "Tìm kiếm trong ứng dụng" [ref=f2e118] [cursor=pointer]:
+            - generic [ref=f2e122]: Tìm kiếm
+            - generic [ref=f2e123]: ⌘ K
+          - link "Mời thành viên" [ref=f2e124] [cursor=pointer]:
+            - /url: /dashboard/admin/members?action=invite
+          - group [ref=f2e127]:
+            - generic "Mở thông báo, 0 chưa đọc" [ref=f2e128] [cursor=pointer]
+          - group [ref=f2e132]:
+            - generic "Mở menu tài khoản MA" [ref=f2e133] [cursor=pointer]:
+              - generic [ref=f2e134]: Mở menu tài khoản
+              - text: MA
+      - main [ref=f2e135]:
+        - generic "Đang tải trang" [ref=f2e137]:
+          - generic [ref=f2e138]:
+            - status "Đang tải nội dung" [ref=f2e139]
+            - status "Đang tải nội dung" [ref=f2e140]
+            - status "Đang tải nội dung" [ref=f2e141]
+          - generic [ref=f2e142]:
+            - status "Đang tải nội dung" [ref=f2e143]
+            - status "Đang tải nội dung" [ref=f2e144]
+            - status "Đang tải nội dung" [ref=f2e145]
+            - status "Đang tải nội dung" [ref=f2e146]
+          - status "Đang tải nội dung" [ref=f2e147]
+  - button "Open Next.js Dev Tools" [ref=f2e153] [cursor=pointer]
+  - alert [ref=f2e157]

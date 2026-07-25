@@ -207,6 +207,21 @@ export type MentorProfileSpecialty = Prisma.MentorProfileSpecialtyModel
  */
 export type MentorStudentAssignment = Prisma.MentorStudentAssignmentModel
 /**
+ * Model MentorRequest
+ * 
+ */
+export type MentorRequest = Prisma.MentorRequestModel
+/**
+ * Model MentorOffer
+ * 
+ */
+export type MentorOffer = Prisma.MentorOfferModel
+/**
+ * Model MentorEngagement
+ * 
+ */
+export type MentorEngagement = Prisma.MentorEngagementModel
+/**
  * Model MentorAvailabilityRule
  * 
  */

@@ -20,7 +20,8 @@
     "db:migrate:deploy": "prisma migrate deploy",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio",
-    "outbox:process": "NODE_OPTIONS=--conditions=react-server tsx scripts/process-outbox.ts"
+    "outbox:process": "NODE_OPTIONS=--conditions=react-server tsx scripts/process-outbox.ts",
+    "maintenance:cleanup": "NODE_OPTIONS=--conditions=react-server tsx scripts/cleanup-retention.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.9.0",

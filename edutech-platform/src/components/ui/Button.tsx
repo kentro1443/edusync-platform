@@ -47,6 +47,7 @@ interface ButtonAsLinkProps extends BaseProps {
   href: string;
   target?: string;
   rel?: string;
+  prefetch?: boolean;
   children?: React.ReactNode;
 }
 
@@ -129,10 +130,30 @@ export function LinkButton({
   children,
   ...props
 }: ButtonAsLinkProps) {
+  const classNames = cn(
+    baseStyles,
+    variantStyles[variant],
+    sizeStyles[size],
+    className,
+  );
+
+  if (props.prefetch === false) {
+    return (
+      <a
+        href={href}
+        className={classNames}
+        target={props.target}
+        rel={props.rel}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link
       href={href}
-      className={cn(baseStyles, variantStyles[variant], sizeStyles[size], className)}
+      className={classNames}
       {...props}
     >
       {children}

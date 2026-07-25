@@ -15,6 +15,11 @@ import {
 import { activeSchoolCookieName } from "@/lib/auth/cookies";
 import { getCurrentSession } from "@/lib/auth/current-session";
 import { getSchoolPermissions } from "@/lib/auth/permissions";
+import { selectSchoolAuthorizationContext } from "@/lib/auth/session";
+import {
+  getPlatformDashboard,
+  getSchoolDashboard,
+} from "@/lib/reporting/dashboard-service";
 
 export default async function DashboardPage() {
   const session = await getCurrentSession();
@@ -35,6 +40,11 @@ export default async function DashboardPage() {
     ? getSchoolPermissions(activeSchool.roles).length
     : 0;
   const primaryRole = getPrimaryRoleLabel(roles);
+  const actor = activeSchool
+    ? selectSchoolAuthorizationContext(session, activeSchool.schoolSlug)
+    : null;
+  const schoolDashboard = actor ? await getSchoolDashboard(actor) : null;
+  const platformDashboard = !activeSchool ? await getPlatformDashboard() : null;
 
   return (
     <div className="space-y-8">
@@ -99,16 +109,75 @@ export default async function DashboardPage() {
 
       <div className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
         <Card>
-          <h2 className="text-lg font-bold text-[var(--color-ink-900)]">Mô-đun của bạn</h2>
-          <p className="mt-1 text-sm leading-6 text-[var(--color-ink-500)]">Các mô-đun nghiệp vụ sẽ xuất hiện khi được nhà trường kích hoạt. Không có liên kết giả hoặc dữ liệu minh họa trong không gian vận hành.</p>
-          <div className="mt-5 rounded-[var(--radius-md)] border border-dashed border-[var(--color-ink-300)] bg-[var(--color-ink-50)] px-5 py-8 text-center">
-            <p className="font-semibold text-[var(--color-ink-800)]">Chưa có mô-đun nghiệp vụ được kích hoạt</p>
-            <p className="mx-auto mt-1 max-w-lg text-sm leading-6 text-[var(--color-ink-500)]">Quản trị viên có thể hoàn thiện danh tính, thành viên và phân quyền trước khi bật các mô-đun chuyên môn.</p>
-          </div>
+          <h2 className="text-lg font-bold text-[var(--color-ink-900)]">
+            Việc cần ưu tiên
+          </h2>
+          <p className="mt-1 text-sm leading-6 text-[var(--color-ink-500)]">
+            Sắp xếp theo số lượng việc thật đang chờ trong phạm vi hiện tại.
+          </p>
+          {schoolDashboard ? (
+            <ol className="mt-5 divide-y divide-[var(--color-ink-100)]">
+              {schoolDashboard.actions.map((action) => (
+                <li key={action.key}>
+                  <Link
+                    href={action.href}
+                    className="group flex items-center gap-4 px-2 py-4 hover:bg-[var(--color-ink-50)]"
+                  >
+                    <span className="flex h-11 min-w-11 items-center justify-center rounded-full bg-[var(--color-brand-100)] px-2 text-sm font-black text-[var(--color-brand-900)]">
+                      {action.count}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-semibold group-hover:text-[var(--color-brand-800)]">
+                        {action.label}
+                      </span>
+                      <span className="mt-0.5 block text-sm text-[var(--color-ink-500)]">
+                        {action.description}
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          ) : platformDashboard ? (
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {[
+                ["Trường hoạt động", platformDashboard.activeSchools],
+                ["Thành viên hoạt động", platformDashboard.activeMembers],
+                ["Domain event lỗi", platformDashboard.failedDomainEvents],
+                ["Email outbox lỗi", platformDashboard.failedEmails],
+              ].map(([label, value]) => (
+                <div
+                  key={String(label)}
+                  className="rounded-[var(--radius-md)] bg-[var(--color-ink-50)] p-4"
+                >
+                  <p className="text-sm text-[var(--color-ink-500)]">{label}</p>
+                  <p className="mt-1 text-2xl font-black">{String(value)}</p>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </Card>
 
         <Card>
-          <h2 className="text-lg font-bold text-[var(--color-ink-900)]">Vai trò được cấp</h2>
+          <h2 className="text-lg font-bold text-[var(--color-ink-900)]">
+            {schoolDashboard ? "Ngữ cảnh nghiệp vụ" : "Vai trò được cấp"}
+          </h2>
+          {schoolDashboard ? (
+            <ul className="mt-4 space-y-3 text-sm">
+              <li className="flex justify-between gap-3 border-b border-[var(--color-ink-100)] pb-3">
+                <span>Cuộc trò chuyện</span>
+                <strong>{schoolDashboard.context.conversations}</strong>
+              </li>
+              <li className="flex justify-between gap-3 border-b border-[var(--color-ink-100)] pb-3">
+                <span>Tài liệu đã xuất bản</span>
+                <strong>{schoolDashboard.context.publishedResources}</strong>
+              </li>
+              <li className="flex justify-between gap-3">
+                <span>CLB đang tham gia</span>
+                <strong>{schoolDashboard.context.clubMemberships}</strong>
+              </li>
+            </ul>
+          ) : null}
           <ul className="mt-4 space-y-2">
             {roles.map((role) => (
               <li key={role} className="flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-brand-50)] px-3 py-2.5 text-sm font-medium text-[var(--color-brand-900)]">

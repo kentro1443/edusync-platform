@@ -16,14 +16,14 @@ describe("buildDemoUserUpsertData", () => {
       email: user.email,
       displayName: user.displayName,
       passwordHash: "new-demo-password-hash",
-      mustChangePassword: true,
+      mustChangePassword: false,
       status: "ACTIVE",
     });
     expect(result.create).toMatchObject({
       ...user,
       normalizedEmail: user.email,
       passwordHash: "new-demo-password-hash",
-      mustChangePassword: true,
+      mustChangePassword: false,
       status: "ACTIVE",
     });
   });

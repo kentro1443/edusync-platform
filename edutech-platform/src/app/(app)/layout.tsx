@@ -85,6 +85,18 @@ const navItems = [
     icon: "notifications",
     schoolPermission: permissions.notificationReadOwn,
   },
+  {
+    href: "/dashboard/reports",
+    label: "Báo cáo",
+    icon: "reports",
+    schoolPermission: permissions.schoolReportRead,
+  },
+  {
+    href: "/dashboard/audit",
+    label: "Nhật ký kiểm toán",
+    icon: "audit",
+    schoolPermission: permissions.auditReadSchool,
+  },
 ] satisfies readonly (AppNavItem & {
   schoolPermission?: Permission;
   platformPermission?: Permission;
@@ -169,6 +181,7 @@ export default async function AppLayout({
         (session.platformRoles.length > 0 ? undefined : "Tài khoản")
       }
       canSwitchSchool={session.schoolContexts.length > 1}
+      schoolSearchEnabled={Boolean(activeSchool)}
       navItems={visibleNavItems}
       notificationSummary={
         notificationSummary

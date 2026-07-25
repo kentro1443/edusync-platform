@@ -100,6 +100,26 @@ enum MentorVerificationStatus {
   REJECTED
 }
 
+enum MentorRequestStatus {
+  OPEN
+  MATCHED
+  CLOSED
+  CANCELLED
+}
+
+enum MentorOfferStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  WITHDRAWN
+}
+
+enum MentorPaymentStatus {
+  PENDING
+  PAID
+  WAIVED
+}
+
 enum MentorAssignmentStatus {
   ACTIVE
   ENDED
@@ -385,6 +405,10 @@ model User {
   clubAttendance              ClubAttendance[]            @relation("ClubAttendanceUser")
   clubAttendanceRecorded      ClubAttendance[]            @relation("ClubAttendanceRecorder")
   clubPostEventReports        ClubPostEventReport[]
+  mentorRequests              MentorRequest[]             @relation("MentorRequestStudent")
+  mentorOffers                MentorOffer[]               @relation("MentorOfferMentor")
+  mentorEngagementsAsMentor   MentorEngagement[]          @relation("MentorEngagementMentor")
+  mentorEngagementsAsStudent  MentorEngagement[]          @relation("MentorEngagementStudent")
 }
 
 model DemoRequest {
@@ -483,6 +507,9 @@ model School {
   clubConsents            ClubConsent[]
   clubAttendance          ClubAttendance[]
   clubBudgets             ClubBudget[]
+  mentorRequests          MentorRequest[]
+  mentorOffers            MentorOffer[]
+  mentorEngagements       MentorEngagement[]
 
   @@index([status])
 }
@@ -964,6 +991,13 @@ model MentorProfile {
   headline           String
   bio                String
   yearsExperience    Int                      @default(0)
+  gradeLabel         String?
+  achievements       String[]                 @default([])
+  hourlyRateMinVnd   Int?
+  hourlyRateMaxVnd   Int?
+  certifiedByUnion   Boolean                  @default(false)
+  certifiedAt        DateTime?                @db.Timestamptz(6)
+  acceptingRequests  Boolean                  @default(true)
   verificationStatus MentorVerificationStatus @default(PENDING)
   verifiedByUserId   String?                  @db.Uuid
   verifiedAt         DateTime?                @db.Timestamptz(6)
@@ -980,6 +1014,8 @@ model MentorProfile {
   studentAssignments     MentorStudentAssignment[]
   appointmentTypes       AppointmentType[]
   primaryCases           MentoringCase[]
+  marketplaceOffers      MentorOffer[]
+  marketplaceEngagements MentorEngagement[]
 
   @@unique([schoolId, userId])
   @@unique([id, schoolId])
@@ -995,6 +1031,7 @@ model MentorSpecialty {
 
   school   School                   @relation(fields: [schoolId], references: [id], onDelete: Restrict)
   profiles MentorProfileSpecialty[]
+  requests MentorRequest[]
 
   @@unique([schoolId, slug])
   @@index([schoolId, name])
@@ -1031,6 +1068,79 @@ model MentorStudentAssignment {
   @@unique([schoolId, mentorProfileId, studentUserId])
   @@index([schoolId, studentUserId, status])
   @@index([mentorProfileId, status])
+}
+
+model MentorRequest {
+  id                String              @id @default(uuid()) @db.Uuid
+  schoolId          String              @db.Uuid
+  studentUserId     String              @db.Uuid
+  specialtyId       String?             @db.Uuid
+  title             String
+  description       String
+  preferredSessions Int                 @default(1)
+  budgetHintVnd     Int?
+  status            MentorRequestStatus @default(OPEN)
+  createdAt         DateTime            @default(now()) @db.Timestamptz(6)
+  updatedAt         DateTime            @updatedAt @db.Timestamptz(6)
+
+  school     School            @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  student    User              @relation("MentorRequestStudent", fields: [studentUserId], references: [id], onDelete: Restrict)
+  specialty  MentorSpecialty?  @relation(fields: [specialtyId], references: [id], onDelete: SetNull)
+  offers     MentorOffer[]
+  engagement MentorEngagement?
+
+  @@unique([id, schoolId])
+  @@index([schoolId, status, createdAt])
+  @@index([schoolId, studentUserId, status])
+}
+
+model MentorOffer {
+  id                 String            @id @default(uuid()) @db.Uuid
+  schoolId           String            @db.Uuid
+  requestId          String            @db.Uuid
+  mentorProfileId    String            @db.Uuid
+  mentorUserId       String            @db.Uuid
+  pricePerSessionVnd Int
+  message            String
+  status             MentorOfferStatus @default(PENDING)
+  createdAt          DateTime          @default(now()) @db.Timestamptz(6)
+  updatedAt          DateTime          @updatedAt @db.Timestamptz(6)
+
+  school        School            @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  request       MentorRequest     @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  mentorProfile MentorProfile     @relation(fields: [mentorProfileId], references: [id], onDelete: Restrict)
+  mentor        User              @relation("MentorOfferMentor", fields: [mentorUserId], references: [id], onDelete: Restrict)
+  engagement    MentorEngagement?
+
+  @@unique([requestId, mentorProfileId])
+  @@index([schoolId, mentorUserId, status])
+  @@index([requestId, status])
+}
+
+model MentorEngagement {
+  id                      String              @id @default(uuid()) @db.Uuid
+  schoolId                String              @db.Uuid
+  requestId               String              @unique @db.Uuid
+  offerId                 String              @unique @db.Uuid
+  mentorProfileId         String              @db.Uuid
+  mentorUserId            String              @db.Uuid
+  studentUserId           String              @db.Uuid
+  agreedPricePerSessionVnd Int
+  sessions                Int                 @default(1)
+  totalAmountVnd          Int
+  paymentStatus           MentorPaymentStatus @default(PENDING)
+  createdAt               DateTime            @default(now()) @db.Timestamptz(6)
+  updatedAt               DateTime            @updatedAt @db.Timestamptz(6)
+
+  school        School        @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  request       MentorRequest @relation(fields: [requestId], references: [id], onDelete: Restrict)
+  offer         MentorOffer   @relation(fields: [offerId], references: [id], onDelete: Restrict)
+  mentorProfile MentorProfile @relation(fields: [mentorProfileId], references: [id], onDelete: Restrict)
+  mentor        User          @relation("MentorEngagementMentor", fields: [mentorUserId], references: [id], onDelete: Restrict)
+  student       User          @relation("MentorEngagementStudent", fields: [studentUserId], references: [id], onDelete: Restrict)
+
+  @@index([schoolId, mentorUserId, paymentStatus])
+  @@index([schoolId, studentUserId])
 }
 
 model MentorAvailabilityRule {

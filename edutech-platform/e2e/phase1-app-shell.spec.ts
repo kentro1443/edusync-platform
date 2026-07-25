@@ -41,7 +41,7 @@ test.afterEach(async () => {
     [email],
   );
   await database.query(
-    'UPDATE "User" SET "passwordHash" = $1, "mustChangePassword" = true WHERE "normalizedEmail" = $2',
+    'UPDATE "User" SET "passwordHash" = $1, "mustChangePassword" = false WHERE "normalizedEmail" = $2',
     [passwordHash, email],
   );
   await database.end();

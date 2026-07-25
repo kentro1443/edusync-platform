@@ -20,11 +20,13 @@ import {
   BookIcon,
   BuildingIcon,
   CalendarIcon,
+  ChartIcon,
   ChevronLeftIcon,
   CloseIcon,
   MenuIcon,
   MessageIcon,
   MentorIcon,
+  HistoryIcon,
   PlusIcon,
   SearchIcon,
   ShieldIcon,
@@ -44,6 +46,7 @@ interface AppShellProps {
   scopeDescription: string;
   activeSchoolName?: string;
   canSwitchSchool: boolean;
+  schoolSearchEnabled: boolean;
   navItems: AppNavItem[];
   notificationSummary?: {
     unreadCount: number;
@@ -66,6 +69,8 @@ const icons: Record<NavIcon, IconComponent> = {
   clubs: BuildingIcon,
   messages: MessageIcon,
   notifications: BellIcon,
+  reports: ChartIcon,
+  audit: HistoryIcon,
   members: MentorIcon,
   settings: ShieldIcon,
   schools: BuildingIcon,
@@ -152,6 +157,7 @@ export function AppShell({
   scopeDescription,
   activeSchoolName,
   canSwitchSchool,
+  schoolSearchEnabled,
   navItems,
   notificationSummary,
 }: AppShellProps) {
@@ -480,11 +486,33 @@ export function AppShell({
         title="Tìm kiếm trong EduTech"
         description="Đi nhanh đến khu vực bạn được phép truy cập."
       >
-        <label htmlFor="app-search" className="sr-only">Từ khóa tìm kiếm</label>
-        <div className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-ink-300)] px-3 focus-within:border-[var(--color-brand-600)] focus-within:ring-2 focus-within:ring-[var(--color-brand-200)]">
-          <SearchIcon width={19} height={19} aria-hidden="true" className="text-[var(--color-ink-400)]" />
-          <input id="app-search" type="search" placeholder="Tìm trang hoặc chức năng" className="h-12 min-w-0 flex-1 border-0 bg-transparent text-sm outline-none" />
-        </div>
+        {schoolSearchEnabled ? (
+        <form action="/dashboard/search" method="get">
+          <label htmlFor="app-search" className="sr-only">Từ khóa tìm kiếm</label>
+          <div className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-ink-300)] px-3 focus-within:border-[var(--color-brand-600)] focus-within:ring-2 focus-within:ring-[var(--color-brand-200)]">
+            <SearchIcon width={19} height={19} aria-hidden="true" className="text-[var(--color-ink-400)]" />
+            <input
+              id="app-search"
+              name="q"
+              type="search"
+              minLength={2}
+              maxLength={80}
+              placeholder="Tài liệu, sự kiện, CLB, thành viên…"
+              className="h-12 min-w-0 flex-1 border-0 bg-transparent text-sm outline-none"
+            />
+            <button
+              type="submit"
+              className="rounded-[var(--radius-sm)] bg-[var(--color-brand-700)] px-3 py-1.5 text-xs font-semibold text-white"
+            >
+              Tìm
+            </button>
+          </div>
+        </form>
+        ) : (
+          <p className="rounded-[var(--radius-md)] bg-[var(--color-warning-50)] px-4 py-3 text-sm text-[var(--color-warning-900)]">
+            Tìm kiếm dữ liệu chỉ khả dụng sau khi chọn đúng phạm vi trường.
+          </p>
+        )}
         <p className="mb-2 mt-5 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--color-ink-400)]">Lối tắt</p>
         <nav aria-label="Kết quả tìm kiếm nhanh" className="grid gap-2 sm:grid-cols-2">
           {searchableItems.map((item) => {

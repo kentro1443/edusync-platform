@@ -84,6 +84,9 @@ export const ModelName = {
   MentorSpecialty: 'MentorSpecialty',
   MentorProfileSpecialty: 'MentorProfileSpecialty',
   MentorStudentAssignment: 'MentorStudentAssignment',
+  MentorRequest: 'MentorRequest',
+  MentorOffer: 'MentorOffer',
+  MentorEngagement: 'MentorEngagement',
   MentorAvailabilityRule: 'MentorAvailabilityRule',
   MentorAvailabilityException: 'MentorAvailabilityException',
   AppointmentType: 'AppointmentType',
@@ -597,6 +600,13 @@ export const MentorProfileScalarFieldEnum = {
   headline: 'headline',
   bio: 'bio',
   yearsExperience: 'yearsExperience',
+  gradeLabel: 'gradeLabel',
+  achievements: 'achievements',
+  hourlyRateMinVnd: 'hourlyRateMinVnd',
+  hourlyRateMaxVnd: 'hourlyRateMaxVnd',
+  certifiedByUnion: 'certifiedByUnion',
+  certifiedAt: 'certifiedAt',
+  acceptingRequests: 'acceptingRequests',
   verificationStatus: 'verificationStatus',
   verifiedByUserId: 'verifiedByUserId',
   verifiedAt: 'verifiedAt',
@@ -641,6 +651,58 @@ export const MentorStudentAssignmentScalarFieldEnum = {
 } as const
 
 export type MentorStudentAssignmentScalarFieldEnum = (typeof MentorStudentAssignmentScalarFieldEnum)[keyof typeof MentorStudentAssignmentScalarFieldEnum]
+
+
+export const MentorRequestScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  studentUserId: 'studentUserId',
+  specialtyId: 'specialtyId',
+  title: 'title',
+  description: 'description',
+  preferredSessions: 'preferredSessions',
+  budgetHintVnd: 'budgetHintVnd',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentorRequestScalarFieldEnum = (typeof MentorRequestScalarFieldEnum)[keyof typeof MentorRequestScalarFieldEnum]
+
+
+export const MentorOfferScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  requestId: 'requestId',
+  mentorProfileId: 'mentorProfileId',
+  mentorUserId: 'mentorUserId',
+  pricePerSessionVnd: 'pricePerSessionVnd',
+  message: 'message',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentorOfferScalarFieldEnum = (typeof MentorOfferScalarFieldEnum)[keyof typeof MentorOfferScalarFieldEnum]
+
+
+export const MentorEngagementScalarFieldEnum = {
+  id: 'id',
+  schoolId: 'schoolId',
+  requestId: 'requestId',
+  offerId: 'offerId',
+  mentorProfileId: 'mentorProfileId',
+  mentorUserId: 'mentorUserId',
+  studentUserId: 'studentUserId',
+  agreedPricePerSessionVnd: 'agreedPricePerSessionVnd',
+  sessions: 'sessions',
+  totalAmountVnd: 'totalAmountVnd',
+  paymentStatus: 'paymentStatus',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MentorEngagementScalarFieldEnum = (typeof MentorEngagementScalarFieldEnum)[keyof typeof MentorEngagementScalarFieldEnum]
 
 
 export const MentorAvailabilityRuleScalarFieldEnum = {

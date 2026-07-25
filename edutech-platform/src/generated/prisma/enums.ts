@@ -144,6 +144,35 @@ export const MentorVerificationStatus = {
 export type MentorVerificationStatus = (typeof MentorVerificationStatus)[keyof typeof MentorVerificationStatus]
 
 
+export const MentorRequestStatus = {
+  OPEN: 'OPEN',
+  MATCHED: 'MATCHED',
+  CLOSED: 'CLOSED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type MentorRequestStatus = (typeof MentorRequestStatus)[keyof typeof MentorRequestStatus]
+
+
+export const MentorOfferStatus = {
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  DECLINED: 'DECLINED',
+  WITHDRAWN: 'WITHDRAWN'
+} as const
+
+export type MentorOfferStatus = (typeof MentorOfferStatus)[keyof typeof MentorOfferStatus]
+
+
+export const MentorPaymentStatus = {
+  PENDING: 'PENDING',
+  PAID: 'PAID',
+  WAIVED: 'WAIVED'
+} as const
+
+export type MentorPaymentStatus = (typeof MentorPaymentStatus)[keyof typeof MentorPaymentStatus]
+
+
 export const MentorAssignmentStatus = {
   ACTIVE: 'ACTIVE',
   ENDED: 'ENDED'

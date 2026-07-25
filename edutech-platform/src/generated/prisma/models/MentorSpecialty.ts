@@ -184,6 +184,7 @@ export type MentorSpecialtyWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"MentorSpecialty"> | Date | string
   school?: Prisma.XOR<Prisma.SchoolScalarRelationFilter, Prisma.SchoolWhereInput>
   profiles?: Prisma.MentorProfileSpecialtyListRelationFilter
+  requests?: Prisma.MentorRequestListRelationFilter
 }
 
 export type MentorSpecialtyOrderByWithRelationInput = {
@@ -194,6 +195,7 @@ export type MentorSpecialtyOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   school?: Prisma.SchoolOrderByWithRelationInput
   profiles?: Prisma.MentorProfileSpecialtyOrderByRelationAggregateInput
+  requests?: Prisma.MentorRequestOrderByRelationAggregateInput
 }
 
 export type MentorSpecialtyWhereUniqueInput = Prisma.AtLeast<{
@@ -208,6 +210,7 @@ export type MentorSpecialtyWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"MentorSpecialty"> | Date | string
   school?: Prisma.XOR<Prisma.SchoolScalarRelationFilter, Prisma.SchoolWhereInput>
   profiles?: Prisma.MentorProfileSpecialtyListRelationFilter
+  requests?: Prisma.MentorRequestListRelationFilter
 }, "id" | "schoolId_slug">
 
 export type MentorSpecialtyOrderByWithAggregationInput = {
@@ -239,6 +242,7 @@ export type MentorSpecialtyCreateInput = {
   createdAt?: Date | string
   school: Prisma.SchoolCreateNestedOneWithoutMentorSpecialtiesInput
   profiles?: Prisma.MentorProfileSpecialtyCreateNestedManyWithoutSpecialtyInput
+  requests?: Prisma.MentorRequestCreateNestedManyWithoutSpecialtyInput
 }
 
 export type MentorSpecialtyUncheckedCreateInput = {
@@ -248,6 +252,7 @@ export type MentorSpecialtyUncheckedCreateInput = {
   slug: string
   createdAt?: Date | string
   profiles?: Prisma.MentorProfileSpecialtyUncheckedCreateNestedManyWithoutSpecialtyInput
+  requests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutSpecialtyInput
 }
 
 export type MentorSpecialtyUpdateInput = {
@@ -257,6 +262,7 @@ export type MentorSpecialtyUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   school?: Prisma.SchoolUpdateOneRequiredWithoutMentorSpecialtiesNestedInput
   profiles?: Prisma.MentorProfileSpecialtyUpdateManyWithoutSpecialtyNestedInput
+  requests?: Prisma.MentorRequestUpdateManyWithoutSpecialtyNestedInput
 }
 
 export type MentorSpecialtyUncheckedUpdateInput = {
@@ -266,6 +272,7 @@ export type MentorSpecialtyUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profiles?: Prisma.MentorProfileSpecialtyUncheckedUpdateManyWithoutSpecialtyNestedInput
+  requests?: Prisma.MentorRequestUncheckedUpdateManyWithoutSpecialtyNestedInput
 }
 
 export type MentorSpecialtyCreateManyInput = {
@@ -335,6 +342,11 @@ export type MentorSpecialtyScalarRelationFilter = {
   isNot?: Prisma.MentorSpecialtyWhereInput
 }
 
+export type MentorSpecialtyNullableScalarRelationFilter = {
+  is?: Prisma.MentorSpecialtyWhereInput | null
+  isNot?: Prisma.MentorSpecialtyWhereInput | null
+}
+
 export type MentorSpecialtyCreateNestedManyWithoutSchoolInput = {
   create?: Prisma.XOR<Prisma.MentorSpecialtyCreateWithoutSchoolInput, Prisma.MentorSpecialtyUncheckedCreateWithoutSchoolInput> | Prisma.MentorSpecialtyCreateWithoutSchoolInput[] | Prisma.MentorSpecialtyUncheckedCreateWithoutSchoolInput[]
   connectOrCreate?: Prisma.MentorSpecialtyCreateOrConnectWithoutSchoolInput | Prisma.MentorSpecialtyCreateOrConnectWithoutSchoolInput[]
@@ -391,12 +403,29 @@ export type MentorSpecialtyUpdateOneRequiredWithoutProfilesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.MentorSpecialtyUpdateToOneWithWhereWithoutProfilesInput, Prisma.MentorSpecialtyUpdateWithoutProfilesInput>, Prisma.MentorSpecialtyUncheckedUpdateWithoutProfilesInput>
 }
 
+export type MentorSpecialtyCreateNestedOneWithoutRequestsInput = {
+  create?: Prisma.XOR<Prisma.MentorSpecialtyCreateWithoutRequestsInput, Prisma.MentorSpecialtyUncheckedCreateWithoutRequestsInput>
+  connectOrCreate?: Prisma.MentorSpecialtyCreateOrConnectWithoutRequestsInput
+  connect?: Prisma.MentorSpecialtyWhereUniqueInput
+}
+
+export type MentorSpecialtyUpdateOneWithoutRequestsNestedInput = {
+  create?: Prisma.XOR<Prisma.MentorSpecialtyCreateWithoutRequestsInput, Prisma.MentorSpecialtyUncheckedCreateWithoutRequestsInput>
+  connectOrCreate?: Prisma.MentorSpecialtyCreateOrConnectWithoutRequestsInput
+  upsert?: Prisma.MentorSpecialtyUpsertWithoutRequestsInput
+  disconnect?: Prisma.MentorSpecialtyWhereInput | boolean
+  delete?: Prisma.MentorSpecialtyWhereInput | boolean
+  connect?: Prisma.MentorSpecialtyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MentorSpecialtyUpdateToOneWithWhereWithoutRequestsInput, Prisma.MentorSpecialtyUpdateWithoutRequestsInput>, Prisma.MentorSpecialtyUncheckedUpdateWithoutRequestsInput>
+}
+
 export type MentorSpecialtyCreateWithoutSchoolInput = {
   id?: string
   name: string
   slug: string
   createdAt?: Date | string
   profiles?: Prisma.MentorProfileSpecialtyCreateNestedManyWithoutSpecialtyInput
+  requests?: Prisma.MentorRequestCreateNestedManyWithoutSpecialtyInput
 }
 
 export type MentorSpecialtyUncheckedCreateWithoutSchoolInput = {
@@ -405,6 +434,7 @@ export type MentorSpecialtyUncheckedCreateWithoutSchoolInput = {
   slug: string
   createdAt?: Date | string
   profiles?: Prisma.MentorProfileSpecialtyUncheckedCreateNestedManyWithoutSpecialtyInput
+  requests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutSpecialtyInput
 }
 
 export type MentorSpecialtyCreateOrConnectWithoutSchoolInput = {
@@ -450,6 +480,7 @@ export type MentorSpecialtyCreateWithoutProfilesInput = {
   slug: string
   createdAt?: Date | string
   school: Prisma.SchoolCreateNestedOneWithoutMentorSpecialtiesInput
+  requests?: Prisma.MentorRequestCreateNestedManyWithoutSpecialtyInput
 }
 
 export type MentorSpecialtyUncheckedCreateWithoutProfilesInput = {
@@ -458,6 +489,7 @@ export type MentorSpecialtyUncheckedCreateWithoutProfilesInput = {
   name: string
   slug: string
   createdAt?: Date | string
+  requests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutSpecialtyInput
 }
 
 export type MentorSpecialtyCreateOrConnectWithoutProfilesInput = {
@@ -482,6 +514,7 @@ export type MentorSpecialtyUpdateWithoutProfilesInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   school?: Prisma.SchoolUpdateOneRequiredWithoutMentorSpecialtiesNestedInput
+  requests?: Prisma.MentorRequestUpdateManyWithoutSpecialtyNestedInput
 }
 
 export type MentorSpecialtyUncheckedUpdateWithoutProfilesInput = {
@@ -490,6 +523,59 @@ export type MentorSpecialtyUncheckedUpdateWithoutProfilesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  requests?: Prisma.MentorRequestUncheckedUpdateManyWithoutSpecialtyNestedInput
+}
+
+export type MentorSpecialtyCreateWithoutRequestsInput = {
+  id?: string
+  name: string
+  slug: string
+  createdAt?: Date | string
+  school: Prisma.SchoolCreateNestedOneWithoutMentorSpecialtiesInput
+  profiles?: Prisma.MentorProfileSpecialtyCreateNestedManyWithoutSpecialtyInput
+}
+
+export type MentorSpecialtyUncheckedCreateWithoutRequestsInput = {
+  id?: string
+  schoolId: string
+  name: string
+  slug: string
+  createdAt?: Date | string
+  profiles?: Prisma.MentorProfileSpecialtyUncheckedCreateNestedManyWithoutSpecialtyInput
+}
+
+export type MentorSpecialtyCreateOrConnectWithoutRequestsInput = {
+  where: Prisma.MentorSpecialtyWhereUniqueInput
+  create: Prisma.XOR<Prisma.MentorSpecialtyCreateWithoutRequestsInput, Prisma.MentorSpecialtyUncheckedCreateWithoutRequestsInput>
+}
+
+export type MentorSpecialtyUpsertWithoutRequestsInput = {
+  update: Prisma.XOR<Prisma.MentorSpecialtyUpdateWithoutRequestsInput, Prisma.MentorSpecialtyUncheckedUpdateWithoutRequestsInput>
+  create: Prisma.XOR<Prisma.MentorSpecialtyCreateWithoutRequestsInput, Prisma.MentorSpecialtyUncheckedCreateWithoutRequestsInput>
+  where?: Prisma.MentorSpecialtyWhereInput
+}
+
+export type MentorSpecialtyUpdateToOneWithWhereWithoutRequestsInput = {
+  where?: Prisma.MentorSpecialtyWhereInput
+  data: Prisma.XOR<Prisma.MentorSpecialtyUpdateWithoutRequestsInput, Prisma.MentorSpecialtyUncheckedUpdateWithoutRequestsInput>
+}
+
+export type MentorSpecialtyUpdateWithoutRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  school?: Prisma.SchoolUpdateOneRequiredWithoutMentorSpecialtiesNestedInput
+  profiles?: Prisma.MentorProfileSpecialtyUpdateManyWithoutSpecialtyNestedInput
+}
+
+export type MentorSpecialtyUncheckedUpdateWithoutRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolId?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profiles?: Prisma.MentorProfileSpecialtyUncheckedUpdateManyWithoutSpecialtyNestedInput
 }
 
 export type MentorSpecialtyCreateManySchoolInput = {
@@ -505,6 +591,7 @@ export type MentorSpecialtyUpdateWithoutSchoolInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profiles?: Prisma.MentorProfileSpecialtyUpdateManyWithoutSpecialtyNestedInput
+  requests?: Prisma.MentorRequestUpdateManyWithoutSpecialtyNestedInput
 }
 
 export type MentorSpecialtyUncheckedUpdateWithoutSchoolInput = {
@@ -513,6 +600,7 @@ export type MentorSpecialtyUncheckedUpdateWithoutSchoolInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profiles?: Prisma.MentorProfileSpecialtyUncheckedUpdateManyWithoutSpecialtyNestedInput
+  requests?: Prisma.MentorRequestUncheckedUpdateManyWithoutSpecialtyNestedInput
 }
 
 export type MentorSpecialtyUncheckedUpdateManyWithoutSchoolInput = {
@@ -529,10 +617,12 @@ export type MentorSpecialtyUncheckedUpdateManyWithoutSchoolInput = {
 
 export type MentorSpecialtyCountOutputType = {
   profiles: number
+  requests: number
 }
 
 export type MentorSpecialtyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   profiles?: boolean | MentorSpecialtyCountOutputTypeCountProfilesArgs
+  requests?: boolean | MentorSpecialtyCountOutputTypeCountRequestsArgs
 }
 
 /**
@@ -552,6 +642,13 @@ export type MentorSpecialtyCountOutputTypeCountProfilesArgs<ExtArgs extends runt
   where?: Prisma.MentorProfileSpecialtyWhereInput
 }
 
+/**
+ * MentorSpecialtyCountOutputType without action
+ */
+export type MentorSpecialtyCountOutputTypeCountRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MentorRequestWhereInput
+}
+
 
 export type MentorSpecialtySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -561,6 +658,7 @@ export type MentorSpecialtySelect<ExtArgs extends runtime.Types.Extensions.Inter
   createdAt?: boolean
   school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
   profiles?: boolean | Prisma.MentorSpecialty$profilesArgs<ExtArgs>
+  requests?: boolean | Prisma.MentorSpecialty$requestsArgs<ExtArgs>
   _count?: boolean | Prisma.MentorSpecialtyCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["mentorSpecialty"]>
 
@@ -594,6 +692,7 @@ export type MentorSpecialtyOmit<ExtArgs extends runtime.Types.Extensions.Interna
 export type MentorSpecialtyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
   profiles?: boolean | Prisma.MentorSpecialty$profilesArgs<ExtArgs>
+  requests?: boolean | Prisma.MentorSpecialty$requestsArgs<ExtArgs>
   _count?: boolean | Prisma.MentorSpecialtyCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type MentorSpecialtyIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -608,6 +707,7 @@ export type $MentorSpecialtyPayload<ExtArgs extends runtime.Types.Extensions.Int
   objects: {
     school: Prisma.$SchoolPayload<ExtArgs>
     profiles: Prisma.$MentorProfileSpecialtyPayload<ExtArgs>[]
+    requests: Prisma.$MentorRequestPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1011,6 +1111,7 @@ export interface Prisma__MentorSpecialtyClient<T, Null = never, ExtArgs extends 
   readonly [Symbol.toStringTag]: "PrismaPromise"
   school<T extends Prisma.SchoolDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SchoolDefaultArgs<ExtArgs>>): Prisma.Prisma__SchoolClient<runtime.Types.Result.GetResult<Prisma.$SchoolPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   profiles<T extends Prisma.MentorSpecialty$profilesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MentorSpecialty$profilesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorProfileSpecialtyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  requests<T extends Prisma.MentorSpecialty$requestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MentorSpecialty$requestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1467,6 +1568,30 @@ export type MentorSpecialty$profilesArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.MentorProfileSpecialtyScalarFieldEnum | Prisma.MentorProfileSpecialtyScalarFieldEnum[]
+}
+
+/**
+ * MentorSpecialty.requests
+ */
+export type MentorSpecialty$requestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MentorRequest
+   */
+  select?: Prisma.MentorRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MentorRequest
+   */
+  omit?: Prisma.MentorRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MentorRequestInclude<ExtArgs> | null
+  where?: Prisma.MentorRequestWhereInput
+  orderBy?: Prisma.MentorRequestOrderByWithRelationInput | Prisma.MentorRequestOrderByWithRelationInput[]
+  cursor?: Prisma.MentorRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MentorRequestScalarFieldEnum | Prisma.MentorRequestScalarFieldEnum[]
 }
 
 /**

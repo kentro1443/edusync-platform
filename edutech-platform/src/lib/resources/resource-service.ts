@@ -17,6 +17,7 @@ import {
 } from "@/lib/resources/resource-domain";
 import type { ResourceAction } from "@/lib/resources/resource-domain";
 import { LocalFileStorage } from "@/lib/storage/file-storage";
+import { assertSchoolStorageQuota } from "@/lib/storage/storage-quota";
 
 export class ResourceAuthorizationError extends Error {}
 export class ResourceNotFoundError extends Error {}
@@ -294,6 +295,13 @@ export async function createResourceVersion(
   }
   try {
     const versionId = await db.$transaction(async (transaction) => {
+      if (storedObject) {
+        await assertSchoolStorageQuota(
+          transaction,
+          actor.schoolId,
+          BigInt(storedObject.sizeBytes),
+        );
+      }
       const latest = await transaction.resourceVersion.findFirst({
         where: { resourceId },
         orderBy: { versionNumber: "desc" },

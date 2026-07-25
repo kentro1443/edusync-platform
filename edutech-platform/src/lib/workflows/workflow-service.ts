@@ -6,6 +6,7 @@ import { db } from "@/lib/db";
 import type { Prisma } from "@/generated/prisma/client";
 import { validateUploadContent, validateUploadMetadata } from "@/lib/resources/resource-domain";
 import { LocalFileStorage } from "@/lib/storage/file-storage";
+import { assertSchoolStorageQuota } from "@/lib/storage/storage-quota";
 import {
   getNextWorkflowStepIds,
   resolveWorkflowRouting,
@@ -389,6 +390,11 @@ export async function addWorkflowSubmissionAttachment(
   });
   try {
     return await db.$transaction(async (transaction) => {
+      await assertSchoolStorageQuota(
+        transaction,
+        actor.schoolId,
+        BigInt(storedObject.sizeBytes),
+      );
       const file = await transaction.storedFile.create({
         data: {
           schoolId: actor.schoolId,

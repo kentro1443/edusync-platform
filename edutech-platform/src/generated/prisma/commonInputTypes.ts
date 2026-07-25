@@ -657,6 +657,57 @@ export type EnumMentorAssignmentStatusWithAggregatesFilter<$PrismaModel = never>
   _max?: Prisma.NestedEnumMentorAssignmentStatusFilter<$PrismaModel>
 }
 
+export type EnumMentorRequestStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorRequestStatus | Prisma.EnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorRequestStatus[] | Prisma.ListEnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorRequestStatus[] | Prisma.ListEnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorRequestStatusFilter<$PrismaModel> | $Enums.MentorRequestStatus
+}
+
+export type EnumMentorRequestStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorRequestStatus | Prisma.EnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorRequestStatus[] | Prisma.ListEnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorRequestStatus[] | Prisma.ListEnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorRequestStatusWithAggregatesFilter<$PrismaModel> | $Enums.MentorRequestStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMentorRequestStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMentorRequestStatusFilter<$PrismaModel>
+}
+
+export type EnumMentorOfferStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorOfferStatus | Prisma.EnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorOfferStatus[] | Prisma.ListEnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorOfferStatus[] | Prisma.ListEnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorOfferStatusFilter<$PrismaModel> | $Enums.MentorOfferStatus
+}
+
+export type EnumMentorOfferStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorOfferStatus | Prisma.EnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorOfferStatus[] | Prisma.ListEnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorOfferStatus[] | Prisma.ListEnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorOfferStatusWithAggregatesFilter<$PrismaModel> | $Enums.MentorOfferStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMentorOfferStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMentorOfferStatusFilter<$PrismaModel>
+}
+
+export type EnumMentorPaymentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorPaymentStatus | Prisma.EnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorPaymentStatus[] | Prisma.ListEnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorPaymentStatus[] | Prisma.ListEnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorPaymentStatusFilter<$PrismaModel> | $Enums.MentorPaymentStatus
+}
+
+export type EnumMentorPaymentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorPaymentStatus | Prisma.EnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorPaymentStatus[] | Prisma.ListEnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorPaymentStatus[] | Prisma.ListEnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorPaymentStatusWithAggregatesFilter<$PrismaModel> | $Enums.MentorPaymentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMentorPaymentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMentorPaymentStatusFilter<$PrismaModel>
+}
+
 export type EnumAvailabilityExceptionKindFilter<$PrismaModel = never> = {
   equals?: $Enums.AvailabilityExceptionKind | Prisma.EnumAvailabilityExceptionKindFieldRefInput<$PrismaModel>
   in?: $Enums.AvailabilityExceptionKind[] | Prisma.ListEnumAvailabilityExceptionKindFieldRefInput<$PrismaModel>
@@ -1756,6 +1807,57 @@ export type NestedEnumMentorAssignmentStatusWithAggregatesFilter<$PrismaModel = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumMentorAssignmentStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumMentorAssignmentStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumMentorRequestStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorRequestStatus | Prisma.EnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorRequestStatus[] | Prisma.ListEnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorRequestStatus[] | Prisma.ListEnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorRequestStatusFilter<$PrismaModel> | $Enums.MentorRequestStatus
+}
+
+export type NestedEnumMentorRequestStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorRequestStatus | Prisma.EnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorRequestStatus[] | Prisma.ListEnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorRequestStatus[] | Prisma.ListEnumMentorRequestStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorRequestStatusWithAggregatesFilter<$PrismaModel> | $Enums.MentorRequestStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMentorRequestStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMentorRequestStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumMentorOfferStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorOfferStatus | Prisma.EnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorOfferStatus[] | Prisma.ListEnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorOfferStatus[] | Prisma.ListEnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorOfferStatusFilter<$PrismaModel> | $Enums.MentorOfferStatus
+}
+
+export type NestedEnumMentorOfferStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorOfferStatus | Prisma.EnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorOfferStatus[] | Prisma.ListEnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorOfferStatus[] | Prisma.ListEnumMentorOfferStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorOfferStatusWithAggregatesFilter<$PrismaModel> | $Enums.MentorOfferStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMentorOfferStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMentorOfferStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumMentorPaymentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorPaymentStatus | Prisma.EnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorPaymentStatus[] | Prisma.ListEnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorPaymentStatus[] | Prisma.ListEnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorPaymentStatusFilter<$PrismaModel> | $Enums.MentorPaymentStatus
+}
+
+export type NestedEnumMentorPaymentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MentorPaymentStatus | Prisma.EnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.MentorPaymentStatus[] | Prisma.ListEnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MentorPaymentStatus[] | Prisma.ListEnumMentorPaymentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMentorPaymentStatusWithAggregatesFilter<$PrismaModel> | $Enums.MentorPaymentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMentorPaymentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMentorPaymentStatusFilter<$PrismaModel>
 }
 
 export type NestedEnumAvailabilityExceptionKindFilter<$PrismaModel = never> = {

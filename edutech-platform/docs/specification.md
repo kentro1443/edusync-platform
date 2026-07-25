@@ -584,15 +584,15 @@ Critical authorization and workflow-state modules require high branch coverage. 
 
 The current delivery slice covers these runtime paths end to end. Room/resource administration, reminder workers, delegation/escalation, attachments/comments, and advanced analytics remain explicit follow-up increments.
 
-### Phase 8 — Clubs and Events
+### Phase 7 — Clubs and Events
 
 - Build clubs, memberships, leadership, proposals, budgets, events, consent, registration, waitlists, attendance, and reports.
 
-### Phase 9 — Real-Time Collaboration
+### Phase 8 — Real-Time Collaboration
 
 - Build messaging, comments, mentions, notifications, email outbox, activity updates, and preferences.
 
-### Phase 10 — Reporting and Hardening
+### Phase 9 — Reporting and Hardening
 
 - Build role dashboards, analytics, exports, audit explorer, command search, and quotas.
 - Complete security, tenant-isolation, accessibility, and performance reviews.

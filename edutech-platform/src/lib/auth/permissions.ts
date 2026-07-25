@@ -44,6 +44,10 @@ export const permissions = {
   mentorSessionNotesRead: "mentor:session:notes:read",
   mentorFeedbackCreate: "mentor:feedback:create",
 
+  marketplaceRead: "marketplace:read",
+  marketplaceRequestCreate: "marketplace:request:create",
+  marketplaceOfferCreate: "marketplace:offer:create",
+
   resourceRead: "resource:read",
   resourceCreate: "resource:create",
   resourceUpdate: "resource:update",
@@ -128,6 +132,7 @@ const p = permissions;
 const commonSchoolPermissions = [
   p.mentorDirectoryRead,
   p.mentorAppointmentRead,
+  p.marketplaceRead,
   p.resourceRead,
   p.resourceDownload,
   p.resourceCommentCreate,
@@ -287,6 +292,7 @@ export const schoolRolePermissions = {
   ],
   MENTOR_COUNSELOR: [
     ...commonSchoolPermissions,
+    p.marketplaceOfferCreate,
     p.mentorProfileCreate,
     p.mentorProfileUpdate,
     p.mentorAvailabilityManage,
@@ -320,6 +326,8 @@ export const schoolRolePermissions = {
   ],
   STUDENT: [
     ...commonSchoolPermissions,
+    p.marketplaceRequestCreate,
+    p.marketplaceOfferCreate,
     p.mentorAppointmentCreate,
     p.mentorAppointmentReschedule,
     p.mentorAppointmentCancel,
@@ -340,6 +348,7 @@ export const schoolRolePermissions = {
   ],
   PARENT_GUARDIAN: [
     ...commonSchoolPermissions,
+    p.marketplaceRequestCreate,
     p.mentorAppointmentCreate,
     p.mentorAppointmentReschedule,
     p.mentorAppointmentCancel,

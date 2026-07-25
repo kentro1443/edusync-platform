@@ -28,10 +28,14 @@ export type AggregateMentorProfile = {
 
 export type MentorProfileAvgAggregateOutputType = {
   yearsExperience: number | null
+  hourlyRateMinVnd: number | null
+  hourlyRateMaxVnd: number | null
 }
 
 export type MentorProfileSumAggregateOutputType = {
   yearsExperience: number | null
+  hourlyRateMinVnd: number | null
+  hourlyRateMaxVnd: number | null
 }
 
 export type MentorProfileMinAggregateOutputType = {
@@ -41,6 +45,12 @@ export type MentorProfileMinAggregateOutputType = {
   headline: string | null
   bio: string | null
   yearsExperience: number | null
+  gradeLabel: string | null
+  hourlyRateMinVnd: number | null
+  hourlyRateMaxVnd: number | null
+  certifiedByUnion: boolean | null
+  certifiedAt: Date | null
+  acceptingRequests: boolean | null
   verificationStatus: $Enums.MentorVerificationStatus | null
   verifiedByUserId: string | null
   verifiedAt: Date | null
@@ -56,6 +66,12 @@ export type MentorProfileMaxAggregateOutputType = {
   headline: string | null
   bio: string | null
   yearsExperience: number | null
+  gradeLabel: string | null
+  hourlyRateMinVnd: number | null
+  hourlyRateMaxVnd: number | null
+  certifiedByUnion: boolean | null
+  certifiedAt: Date | null
+  acceptingRequests: boolean | null
   verificationStatus: $Enums.MentorVerificationStatus | null
   verifiedByUserId: string | null
   verifiedAt: Date | null
@@ -71,6 +87,13 @@ export type MentorProfileCountAggregateOutputType = {
   headline: number
   bio: number
   yearsExperience: number
+  gradeLabel: number
+  achievements: number
+  hourlyRateMinVnd: number
+  hourlyRateMaxVnd: number
+  certifiedByUnion: number
+  certifiedAt: number
+  acceptingRequests: number
   verificationStatus: number
   verifiedByUserId: number
   verifiedAt: number
@@ -83,10 +106,14 @@ export type MentorProfileCountAggregateOutputType = {
 
 export type MentorProfileAvgAggregateInputType = {
   yearsExperience?: true
+  hourlyRateMinVnd?: true
+  hourlyRateMaxVnd?: true
 }
 
 export type MentorProfileSumAggregateInputType = {
   yearsExperience?: true
+  hourlyRateMinVnd?: true
+  hourlyRateMaxVnd?: true
 }
 
 export type MentorProfileMinAggregateInputType = {
@@ -96,6 +123,12 @@ export type MentorProfileMinAggregateInputType = {
   headline?: true
   bio?: true
   yearsExperience?: true
+  gradeLabel?: true
+  hourlyRateMinVnd?: true
+  hourlyRateMaxVnd?: true
+  certifiedByUnion?: true
+  certifiedAt?: true
+  acceptingRequests?: true
   verificationStatus?: true
   verifiedByUserId?: true
   verifiedAt?: true
@@ -111,6 +144,12 @@ export type MentorProfileMaxAggregateInputType = {
   headline?: true
   bio?: true
   yearsExperience?: true
+  gradeLabel?: true
+  hourlyRateMinVnd?: true
+  hourlyRateMaxVnd?: true
+  certifiedByUnion?: true
+  certifiedAt?: true
+  acceptingRequests?: true
   verificationStatus?: true
   verifiedByUserId?: true
   verifiedAt?: true
@@ -126,6 +165,13 @@ export type MentorProfileCountAggregateInputType = {
   headline?: true
   bio?: true
   yearsExperience?: true
+  gradeLabel?: true
+  achievements?: true
+  hourlyRateMinVnd?: true
+  hourlyRateMaxVnd?: true
+  certifiedByUnion?: true
+  certifiedAt?: true
+  acceptingRequests?: true
   verificationStatus?: true
   verifiedByUserId?: true
   verifiedAt?: true
@@ -228,6 +274,13 @@ export type MentorProfileGroupByOutputType = {
   headline: string
   bio: string
   yearsExperience: number
+  gradeLabel: string | null
+  achievements: string[]
+  hourlyRateMinVnd: number | null
+  hourlyRateMaxVnd: number | null
+  certifiedByUnion: boolean
+  certifiedAt: Date | null
+  acceptingRequests: boolean
   verificationStatus: $Enums.MentorVerificationStatus
   verifiedByUserId: string | null
   verifiedAt: Date | null
@@ -266,6 +319,13 @@ export type MentorProfileWhereInput = {
   headline?: Prisma.StringFilter<"MentorProfile"> | string
   bio?: Prisma.StringFilter<"MentorProfile"> | string
   yearsExperience?: Prisma.IntFilter<"MentorProfile"> | number
+  gradeLabel?: Prisma.StringNullableFilter<"MentorProfile"> | string | null
+  achievements?: Prisma.StringNullableListFilter<"MentorProfile">
+  hourlyRateMinVnd?: Prisma.IntNullableFilter<"MentorProfile"> | number | null
+  hourlyRateMaxVnd?: Prisma.IntNullableFilter<"MentorProfile"> | number | null
+  certifiedByUnion?: Prisma.BoolFilter<"MentorProfile"> | boolean
+  certifiedAt?: Prisma.DateTimeNullableFilter<"MentorProfile"> | Date | string | null
+  acceptingRequests?: Prisma.BoolFilter<"MentorProfile"> | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFilter<"MentorProfile"> | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.UuidNullableFilter<"MentorProfile"> | string | null
   verifiedAt?: Prisma.DateTimeNullableFilter<"MentorProfile"> | Date | string | null
@@ -281,6 +341,8 @@ export type MentorProfileWhereInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentListRelationFilter
   appointmentTypes?: Prisma.AppointmentTypeListRelationFilter
   primaryCases?: Prisma.MentoringCaseListRelationFilter
+  marketplaceOffers?: Prisma.MentorOfferListRelationFilter
+  marketplaceEngagements?: Prisma.MentorEngagementListRelationFilter
 }
 
 export type MentorProfileOrderByWithRelationInput = {
@@ -290,6 +352,13 @@ export type MentorProfileOrderByWithRelationInput = {
   headline?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   yearsExperience?: Prisma.SortOrder
+  gradeLabel?: Prisma.SortOrderInput | Prisma.SortOrder
+  achievements?: Prisma.SortOrder
+  hourlyRateMinVnd?: Prisma.SortOrderInput | Prisma.SortOrder
+  hourlyRateMaxVnd?: Prisma.SortOrderInput | Prisma.SortOrder
+  certifiedByUnion?: Prisma.SortOrder
+  certifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  acceptingRequests?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   verifiedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   verifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -305,6 +374,8 @@ export type MentorProfileOrderByWithRelationInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentOrderByRelationAggregateInput
   appointmentTypes?: Prisma.AppointmentTypeOrderByRelationAggregateInput
   primaryCases?: Prisma.MentoringCaseOrderByRelationAggregateInput
+  marketplaceOffers?: Prisma.MentorOfferOrderByRelationAggregateInput
+  marketplaceEngagements?: Prisma.MentorEngagementOrderByRelationAggregateInput
 }
 
 export type MentorProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -319,6 +390,13 @@ export type MentorProfileWhereUniqueInput = Prisma.AtLeast<{
   headline?: Prisma.StringFilter<"MentorProfile"> | string
   bio?: Prisma.StringFilter<"MentorProfile"> | string
   yearsExperience?: Prisma.IntFilter<"MentorProfile"> | number
+  gradeLabel?: Prisma.StringNullableFilter<"MentorProfile"> | string | null
+  achievements?: Prisma.StringNullableListFilter<"MentorProfile">
+  hourlyRateMinVnd?: Prisma.IntNullableFilter<"MentorProfile"> | number | null
+  hourlyRateMaxVnd?: Prisma.IntNullableFilter<"MentorProfile"> | number | null
+  certifiedByUnion?: Prisma.BoolFilter<"MentorProfile"> | boolean
+  certifiedAt?: Prisma.DateTimeNullableFilter<"MentorProfile"> | Date | string | null
+  acceptingRequests?: Prisma.BoolFilter<"MentorProfile"> | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFilter<"MentorProfile"> | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.UuidNullableFilter<"MentorProfile"> | string | null
   verifiedAt?: Prisma.DateTimeNullableFilter<"MentorProfile"> | Date | string | null
@@ -334,6 +412,8 @@ export type MentorProfileWhereUniqueInput = Prisma.AtLeast<{
   studentAssignments?: Prisma.MentorStudentAssignmentListRelationFilter
   appointmentTypes?: Prisma.AppointmentTypeListRelationFilter
   primaryCases?: Prisma.MentoringCaseListRelationFilter
+  marketplaceOffers?: Prisma.MentorOfferListRelationFilter
+  marketplaceEngagements?: Prisma.MentorEngagementListRelationFilter
 }, "id" | "schoolId_userId" | "id_schoolId">
 
 export type MentorProfileOrderByWithAggregationInput = {
@@ -343,6 +423,13 @@ export type MentorProfileOrderByWithAggregationInput = {
   headline?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   yearsExperience?: Prisma.SortOrder
+  gradeLabel?: Prisma.SortOrderInput | Prisma.SortOrder
+  achievements?: Prisma.SortOrder
+  hourlyRateMinVnd?: Prisma.SortOrderInput | Prisma.SortOrder
+  hourlyRateMaxVnd?: Prisma.SortOrderInput | Prisma.SortOrder
+  certifiedByUnion?: Prisma.SortOrder
+  certifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  acceptingRequests?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   verifiedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   verifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -366,6 +453,13 @@ export type MentorProfileScalarWhereWithAggregatesInput = {
   headline?: Prisma.StringWithAggregatesFilter<"MentorProfile"> | string
   bio?: Prisma.StringWithAggregatesFilter<"MentorProfile"> | string
   yearsExperience?: Prisma.IntWithAggregatesFilter<"MentorProfile"> | number
+  gradeLabel?: Prisma.StringNullableWithAggregatesFilter<"MentorProfile"> | string | null
+  achievements?: Prisma.StringNullableListFilter<"MentorProfile">
+  hourlyRateMinVnd?: Prisma.IntNullableWithAggregatesFilter<"MentorProfile"> | number | null
+  hourlyRateMaxVnd?: Prisma.IntNullableWithAggregatesFilter<"MentorProfile"> | number | null
+  certifiedByUnion?: Prisma.BoolWithAggregatesFilter<"MentorProfile"> | boolean
+  certifiedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"MentorProfile"> | Date | string | null
+  acceptingRequests?: Prisma.BoolWithAggregatesFilter<"MentorProfile"> | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusWithAggregatesFilter<"MentorProfile"> | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.UuidNullableWithAggregatesFilter<"MentorProfile"> | string | null
   verifiedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"MentorProfile"> | Date | string | null
@@ -379,6 +473,13 @@ export type MentorProfileCreateInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -393,6 +494,8 @@ export type MentorProfileCreateInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateInput = {
@@ -402,6 +505,13 @@ export type MentorProfileUncheckedCreateInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -414,6 +524,8 @@ export type MentorProfileUncheckedCreateInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUpdateInput = {
@@ -421,6 +533,13 @@ export type MentorProfileUpdateInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -435,6 +554,8 @@ export type MentorProfileUpdateInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateInput = {
@@ -444,6 +565,13 @@ export type MentorProfileUncheckedUpdateInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -456,6 +584,8 @@ export type MentorProfileUncheckedUpdateInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileCreateManyInput = {
@@ -465,6 +595,13 @@ export type MentorProfileCreateManyInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -478,6 +615,13 @@ export type MentorProfileUpdateManyMutationInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -492,6 +636,13 @@ export type MentorProfileUncheckedUpdateManyInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -508,6 +659,14 @@ export type MentorProfileListRelationFilter = {
 
 export type MentorProfileOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type StringNullableListFilter<$PrismaModel = never> = {
+  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
+  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
+  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
 }
 
 export type MentorProfileSchoolIdUserIdCompoundUniqueInput = {
@@ -527,6 +686,13 @@ export type MentorProfileCountOrderByAggregateInput = {
   headline?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   yearsExperience?: Prisma.SortOrder
+  gradeLabel?: Prisma.SortOrder
+  achievements?: Prisma.SortOrder
+  hourlyRateMinVnd?: Prisma.SortOrder
+  hourlyRateMaxVnd?: Prisma.SortOrder
+  certifiedByUnion?: Prisma.SortOrder
+  certifiedAt?: Prisma.SortOrder
+  acceptingRequests?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   verifiedByUserId?: Prisma.SortOrder
   verifiedAt?: Prisma.SortOrder
@@ -537,6 +703,8 @@ export type MentorProfileCountOrderByAggregateInput = {
 
 export type MentorProfileAvgOrderByAggregateInput = {
   yearsExperience?: Prisma.SortOrder
+  hourlyRateMinVnd?: Prisma.SortOrder
+  hourlyRateMaxVnd?: Prisma.SortOrder
 }
 
 export type MentorProfileMaxOrderByAggregateInput = {
@@ -546,6 +714,12 @@ export type MentorProfileMaxOrderByAggregateInput = {
   headline?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   yearsExperience?: Prisma.SortOrder
+  gradeLabel?: Prisma.SortOrder
+  hourlyRateMinVnd?: Prisma.SortOrder
+  hourlyRateMaxVnd?: Prisma.SortOrder
+  certifiedByUnion?: Prisma.SortOrder
+  certifiedAt?: Prisma.SortOrder
+  acceptingRequests?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   verifiedByUserId?: Prisma.SortOrder
   verifiedAt?: Prisma.SortOrder
@@ -561,6 +735,12 @@ export type MentorProfileMinOrderByAggregateInput = {
   headline?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   yearsExperience?: Prisma.SortOrder
+  gradeLabel?: Prisma.SortOrder
+  hourlyRateMinVnd?: Prisma.SortOrder
+  hourlyRateMaxVnd?: Prisma.SortOrder
+  certifiedByUnion?: Prisma.SortOrder
+  certifiedAt?: Prisma.SortOrder
+  acceptingRequests?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   verifiedByUserId?: Prisma.SortOrder
   verifiedAt?: Prisma.SortOrder
@@ -571,6 +751,8 @@ export type MentorProfileMinOrderByAggregateInput = {
 
 export type MentorProfileSumOrderByAggregateInput = {
   yearsExperience?: Prisma.SortOrder
+  hourlyRateMinVnd?: Prisma.SortOrder
+  hourlyRateMaxVnd?: Prisma.SortOrder
 }
 
 export type MentorProfileScalarRelationFilter = {
@@ -709,6 +891,15 @@ export type MentorProfileUncheckedUpdateManyWithoutSchoolNestedInput = {
   deleteMany?: Prisma.MentorProfileScalarWhereInput | Prisma.MentorProfileScalarWhereInput[]
 }
 
+export type MentorProfileCreateachievementsInput = {
+  set: string[]
+}
+
+export type MentorProfileUpdateachievementsInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
 export type EnumMentorVerificationStatusFieldUpdateOperationsInput = {
   set?: $Enums.MentorVerificationStatus
 }
@@ -739,6 +930,34 @@ export type MentorProfileUpdateOneRequiredWithoutStudentAssignmentsNestedInput =
   upsert?: Prisma.MentorProfileUpsertWithoutStudentAssignmentsInput
   connect?: Prisma.MentorProfileWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.MentorProfileUpdateToOneWithWhereWithoutStudentAssignmentsInput, Prisma.MentorProfileUpdateWithoutStudentAssignmentsInput>, Prisma.MentorProfileUncheckedUpdateWithoutStudentAssignmentsInput>
+}
+
+export type MentorProfileCreateNestedOneWithoutMarketplaceOffersInput = {
+  create?: Prisma.XOR<Prisma.MentorProfileCreateWithoutMarketplaceOffersInput, Prisma.MentorProfileUncheckedCreateWithoutMarketplaceOffersInput>
+  connectOrCreate?: Prisma.MentorProfileCreateOrConnectWithoutMarketplaceOffersInput
+  connect?: Prisma.MentorProfileWhereUniqueInput
+}
+
+export type MentorProfileUpdateOneRequiredWithoutMarketplaceOffersNestedInput = {
+  create?: Prisma.XOR<Prisma.MentorProfileCreateWithoutMarketplaceOffersInput, Prisma.MentorProfileUncheckedCreateWithoutMarketplaceOffersInput>
+  connectOrCreate?: Prisma.MentorProfileCreateOrConnectWithoutMarketplaceOffersInput
+  upsert?: Prisma.MentorProfileUpsertWithoutMarketplaceOffersInput
+  connect?: Prisma.MentorProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MentorProfileUpdateToOneWithWhereWithoutMarketplaceOffersInput, Prisma.MentorProfileUpdateWithoutMarketplaceOffersInput>, Prisma.MentorProfileUncheckedUpdateWithoutMarketplaceOffersInput>
+}
+
+export type MentorProfileCreateNestedOneWithoutMarketplaceEngagementsInput = {
+  create?: Prisma.XOR<Prisma.MentorProfileCreateWithoutMarketplaceEngagementsInput, Prisma.MentorProfileUncheckedCreateWithoutMarketplaceEngagementsInput>
+  connectOrCreate?: Prisma.MentorProfileCreateOrConnectWithoutMarketplaceEngagementsInput
+  connect?: Prisma.MentorProfileWhereUniqueInput
+}
+
+export type MentorProfileUpdateOneRequiredWithoutMarketplaceEngagementsNestedInput = {
+  create?: Prisma.XOR<Prisma.MentorProfileCreateWithoutMarketplaceEngagementsInput, Prisma.MentorProfileUncheckedCreateWithoutMarketplaceEngagementsInput>
+  connectOrCreate?: Prisma.MentorProfileCreateOrConnectWithoutMarketplaceEngagementsInput
+  upsert?: Prisma.MentorProfileUpsertWithoutMarketplaceEngagementsInput
+  connect?: Prisma.MentorProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MentorProfileUpdateToOneWithWhereWithoutMarketplaceEngagementsInput, Prisma.MentorProfileUpdateWithoutMarketplaceEngagementsInput>, Prisma.MentorProfileUncheckedUpdateWithoutMarketplaceEngagementsInput>
 }
 
 export type MentorProfileCreateNestedOneWithoutAvailabilityRulesInput = {
@@ -804,6 +1023,13 @@ export type MentorProfileCreateWithoutUserInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -817,6 +1043,8 @@ export type MentorProfileCreateWithoutUserInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateWithoutUserInput = {
@@ -825,6 +1053,13 @@ export type MentorProfileUncheckedCreateWithoutUserInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -837,6 +1072,8 @@ export type MentorProfileUncheckedCreateWithoutUserInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileCreateOrConnectWithoutUserInput = {
@@ -854,6 +1091,13 @@ export type MentorProfileCreateWithoutVerifiedByInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -867,6 +1111,8 @@ export type MentorProfileCreateWithoutVerifiedByInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateWithoutVerifiedByInput = {
@@ -876,6 +1122,13 @@ export type MentorProfileUncheckedCreateWithoutVerifiedByInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -887,6 +1140,8 @@ export type MentorProfileUncheckedCreateWithoutVerifiedByInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileCreateOrConnectWithoutVerifiedByInput = {
@@ -925,6 +1180,13 @@ export type MentorProfileScalarWhereInput = {
   headline?: Prisma.StringFilter<"MentorProfile"> | string
   bio?: Prisma.StringFilter<"MentorProfile"> | string
   yearsExperience?: Prisma.IntFilter<"MentorProfile"> | number
+  gradeLabel?: Prisma.StringNullableFilter<"MentorProfile"> | string | null
+  achievements?: Prisma.StringNullableListFilter<"MentorProfile">
+  hourlyRateMinVnd?: Prisma.IntNullableFilter<"MentorProfile"> | number | null
+  hourlyRateMaxVnd?: Prisma.IntNullableFilter<"MentorProfile"> | number | null
+  certifiedByUnion?: Prisma.BoolFilter<"MentorProfile"> | boolean
+  certifiedAt?: Prisma.DateTimeNullableFilter<"MentorProfile"> | Date | string | null
+  acceptingRequests?: Prisma.BoolFilter<"MentorProfile"> | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFilter<"MentorProfile"> | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.UuidNullableFilter<"MentorProfile"> | string | null
   verifiedAt?: Prisma.DateTimeNullableFilter<"MentorProfile"> | Date | string | null
@@ -954,6 +1216,13 @@ export type MentorProfileCreateWithoutSchoolInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -967,6 +1236,8 @@ export type MentorProfileCreateWithoutSchoolInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateWithoutSchoolInput = {
@@ -975,6 +1246,13 @@ export type MentorProfileUncheckedCreateWithoutSchoolInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -987,6 +1265,8 @@ export type MentorProfileUncheckedCreateWithoutSchoolInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileCreateOrConnectWithoutSchoolInput = {
@@ -1020,6 +1300,13 @@ export type MentorProfileCreateWithoutSpecialtiesInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -1033,6 +1320,8 @@ export type MentorProfileCreateWithoutSpecialtiesInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateWithoutSpecialtiesInput = {
@@ -1042,6 +1331,13 @@ export type MentorProfileUncheckedCreateWithoutSpecialtiesInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -1053,6 +1349,8 @@ export type MentorProfileUncheckedCreateWithoutSpecialtiesInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileCreateOrConnectWithoutSpecialtiesInput = {
@@ -1076,6 +1374,13 @@ export type MentorProfileUpdateWithoutSpecialtiesInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1089,6 +1394,8 @@ export type MentorProfileUpdateWithoutSpecialtiesInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateWithoutSpecialtiesInput = {
@@ -1098,6 +1405,13 @@ export type MentorProfileUncheckedUpdateWithoutSpecialtiesInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1109,6 +1423,8 @@ export type MentorProfileUncheckedUpdateWithoutSpecialtiesInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileCreateWithoutStudentAssignmentsInput = {
@@ -1116,6 +1432,13 @@ export type MentorProfileCreateWithoutStudentAssignmentsInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -1129,6 +1452,8 @@ export type MentorProfileCreateWithoutStudentAssignmentsInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateWithoutStudentAssignmentsInput = {
@@ -1138,6 +1463,13 @@ export type MentorProfileUncheckedCreateWithoutStudentAssignmentsInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -1149,6 +1481,8 @@ export type MentorProfileUncheckedCreateWithoutStudentAssignmentsInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileCreateOrConnectWithoutStudentAssignmentsInput = {
@@ -1172,6 +1506,13 @@ export type MentorProfileUpdateWithoutStudentAssignmentsInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1185,6 +1526,8 @@ export type MentorProfileUpdateWithoutStudentAssignmentsInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateWithoutStudentAssignmentsInput = {
@@ -1194,6 +1537,13 @@ export type MentorProfileUncheckedUpdateWithoutStudentAssignmentsInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1205,6 +1555,272 @@ export type MentorProfileUncheckedUpdateWithoutStudentAssignmentsInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
+}
+
+export type MentorProfileCreateWithoutMarketplaceOffersInput = {
+  id?: string
+  headline: string
+  bio: string
+  yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
+  verificationStatus?: $Enums.MentorVerificationStatus
+  verifiedAt?: Date | string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  school: Prisma.SchoolCreateNestedOneWithoutMentorProfilesInput
+  user: Prisma.UserCreateNestedOneWithoutMentorProfilesInput
+  verifiedBy?: Prisma.UserCreateNestedOneWithoutMentorProfilesVerifiedInput
+  specialties?: Prisma.MentorProfileSpecialtyCreateNestedManyWithoutMentorProfileInput
+  availabilityRules?: Prisma.MentorAvailabilityRuleCreateNestedManyWithoutMentorProfileInput
+  availabilityExceptions?: Prisma.MentorAvailabilityExceptionCreateNestedManyWithoutMentorProfileInput
+  studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
+  appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
+  primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
+}
+
+export type MentorProfileUncheckedCreateWithoutMarketplaceOffersInput = {
+  id?: string
+  schoolId: string
+  userId: string
+  headline: string
+  bio: string
+  yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
+  verificationStatus?: $Enums.MentorVerificationStatus
+  verifiedByUserId?: string | null
+  verifiedAt?: Date | string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  specialties?: Prisma.MentorProfileSpecialtyUncheckedCreateNestedManyWithoutMentorProfileInput
+  availabilityRules?: Prisma.MentorAvailabilityRuleUncheckedCreateNestedManyWithoutMentorProfileInput
+  availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedCreateNestedManyWithoutMentorProfileInput
+  studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
+  primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
+}
+
+export type MentorProfileCreateOrConnectWithoutMarketplaceOffersInput = {
+  where: Prisma.MentorProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.MentorProfileCreateWithoutMarketplaceOffersInput, Prisma.MentorProfileUncheckedCreateWithoutMarketplaceOffersInput>
+}
+
+export type MentorProfileUpsertWithoutMarketplaceOffersInput = {
+  update: Prisma.XOR<Prisma.MentorProfileUpdateWithoutMarketplaceOffersInput, Prisma.MentorProfileUncheckedUpdateWithoutMarketplaceOffersInput>
+  create: Prisma.XOR<Prisma.MentorProfileCreateWithoutMarketplaceOffersInput, Prisma.MentorProfileUncheckedCreateWithoutMarketplaceOffersInput>
+  where?: Prisma.MentorProfileWhereInput
+}
+
+export type MentorProfileUpdateToOneWithWhereWithoutMarketplaceOffersInput = {
+  where?: Prisma.MentorProfileWhereInput
+  data: Prisma.XOR<Prisma.MentorProfileUpdateWithoutMarketplaceOffersInput, Prisma.MentorProfileUncheckedUpdateWithoutMarketplaceOffersInput>
+}
+
+export type MentorProfileUpdateWithoutMarketplaceOffersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  headline?: Prisma.StringFieldUpdateOperationsInput | string
+  bio?: Prisma.StringFieldUpdateOperationsInput | string
+  yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
+  verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  school?: Prisma.SchoolUpdateOneRequiredWithoutMentorProfilesNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutMentorProfilesNestedInput
+  verifiedBy?: Prisma.UserUpdateOneWithoutMentorProfilesVerifiedNestedInput
+  specialties?: Prisma.MentorProfileSpecialtyUpdateManyWithoutMentorProfileNestedInput
+  availabilityRules?: Prisma.MentorAvailabilityRuleUpdateManyWithoutMentorProfileNestedInput
+  availabilityExceptions?: Prisma.MentorAvailabilityExceptionUpdateManyWithoutMentorProfileNestedInput
+  studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
+  primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
+}
+
+export type MentorProfileUncheckedUpdateWithoutMarketplaceOffersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolId?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  headline?: Prisma.StringFieldUpdateOperationsInput | string
+  bio?: Prisma.StringFieldUpdateOperationsInput | string
+  yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
+  verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  specialties?: Prisma.MentorProfileSpecialtyUncheckedUpdateManyWithoutMentorProfileNestedInput
+  availabilityRules?: Prisma.MentorAvailabilityRuleUncheckedUpdateManyWithoutMentorProfileNestedInput
+  availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedUpdateManyWithoutMentorProfileNestedInput
+  studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
+  primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
+}
+
+export type MentorProfileCreateWithoutMarketplaceEngagementsInput = {
+  id?: string
+  headline: string
+  bio: string
+  yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
+  verificationStatus?: $Enums.MentorVerificationStatus
+  verifiedAt?: Date | string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  school: Prisma.SchoolCreateNestedOneWithoutMentorProfilesInput
+  user: Prisma.UserCreateNestedOneWithoutMentorProfilesInput
+  verifiedBy?: Prisma.UserCreateNestedOneWithoutMentorProfilesVerifiedInput
+  specialties?: Prisma.MentorProfileSpecialtyCreateNestedManyWithoutMentorProfileInput
+  availabilityRules?: Prisma.MentorAvailabilityRuleCreateNestedManyWithoutMentorProfileInput
+  availabilityExceptions?: Prisma.MentorAvailabilityExceptionCreateNestedManyWithoutMentorProfileInput
+  studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
+  appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
+  primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+}
+
+export type MentorProfileUncheckedCreateWithoutMarketplaceEngagementsInput = {
+  id?: string
+  schoolId: string
+  userId: string
+  headline: string
+  bio: string
+  yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
+  verificationStatus?: $Enums.MentorVerificationStatus
+  verifiedByUserId?: string | null
+  verifiedAt?: Date | string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  specialties?: Prisma.MentorProfileSpecialtyUncheckedCreateNestedManyWithoutMentorProfileInput
+  availabilityRules?: Prisma.MentorAvailabilityRuleUncheckedCreateNestedManyWithoutMentorProfileInput
+  availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedCreateNestedManyWithoutMentorProfileInput
+  studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
+  primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+}
+
+export type MentorProfileCreateOrConnectWithoutMarketplaceEngagementsInput = {
+  where: Prisma.MentorProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.MentorProfileCreateWithoutMarketplaceEngagementsInput, Prisma.MentorProfileUncheckedCreateWithoutMarketplaceEngagementsInput>
+}
+
+export type MentorProfileUpsertWithoutMarketplaceEngagementsInput = {
+  update: Prisma.XOR<Prisma.MentorProfileUpdateWithoutMarketplaceEngagementsInput, Prisma.MentorProfileUncheckedUpdateWithoutMarketplaceEngagementsInput>
+  create: Prisma.XOR<Prisma.MentorProfileCreateWithoutMarketplaceEngagementsInput, Prisma.MentorProfileUncheckedCreateWithoutMarketplaceEngagementsInput>
+  where?: Prisma.MentorProfileWhereInput
+}
+
+export type MentorProfileUpdateToOneWithWhereWithoutMarketplaceEngagementsInput = {
+  where?: Prisma.MentorProfileWhereInput
+  data: Prisma.XOR<Prisma.MentorProfileUpdateWithoutMarketplaceEngagementsInput, Prisma.MentorProfileUncheckedUpdateWithoutMarketplaceEngagementsInput>
+}
+
+export type MentorProfileUpdateWithoutMarketplaceEngagementsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  headline?: Prisma.StringFieldUpdateOperationsInput | string
+  bio?: Prisma.StringFieldUpdateOperationsInput | string
+  yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
+  verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  school?: Prisma.SchoolUpdateOneRequiredWithoutMentorProfilesNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutMentorProfilesNestedInput
+  verifiedBy?: Prisma.UserUpdateOneWithoutMentorProfilesVerifiedNestedInput
+  specialties?: Prisma.MentorProfileSpecialtyUpdateManyWithoutMentorProfileNestedInput
+  availabilityRules?: Prisma.MentorAvailabilityRuleUpdateManyWithoutMentorProfileNestedInput
+  availabilityExceptions?: Prisma.MentorAvailabilityExceptionUpdateManyWithoutMentorProfileNestedInput
+  studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
+  primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+}
+
+export type MentorProfileUncheckedUpdateWithoutMarketplaceEngagementsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolId?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  headline?: Prisma.StringFieldUpdateOperationsInput | string
+  bio?: Prisma.StringFieldUpdateOperationsInput | string
+  yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
+  verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  specialties?: Prisma.MentorProfileSpecialtyUncheckedUpdateManyWithoutMentorProfileNestedInput
+  availabilityRules?: Prisma.MentorAvailabilityRuleUncheckedUpdateManyWithoutMentorProfileNestedInput
+  availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedUpdateManyWithoutMentorProfileNestedInput
+  studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
+  appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
+  primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileCreateWithoutAvailabilityRulesInput = {
@@ -1212,6 +1828,13 @@ export type MentorProfileCreateWithoutAvailabilityRulesInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -1225,6 +1848,8 @@ export type MentorProfileCreateWithoutAvailabilityRulesInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateWithoutAvailabilityRulesInput = {
@@ -1234,6 +1859,13 @@ export type MentorProfileUncheckedCreateWithoutAvailabilityRulesInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -1245,6 +1877,8 @@ export type MentorProfileUncheckedCreateWithoutAvailabilityRulesInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileCreateOrConnectWithoutAvailabilityRulesInput = {
@@ -1268,6 +1902,13 @@ export type MentorProfileUpdateWithoutAvailabilityRulesInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1281,6 +1922,8 @@ export type MentorProfileUpdateWithoutAvailabilityRulesInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateWithoutAvailabilityRulesInput = {
@@ -1290,6 +1933,13 @@ export type MentorProfileUncheckedUpdateWithoutAvailabilityRulesInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1301,6 +1951,8 @@ export type MentorProfileUncheckedUpdateWithoutAvailabilityRulesInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileCreateWithoutAvailabilityExceptionsInput = {
@@ -1308,6 +1960,13 @@ export type MentorProfileCreateWithoutAvailabilityExceptionsInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -1321,6 +1980,8 @@ export type MentorProfileCreateWithoutAvailabilityExceptionsInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateWithoutAvailabilityExceptionsInput = {
@@ -1330,6 +1991,13 @@ export type MentorProfileUncheckedCreateWithoutAvailabilityExceptionsInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -1341,6 +2009,8 @@ export type MentorProfileUncheckedCreateWithoutAvailabilityExceptionsInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileCreateOrConnectWithoutAvailabilityExceptionsInput = {
@@ -1364,6 +2034,13 @@ export type MentorProfileUpdateWithoutAvailabilityExceptionsInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1377,6 +2054,8 @@ export type MentorProfileUpdateWithoutAvailabilityExceptionsInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateWithoutAvailabilityExceptionsInput = {
@@ -1386,6 +2065,13 @@ export type MentorProfileUncheckedUpdateWithoutAvailabilityExceptionsInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1397,6 +2083,8 @@ export type MentorProfileUncheckedUpdateWithoutAvailabilityExceptionsInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileCreateWithoutAppointmentTypesInput = {
@@ -1404,6 +2092,13 @@ export type MentorProfileCreateWithoutAppointmentTypesInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -1417,6 +2112,8 @@ export type MentorProfileCreateWithoutAppointmentTypesInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionCreateNestedManyWithoutMentorProfileInput
   studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateWithoutAppointmentTypesInput = {
@@ -1426,6 +2123,13 @@ export type MentorProfileUncheckedCreateWithoutAppointmentTypesInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -1437,6 +2141,8 @@ export type MentorProfileUncheckedCreateWithoutAppointmentTypesInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedCreateNestedManyWithoutMentorProfileInput
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
   primaryCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutPrimaryMentorInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileCreateOrConnectWithoutAppointmentTypesInput = {
@@ -1460,6 +2166,13 @@ export type MentorProfileUpdateWithoutAppointmentTypesInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1473,6 +2186,8 @@ export type MentorProfileUpdateWithoutAppointmentTypesInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionUpdateManyWithoutMentorProfileNestedInput
   studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateWithoutAppointmentTypesInput = {
@@ -1482,6 +2197,13 @@ export type MentorProfileUncheckedUpdateWithoutAppointmentTypesInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1493,6 +2215,8 @@ export type MentorProfileUncheckedUpdateWithoutAppointmentTypesInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedUpdateManyWithoutMentorProfileNestedInput
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileCreateWithoutPrimaryCasesInput = {
@@ -1500,6 +2224,13 @@ export type MentorProfileCreateWithoutPrimaryCasesInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -1513,6 +2244,8 @@ export type MentorProfileCreateWithoutPrimaryCasesInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionCreateNestedManyWithoutMentorProfileInput
   studentAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeCreateNestedManyWithoutMentorProfileInput
+  marketplaceOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileUncheckedCreateWithoutPrimaryCasesInput = {
@@ -1522,6 +2255,13 @@ export type MentorProfileUncheckedCreateWithoutPrimaryCasesInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -1533,6 +2273,8 @@ export type MentorProfileUncheckedCreateWithoutPrimaryCasesInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedCreateNestedManyWithoutMentorProfileInput
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutMentorProfileInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorProfileInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorProfileInput
 }
 
 export type MentorProfileCreateOrConnectWithoutPrimaryCasesInput = {
@@ -1556,6 +2298,13 @@ export type MentorProfileUpdateWithoutPrimaryCasesInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1569,6 +2318,8 @@ export type MentorProfileUpdateWithoutPrimaryCasesInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionUpdateManyWithoutMentorProfileNestedInput
   studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateWithoutPrimaryCasesInput = {
@@ -1578,6 +2329,13 @@ export type MentorProfileUncheckedUpdateWithoutPrimaryCasesInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1589,6 +2347,8 @@ export type MentorProfileUncheckedUpdateWithoutPrimaryCasesInput = {
   availabilityExceptions?: Prisma.MentorAvailabilityExceptionUncheckedUpdateManyWithoutMentorProfileNestedInput
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileCreateManyUserInput = {
@@ -1597,6 +2357,13 @@ export type MentorProfileCreateManyUserInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -1612,6 +2379,13 @@ export type MentorProfileCreateManyVerifiedByInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedAt?: Date | string | null
   active?: boolean
@@ -1624,6 +2398,13 @@ export type MentorProfileUpdateWithoutUserInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1637,6 +2418,8 @@ export type MentorProfileUpdateWithoutUserInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateWithoutUserInput = {
@@ -1645,6 +2428,13 @@ export type MentorProfileUncheckedUpdateWithoutUserInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1657,6 +2447,8 @@ export type MentorProfileUncheckedUpdateWithoutUserInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateManyWithoutUserInput = {
@@ -1665,6 +2457,13 @@ export type MentorProfileUncheckedUpdateManyWithoutUserInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1678,6 +2477,13 @@ export type MentorProfileUpdateWithoutVerifiedByInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1691,6 +2497,8 @@ export type MentorProfileUpdateWithoutVerifiedByInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateWithoutVerifiedByInput = {
@@ -1700,6 +2508,13 @@ export type MentorProfileUncheckedUpdateWithoutVerifiedByInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1711,6 +2526,8 @@ export type MentorProfileUncheckedUpdateWithoutVerifiedByInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateManyWithoutVerifiedByInput = {
@@ -1720,6 +2537,13 @@ export type MentorProfileUncheckedUpdateManyWithoutVerifiedByInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1733,6 +2557,13 @@ export type MentorProfileCreateManySchoolInput = {
   headline: string
   bio: string
   yearsExperience?: number
+  gradeLabel?: string | null
+  achievements?: Prisma.MentorProfileCreateachievementsInput | string[]
+  hourlyRateMinVnd?: number | null
+  hourlyRateMaxVnd?: number | null
+  certifiedByUnion?: boolean
+  certifiedAt?: Date | string | null
+  acceptingRequests?: boolean
   verificationStatus?: $Enums.MentorVerificationStatus
   verifiedByUserId?: string | null
   verifiedAt?: Date | string | null
@@ -1746,6 +2577,13 @@ export type MentorProfileUpdateWithoutSchoolInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1759,6 +2597,8 @@ export type MentorProfileUpdateWithoutSchoolInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateWithoutSchoolInput = {
@@ -1767,6 +2607,13 @@ export type MentorProfileUncheckedUpdateWithoutSchoolInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1779,6 +2626,8 @@ export type MentorProfileUncheckedUpdateWithoutSchoolInput = {
   studentAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutMentorProfileNestedInput
   appointmentTypes?: Prisma.AppointmentTypeUncheckedUpdateManyWithoutMentorProfileNestedInput
   primaryCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutPrimaryMentorNestedInput
+  marketplaceOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorProfileNestedInput
+  marketplaceEngagements?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorProfileNestedInput
 }
 
 export type MentorProfileUncheckedUpdateManyWithoutSchoolInput = {
@@ -1787,6 +2636,13 @@ export type MentorProfileUncheckedUpdateManyWithoutSchoolInput = {
   headline?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
   yearsExperience?: Prisma.IntFieldUpdateOperationsInput | number
+  gradeLabel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  achievements?: Prisma.MentorProfileUpdateachievementsInput | string[]
+  hourlyRateMinVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hourlyRateMaxVnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  certifiedByUnion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  certifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acceptingRequests?: Prisma.BoolFieldUpdateOperationsInput | boolean
   verificationStatus?: Prisma.EnumMentorVerificationStatusFieldUpdateOperationsInput | $Enums.MentorVerificationStatus
   verifiedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1807,6 +2663,8 @@ export type MentorProfileCountOutputType = {
   studentAssignments: number
   appointmentTypes: number
   primaryCases: number
+  marketplaceOffers: number
+  marketplaceEngagements: number
 }
 
 export type MentorProfileCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1816,6 +2674,8 @@ export type MentorProfileCountOutputTypeSelect<ExtArgs extends runtime.Types.Ext
   studentAssignments?: boolean | MentorProfileCountOutputTypeCountStudentAssignmentsArgs
   appointmentTypes?: boolean | MentorProfileCountOutputTypeCountAppointmentTypesArgs
   primaryCases?: boolean | MentorProfileCountOutputTypeCountPrimaryCasesArgs
+  marketplaceOffers?: boolean | MentorProfileCountOutputTypeCountMarketplaceOffersArgs
+  marketplaceEngagements?: boolean | MentorProfileCountOutputTypeCountMarketplaceEngagementsArgs
 }
 
 /**
@@ -1870,6 +2730,20 @@ export type MentorProfileCountOutputTypeCountPrimaryCasesArgs<ExtArgs extends ru
   where?: Prisma.MentoringCaseWhereInput
 }
 
+/**
+ * MentorProfileCountOutputType without action
+ */
+export type MentorProfileCountOutputTypeCountMarketplaceOffersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MentorOfferWhereInput
+}
+
+/**
+ * MentorProfileCountOutputType without action
+ */
+export type MentorProfileCountOutputTypeCountMarketplaceEngagementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MentorEngagementWhereInput
+}
+
 
 export type MentorProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1878,6 +2752,13 @@ export type MentorProfileSelect<ExtArgs extends runtime.Types.Extensions.Interna
   headline?: boolean
   bio?: boolean
   yearsExperience?: boolean
+  gradeLabel?: boolean
+  achievements?: boolean
+  hourlyRateMinVnd?: boolean
+  hourlyRateMaxVnd?: boolean
+  certifiedByUnion?: boolean
+  certifiedAt?: boolean
+  acceptingRequests?: boolean
   verificationStatus?: boolean
   verifiedByUserId?: boolean
   verifiedAt?: boolean
@@ -1893,6 +2774,8 @@ export type MentorProfileSelect<ExtArgs extends runtime.Types.Extensions.Interna
   studentAssignments?: boolean | Prisma.MentorProfile$studentAssignmentsArgs<ExtArgs>
   appointmentTypes?: boolean | Prisma.MentorProfile$appointmentTypesArgs<ExtArgs>
   primaryCases?: boolean | Prisma.MentorProfile$primaryCasesArgs<ExtArgs>
+  marketplaceOffers?: boolean | Prisma.MentorProfile$marketplaceOffersArgs<ExtArgs>
+  marketplaceEngagements?: boolean | Prisma.MentorProfile$marketplaceEngagementsArgs<ExtArgs>
   _count?: boolean | Prisma.MentorProfileCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["mentorProfile"]>
 
@@ -1903,6 +2786,13 @@ export type MentorProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   headline?: boolean
   bio?: boolean
   yearsExperience?: boolean
+  gradeLabel?: boolean
+  achievements?: boolean
+  hourlyRateMinVnd?: boolean
+  hourlyRateMaxVnd?: boolean
+  certifiedByUnion?: boolean
+  certifiedAt?: boolean
+  acceptingRequests?: boolean
   verificationStatus?: boolean
   verifiedByUserId?: boolean
   verifiedAt?: boolean
@@ -1921,6 +2811,13 @@ export type MentorProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   headline?: boolean
   bio?: boolean
   yearsExperience?: boolean
+  gradeLabel?: boolean
+  achievements?: boolean
+  hourlyRateMinVnd?: boolean
+  hourlyRateMaxVnd?: boolean
+  certifiedByUnion?: boolean
+  certifiedAt?: boolean
+  acceptingRequests?: boolean
   verificationStatus?: boolean
   verifiedByUserId?: boolean
   verifiedAt?: boolean
@@ -1939,6 +2836,13 @@ export type MentorProfileSelectScalar = {
   headline?: boolean
   bio?: boolean
   yearsExperience?: boolean
+  gradeLabel?: boolean
+  achievements?: boolean
+  hourlyRateMinVnd?: boolean
+  hourlyRateMaxVnd?: boolean
+  certifiedByUnion?: boolean
+  certifiedAt?: boolean
+  acceptingRequests?: boolean
   verificationStatus?: boolean
   verifiedByUserId?: boolean
   verifiedAt?: boolean
@@ -1947,7 +2851,7 @@ export type MentorProfileSelectScalar = {
   updatedAt?: boolean
 }
 
-export type MentorProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "schoolId" | "userId" | "headline" | "bio" | "yearsExperience" | "verificationStatus" | "verifiedByUserId" | "verifiedAt" | "active" | "createdAt" | "updatedAt", ExtArgs["result"]["mentorProfile"]>
+export type MentorProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "schoolId" | "userId" | "headline" | "bio" | "yearsExperience" | "gradeLabel" | "achievements" | "hourlyRateMinVnd" | "hourlyRateMaxVnd" | "certifiedByUnion" | "certifiedAt" | "acceptingRequests" | "verificationStatus" | "verifiedByUserId" | "verifiedAt" | "active" | "createdAt" | "updatedAt", ExtArgs["result"]["mentorProfile"]>
 export type MentorProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   school?: boolean | Prisma.SchoolDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1958,6 +2862,8 @@ export type MentorProfileInclude<ExtArgs extends runtime.Types.Extensions.Intern
   studentAssignments?: boolean | Prisma.MentorProfile$studentAssignmentsArgs<ExtArgs>
   appointmentTypes?: boolean | Prisma.MentorProfile$appointmentTypesArgs<ExtArgs>
   primaryCases?: boolean | Prisma.MentorProfile$primaryCasesArgs<ExtArgs>
+  marketplaceOffers?: boolean | Prisma.MentorProfile$marketplaceOffersArgs<ExtArgs>
+  marketplaceEngagements?: boolean | Prisma.MentorProfile$marketplaceEngagementsArgs<ExtArgs>
   _count?: boolean | Prisma.MentorProfileCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type MentorProfileIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1983,6 +2889,8 @@ export type $MentorProfilePayload<ExtArgs extends runtime.Types.Extensions.Inter
     studentAssignments: Prisma.$MentorStudentAssignmentPayload<ExtArgs>[]
     appointmentTypes: Prisma.$AppointmentTypePayload<ExtArgs>[]
     primaryCases: Prisma.$MentoringCasePayload<ExtArgs>[]
+    marketplaceOffers: Prisma.$MentorOfferPayload<ExtArgs>[]
+    marketplaceEngagements: Prisma.$MentorEngagementPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1991,6 +2899,13 @@ export type $MentorProfilePayload<ExtArgs extends runtime.Types.Extensions.Inter
     headline: string
     bio: string
     yearsExperience: number
+    gradeLabel: string | null
+    achievements: string[]
+    hourlyRateMinVnd: number | null
+    hourlyRateMaxVnd: number | null
+    certifiedByUnion: boolean
+    certifiedAt: Date | null
+    acceptingRequests: boolean
     verificationStatus: $Enums.MentorVerificationStatus
     verifiedByUserId: string | null
     verifiedAt: Date | null
@@ -2400,6 +3315,8 @@ export interface Prisma__MentorProfileClient<T, Null = never, ExtArgs extends ru
   studentAssignments<T extends Prisma.MentorProfile$studentAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MentorProfile$studentAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorStudentAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   appointmentTypes<T extends Prisma.MentorProfile$appointmentTypesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MentorProfile$appointmentTypesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AppointmentTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   primaryCases<T extends Prisma.MentorProfile$primaryCasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MentorProfile$primaryCasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentoringCasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  marketplaceOffers<T extends Prisma.MentorProfile$marketplaceOffersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MentorProfile$marketplaceOffersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorOfferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  marketplaceEngagements<T extends Prisma.MentorProfile$marketplaceEngagementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MentorProfile$marketplaceEngagementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorEngagementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2435,6 +3352,13 @@ export interface MentorProfileFieldRefs {
   readonly headline: Prisma.FieldRef<"MentorProfile", 'String'>
   readonly bio: Prisma.FieldRef<"MentorProfile", 'String'>
   readonly yearsExperience: Prisma.FieldRef<"MentorProfile", 'Int'>
+  readonly gradeLabel: Prisma.FieldRef<"MentorProfile", 'String'>
+  readonly achievements: Prisma.FieldRef<"MentorProfile", 'String[]'>
+  readonly hourlyRateMinVnd: Prisma.FieldRef<"MentorProfile", 'Int'>
+  readonly hourlyRateMaxVnd: Prisma.FieldRef<"MentorProfile", 'Int'>
+  readonly certifiedByUnion: Prisma.FieldRef<"MentorProfile", 'Boolean'>
+  readonly certifiedAt: Prisma.FieldRef<"MentorProfile", 'DateTime'>
+  readonly acceptingRequests: Prisma.FieldRef<"MentorProfile", 'Boolean'>
   readonly verificationStatus: Prisma.FieldRef<"MentorProfile", 'MentorVerificationStatus'>
   readonly verifiedByUserId: Prisma.FieldRef<"MentorProfile", 'String'>
   readonly verifiedAt: Prisma.FieldRef<"MentorProfile", 'DateTime'>
@@ -3002,6 +3926,54 @@ export type MentorProfile$primaryCasesArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.MentoringCaseScalarFieldEnum | Prisma.MentoringCaseScalarFieldEnum[]
+}
+
+/**
+ * MentorProfile.marketplaceOffers
+ */
+export type MentorProfile$marketplaceOffersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MentorOffer
+   */
+  select?: Prisma.MentorOfferSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MentorOffer
+   */
+  omit?: Prisma.MentorOfferOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MentorOfferInclude<ExtArgs> | null
+  where?: Prisma.MentorOfferWhereInput
+  orderBy?: Prisma.MentorOfferOrderByWithRelationInput | Prisma.MentorOfferOrderByWithRelationInput[]
+  cursor?: Prisma.MentorOfferWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MentorOfferScalarFieldEnum | Prisma.MentorOfferScalarFieldEnum[]
+}
+
+/**
+ * MentorProfile.marketplaceEngagements
+ */
+export type MentorProfile$marketplaceEngagementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MentorEngagement
+   */
+  select?: Prisma.MentorEngagementSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MentorEngagement
+   */
+  omit?: Prisma.MentorEngagementOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MentorEngagementInclude<ExtArgs> | null
+  where?: Prisma.MentorEngagementWhereInput
+  orderBy?: Prisma.MentorEngagementOrderByWithRelationInput | Prisma.MentorEngagementOrderByWithRelationInput[]
+  cursor?: Prisma.MentorEngagementWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MentorEngagementScalarFieldEnum | Prisma.MentorEngagementScalarFieldEnum[]
 }
 
 /**

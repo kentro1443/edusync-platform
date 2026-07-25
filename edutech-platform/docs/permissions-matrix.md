@@ -267,6 +267,14 @@ Platform support sessions are:
 
 ## Implementation Notes
 
+### Implemented reporting and search projection
+
+- `school:report:read`, `report:export`, `audit:read-school`, and `audit:export-school` gate the Phase 9 screens and exports.
+- School administrators receive aggregate operational reports and school audit access.
+- Ordinary school members can use global search, but each result family is omitted unless its read capability is present.
+- Conversation search additionally requires active participation; published-resource search never returns a different tenant.
+- Platform administration shows platform operational counts only and does not inherit school-content access.
+
 Permission identifiers should be centralized in a typed registry. Role definitions should map to permission identifiers, not hard-code role checks throughout UI or domain services.
 
 ```ts

@@ -326,6 +326,10 @@ export type UserWhereInput = {
   clubAttendance?: Prisma.ClubAttendanceListRelationFilter
   clubAttendanceRecorded?: Prisma.ClubAttendanceListRelationFilter
   clubPostEventReports?: Prisma.ClubPostEventReportListRelationFilter
+  mentorRequests?: Prisma.MentorRequestListRelationFilter
+  mentorOffers?: Prisma.MentorOfferListRelationFilter
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementListRelationFilter
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -422,6 +426,10 @@ export type UserOrderByWithRelationInput = {
   clubAttendance?: Prisma.ClubAttendanceOrderByRelationAggregateInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceOrderByRelationAggregateInput
   clubPostEventReports?: Prisma.ClubPostEventReportOrderByRelationAggregateInput
+  mentorRequests?: Prisma.MentorRequestOrderByRelationAggregateInput
+  mentorOffers?: Prisma.MentorOfferOrderByRelationAggregateInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementOrderByRelationAggregateInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -521,6 +529,10 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   clubAttendance?: Prisma.ClubAttendanceListRelationFilter
   clubAttendanceRecorded?: Prisma.ClubAttendanceListRelationFilter
   clubPostEventReports?: Prisma.ClubPostEventReportListRelationFilter
+  mentorRequests?: Prisma.MentorRequestListRelationFilter
+  mentorOffers?: Prisma.MentorOfferListRelationFilter
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementListRelationFilter
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementListRelationFilter
 }, "id" | "normalizedEmail">
 
 export type UserOrderByWithAggregationInput = {
@@ -655,6 +667,10 @@ export type UserCreateInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -751,6 +767,10 @@ export type UserUncheckedCreateInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserUpdateInput = {
@@ -847,6 +867,10 @@ export type UserUpdateInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -943,6 +967,10 @@ export type UserUncheckedUpdateInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -1477,6 +1505,62 @@ export type UserUpdateOneRequiredWithoutMentorAssignmentsCreatedNestedInput = {
   upsert?: Prisma.UserUpsertWithoutMentorAssignmentsCreatedInput
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMentorAssignmentsCreatedInput, Prisma.UserUpdateWithoutMentorAssignmentsCreatedInput>, Prisma.UserUncheckedUpdateWithoutMentorAssignmentsCreatedInput>
+}
+
+export type UserCreateNestedOneWithoutMentorRequestsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMentorRequestsInput, Prisma.UserUncheckedCreateWithoutMentorRequestsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMentorRequestsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutMentorRequestsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMentorRequestsInput, Prisma.UserUncheckedCreateWithoutMentorRequestsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMentorRequestsInput
+  upsert?: Prisma.UserUpsertWithoutMentorRequestsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMentorRequestsInput, Prisma.UserUpdateWithoutMentorRequestsInput>, Prisma.UserUncheckedUpdateWithoutMentorRequestsInput>
+}
+
+export type UserCreateNestedOneWithoutMentorOffersInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMentorOffersInput, Prisma.UserUncheckedCreateWithoutMentorOffersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMentorOffersInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutMentorOffersNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMentorOffersInput, Prisma.UserUncheckedCreateWithoutMentorOffersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMentorOffersInput
+  upsert?: Prisma.UserUpsertWithoutMentorOffersInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMentorOffersInput, Prisma.UserUpdateWithoutMentorOffersInput>, Prisma.UserUncheckedUpdateWithoutMentorOffersInput>
+}
+
+export type UserCreateNestedOneWithoutMentorEngagementsAsMentorInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMentorEngagementsAsMentorInput, Prisma.UserUncheckedCreateWithoutMentorEngagementsAsMentorInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMentorEngagementsAsMentorInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutMentorEngagementsAsStudentInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMentorEngagementsAsStudentInput, Prisma.UserUncheckedCreateWithoutMentorEngagementsAsStudentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMentorEngagementsAsStudentInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutMentorEngagementsAsMentorNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMentorEngagementsAsMentorInput, Prisma.UserUncheckedCreateWithoutMentorEngagementsAsMentorInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMentorEngagementsAsMentorInput
+  upsert?: Prisma.UserUpsertWithoutMentorEngagementsAsMentorInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMentorEngagementsAsMentorInput, Prisma.UserUpdateWithoutMentorEngagementsAsMentorInput>, Prisma.UserUncheckedUpdateWithoutMentorEngagementsAsMentorInput>
+}
+
+export type UserUpdateOneRequiredWithoutMentorEngagementsAsStudentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMentorEngagementsAsStudentInput, Prisma.UserUncheckedCreateWithoutMentorEngagementsAsStudentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMentorEngagementsAsStudentInput
+  upsert?: Prisma.UserUpsertWithoutMentorEngagementsAsStudentInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMentorEngagementsAsStudentInput, Prisma.UserUpdateWithoutMentorEngagementsAsStudentInput>, Prisma.UserUncheckedUpdateWithoutMentorEngagementsAsStudentInput>
 }
 
 export type UserCreateNestedOneWithoutAppointmentsOrganizedInput = {
@@ -2318,6 +2402,10 @@ export type UserCreateWithoutPlatformRoleAssignmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutPlatformRoleAssignmentsInput = {
@@ -2413,6 +2501,10 @@ export type UserUncheckedCreateWithoutPlatformRoleAssignmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutPlatformRoleAssignmentsInput = {
@@ -2513,6 +2605,10 @@ export type UserCreateWithoutPlatformRolesAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutPlatformRolesAssignedInput = {
@@ -2608,6 +2704,10 @@ export type UserUncheckedCreateWithoutPlatformRolesAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutPlatformRolesAssignedInput = {
@@ -2719,6 +2819,10 @@ export type UserUpdateWithoutPlatformRoleAssignmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPlatformRoleAssignmentsInput = {
@@ -2814,6 +2918,10 @@ export type UserUncheckedUpdateWithoutPlatformRoleAssignmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutPlatformRolesAssignedInput = {
@@ -2920,6 +3028,10 @@ export type UserUpdateWithoutPlatformRolesAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPlatformRolesAssignedInput = {
@@ -3015,6 +3127,10 @@ export type UserUncheckedUpdateWithoutPlatformRolesAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMembershipsInput = {
@@ -3110,6 +3226,10 @@ export type UserCreateWithoutMembershipsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMembershipsInput = {
@@ -3205,6 +3325,10 @@ export type UserUncheckedCreateWithoutMembershipsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMembershipsInput = {
@@ -3316,6 +3440,10 @@ export type UserUpdateWithoutMembershipsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMembershipsInput = {
@@ -3411,6 +3539,10 @@ export type UserUncheckedUpdateWithoutMembershipsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutSchoolRolesAssignedInput = {
@@ -3506,6 +3638,10 @@ export type UserCreateWithoutSchoolRolesAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutSchoolRolesAssignedInput = {
@@ -3601,6 +3737,10 @@ export type UserUncheckedCreateWithoutSchoolRolesAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutSchoolRolesAssignedInput = {
@@ -3712,6 +3852,10 @@ export type UserUpdateWithoutSchoolRolesAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSchoolRolesAssignedInput = {
@@ -3807,6 +3951,10 @@ export type UserUncheckedUpdateWithoutSchoolRolesAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutParentLinksInput = {
@@ -3902,6 +4050,10 @@ export type UserCreateWithoutParentLinksInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutParentLinksInput = {
@@ -3997,6 +4149,10 @@ export type UserUncheckedCreateWithoutParentLinksInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutParentLinksInput = {
@@ -4097,6 +4253,10 @@ export type UserCreateWithoutStudentLinksInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutStudentLinksInput = {
@@ -4192,6 +4352,10 @@ export type UserUncheckedCreateWithoutStudentLinksInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutStudentLinksInput = {
@@ -4303,6 +4467,10 @@ export type UserUpdateWithoutParentLinksInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutParentLinksInput = {
@@ -4398,6 +4566,10 @@ export type UserUncheckedUpdateWithoutParentLinksInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutStudentLinksInput = {
@@ -4504,6 +4676,10 @@ export type UserUpdateWithoutStudentLinksInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutStudentLinksInput = {
@@ -4599,6 +4775,10 @@ export type UserUncheckedUpdateWithoutStudentLinksInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutInvitationsCreatedInput = {
@@ -4694,6 +4874,10 @@ export type UserCreateWithoutInvitationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutInvitationsCreatedInput = {
@@ -4789,6 +4973,10 @@ export type UserUncheckedCreateWithoutInvitationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutInvitationsCreatedInput = {
@@ -4900,6 +5088,10 @@ export type UserUpdateWithoutInvitationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutInvitationsCreatedInput = {
@@ -4995,6 +5187,10 @@ export type UserUncheckedUpdateWithoutInvitationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutSessionsInput = {
@@ -5090,6 +5286,10 @@ export type UserCreateWithoutSessionsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -5185,6 +5385,10 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -5296,6 +5500,10 @@ export type UserUpdateWithoutSessionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -5391,6 +5599,10 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutPasswordResetTokensInput = {
@@ -5486,6 +5698,10 @@ export type UserCreateWithoutPasswordResetTokensInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
@@ -5581,6 +5797,10 @@ export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutPasswordResetTokensInput = {
@@ -5692,6 +5912,10 @@ export type UserUpdateWithoutPasswordResetTokensInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
@@ -5787,6 +6011,10 @@ export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutFilesCreatedInput = {
@@ -5882,6 +6110,10 @@ export type UserCreateWithoutFilesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutFilesCreatedInput = {
@@ -5977,6 +6209,10 @@ export type UserUncheckedCreateWithoutFilesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutFilesCreatedInput = {
@@ -6088,6 +6324,10 @@ export type UserUpdateWithoutFilesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFilesCreatedInput = {
@@ -6183,6 +6423,10 @@ export type UserUncheckedUpdateWithoutFilesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutFileVersionsCreatedInput = {
@@ -6278,6 +6522,10 @@ export type UserCreateWithoutFileVersionsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutFileVersionsCreatedInput = {
@@ -6373,6 +6621,10 @@ export type UserUncheckedCreateWithoutFileVersionsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutFileVersionsCreatedInput = {
@@ -6484,6 +6736,10 @@ export type UserUpdateWithoutFileVersionsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFileVersionsCreatedInput = {
@@ -6579,6 +6835,10 @@ export type UserUncheckedUpdateWithoutFileVersionsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutFileLinksCreatedInput = {
@@ -6674,6 +6934,10 @@ export type UserCreateWithoutFileLinksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutFileLinksCreatedInput = {
@@ -6769,6 +7033,10 @@ export type UserUncheckedCreateWithoutFileLinksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutFileLinksCreatedInput = {
@@ -6880,6 +7148,10 @@ export type UserUpdateWithoutFileLinksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFileLinksCreatedInput = {
@@ -6975,6 +7247,10 @@ export type UserUncheckedUpdateWithoutFileLinksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutResourcesCreatedInput = {
@@ -7070,6 +7346,10 @@ export type UserCreateWithoutResourcesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutResourcesCreatedInput = {
@@ -7165,6 +7445,10 @@ export type UserUncheckedCreateWithoutResourcesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutResourcesCreatedInput = {
@@ -7276,6 +7560,10 @@ export type UserUpdateWithoutResourcesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutResourcesCreatedInput = {
@@ -7371,6 +7659,10 @@ export type UserUncheckedUpdateWithoutResourcesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutResourceVersionsCreatedInput = {
@@ -7466,6 +7758,10 @@ export type UserCreateWithoutResourceVersionsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutResourceVersionsCreatedInput = {
@@ -7561,6 +7857,10 @@ export type UserUncheckedCreateWithoutResourceVersionsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutResourceVersionsCreatedInput = {
@@ -7672,6 +7972,10 @@ export type UserUpdateWithoutResourceVersionsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutResourceVersionsCreatedInput = {
@@ -7767,6 +8071,10 @@ export type UserUncheckedUpdateWithoutResourceVersionsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutCategoriesCreatedInput = {
@@ -7862,6 +8170,10 @@ export type UserCreateWithoutCategoriesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutCategoriesCreatedInput = {
@@ -7957,6 +8269,10 @@ export type UserUncheckedCreateWithoutCategoriesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutCategoriesCreatedInput = {
@@ -8068,6 +8384,10 @@ export type UserUpdateWithoutCategoriesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCategoriesCreatedInput = {
@@ -8163,6 +8483,10 @@ export type UserUncheckedUpdateWithoutCategoriesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutTagsCreatedInput = {
@@ -8258,6 +8582,10 @@ export type UserCreateWithoutTagsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutTagsCreatedInput = {
@@ -8353,6 +8681,10 @@ export type UserUncheckedCreateWithoutTagsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutTagsCreatedInput = {
@@ -8464,6 +8796,10 @@ export type UserUpdateWithoutTagsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTagsCreatedInput = {
@@ -8559,6 +8895,10 @@ export type UserUncheckedUpdateWithoutTagsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutResourceTransitionsInput = {
@@ -8654,6 +8994,10 @@ export type UserCreateWithoutResourceTransitionsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutResourceTransitionsInput = {
@@ -8749,6 +9093,10 @@ export type UserUncheckedCreateWithoutResourceTransitionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutResourceTransitionsInput = {
@@ -8860,6 +9208,10 @@ export type UserUpdateWithoutResourceTransitionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutResourceTransitionsInput = {
@@ -8955,6 +9307,10 @@ export type UserUncheckedUpdateWithoutResourceTransitionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutResourceCommentsInput = {
@@ -9050,6 +9406,10 @@ export type UserCreateWithoutResourceCommentsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutResourceCommentsInput = {
@@ -9145,6 +9505,10 @@ export type UserUncheckedCreateWithoutResourceCommentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutResourceCommentsInput = {
@@ -9256,6 +9620,10 @@ export type UserUpdateWithoutResourceCommentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutResourceCommentsInput = {
@@ -9351,6 +9719,10 @@ export type UserUncheckedUpdateWithoutResourceCommentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutResourceReportsInput = {
@@ -9446,6 +9818,10 @@ export type UserCreateWithoutResourceReportsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutResourceReportsInput = {
@@ -9541,6 +9917,10 @@ export type UserUncheckedCreateWithoutResourceReportsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutResourceReportsInput = {
@@ -9652,6 +10032,10 @@ export type UserUpdateWithoutResourceReportsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutResourceReportsInput = {
@@ -9747,6 +10131,10 @@ export type UserUncheckedUpdateWithoutResourceReportsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutResourceBookmarksInput = {
@@ -9842,6 +10230,10 @@ export type UserCreateWithoutResourceBookmarksInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutResourceBookmarksInput = {
@@ -9937,6 +10329,10 @@ export type UserUncheckedCreateWithoutResourceBookmarksInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutResourceBookmarksInput = {
@@ -10048,6 +10444,10 @@ export type UserUpdateWithoutResourceBookmarksInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutResourceBookmarksInput = {
@@ -10143,6 +10543,10 @@ export type UserUncheckedUpdateWithoutResourceBookmarksInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutResourceCollectionsInput = {
@@ -10238,6 +10642,10 @@ export type UserCreateWithoutResourceCollectionsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutResourceCollectionsInput = {
@@ -10333,6 +10741,10 @@ export type UserUncheckedCreateWithoutResourceCollectionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutResourceCollectionsInput = {
@@ -10444,6 +10856,10 @@ export type UserUpdateWithoutResourceCollectionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutResourceCollectionsInput = {
@@ -10539,6 +10955,10 @@ export type UserUncheckedUpdateWithoutResourceCollectionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutResourceAnalyticsEventsInput = {
@@ -10634,6 +11054,10 @@ export type UserCreateWithoutResourceAnalyticsEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutResourceAnalyticsEventsInput = {
@@ -10729,6 +11153,10 @@ export type UserUncheckedCreateWithoutResourceAnalyticsEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutResourceAnalyticsEventsInput = {
@@ -10840,6 +11268,10 @@ export type UserUpdateWithoutResourceAnalyticsEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutResourceAnalyticsEventsInput = {
@@ -10935,6 +11367,10 @@ export type UserUncheckedUpdateWithoutResourceAnalyticsEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutAuditEventsInput = {
@@ -11030,6 +11466,10 @@ export type UserCreateWithoutAuditEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutAuditEventsInput = {
@@ -11125,6 +11565,10 @@ export type UserUncheckedCreateWithoutAuditEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutAuditEventsInput = {
@@ -11236,6 +11680,10 @@ export type UserUpdateWithoutAuditEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAuditEventsInput = {
@@ -11331,6 +11779,10 @@ export type UserUncheckedUpdateWithoutAuditEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutEmailOutboxItemsInput = {
@@ -11426,6 +11878,10 @@ export type UserCreateWithoutEmailOutboxItemsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutEmailOutboxItemsInput = {
@@ -11521,6 +11977,10 @@ export type UserUncheckedCreateWithoutEmailOutboxItemsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutEmailOutboxItemsInput = {
@@ -11632,6 +12092,10 @@ export type UserUpdateWithoutEmailOutboxItemsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutEmailOutboxItemsInput = {
@@ -11727,6 +12191,10 @@ export type UserUncheckedUpdateWithoutEmailOutboxItemsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMentorProfilesInput = {
@@ -11822,6 +12290,10 @@ export type UserCreateWithoutMentorProfilesInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentorProfilesInput = {
@@ -11917,6 +12389,10 @@ export type UserUncheckedCreateWithoutMentorProfilesInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentorProfilesInput = {
@@ -12017,6 +12493,10 @@ export type UserCreateWithoutMentorProfilesVerifiedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentorProfilesVerifiedInput = {
@@ -12112,6 +12592,10 @@ export type UserUncheckedCreateWithoutMentorProfilesVerifiedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentorProfilesVerifiedInput = {
@@ -12223,6 +12707,10 @@ export type UserUpdateWithoutMentorProfilesInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentorProfilesInput = {
@@ -12318,6 +12806,10 @@ export type UserUncheckedUpdateWithoutMentorProfilesInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutMentorProfilesVerifiedInput = {
@@ -12424,6 +12916,10 @@ export type UserUpdateWithoutMentorProfilesVerifiedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentorProfilesVerifiedInput = {
@@ -12519,6 +13015,10 @@ export type UserUncheckedUpdateWithoutMentorProfilesVerifiedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMentorAssignmentsInput = {
@@ -12614,6 +13114,10 @@ export type UserCreateWithoutMentorAssignmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentorAssignmentsInput = {
@@ -12709,6 +13213,10 @@ export type UserUncheckedCreateWithoutMentorAssignmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentorAssignmentsInput = {
@@ -12809,6 +13317,10 @@ export type UserCreateWithoutMentorAssignmentsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentorAssignmentsCreatedInput = {
@@ -12904,6 +13416,10 @@ export type UserUncheckedCreateWithoutMentorAssignmentsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentorAssignmentsCreatedInput = {
@@ -13015,6 +13531,10 @@ export type UserUpdateWithoutMentorAssignmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentorAssignmentsInput = {
@@ -13110,6 +13630,10 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutMentorAssignmentsCreatedInput = {
@@ -13216,6 +13740,10 @@ export type UserUpdateWithoutMentorAssignmentsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentorAssignmentsCreatedInput = {
@@ -13311,6 +13839,1658 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
+}
+
+export type UserCreateWithoutMentorRequestsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
+}
+
+export type UserUncheckedCreateWithoutMentorRequestsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
+}
+
+export type UserCreateOrConnectWithoutMentorRequestsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMentorRequestsInput, Prisma.UserUncheckedCreateWithoutMentorRequestsInput>
+}
+
+export type UserUpsertWithoutMentorRequestsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMentorRequestsInput, Prisma.UserUncheckedUpdateWithoutMentorRequestsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMentorRequestsInput, Prisma.UserUncheckedCreateWithoutMentorRequestsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMentorRequestsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMentorRequestsInput, Prisma.UserUncheckedUpdateWithoutMentorRequestsInput>
+}
+
+export type UserUpdateWithoutMentorRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMentorRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
+}
+
+export type UserCreateWithoutMentorOffersInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
+}
+
+export type UserUncheckedCreateWithoutMentorOffersInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
+}
+
+export type UserCreateOrConnectWithoutMentorOffersInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMentorOffersInput, Prisma.UserUncheckedCreateWithoutMentorOffersInput>
+}
+
+export type UserUpsertWithoutMentorOffersInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMentorOffersInput, Prisma.UserUncheckedUpdateWithoutMentorOffersInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMentorOffersInput, Prisma.UserUncheckedCreateWithoutMentorOffersInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMentorOffersInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMentorOffersInput, Prisma.UserUncheckedUpdateWithoutMentorOffersInput>
+}
+
+export type UserUpdateWithoutMentorOffersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMentorOffersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
+}
+
+export type UserCreateWithoutMentorEngagementsAsMentorInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
+}
+
+export type UserUncheckedCreateWithoutMentorEngagementsAsMentorInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
+}
+
+export type UserCreateOrConnectWithoutMentorEngagementsAsMentorInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMentorEngagementsAsMentorInput, Prisma.UserUncheckedCreateWithoutMentorEngagementsAsMentorInput>
+}
+
+export type UserCreateWithoutMentorEngagementsAsStudentInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+}
+
+export type UserUncheckedCreateWithoutMentorEngagementsAsStudentInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+}
+
+export type UserCreateOrConnectWithoutMentorEngagementsAsStudentInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMentorEngagementsAsStudentInput, Prisma.UserUncheckedCreateWithoutMentorEngagementsAsStudentInput>
+}
+
+export type UserUpsertWithoutMentorEngagementsAsMentorInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMentorEngagementsAsMentorInput, Prisma.UserUncheckedUpdateWithoutMentorEngagementsAsMentorInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMentorEngagementsAsMentorInput, Prisma.UserUncheckedCreateWithoutMentorEngagementsAsMentorInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMentorEngagementsAsMentorInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMentorEngagementsAsMentorInput, Prisma.UserUncheckedUpdateWithoutMentorEngagementsAsMentorInput>
+}
+
+export type UserUpdateWithoutMentorEngagementsAsMentorInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMentorEngagementsAsMentorInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
+}
+
+export type UserUpsertWithoutMentorEngagementsAsStudentInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMentorEngagementsAsStudentInput, Prisma.UserUncheckedUpdateWithoutMentorEngagementsAsStudentInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMentorEngagementsAsStudentInput, Prisma.UserUncheckedCreateWithoutMentorEngagementsAsStudentInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMentorEngagementsAsStudentInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMentorEngagementsAsStudentInput, Prisma.UserUncheckedUpdateWithoutMentorEngagementsAsStudentInput>
+}
+
+export type UserUpdateWithoutMentorEngagementsAsStudentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMentorEngagementsAsStudentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
 }
 
 export type UserCreateWithoutAppointmentsOrganizedInput = {
@@ -13406,6 +15586,10 @@ export type UserCreateWithoutAppointmentsOrganizedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutAppointmentsOrganizedInput = {
@@ -13501,6 +15685,10 @@ export type UserUncheckedCreateWithoutAppointmentsOrganizedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutAppointmentsOrganizedInput = {
@@ -13601,6 +15789,10 @@ export type UserCreateWithoutStudentAppointmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutStudentAppointmentsInput = {
@@ -13696,6 +15888,10 @@ export type UserUncheckedCreateWithoutStudentAppointmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutStudentAppointmentsInput = {
@@ -13796,6 +15992,10 @@ export type UserCreateWithoutMentorAppointmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentorAppointmentsInput = {
@@ -13891,6 +16091,10 @@ export type UserUncheckedCreateWithoutMentorAppointmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentorAppointmentsInput = {
@@ -14002,6 +16206,10 @@ export type UserUpdateWithoutAppointmentsOrganizedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAppointmentsOrganizedInput = {
@@ -14097,6 +16305,10 @@ export type UserUncheckedUpdateWithoutAppointmentsOrganizedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutStudentAppointmentsInput = {
@@ -14203,6 +16415,10 @@ export type UserUpdateWithoutStudentAppointmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutStudentAppointmentsInput = {
@@ -14298,6 +16514,10 @@ export type UserUncheckedUpdateWithoutStudentAppointmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutMentorAppointmentsInput = {
@@ -14404,6 +16624,10 @@ export type UserUpdateWithoutMentorAppointmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentorAppointmentsInput = {
@@ -14499,6 +16723,10 @@ export type UserUncheckedUpdateWithoutMentorAppointmentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutAppointmentTransitionsInput = {
@@ -14594,6 +16822,10 @@ export type UserCreateWithoutAppointmentTransitionsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutAppointmentTransitionsInput = {
@@ -14689,6 +16921,10 @@ export type UserUncheckedCreateWithoutAppointmentTransitionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutAppointmentTransitionsInput = {
@@ -14800,6 +17036,10 @@ export type UserUpdateWithoutAppointmentTransitionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAppointmentTransitionsInput = {
@@ -14895,6 +17135,10 @@ export type UserUncheckedUpdateWithoutAppointmentTransitionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutAppointmentWaitlistInput = {
@@ -14990,6 +17234,10 @@ export type UserCreateWithoutAppointmentWaitlistInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutAppointmentWaitlistInput = {
@@ -15085,6 +17333,10 @@ export type UserUncheckedCreateWithoutAppointmentWaitlistInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutAppointmentWaitlistInput = {
@@ -15196,6 +17448,10 @@ export type UserUpdateWithoutAppointmentWaitlistInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAppointmentWaitlistInput = {
@@ -15291,6 +17547,10 @@ export type UserUncheckedUpdateWithoutAppointmentWaitlistInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutAttendanceRecordsInput = {
@@ -15386,6 +17646,10 @@ export type UserCreateWithoutAttendanceRecordsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutAttendanceRecordsInput = {
@@ -15481,6 +17745,10 @@ export type UserUncheckedCreateWithoutAttendanceRecordsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutAttendanceRecordsInput = {
@@ -15581,6 +17849,10 @@ export type UserCreateWithoutAttendanceRecordedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutAttendanceRecordedInput = {
@@ -15676,6 +17948,10 @@ export type UserUncheckedCreateWithoutAttendanceRecordedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutAttendanceRecordedInput = {
@@ -15787,6 +18063,10 @@ export type UserUpdateWithoutAttendanceRecordsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAttendanceRecordsInput = {
@@ -15882,6 +18162,10 @@ export type UserUncheckedUpdateWithoutAttendanceRecordsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutAttendanceRecordedInput = {
@@ -15988,6 +18272,10 @@ export type UserUpdateWithoutAttendanceRecordedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAttendanceRecordedInput = {
@@ -16083,6 +18371,10 @@ export type UserUncheckedUpdateWithoutAttendanceRecordedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMentoringCasesInput = {
@@ -16178,6 +18470,10 @@ export type UserCreateWithoutMentoringCasesInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentoringCasesInput = {
@@ -16273,6 +18569,10 @@ export type UserUncheckedCreateWithoutMentoringCasesInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentoringCasesInput = {
@@ -16373,6 +18673,10 @@ export type UserCreateWithoutMentoringCasesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentoringCasesCreatedInput = {
@@ -16468,6 +18772,10 @@ export type UserUncheckedCreateWithoutMentoringCasesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentoringCasesCreatedInput = {
@@ -16579,6 +18887,10 @@ export type UserUpdateWithoutMentoringCasesInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentoringCasesInput = {
@@ -16674,6 +18986,10 @@ export type UserUncheckedUpdateWithoutMentoringCasesInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutMentoringCasesCreatedInput = {
@@ -16780,6 +19096,10 @@ export type UserUpdateWithoutMentoringCasesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentoringCasesCreatedInput = {
@@ -16875,6 +19195,10 @@ export type UserUncheckedUpdateWithoutMentoringCasesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMentoringGoalsCreatedInput = {
@@ -16970,6 +19294,10 @@ export type UserCreateWithoutMentoringGoalsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentoringGoalsCreatedInput = {
@@ -17065,6 +19393,10 @@ export type UserUncheckedCreateWithoutMentoringGoalsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentoringGoalsCreatedInput = {
@@ -17176,6 +19508,10 @@ export type UserUpdateWithoutMentoringGoalsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentoringGoalsCreatedInput = {
@@ -17271,6 +19607,10 @@ export type UserUncheckedUpdateWithoutMentoringGoalsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutSessionOutcomesCompletedInput = {
@@ -17366,6 +19706,10 @@ export type UserCreateWithoutSessionOutcomesCompletedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutSessionOutcomesCompletedInput = {
@@ -17461,6 +19805,10 @@ export type UserUncheckedCreateWithoutSessionOutcomesCompletedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutSessionOutcomesCompletedInput = {
@@ -17572,6 +19920,10 @@ export type UserUpdateWithoutSessionOutcomesCompletedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionOutcomesCompletedInput = {
@@ -17667,6 +20019,10 @@ export type UserUncheckedUpdateWithoutSessionOutcomesCompletedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMentoringTasksAssignedInput = {
@@ -17762,6 +20118,10 @@ export type UserCreateWithoutMentoringTasksAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentoringTasksAssignedInput = {
@@ -17857,6 +20217,10 @@ export type UserUncheckedCreateWithoutMentoringTasksAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentoringTasksAssignedInput = {
@@ -17957,6 +20321,10 @@ export type UserCreateWithoutMentoringTasksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentoringTasksCreatedInput = {
@@ -18052,6 +20420,10 @@ export type UserUncheckedCreateWithoutMentoringTasksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentoringTasksCreatedInput = {
@@ -18163,6 +20535,10 @@ export type UserUpdateWithoutMentoringTasksAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentoringTasksAssignedInput = {
@@ -18258,6 +20634,10 @@ export type UserUncheckedUpdateWithoutMentoringTasksAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutMentoringTasksCreatedInput = {
@@ -18364,6 +20744,10 @@ export type UserUpdateWithoutMentoringTasksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentoringTasksCreatedInput = {
@@ -18459,6 +20843,10 @@ export type UserUncheckedUpdateWithoutMentoringTasksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMentoringReferralsInput = {
@@ -18554,6 +20942,10 @@ export type UserCreateWithoutMentoringReferralsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentoringReferralsInput = {
@@ -18649,6 +21041,10 @@ export type UserUncheckedCreateWithoutMentoringReferralsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentoringReferralsInput = {
@@ -18749,6 +21145,10 @@ export type UserCreateWithoutMentoringReferralsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentoringReferralsCreatedInput = {
@@ -18844,6 +21244,10 @@ export type UserUncheckedCreateWithoutMentoringReferralsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentoringReferralsCreatedInput = {
@@ -18955,6 +21359,10 @@ export type UserUpdateWithoutMentoringReferralsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentoringReferralsInput = {
@@ -19050,6 +21458,10 @@ export type UserUncheckedUpdateWithoutMentoringReferralsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutMentoringReferralsCreatedInput = {
@@ -19156,6 +21568,10 @@ export type UserUpdateWithoutMentoringReferralsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentoringReferralsCreatedInput = {
@@ -19251,6 +21667,10 @@ export type UserUncheckedUpdateWithoutMentoringReferralsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMentoringNotesInput = {
@@ -19346,6 +21766,10 @@ export type UserCreateWithoutMentoringNotesInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMentoringNotesInput = {
@@ -19441,6 +21865,10 @@ export type UserUncheckedCreateWithoutMentoringNotesInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMentoringNotesInput = {
@@ -19552,6 +21980,10 @@ export type UserUpdateWithoutMentoringNotesInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMentoringNotesInput = {
@@ -19647,6 +22079,10 @@ export type UserUncheckedUpdateWithoutMentoringNotesInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutCalendarsOwnedInput = {
@@ -19742,6 +22178,10 @@ export type UserCreateWithoutCalendarsOwnedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutCalendarsOwnedInput = {
@@ -19837,6 +22277,10 @@ export type UserUncheckedCreateWithoutCalendarsOwnedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutCalendarsOwnedInput = {
@@ -19948,6 +22392,10 @@ export type UserUpdateWithoutCalendarsOwnedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCalendarsOwnedInput = {
@@ -20043,6 +22491,10 @@ export type UserUncheckedUpdateWithoutCalendarsOwnedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutBookableResourcesCreatedInput = {
@@ -20138,6 +22590,10 @@ export type UserCreateWithoutBookableResourcesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutBookableResourcesCreatedInput = {
@@ -20233,6 +22689,10 @@ export type UserUncheckedCreateWithoutBookableResourcesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutBookableResourcesCreatedInput = {
@@ -20344,6 +22804,10 @@ export type UserUpdateWithoutBookableResourcesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBookableResourcesCreatedInput = {
@@ -20439,6 +22903,10 @@ export type UserUncheckedUpdateWithoutBookableResourcesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutCalendarEventsCreatedInput = {
@@ -20534,6 +23002,10 @@ export type UserCreateWithoutCalendarEventsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutCalendarEventsCreatedInput = {
@@ -20629,6 +23101,10 @@ export type UserUncheckedCreateWithoutCalendarEventsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutCalendarEventsCreatedInput = {
@@ -20740,6 +23216,10 @@ export type UserUpdateWithoutCalendarEventsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCalendarEventsCreatedInput = {
@@ -20835,6 +23315,10 @@ export type UserUncheckedUpdateWithoutCalendarEventsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutCalendarBookingsInput = {
@@ -20930,6 +23414,10 @@ export type UserCreateWithoutCalendarBookingsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutCalendarBookingsInput = {
@@ -21025,6 +23513,10 @@ export type UserUncheckedCreateWithoutCalendarBookingsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutCalendarBookingsInput = {
@@ -21136,6 +23628,10 @@ export type UserUpdateWithoutCalendarBookingsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCalendarBookingsInput = {
@@ -21231,6 +23727,10 @@ export type UserUncheckedUpdateWithoutCalendarBookingsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutCalendarAttendanceInput = {
@@ -21326,6 +23826,10 @@ export type UserCreateWithoutCalendarAttendanceInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutCalendarAttendanceInput = {
@@ -21421,6 +23925,10 @@ export type UserUncheckedCreateWithoutCalendarAttendanceInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutCalendarAttendanceInput = {
@@ -21521,6 +24029,10 @@ export type UserCreateWithoutCalendarAttendanceRecordedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutCalendarAttendanceRecordedInput = {
@@ -21616,6 +24128,10 @@ export type UserUncheckedCreateWithoutCalendarAttendanceRecordedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutCalendarAttendanceRecordedInput = {
@@ -21727,6 +24243,10 @@ export type UserUpdateWithoutCalendarAttendanceInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCalendarAttendanceInput = {
@@ -21822,6 +24342,10 @@ export type UserUncheckedUpdateWithoutCalendarAttendanceInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutCalendarAttendanceRecordedInput = {
@@ -21928,6 +24452,10 @@ export type UserUpdateWithoutCalendarAttendanceRecordedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCalendarAttendanceRecordedInput = {
@@ -22023,6 +24551,10 @@ export type UserUncheckedUpdateWithoutCalendarAttendanceRecordedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutWorkflowTemplatesCreatedInput = {
@@ -22118,6 +24650,10 @@ export type UserCreateWithoutWorkflowTemplatesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutWorkflowTemplatesCreatedInput = {
@@ -22213,6 +24749,10 @@ export type UserUncheckedCreateWithoutWorkflowTemplatesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutWorkflowTemplatesCreatedInput = {
@@ -22324,6 +24864,10 @@ export type UserUpdateWithoutWorkflowTemplatesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorkflowTemplatesCreatedInput = {
@@ -22419,6 +24963,10 @@ export type UserUncheckedUpdateWithoutWorkflowTemplatesCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutWorkflowSubmissionsInput = {
@@ -22514,6 +25062,10 @@ export type UserCreateWithoutWorkflowSubmissionsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutWorkflowSubmissionsInput = {
@@ -22609,6 +25161,10 @@ export type UserUncheckedCreateWithoutWorkflowSubmissionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutWorkflowSubmissionsInput = {
@@ -22720,6 +25276,10 @@ export type UserUpdateWithoutWorkflowSubmissionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorkflowSubmissionsInput = {
@@ -22815,6 +25375,10 @@ export type UserUncheckedUpdateWithoutWorkflowSubmissionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutWorkflowStepsAssignedInput = {
@@ -22910,6 +25474,10 @@ export type UserCreateWithoutWorkflowStepsAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutWorkflowStepsAssignedInput = {
@@ -23005,6 +25573,10 @@ export type UserUncheckedCreateWithoutWorkflowStepsAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutWorkflowStepsAssignedInput = {
@@ -23116,6 +25688,10 @@ export type UserUpdateWithoutWorkflowStepsAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorkflowStepsAssignedInput = {
@@ -23211,6 +25787,10 @@ export type UserUncheckedUpdateWithoutWorkflowStepsAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutWorkflowDelegationsCreatedInput = {
@@ -23306,6 +25886,10 @@ export type UserCreateWithoutWorkflowDelegationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutWorkflowDelegationsCreatedInput = {
@@ -23401,6 +25985,10 @@ export type UserUncheckedCreateWithoutWorkflowDelegationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutWorkflowDelegationsCreatedInput = {
@@ -23501,6 +26089,10 @@ export type UserCreateWithoutWorkflowDelegationsReceivedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutWorkflowDelegationsReceivedInput = {
@@ -23596,6 +26188,10 @@ export type UserUncheckedCreateWithoutWorkflowDelegationsReceivedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutWorkflowDelegationsReceivedInput = {
@@ -23707,6 +26303,10 @@ export type UserUpdateWithoutWorkflowDelegationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorkflowDelegationsCreatedInput = {
@@ -23802,6 +26402,10 @@ export type UserUncheckedUpdateWithoutWorkflowDelegationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutWorkflowDelegationsReceivedInput = {
@@ -23908,6 +26512,10 @@ export type UserUpdateWithoutWorkflowDelegationsReceivedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorkflowDelegationsReceivedInput = {
@@ -24003,6 +26611,10 @@ export type UserUncheckedUpdateWithoutWorkflowDelegationsReceivedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutWorkflowDecisionsInput = {
@@ -24098,6 +26710,10 @@ export type UserCreateWithoutWorkflowDecisionsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutWorkflowDecisionsInput = {
@@ -24193,6 +26809,10 @@ export type UserUncheckedCreateWithoutWorkflowDecisionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutWorkflowDecisionsInput = {
@@ -24304,6 +26924,10 @@ export type UserUpdateWithoutWorkflowDecisionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorkflowDecisionsInput = {
@@ -24399,6 +27023,10 @@ export type UserUncheckedUpdateWithoutWorkflowDecisionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutWorkflowHistoryInput = {
@@ -24494,6 +27122,10 @@ export type UserCreateWithoutWorkflowHistoryInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutWorkflowHistoryInput = {
@@ -24589,6 +27221,10 @@ export type UserUncheckedCreateWithoutWorkflowHistoryInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutWorkflowHistoryInput = {
@@ -24700,6 +27336,10 @@ export type UserUpdateWithoutWorkflowHistoryInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorkflowHistoryInput = {
@@ -24795,6 +27435,10 @@ export type UserUncheckedUpdateWithoutWorkflowHistoryInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutWorkflowCommentsInput = {
@@ -24890,6 +27534,10 @@ export type UserCreateWithoutWorkflowCommentsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutWorkflowCommentsInput = {
@@ -24985,6 +27633,10 @@ export type UserUncheckedCreateWithoutWorkflowCommentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutWorkflowCommentsInput = {
@@ -25096,6 +27748,10 @@ export type UserUpdateWithoutWorkflowCommentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorkflowCommentsInput = {
@@ -25191,6 +27847,10 @@ export type UserUncheckedUpdateWithoutWorkflowCommentsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubsCreatedInput = {
@@ -25286,6 +27946,10 @@ export type UserCreateWithoutClubsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubsCreatedInput = {
@@ -25381,6 +28045,10 @@ export type UserUncheckedCreateWithoutClubsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubsCreatedInput = {
@@ -25492,6 +28160,10 @@ export type UserUpdateWithoutClubsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubsCreatedInput = {
@@ -25587,6 +28259,10 @@ export type UserUncheckedUpdateWithoutClubsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubApplicationsInput = {
@@ -25682,6 +28358,10 @@ export type UserCreateWithoutClubApplicationsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubApplicationsInput = {
@@ -25777,6 +28457,10 @@ export type UserUncheckedCreateWithoutClubApplicationsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubApplicationsInput = {
@@ -25877,6 +28561,10 @@ export type UserCreateWithoutClubApplicationsReviewedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubApplicationsReviewedInput = {
@@ -25972,6 +28660,10 @@ export type UserUncheckedCreateWithoutClubApplicationsReviewedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubApplicationsReviewedInput = {
@@ -26083,6 +28775,10 @@ export type UserUpdateWithoutClubApplicationsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubApplicationsInput = {
@@ -26178,6 +28874,10 @@ export type UserUncheckedUpdateWithoutClubApplicationsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutClubApplicationsReviewedInput = {
@@ -26284,6 +28984,10 @@ export type UserUpdateWithoutClubApplicationsReviewedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubApplicationsReviewedInput = {
@@ -26379,6 +29083,10 @@ export type UserUncheckedUpdateWithoutClubApplicationsReviewedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubMembershipsInput = {
@@ -26474,6 +29182,10 @@ export type UserCreateWithoutClubMembershipsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubMembershipsInput = {
@@ -26569,6 +29281,10 @@ export type UserUncheckedCreateWithoutClubMembershipsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubMembershipsInput = {
@@ -26680,6 +29396,10 @@ export type UserUpdateWithoutClubMembershipsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubMembershipsInput = {
@@ -26775,6 +29495,10 @@ export type UserUncheckedUpdateWithoutClubMembershipsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubAnnouncementsInput = {
@@ -26870,6 +29594,10 @@ export type UserCreateWithoutClubAnnouncementsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubAnnouncementsInput = {
@@ -26965,6 +29693,10 @@ export type UserUncheckedCreateWithoutClubAnnouncementsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubAnnouncementsInput = {
@@ -27076,6 +29808,10 @@ export type UserUpdateWithoutClubAnnouncementsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubAnnouncementsInput = {
@@ -27171,6 +29907,10 @@ export type UserUncheckedUpdateWithoutClubAnnouncementsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubTasksCreatedInput = {
@@ -27266,6 +30006,10 @@ export type UserCreateWithoutClubTasksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubTasksCreatedInput = {
@@ -27361,6 +30105,10 @@ export type UserUncheckedCreateWithoutClubTasksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubTasksCreatedInput = {
@@ -27461,6 +30209,10 @@ export type UserCreateWithoutClubTasksAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubTasksAssignedInput = {
@@ -27556,6 +30308,10 @@ export type UserUncheckedCreateWithoutClubTasksAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubTasksAssignedInput = {
@@ -27667,6 +30423,10 @@ export type UserUpdateWithoutClubTasksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubTasksCreatedInput = {
@@ -27762,6 +30522,10 @@ export type UserUncheckedUpdateWithoutClubTasksCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutClubTasksAssignedInput = {
@@ -27868,6 +30632,10 @@ export type UserUpdateWithoutClubTasksAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubTasksAssignedInput = {
@@ -27963,6 +30731,10 @@ export type UserUncheckedUpdateWithoutClubTasksAssignedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubEventsCreatedInput = {
@@ -28058,6 +30830,10 @@ export type UserCreateWithoutClubEventsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubEventsCreatedInput = {
@@ -28153,6 +30929,10 @@ export type UserUncheckedCreateWithoutClubEventsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubEventsCreatedInput = {
@@ -28264,6 +31044,10 @@ export type UserUpdateWithoutClubEventsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubEventsCreatedInput = {
@@ -28359,6 +31143,10 @@ export type UserUncheckedUpdateWithoutClubEventsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubRegistrationsInput = {
@@ -28454,6 +31242,10 @@ export type UserCreateWithoutClubRegistrationsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubRegistrationsInput = {
@@ -28549,6 +31341,10 @@ export type UserUncheckedCreateWithoutClubRegistrationsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubRegistrationsInput = {
@@ -28660,6 +31456,10 @@ export type UserUpdateWithoutClubRegistrationsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubRegistrationsInput = {
@@ -28755,6 +31555,10 @@ export type UserUncheckedUpdateWithoutClubRegistrationsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubConsentsForStudentInput = {
@@ -28850,6 +31654,10 @@ export type UserCreateWithoutClubConsentsForStudentInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubConsentsForStudentInput = {
@@ -28945,6 +31753,10 @@ export type UserUncheckedCreateWithoutClubConsentsForStudentInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubConsentsForStudentInput = {
@@ -29045,6 +31857,10 @@ export type UserCreateWithoutClubConsentsForGuardianInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubConsentsForGuardianInput = {
@@ -29140,6 +31956,10 @@ export type UserUncheckedCreateWithoutClubConsentsForGuardianInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubConsentsForGuardianInput = {
@@ -29251,6 +32071,10 @@ export type UserUpdateWithoutClubConsentsForStudentInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubConsentsForStudentInput = {
@@ -29346,6 +32170,10 @@ export type UserUncheckedUpdateWithoutClubConsentsForStudentInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutClubConsentsForGuardianInput = {
@@ -29452,6 +32280,10 @@ export type UserUpdateWithoutClubConsentsForGuardianInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubConsentsForGuardianInput = {
@@ -29547,6 +32379,10 @@ export type UserUncheckedUpdateWithoutClubConsentsForGuardianInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubAttendanceInput = {
@@ -29642,6 +32478,10 @@ export type UserCreateWithoutClubAttendanceInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubAttendanceInput = {
@@ -29737,6 +32577,10 @@ export type UserUncheckedCreateWithoutClubAttendanceInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubAttendanceInput = {
@@ -29837,6 +32681,10 @@ export type UserCreateWithoutClubAttendanceRecordedInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubAttendanceRecordedInput = {
@@ -29932,6 +32780,10 @@ export type UserUncheckedCreateWithoutClubAttendanceRecordedInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubAttendanceRecordedInput = {
@@ -30043,6 +32895,10 @@ export type UserUpdateWithoutClubAttendanceInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubAttendanceInput = {
@@ -30138,6 +32994,10 @@ export type UserUncheckedUpdateWithoutClubAttendanceInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutClubAttendanceRecordedInput = {
@@ -30244,6 +33104,10 @@ export type UserUpdateWithoutClubAttendanceRecordedInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubAttendanceRecordedInput = {
@@ -30339,6 +33203,10 @@ export type UserUncheckedUpdateWithoutClubAttendanceRecordedInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutClubPostEventReportsInput = {
@@ -30434,6 +33302,10 @@ export type UserCreateWithoutClubPostEventReportsInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutClubPostEventReportsInput = {
@@ -30529,6 +33401,10 @@ export type UserUncheckedCreateWithoutClubPostEventReportsInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutClubPostEventReportsInput = {
@@ -30640,6 +33516,10 @@ export type UserUpdateWithoutClubPostEventReportsInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClubPostEventReportsInput = {
@@ -30735,6 +33615,10 @@ export type UserUncheckedUpdateWithoutClubPostEventReportsInput = {
   clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutConversationsCreatedInput = {
@@ -30830,6 +33714,10 @@ export type UserCreateWithoutConversationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutConversationsCreatedInput = {
@@ -30925,6 +33813,10 @@ export type UserUncheckedCreateWithoutConversationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutConversationsCreatedInput = {
@@ -31036,6 +33928,10 @@ export type UserUpdateWithoutConversationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutConversationsCreatedInput = {
@@ -31131,6 +34027,10 @@ export type UserUncheckedUpdateWithoutConversationsCreatedInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutConversationParticipantsInput = {
@@ -31226,6 +34126,10 @@ export type UserCreateWithoutConversationParticipantsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutConversationParticipantsInput = {
@@ -31321,6 +34225,10 @@ export type UserUncheckedCreateWithoutConversationParticipantsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutConversationParticipantsInput = {
@@ -31432,6 +34340,10 @@ export type UserUpdateWithoutConversationParticipantsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutConversationParticipantsInput = {
@@ -31527,6 +34439,10 @@ export type UserUncheckedUpdateWithoutConversationParticipantsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMessagesSentInput = {
@@ -31622,6 +34538,10 @@ export type UserCreateWithoutMessagesSentInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMessagesSentInput = {
@@ -31717,6 +34637,10 @@ export type UserUncheckedCreateWithoutMessagesSentInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMessagesSentInput = {
@@ -31828,6 +34752,10 @@ export type UserUpdateWithoutMessagesSentInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMessagesSentInput = {
@@ -31923,6 +34851,10 @@ export type UserUncheckedUpdateWithoutMessagesSentInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutMessageMentionsInput = {
@@ -32018,6 +34950,10 @@ export type UserCreateWithoutMessageMentionsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutMessageMentionsInput = {
@@ -32113,6 +35049,10 @@ export type UserUncheckedCreateWithoutMessageMentionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutMessageMentionsInput = {
@@ -32224,6 +35164,10 @@ export type UserUpdateWithoutMessageMentionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMessageMentionsInput = {
@@ -32319,6 +35263,10 @@ export type UserUncheckedUpdateWithoutMessageMentionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutNotificationsInput = {
@@ -32414,6 +35362,10 @@ export type UserCreateWithoutNotificationsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutNotificationsInput = {
@@ -32509,6 +35461,10 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutNotificationsInput = {
@@ -32620,6 +35576,10 @@ export type UserUpdateWithoutNotificationsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutNotificationsInput = {
@@ -32715,6 +35675,10 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutNotificationPreferencesInput = {
@@ -32810,6 +35774,10 @@ export type UserCreateWithoutNotificationPreferencesInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutNotificationPreferencesInput = {
@@ -32905,6 +35873,10 @@ export type UserUncheckedCreateWithoutNotificationPreferencesInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutNotificationPreferencesInput = {
@@ -33016,6 +35988,10 @@ export type UserUpdateWithoutNotificationPreferencesInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutNotificationPreferencesInput = {
@@ -33111,6 +36087,10 @@ export type UserUncheckedUpdateWithoutNotificationPreferencesInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserCreateWithoutActivityFeedEventsInput = {
@@ -33206,6 +36186,10 @@ export type UserCreateWithoutActivityFeedEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutActivityFeedEventsInput = {
@@ -33301,6 +36285,10 @@ export type UserUncheckedCreateWithoutActivityFeedEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutActivityFeedEventsInput = {
@@ -33401,6 +36389,10 @@ export type UserCreateWithoutActivityFeedActionsInput = {
   clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
 }
 
 export type UserUncheckedCreateWithoutActivityFeedActionsInput = {
@@ -33496,6 +36488,10 @@ export type UserUncheckedCreateWithoutActivityFeedActionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type UserCreateOrConnectWithoutActivityFeedActionsInput = {
@@ -33607,6 +36603,10 @@ export type UserUpdateWithoutActivityFeedEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutActivityFeedEventsInput = {
@@ -33702,6 +36702,10 @@ export type UserUncheckedUpdateWithoutActivityFeedEventsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUpsertWithoutActivityFeedActionsInput = {
@@ -33808,6 +36812,10 @@ export type UserUpdateWithoutActivityFeedActionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
 }
 
 export type UserUncheckedUpdateWithoutActivityFeedActionsInput = {
@@ -33903,6 +36911,10 @@ export type UserUncheckedUpdateWithoutActivityFeedActionsInput = {
   clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
   clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
   clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 
@@ -33991,6 +37003,10 @@ export type UserCountOutputType = {
   clubAttendance: number
   clubAttendanceRecorded: number
   clubPostEventReports: number
+  mentorRequests: number
+  mentorOffers: number
+  mentorEngagementsAsMentor: number
+  mentorEngagementsAsStudent: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -34074,6 +37090,10 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   clubAttendance?: boolean | UserCountOutputTypeCountClubAttendanceArgs
   clubAttendanceRecorded?: boolean | UserCountOutputTypeCountClubAttendanceRecordedArgs
   clubPostEventReports?: boolean | UserCountOutputTypeCountClubPostEventReportsArgs
+  mentorRequests?: boolean | UserCountOutputTypeCountMentorRequestsArgs
+  mentorOffers?: boolean | UserCountOutputTypeCountMentorOffersArgs
+  mentorEngagementsAsMentor?: boolean | UserCountOutputTypeCountMentorEngagementsAsMentorArgs
+  mentorEngagementsAsStudent?: boolean | UserCountOutputTypeCountMentorEngagementsAsStudentArgs
 }
 
 /**
@@ -34646,6 +37666,34 @@ export type UserCountOutputTypeCountClubPostEventReportsArgs<ExtArgs extends run
   where?: Prisma.ClubPostEventReportWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountMentorRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MentorRequestWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountMentorOffersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MentorOfferWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountMentorEngagementsAsMentorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MentorEngagementWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountMentorEngagementsAsStudentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MentorEngagementWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -34741,6 +37789,10 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   clubAttendance?: boolean | Prisma.User$clubAttendanceArgs<ExtArgs>
   clubAttendanceRecorded?: boolean | Prisma.User$clubAttendanceRecordedArgs<ExtArgs>
   clubPostEventReports?: boolean | Prisma.User$clubPostEventReportsArgs<ExtArgs>
+  mentorRequests?: boolean | Prisma.User$mentorRequestsArgs<ExtArgs>
+  mentorOffers?: boolean | Prisma.User$mentorOffersArgs<ExtArgs>
+  mentorEngagementsAsMentor?: boolean | Prisma.User$mentorEngagementsAsMentorArgs<ExtArgs>
+  mentorEngagementsAsStudent?: boolean | Prisma.User$mentorEngagementsAsStudentArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -34874,6 +37926,10 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   clubAttendance?: boolean | Prisma.User$clubAttendanceArgs<ExtArgs>
   clubAttendanceRecorded?: boolean | Prisma.User$clubAttendanceRecordedArgs<ExtArgs>
   clubPostEventReports?: boolean | Prisma.User$clubPostEventReportsArgs<ExtArgs>
+  mentorRequests?: boolean | Prisma.User$mentorRequestsArgs<ExtArgs>
+  mentorOffers?: boolean | Prisma.User$mentorOffersArgs<ExtArgs>
+  mentorEngagementsAsMentor?: boolean | Prisma.User$mentorEngagementsAsMentorArgs<ExtArgs>
+  mentorEngagementsAsStudent?: boolean | Prisma.User$mentorEngagementsAsStudentArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -34962,6 +38018,10 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     clubAttendance: Prisma.$ClubAttendancePayload<ExtArgs>[]
     clubAttendanceRecorded: Prisma.$ClubAttendancePayload<ExtArgs>[]
     clubPostEventReports: Prisma.$ClubPostEventReportPayload<ExtArgs>[]
+    mentorRequests: Prisma.$MentorRequestPayload<ExtArgs>[]
+    mentorOffers: Prisma.$MentorOfferPayload<ExtArgs>[]
+    mentorEngagementsAsMentor: Prisma.$MentorEngagementPayload<ExtArgs>[]
+    mentorEngagementsAsStudent: Prisma.$MentorEngagementPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -35451,6 +38511,10 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   clubAttendance<T extends Prisma.User$clubAttendanceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$clubAttendanceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClubAttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clubAttendanceRecorded<T extends Prisma.User$clubAttendanceRecordedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$clubAttendanceRecordedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClubAttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clubPostEventReports<T extends Prisma.User$clubPostEventReportsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$clubPostEventReportsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClubPostEventReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  mentorRequests<T extends Prisma.User$mentorRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$mentorRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  mentorOffers<T extends Prisma.User$mentorOffersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$mentorOffersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorOfferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  mentorEngagementsAsMentor<T extends Prisma.User$mentorEngagementsAsMentorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$mentorEngagementsAsMentorArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorEngagementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  mentorEngagementsAsStudent<T extends Prisma.User$mentorEngagementsAsStudentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$mentorEngagementsAsStudentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MentorEngagementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -37803,6 +40867,102 @@ export type User$clubPostEventReportsArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.ClubPostEventReportScalarFieldEnum | Prisma.ClubPostEventReportScalarFieldEnum[]
+}
+
+/**
+ * User.mentorRequests
+ */
+export type User$mentorRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MentorRequest
+   */
+  select?: Prisma.MentorRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MentorRequest
+   */
+  omit?: Prisma.MentorRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MentorRequestInclude<ExtArgs> | null
+  where?: Prisma.MentorRequestWhereInput
+  orderBy?: Prisma.MentorRequestOrderByWithRelationInput | Prisma.MentorRequestOrderByWithRelationInput[]
+  cursor?: Prisma.MentorRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MentorRequestScalarFieldEnum | Prisma.MentorRequestScalarFieldEnum[]
+}
+
+/**
+ * User.mentorOffers
+ */
+export type User$mentorOffersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MentorOffer
+   */
+  select?: Prisma.MentorOfferSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MentorOffer
+   */
+  omit?: Prisma.MentorOfferOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MentorOfferInclude<ExtArgs> | null
+  where?: Prisma.MentorOfferWhereInput
+  orderBy?: Prisma.MentorOfferOrderByWithRelationInput | Prisma.MentorOfferOrderByWithRelationInput[]
+  cursor?: Prisma.MentorOfferWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MentorOfferScalarFieldEnum | Prisma.MentorOfferScalarFieldEnum[]
+}
+
+/**
+ * User.mentorEngagementsAsMentor
+ */
+export type User$mentorEngagementsAsMentorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MentorEngagement
+   */
+  select?: Prisma.MentorEngagementSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MentorEngagement
+   */
+  omit?: Prisma.MentorEngagementOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MentorEngagementInclude<ExtArgs> | null
+  where?: Prisma.MentorEngagementWhereInput
+  orderBy?: Prisma.MentorEngagementOrderByWithRelationInput | Prisma.MentorEngagementOrderByWithRelationInput[]
+  cursor?: Prisma.MentorEngagementWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MentorEngagementScalarFieldEnum | Prisma.MentorEngagementScalarFieldEnum[]
+}
+
+/**
+ * User.mentorEngagementsAsStudent
+ */
+export type User$mentorEngagementsAsStudentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MentorEngagement
+   */
+  select?: Prisma.MentorEngagementSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MentorEngagement
+   */
+  omit?: Prisma.MentorEngagementOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MentorEngagementInclude<ExtArgs> | null
+  where?: Prisma.MentorEngagementWhereInput
+  orderBy?: Prisma.MentorEngagementOrderByWithRelationInput | Prisma.MentorEngagementOrderByWithRelationInput[]
+  cursor?: Prisma.MentorEngagementWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MentorEngagementScalarFieldEnum | Prisma.MentorEngagementScalarFieldEnum[]
 }
 
 /**

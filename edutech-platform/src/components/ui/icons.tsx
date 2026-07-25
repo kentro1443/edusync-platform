@@ -143,6 +143,23 @@ export function MessageIcon(props: IconProps) {
   );
 }
 
+export function ChartIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
+    </svg>
+  );
+}
+
+export function HistoryIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4.5 8A8 8 0 1 1 4 15" />
+      <path d="M4.5 3.5V8h4.5M12 7v5l3 2" />
+    </svg>
+  );
+}
+
 export function PlusIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>

@@ -373,3 +373,15 @@ mutations.
 11. Reporting indexes and usage counters.
 
 Each migration must be reversible where practical, reviewed for tenant leakage, and tested against a clean database plus a seeded database.
+
+## Implemented collaboration and reporting projections
+
+- `Conversation`, `ConversationParticipant`, `Message`, and `MessageMention` enforce participant visibility inside one school.
+- Message attachments reuse `StoredFile` and `FileLink`; authorization happens before streaming bytes.
+- `Notification` uses a unique dedupe key. `NotificationPreference` controls in-app/email and message/mention delivery.
+- `ActivityFeedProjection` is a rebuildable read model.
+- `DomainOutboxEvent` and `EmailOutbox` have retry scheduling, processing leases, and idempotency keys.
+- Reports aggregate existing tenant-owned tables rather than duplicate sensitive row-level data.
+- Storage usage is computed from available `StoredFile` rows and compared with `School.storageQuotaBytes`.
+
+Retention removes only expired/revoked sessions and tokens, stale rate-limit rows, read notifications older than 180 days, processed/sent delivery records older than 30 days, failed email records older than 90 days, and invitations expired for 90 days. Audit history is not deleted by the default job.
