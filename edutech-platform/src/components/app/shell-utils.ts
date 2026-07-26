@@ -16,6 +16,7 @@ export interface AppNavItem {
   href: string;
   label: string;
   icon: NavIcon;
+  section?: string;
   available?: boolean;
 }
 

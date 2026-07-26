@@ -4,6 +4,8 @@ import { expect, test, type Page } from "@playwright/test";
 import { argon2id, hash } from "argon2";
 import { Client } from "pg";
 
+import { submitServerAction } from "./helpers/server-actions";
+
 const databaseUrl =
   process.env.DATABASE_URL ??
   "postgresql://edutech:edutech_local@localhost:5432/edutech?schema=public";
@@ -285,8 +287,7 @@ test("quản trị trường chuyển tenant, phân quyền, tạm dừng và m�
   const inviteDialog = page.getByRole("dialog", { name: "Mời thành viên" });
   await inviteDialog.locator("#invite-email").fill(invitedEmail);
   await inviteDialog.getByLabel("Giáo viên & nhân viên").check();
-  await inviteDialog.getByRole("button", { name: "Gửi lời mời" }).click();
-  await expect(page).toHaveURL(/result=invited/, { timeout: 10_000 });
+  await submitServerAction(page, "Gửi lời mời", /result=invited/);
   await expect(page.getByRole("status").filter({ hasText: "Đã tạo và gửi lời mời" })).toBeVisible();
 
   const invitationMessage = await database.query<{ payloadJson: { invitationUrl: string } }>(

@@ -4,6 +4,8 @@ import { argon2id, hash } from "argon2";
 import "dotenv/config";
 import { Client } from "pg";
 
+import { submitServerAction } from "./helpers/server-actions";
+
 const databaseUrl = process.env.DATABASE_URL ?? "postgresql://edutech:edutech_local@localhost:5432/edutech?schema=public";
 const password = "Phase5CalendarE2E-2026!";
 
@@ -70,17 +72,11 @@ test.describe("Phase 5 calendar booking, waitlist and promotion", () => {
 
       await pageA.goto(`/dashboard/calendar?calendarId=${calendarId}`);
       await expect(pageA.getByRole("heading", { name: "Hội thảo sức chứa 1" })).toBeVisible();
-      await Promise.all([
-        pageA.waitForURL(/result=booked/),
-        pageA.getByRole("button", { name: "Giữ chỗ" }).click(),
-      ]);
+      await submitServerAction(pageA, "Giữ chỗ", /result=booked/);
 
       await pageB.goto(`/dashboard/calendar?calendarId=${calendarId}`);
       await expect(pageB.getByRole("heading", { name: "Hội thảo sức chứa 1" })).toBeVisible();
-      await Promise.all([
-        pageB.waitForURL(/result=booked/),
-        pageB.getByRole("button", { name: "Giữ chỗ" }).click(),
-      ]);
+      await submitServerAction(pageB, "Giữ chỗ", /result=booked/);
 
       const beforeCancel = await database.query<{ userId: string; status: string }>(
         'SELECT "userId", status FROM "CalendarBooking" WHERE "eventId" = $1 ORDER BY position ASC NULLS FIRST',
@@ -95,10 +91,7 @@ test.describe("Phase 5 calendar booking, waitlist and promotion", () => {
       const bookedPage = bookedRow.userId === studentAId ? pageA : pageB;
 
       await bookedPage.goto(`/dashboard/calendar/${eventId}`);
-      await Promise.all([
-        bookedPage.waitForURL(/result=cancelled/),
-        bookedPage.getByRole("button", { name: "Hủy giữ chỗ" }).click(),
-      ]);
+      await submitServerAction(bookedPage, "Hủy giữ chỗ", /result=cancelled/);
 
       const afterCancel = await database.query<{ userId: string; status: string }>(
         'SELECT "userId", status FROM "CalendarBooking" WHERE "eventId" = $1',

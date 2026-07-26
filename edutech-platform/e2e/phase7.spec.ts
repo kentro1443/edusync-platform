@@ -5,6 +5,8 @@ import { argon2id, hash } from "argon2";
 import "dotenv/config";
 import { Client } from "pg";
 
+import { submitServerAction } from "./helpers/server-actions";
+
 const databaseUrl = process.env.DATABASE_URL ?? "postgresql://edutech:edutech_local@localhost:5432/edutech?schema=public";
 const suffix = randomUUID().slice(0, 8);
 const school = { id: randomUUID(), slug: `phase7-e2e-${suffix}`, name: `Trường E2E Phase 7 ${suffix}`, shortName: "E2E P7" };
@@ -61,22 +63,39 @@ test("admin creates club and event, student sees club and registers", async ({ p
   await page.getByLabel("Tên câu lạc bộ").fill("Nhiếp ảnh E2E");
   await page.getByLabel("Mô tả").fill("Không gian kể chuyện bằng hình ảnh.");
   await page.getByLabel("Mở đăng ký ngay sau khi tạo").check();
-  await page.getByRole("button", { name: "Tạo câu lạc bộ" }).click();
-  await expect(page).toHaveURL(/result=club/);
+  await submitServerAction(page, "Tạo câu lạc bộ", /result=club/);
   const clubId = (await database.query<{ id: string }>('SELECT id FROM "Club" WHERE "schoolId" = $1 AND name = $2', [school.id, "Nhiếp ảnh E2E"])).rows[0].id;
   const start = new Date(Date.now() + 3 * 86_400_000);
   start.setMinutes(0, 0, 0);
   const end = new Date(start.getTime() + 90 * 60_000);
   const local = (date: Date) => new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Ho_Chi_Minh", dateStyle: "short", timeStyle: "short" }).format(date).replace(" ", "T");
   await page.goto(`/dashboard/clubs-events/${clubId}`);
+  await page.locator("summary").filter({ hasText: "Tạo đề xuất sự kiện" }).click();
   await page.getByLabel("Tên sự kiện").fill("Workshop nhiếp ảnh");
   await page.getByLabel("Bắt đầu").fill(local(start));
   await page.getByLabel("Kết thúc").fill(local(end));
-  await page.getByRole("button", { name: "Tạo đề xuất" }).click();
-  await expect(page).toHaveURL(/result=event/);
+  await submitServerAction(page, "Tạo đề xuất", /result=event/);
   await expect(page.getByText("Workshop nhiếp ảnh")).toBeVisible();
-  await page.getByRole("button", { name: "Duyệt" }).click();
-  await expect(page).toHaveURL(/result=event-review/);
+  await submitServerAction(page, "Duyệt", /result=event-review/);
+  await page.locator("summary").filter({ hasText: "Tạo và giao việc" }).click();
+  await page.getByLabel("Tên công việc").fill("Điều phối workshop");
+  await submitServerAction(page, "Giao việc", /result=task/);
+  await expect(page.getByText("Điều phối workshop")).toBeVisible();
+  await page
+    .getByLabel("Trạng thái Điều phối workshop")
+    .selectOption("DONE");
+  await submitServerAction(page, "Lưu trạng thái", /result=task-status/);
+  await expect
+    .poll(
+      async () =>
+        (
+          await database.query<{ status: string }>(
+            'SELECT status FROM "ClubTask" WHERE "schoolId" = $1 AND title = $2',
+            [school.id, "Điều phối workshop"],
+          )
+        ).rows[0]?.status,
+    )
+    .toBe("DONE");
   await page.locator("summary").filter({ hasText: "Mở menu tài khoản" }).click();
   await page.getByRole("button", { name: "Đăng xuất" }).click();
   await expect(page).toHaveURL(/\/login$/);
@@ -84,8 +103,6 @@ test("admin creates club and event, student sees club and registers", async ({ p
   await page.goto(`/dashboard/clubs-events/${clubId}`);
   await expect(page.getByRole("heading", { name: "Nhiếp ảnh E2E" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Tạo đề xuất" })).toHaveCount(0);
-  await page.getByRole("button", { name: "Đăng ký" }).click();
-  await expect(page).toHaveURL(/result=registration/);
-  await page.getByRole("button", { name: "Gửi đơn tham gia" }).click();
-  await expect(page).toHaveURL(/result=application/);
+  await submitServerAction(page, "Đăng ký", /result=registration/);
+  await submitServerAction(page, "Gửi đơn tham gia", /result=application/);
 });

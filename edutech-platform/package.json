@@ -20,6 +20,7 @@
     "db:migrate:deploy": "prisma migrate deploy",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio",
+    "db:test-fixtures:clean": "tsx scripts/cleanup-test-fixtures.ts",
     "outbox:process": "NODE_OPTIONS=--conditions=react-server tsx scripts/process-outbox.ts",
     "maintenance:cleanup": "NODE_OPTIONS=--conditions=react-server tsx scripts/cleanup-retention.ts",
     "workflows:escalate": "NODE_OPTIONS=--conditions=react-server tsx scripts/process-workflow-escalations.ts",

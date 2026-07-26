@@ -21,5 +21,6 @@ export default defineConfig({
   test: {
     environment: "node",
     exclude: ["**/node_modules/**", "**/e2e/**"],
+    globalSetup: ["./src/test/global-setup.ts"],
   },
 });

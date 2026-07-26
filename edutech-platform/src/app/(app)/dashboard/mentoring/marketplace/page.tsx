@@ -124,6 +124,65 @@ export default async function MarketplacePage({
         </nav>
       ) : null}
 
+      {!canRequest && !canOffer ? (
+        <section
+          aria-labelledby="marketplace-observer-heading"
+          className="grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)]"
+        >
+          <Card className="overflow-hidden p-0">
+            <div className="border-b border-[var(--color-brand-200)] bg-[linear-gradient(135deg,var(--color-brand-900),var(--color-brand-700))] px-6 py-7 text-white">
+              <Badge tone="neutral" className="bg-white/15 text-white">
+                Quyền chỉ xem
+              </Badge>
+              <h2 id="marketplace-observer-heading" className="mt-4 text-2xl font-bold tracking-tight">
+                Không gian quan sát
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-white/80">
+                Vai trò hiện tại không tham gia giao dịch. Yêu cầu, đề xuất và thanh toán chỉ hiển thị
+                cho đúng học sinh hoặc cố vấn liên quan.
+              </p>
+            </div>
+            <div className="grid gap-px bg-[var(--color-ink-100)] sm:grid-cols-3">
+              {[
+                ["01", "Học sinh đăng nhu cầu", "Mục tiêu, số buổi và ngân sách tham khảo."],
+                ["02", "Cố vấn gửi đề xuất", "Lộ trình, mức phí và lời nhắn minh bạch."],
+                ["03", "Hai bên xác nhận", "Thỏa thuận và trạng thái thanh toán được ghi nhận."],
+              ].map(([step, title, description]) => (
+                <div key={step} className="bg-[var(--color-surface)] p-5">
+                  <p className="text-xs font-bold tracking-[0.16em] text-[var(--color-brand-700)]">
+                    BƯỚC {step}
+                  </p>
+                  <p className="mt-2 text-sm font-bold text-[var(--color-ink-900)]">{title}</p>
+                  <p className="mt-1 text-sm leading-6 text-[var(--color-ink-500)]">{description}</p>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          <Card className="flex flex-col justify-between gap-6">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-ink-400)]">
+                Phân quyền dữ liệu
+              </p>
+              <h3 className="mt-2 text-lg font-bold text-[var(--color-ink-900)]">
+                Bảo vệ giao dịch cá nhân theo vai trò
+              </h3>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-[var(--color-ink-600)]">
+                <li>• Học sinh chỉ quản lý yêu cầu và thỏa thuận của mình.</li>
+                <li>• Cố vấn chỉ xem yêu cầu mở và đề xuất do mình gửi.</li>
+                <li>• Vai trò quan sát dùng danh bạ để tra cứu hồ sơ công khai.</li>
+              </ul>
+            </div>
+            <Link
+              href="/dashboard/mentoring/mentors"
+              className="inline-flex min-h-10 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-brand-700)] px-4 text-sm font-semibold text-white hover:bg-[var(--color-brand-800)]"
+            >
+              Mở danh bạ cố vấn
+            </Link>
+          </Card>
+        </section>
+      ) : null}
+
       {tab === "requests" && canRequest ? (
         <div className="grid gap-8 lg:grid-cols-[1fr_22rem]">
           <section aria-labelledby="my-requests-heading" className="space-y-4 lg:order-1 order-2">

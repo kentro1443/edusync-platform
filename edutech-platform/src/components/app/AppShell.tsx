@@ -95,10 +95,12 @@ function Navigation({
 }) {
   return (
     <nav className="space-y-1 px-3 py-4" aria-label="Điều hướng ứng dụng">
-      {items.map((item) => {
+      {items.map((item, index) => {
         const Icon = icons[item.icon];
         const active = isCurrentRoute(pathname, item.href);
         const unavailable = item.available === false;
+        const startsSection =
+          !collapsed && item.section && item.section !== items[index - 1]?.section;
         const content = (
           <>
             <Icon width={19} height={19} aria-hidden="true" />
@@ -111,25 +113,19 @@ function Navigation({
           </>
         );
 
-        if (unavailable) {
-          return (
-            <span
-              key={item.href}
-              title={collapsed ? `${item.label} — sắp có` : undefined}
-              aria-disabled="true"
-              className={cn(
-                "flex min-h-11 cursor-not-allowed items-center gap-3 rounded-[var(--radius-md)] px-3 py-2.5 text-sm font-medium text-[var(--color-ink-400)]",
-                collapsed && "justify-center px-0",
-              )}
-            >
-              {content}
-            </span>
-          );
-        }
-
-        return (
+        const entry = unavailable ? (
+          <span
+            title={collapsed ? `${item.label} — sắp có` : undefined}
+            aria-disabled="true"
+            className={cn(
+              "flex min-h-11 cursor-not-allowed items-center gap-3 rounded-[var(--radius-md)] px-3 py-2.5 text-sm font-medium text-[var(--color-ink-400)]",
+              collapsed && "justify-center px-0",
+            )}
+          >
+            {content}
+          </span>
+        ) : (
           <Link
-            key={item.href}
             href={item.href}
             title={collapsed ? item.label : undefined}
             onClick={onNavigate}
@@ -144,6 +140,17 @@ function Navigation({
           >
             {content}
           </Link>
+        );
+
+        return (
+          <div key={item.href} className={cn(startsSection && index > 0 && "pt-3")}>
+            {startsSection ? (
+              <p className="mb-1 px-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--color-ink-400)]">
+                {item.section}
+              </p>
+            ) : null}
+            {entry}
+          </div>
         );
       })}
     </nav>
@@ -223,11 +230,6 @@ export function AppShell({
           <Brand href="/dashboard" compact={collapsed} />
         </div>
         <div className="flex-1 overflow-y-auto">
-          {collapsed ? null : (
-            <p className="px-6 pt-5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-400)]">
-              Không gian làm việc
-            </p>
-          )}
           <Navigation items={navItems} pathname={pathname} collapsed={collapsed} />
         </div>
         <div className="border-t border-[var(--color-ink-200)] p-3">

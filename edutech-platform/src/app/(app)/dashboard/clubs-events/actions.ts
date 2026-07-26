@@ -185,7 +185,7 @@ export async function updateClubTaskStatusAction(formData: FormData): Promise<ne
   } catch {
     redirect(`/dashboard/clubs-events/${clubId}?error=task`);
   }
-  redirect(`/dashboard/clubs-events/${clubId}?result=task`);
+  redirect(`/dashboard/clubs-events/${clubId}?result=task-status`);
 }
 
 export async function createClubBudgetAction(formData: FormData): Promise<never> {

@@ -17,50 +17,109 @@ async function login(page: import("@playwright/test").Page, email: string) {
  * reported but do not fail the run (they require manual triage).
  */
 test.describe("Accessibility automated audit", () => {
-  test("marketing homepage has no serious accessibility violations", async ({ page }) => {
+  test("marketing homepage has no serious accessibility violations", async ({
+    page,
+  }) => {
     await page.goto("/");
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag22aa"])
       .analyze();
-    const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
+    const serious = results.violations.filter(
+      (v) => v.impact === "serious" || v.impact === "critical",
+    );
     expect(serious, JSON.stringify(serious, null, 2)).toEqual([]);
   });
 
-  test("login page has no serious accessibility violations", async ({ page }) => {
+  test("login page has no serious accessibility violations", async ({
+    page,
+  }) => {
     await page.goto("/login");
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag22aa"])
       .analyze();
-    const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
+    const serious = results.violations.filter(
+      (v) => v.impact === "serious" || v.impact === "critical",
+    );
     expect(serious, JSON.stringify(serious, null, 2)).toEqual([]);
   });
 
-  test("dashboard overview has no serious accessibility violations", async ({ page }) => {
+  test("dashboard overview has no serious accessibility violations", async ({
+    page,
+  }) => {
     await login(page, "admin.minhkhai@edutech.local");
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag22aa"])
       .analyze();
-    const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
+    const serious = results.violations.filter(
+      (v) => v.impact === "serious" || v.impact === "critical",
+    );
     expect(serious, JSON.stringify(serious, null, 2)).toEqual([]);
   });
 
-  test("peer-mentor marketplace has no serious accessibility violations", async ({ page }) => {
+  test("peer-mentor marketplace has no serious accessibility violations", async ({
+    page,
+  }) => {
     await login(page, "student.minhkhai@edutech.local");
     await page.goto("/dashboard/mentoring/marketplace?tab=requests");
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag22aa"])
       .analyze();
-    const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
+    const serious = results.violations.filter(
+      (v) => v.impact === "serious" || v.impact === "critical",
+    );
     expect(serious, JSON.stringify(serious, null, 2)).toEqual([]);
   });
 
-  test("workflow builder has no serious accessibility violations", async ({ page }) => {
+  test("peer-mentor marketplace explains read-only access", async ({
+    page,
+  }) => {
+    await login(page, "admin.minhkhai@edutech.local");
+    await page.goto("/dashboard/mentoring/marketplace");
+    await expect(
+      page.getByRole("heading", { name: "Không gian quan sát" }),
+    ).toBeVisible();
+    await expect(
+      page.getByText("Vai trò hiện tại không tham gia giao dịch"),
+    ).toBeVisible();
+  });
+
+  test("in-app manual covers roles and core workflows", async ({ page }) => {
+    await login(page, "student.minhkhai@edutech.local");
+    await page.goto("/dashboard/manual");
+    await expect(
+      page.getByRole("heading", { name: "Hướng dẫn sử dụng EduTech" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Vai trò và phạm vi" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Cố vấn & chợ cố vấn" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Kho tài liệu" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Lịch, đặt chỗ & lịch hẹn" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Quy trình số" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "CLB & sự kiện" }),
+    ).toBeVisible();
+  });
+
+  test("workflow builder has no serious accessibility violations", async ({
+    page,
+  }) => {
     await login(page, "admin.minhkhai@edutech.local");
     await page.goto("/dashboard/workflows");
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag22aa"])
       .analyze();
-    const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
+    const serious = results.violations.filter(
+      (v) => v.impact === "serious" || v.impact === "critical",
+    );
     expect(serious, JSON.stringify(serious, null, 2)).toEqual([]);
   });
 });

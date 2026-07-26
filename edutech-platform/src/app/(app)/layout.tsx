@@ -16,92 +16,127 @@ import { selectSchoolAuthorizationContext } from "@/lib/auth/session";
 import { getNotificationSummary } from "@/lib/collaboration/collaboration-service";
 
 const navItems = [
-  { href: "/dashboard", label: "Tổng quan", icon: "overview" },
+  {
+    href: "/dashboard",
+    label: "Tổng quan",
+    icon: "overview",
+    section: "Không gian làm việc",
+  },
+  {
+    href: "/dashboard/manual",
+    label: "Hướng dẫn sử dụng",
+    icon: "resources",
+    section: "Không gian làm việc",
+  },
   {
     href: "/dashboard/admin/members",
     label: "Thành viên",
     icon: "members",
+    section: "Quản trị",
     schoolPermission: permissions.schoolUserRead,
   },
   {
     href: "/dashboard/admin/settings",
     label: "Cài đặt trường",
     icon: "settings",
+    section: "Quản trị",
     schoolPermission: permissions.schoolSettingsRead,
   },
   {
     href: "/dashboard/platform/schools",
     label: "Danh mục trường",
     icon: "schools",
+    section: "Quản trị",
     platformPermission: permissions.platformSchoolRead,
   },
-  { href: "/dashboard/profile", label: "Hồ sơ cá nhân", icon: "settings" },
-  { href: "/dashboard/security", label: "Bảo mật", icon: "settings" },
   {
     href: "/dashboard/mentoring",
     label: "Cố vấn & Gia sư",
     icon: "mentoring",
+    section: "Học tập & hỗ trợ",
     schoolPermission: permissions.mentorDirectoryRead,
   },
   {
     href: "/dashboard/mentoring/marketplace",
     label: "Chợ cố vấn",
     icon: "mentoring",
+    section: "Học tập & hỗ trợ",
     schoolPermission: permissions.marketplaceRead,
   },
   {
     href: "/dashboard/resources",
     label: "Kho tài liệu",
     icon: "resources",
+    section: "Học tập & hỗ trợ",
     schoolPermission: permissions.resourceRead,
   },
   {
     href: "/dashboard/calendar",
     label: "Lịch trường",
     icon: "appointments",
+    section: "Vận hành",
     schoolPermission: permissions.calendarEventRead,
   },
   {
     href: "/dashboard/workflows",
     label: "Quy trình",
     icon: "settings",
+    section: "Vận hành",
     schoolPermission: permissions.workflowTemplateRead,
   },
   {
     href: "/dashboard/appointments",
     label: "Lịch hẹn & Đơn từ",
     icon: "appointments",
+    section: "Vận hành",
     schoolPermission: permissions.calendarEventRead,
   },
   {
     href: "/dashboard/clubs-events",
     label: "CLB & Sự kiện",
     icon: "clubs",
+    section: "Vận hành",
     schoolPermission: permissions.clubRead,
   },
   {
     href: "/dashboard/messages",
     label: "Tin nhắn",
     icon: "messages",
+    section: "Cộng tác",
     schoolPermission: permissions.messageConversationRead,
   },
   {
     href: "/dashboard/notifications",
     label: "Thông báo",
     icon: "notifications",
+    section: "Cộng tác",
     schoolPermission: permissions.notificationReadOwn,
   },
   {
     href: "/dashboard/reports",
     label: "Báo cáo",
     icon: "reports",
+    section: "Giám sát",
     schoolPermission: permissions.schoolReportRead,
   },
   {
     href: "/dashboard/audit",
     label: "Nhật ký kiểm toán",
     icon: "audit",
+    section: "Giám sát",
     schoolPermission: permissions.auditReadSchool,
+  },
+  {
+    href: "/dashboard/profile",
+    label: "Hồ sơ cá nhân",
+    icon: "settings",
+    section: "Tài khoản",
+  },
+  {
+    href: "/dashboard/security",
+    label: "Bảo mật",
+    icon: "settings",
+    section: "Tài khoản",
   },
 ] satisfies readonly (AppNavItem & {
   schoolPermission?: Permission;
@@ -152,14 +187,17 @@ export default async function AppLayout({
   const effectivePermissions = activeSchool
     ? getSchoolPermissions(activeSchool.roles)
     : [];
-  const effectivePlatformPermissions = getPlatformPermissions(session.platformRoles);
+  const effectivePlatformPermissions = getPlatformPermissions(
+    session.platformRoles,
+  );
   const visibleNavItems = navItems.filter((item) => {
     const schoolPermission =
       "schoolPermission" in item ? item.schoolPermission : undefined;
     const platformPermission =
       "platformPermission" in item ? item.platformPermission : undefined;
     return (
-      (!schoolPermission || hasPermission(effectivePermissions, schoolPermission)) &&
+      (!schoolPermission ||
+        hasPermission(effectivePermissions, schoolPermission)) &&
       (!platformPermission ||
         hasPermission(effectivePlatformPermissions, platformPermission))
     );
