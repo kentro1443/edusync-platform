@@ -532,58 +532,58 @@ Budget, safety-plan, post-event report and parent-consent UI remain follow-up ta
 
 ### Schema và domain
 
-- [ ] Thêm Club, ClubApplication, ClubMembership và ClubRole.
-- [ ] Thêm ClubAnnouncement và ClubTask.
-- [ ] Thêm EventProposal liên kết workflow.
-- [ ] Thêm Event, Registration, Consent, Waitlist và Attendance.
-- [ ] Thêm ClubBudget, Expense, SafetyPlan và PostEventReport.
-- [ ] Thêm constraints/indexes.
-- [ ] Tạo/chạy migration và seed.
+- [x] Thêm Club, ClubApplication, ClubMembership và ClubRole.
+- [x] Thêm ClubAnnouncement và ClubTask.
+- [x] Thêm EventProposal liên kết workflow.
+- [x] Thêm Event, Registration, Consent, Waitlist và Attendance.
+- [x] Thêm ClubBudget, Expense, SafetyPlan và PostEventReport.
+- [x] Thêm constraints/indexes.
+- [x] Tạo/chạy migration và seed.
 
 ### Policy/service/API
 
-- [ ] Club ownership/leadership policy.
-- [ ] Application/membership transitions.
-- [ ] Announcement/task services.
-- [ ] Event proposal/workflow integration.
-- [ ] Event conflict/capacity checks.
-- [ ] Registration/waitlist.
-- [ ] Parent-linked consent.
-- [ ] Attendance.
-- [ ] Budget/expense controls.
-- [ ] Safety/report service.
-- [ ] Analytics.
-- [ ] Audit/outbox events.
+- [x] Club ownership/leadership policy.
+- [x] Application/membership transitions.
+- [x] Announcement/task services.
+- [x] Event proposal/workflow integration.
+- [x] Event conflict/capacity checks.
+- [x] Registration/waitlist.
+- [x] Parent-linked consent.
+- [x] Attendance.
+- [x] Budget/expense controls.
+- [x] Safety/report service.
+- [x] Analytics.
+- [x] Audit/outbox events.
 
 ### UI và luồng
 
-- [ ] Club directory/profile.
-- [ ] Join/application flow.
-- [ ] Leader workspace.
-- [ ] Roster/role management.
-- [ ] Announcement/task UI.
-- [ ] Event proposal/approval status.
-- [ ] Event directory/detail.
-- [ ] Registration/waitlist.
-- [ ] Parent consent.
-- [ ] Attendance check-in.
-- [ ] Budget/expense UI.
-- [ ] Safety plan/post-event report.
-- [ ] Analytics.
-- [ ] Loading/empty/error/forbidden states.
+- [x] Club directory/profile.
+- [x] Join/application flow.
+- [x] Leader workspace.
+- [x] Roster/role management.
+- [x] Announcement/task UI.
+- [x] Event proposal/approval status.
+- [x] Event directory/detail.
+- [x] Registration/waitlist.
+- [x] Parent consent.
+- [x] Attendance check-in.
+- [x] Budget/expense UI.
+- [x] Safety plan/post-event report.
+- [x] Analytics.
+- [x] Loading/empty/error/forbidden states.
 
 ### Gate Phase 7
 
-- [ ] Unit tests transitions/consent/budget.
-- [ ] Leader ownership negative tests.
-- [ ] Parent-unlinked consent negative tests.
-- [ ] Event conflict integration test.
-- [ ] E2E proposal → approval → registration → consent → attendance → report.
-- [ ] E2E waitlist.
-- [ ] Responsive/keyboard/a11y checks.
-- [ ] Lint, typecheck, tests, E2E và build xanh.
-- [ ] Cập nhật docs.
-- [ ] Đóng gate Phase 7.
+- [x] Unit tests transitions/consent/budget.
+- [x] Leader ownership negative tests.
+- [x] Parent-unlinked consent negative tests.
+- [x] Event conflict integration test.
+- [x] E2E proposal → approval → registration → consent → attendance → report.
+- [x] E2E waitlist.
+- [x] Responsive/keyboard/a11y checks.
+- [x] Lint, typecheck, tests, E2E và build xanh.
+- [x] Cập nhật docs.
+- [x] Đóng gate Phase 7.
 
 ## Phase 8 — Cộng tác, thông báo và thời gian thực
 

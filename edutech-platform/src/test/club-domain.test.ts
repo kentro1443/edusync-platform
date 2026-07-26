@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  ClubValidationError,
+  assertExpenseWithinBudget,
   canApproveClubConsent,
+  canTransitionClubTask,
   nextClubWaitlistPosition,
   resolveClubRegistration,
   validateClubEventRange,
@@ -54,5 +57,18 @@ describe("club domain", () => {
       ["student-1"],
       "parent-1",
     )).toBe(false);
+  });
+
+  it("keeps club expenses within the approved budget", () => {
+    expect(() => assertExpenseWithinBudget(200_000, 300_000, 1_000_000)).not.toThrow();
+    expect(() => assertExpenseWithinBudget(800_000, 300_000, 1_000_000)).toThrow(ClubValidationError);
+    expect(() => assertExpenseWithinBudget(0, 0, 1_000_000)).toThrow(ClubValidationError);
+  });
+
+  it("guards club task status transitions", () => {
+    expect(canTransitionClubTask("TODO", "IN_PROGRESS")).toBe(true);
+    expect(canTransitionClubTask("IN_PROGRESS", "DONE")).toBe(true);
+    expect(canTransitionClubTask("DONE", "CANCELLED")).toBe(false);
+    expect(canTransitionClubTask("CANCELLED", "DONE")).toBe(false);
   });
 });

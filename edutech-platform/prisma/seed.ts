@@ -1179,6 +1179,100 @@ async function main() {
     },
   });
 
+  // Club leader workspace demo: announcement, tasks, budget + expense.
+  await prisma.clubAnnouncement.upsert({
+    where: { id: "6a100000-0000-4000-8000-000000000001" },
+    update: { title: "Chuẩn bị Ngày hội robot" },
+    create: {
+      id: "6a100000-0000-4000-8000-000000000001",
+      schoolId: demoClub.schoolId,
+      clubId: demoClub.id,
+      authorUserId: users[6].id,
+      title: "Chuẩn bị Ngày hội robot",
+      body: "Các nhóm hoàn thiện sản phẩm trước ngày 12/08 và đăng ký khung trình diễn.",
+      publishedAt: seededAt,
+    },
+  });
+  await prisma.clubTask.upsert({
+    where: { id: "6a200000-0000-4000-8000-000000000001" },
+    update: { title: "Đặt bàn trưng bày" },
+    create: {
+      id: "6a200000-0000-4000-8000-000000000001",
+      schoolId: demoClub.schoolId,
+      clubId: demoClub.id,
+      createdById: users[6].id,
+      assigneeUserId: users[4].id,
+      title: "Đặt bàn trưng bày",
+      description: "Liên hệ phòng hành chính mượn 8 bàn.",
+      status: "IN_PROGRESS",
+    },
+  });
+  await prisma.clubTask.upsert({
+    where: { id: "6a200000-0000-4000-8000-000000000002" },
+    update: { title: "Chuẩn bị poster" },
+    create: {
+      id: "6a200000-0000-4000-8000-000000000002",
+      schoolId: demoClub.schoolId,
+      clubId: demoClub.id,
+      createdById: users[6].id,
+      title: "Chuẩn bị poster",
+      status: "TODO",
+    },
+  });
+  await prisma.clubBudget.upsert({
+    where: { id: "6a300000-0000-4000-8000-000000000001" },
+    update: { name: "Ngân sách Ngày hội robot", amount: 5_000_000, spent: 1_200_000, status: "SUBMITTED" },
+    create: {
+      id: "6a300000-0000-4000-8000-000000000001",
+      schoolId: demoClub.schoolId,
+      clubId: demoClub.id,
+      name: "Ngân sách Ngày hội robot",
+      amount: 5_000_000,
+      spent: 1_200_000,
+      status: "SUBMITTED",
+    },
+  });
+  await prisma.clubExpense.upsert({
+    where: { id: "6a400000-0000-4000-8000-000000000001" },
+    update: { description: "Vật tư trưng bày" },
+    create: {
+      id: "6a400000-0000-4000-8000-000000000001",
+      budgetId: "6a300000-0000-4000-8000-000000000001",
+      description: "Vật tư trưng bày",
+      amount: 1_200_000,
+      spentAt: seededAt,
+    },
+  });
+  // Student registered for the event; guardian consent pending (parent demo).
+  await prisma.clubRegistration.upsert({
+    where: { eventId_userId: { eventId: demoClub.eventId, userId: users[4].id } },
+    update: { status: "REGISTERED" },
+    create: {
+      schoolId: demoClub.schoolId,
+      eventId: demoClub.eventId,
+      userId: users[4].id,
+      status: "REGISTERED",
+      position: null,
+    },
+  });
+  await prisma.clubConsent.upsert({
+    where: {
+      eventId_studentId_guardianId: {
+        eventId: demoClub.eventId,
+        studentId: users[4].id,
+        guardianId: users[5].id,
+      },
+    },
+    update: { status: "PENDING" },
+    create: {
+      schoolId: demoClub.schoolId,
+      eventId: demoClub.eventId,
+      studentId: users[4].id,
+      guardianId: users[5].id,
+      status: "PENDING",
+    },
+  });
+
   const demoConversationId = "6b000000-0000-4000-8000-000000000001";
   const demoMessageId = "6b000000-0000-4000-8000-000000000101";
   await prisma.conversation.upsert({

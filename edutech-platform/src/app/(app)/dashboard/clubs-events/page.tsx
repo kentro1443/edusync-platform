@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { createClubAction } from "@/app/(app)/dashboard/clubs-events/actions";
+import { createClubAction, decideClubConsentAction } from "@/app/(app)/dashboard/clubs-events/actions";
 import { PageHeader } from "@/components/app/PageHeader";
 import { Badge } from "@/components/ui/Badge";
 import { Button, LinkButton } from "@/components/ui/Button";
@@ -9,7 +9,7 @@ import { Alert, EmptyState } from "@/components/ui/Feedback";
 import { Field, Input, Textarea } from "@/components/ui/Field";
 import { requireSchoolContext } from "@/lib/auth/guards";
 import { permissions } from "@/lib/auth/permissions";
-import { listClubEvents, listClubs } from "@/lib/clubs/club-service";
+import { listClubEvents, listClubs, listPendingConsents } from "@/lib/clubs/club-service";
 
 const dateTime = new Intl.DateTimeFormat("vi-VN", {
   weekday: "short",
@@ -28,7 +28,12 @@ export default async function ClubsEventsPage({
     requireSchoolContext(permissions.clubRead),
     searchParams,
   ]);
-  const [clubs, events] = await Promise.all([listClubs(actor), listClubEvents(actor)]);
+  const [clubs, events, pendingConsents] = await Promise.all([
+    listClubs(actor),
+    listClubEvents(actor),
+    listPendingConsents(actor),
+  ]);
+  const eventDate = new Intl.DateTimeFormat("vi-VN", { dateStyle: "medium", timeStyle: "short" });
   const canCreate = actor.schoolRoles.some((role) =>
     ["SCHOOL_ADMIN", "TEACHER_STAFF", "CLUB_LEADER", "STUDENT"].includes(role),
   );
@@ -42,6 +47,27 @@ export default async function ClubsEventsPage({
       />
       {params.result ? <Alert tone="success" title="Đã cập nhật">Thay đổi đã được lưu.</Alert> : null}
       {params.error ? <Alert tone="danger" title="Không thể cập nhật">Kiểm tra dữ liệu hoặc quyền truy cập.</Alert> : null}
+
+      {pendingConsents.length > 0 ? (
+        <Card className="border-[var(--color-warning-200)] bg-[var(--color-warning-50)]">
+          <h2 className="text-lg font-bold text-[var(--color-ink-900)]">Đồng ý của phụ huynh</h2>
+          <p className="mt-1 text-sm text-[var(--color-ink-600)]">Con bạn đã đăng ký sự kiện dưới đây và cần bạn xác nhận đồng ý.</p>
+          <ul className="mt-4 space-y-3">
+            {pendingConsents.map((consent) => (
+              <li key={consent.id} className="flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-warning-200)] bg-white p-3">
+                <div>
+                  <p className="font-semibold text-[var(--color-ink-900)]">{consent.event.title}</p>
+                  <p className="mt-0.5 text-sm text-[var(--color-ink-500)]">{consent.student.displayName} · {consent.event.club.name} · {eventDate.format(consent.event.startsAt)}</p>
+                </div>
+                <div className="flex gap-2">
+                  <form action={decideClubConsentAction}><input type="hidden" name="consentId" value={consent.id} /><input type="hidden" name="decision" value="approve" /><Button size="sm" type="submit">Đồng ý</Button></form>
+                  <form action={decideClubConsentAction}><input type="hidden" name="consentId" value={consent.id} /><input type="hidden" name="decision" value="decline" /><Button size="sm" variant="outline" type="submit">Từ chối</Button></form>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      ) : null}
 
       <div className="grid gap-6 xl:grid-cols-[1fr_24rem]">
         <Card>

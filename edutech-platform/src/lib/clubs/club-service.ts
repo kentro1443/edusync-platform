@@ -1,10 +1,14 @@
 import "server-only";
 
+import { randomUUID } from "node:crypto";
+
 import type { AuthorizationContext } from "@/lib/auth/policies";
 import { getSchoolPermissions, hasPermission, permissions } from "@/lib/auth/permissions";
 import { db } from "@/lib/db";
 import {
   ClubValidationError,
+  assertExpenseWithinBudget,
+  canTransitionClubTask,
   resolveClubRegistration,
   validateClubEventRange,
   validateClubName,
@@ -140,7 +144,26 @@ export async function getClub(actor: AuthorizationContext, clubId: string) {
       events: {
         where: { status: { in: canManage || canApproveEvents ? ["PENDING_APPROVAL", "APPROVED"] : ["APPROVED"] } },
         orderBy: { startsAt: "asc" },
-        include: { _count: { select: { registrations: true } } },
+        include: {
+          _count: { select: { registrations: true } },
+          safetyPlan: { select: { id: true, details: true, approvedAt: true } },
+          report: { select: { id: true, summary: true, createdAt: true } },
+        },
+      },
+      announcements: {
+        where: { publishedAt: { not: null } },
+        orderBy: { publishedAt: "desc" },
+        take: 20,
+        include: { author: { select: { displayName: true } } },
+      },
+      tasks: {
+        orderBy: [{ status: "asc" }, { createdAt: "desc" }],
+        take: 50,
+        include: { assignee: { select: { id: true, displayName: true } } },
+      },
+      budgets: {
+        orderBy: { createdAt: "desc" },
+        include: { expenses: { orderBy: { spentAt: "desc" } } },
       },
     },
   });
@@ -332,7 +355,7 @@ export async function registerClubEvent(actor: AuthorizationContext, eventId: st
       select: { position: true },
     });
     const result = resolveClubRegistration(event.capacity, registeredCount, waitlist.map((item) => item.position));
-    return transaction.clubRegistration.upsert({
+    const registration = await transaction.clubRegistration.upsert({
       where: { eventId_userId: { eventId: event.id, userId: actor.userId } },
       create: {
         schoolId: actor.schoolId,
@@ -343,6 +366,30 @@ export async function registerClubEvent(actor: AuthorizationContext, eventId: st
       },
       update: { status: result.status, position: result.position },
     });
+    // Request parent consent from each active linked guardian of the student.
+    const guardianLinks = await transaction.parentStudentLink.findMany({
+      where: { schoolId: actor.schoolId, studentUserId: actor.userId, status: "ACTIVE" },
+      select: { parentUserId: true },
+    });
+    for (const link of guardianLinks) {
+      await transaction.clubConsent.upsert({
+        where: {
+          eventId_studentId_guardianId: {
+            eventId: event.id,
+            studentId: actor.userId,
+            guardianId: link.parentUserId,
+          },
+        },
+        create: {
+          schoolId: actor.schoolId,
+          eventId: event.id,
+          studentId: actor.userId,
+          guardianId: link.parentUserId,
+        },
+        update: {},
+      });
+    }
+    return registration;
   });
 }
 
@@ -396,4 +443,238 @@ export async function recordClubAttendance(
       note: input.note?.trim() || undefined,
     },
   });
+}
+
+async function auditClub(
+  actor: SchoolActor,
+  action: string,
+  entityType: string,
+  entityId: string,
+  after?: object,
+): Promise<void> {
+  await db.auditEvent.create({
+    data: {
+      schoolId: actor.schoolId,
+      actorUserId: actor.userId,
+      actorType: "USER",
+      action,
+      entityType,
+      entityId,
+      afterJson: after,
+      requestId: randomUUID(),
+    },
+  });
+}
+
+export async function listPendingConsents(actor: AuthorizationContext) {
+  requireClubActor(actor, permissions.clubRead);
+  return db.clubConsent.findMany({
+    where: { schoolId: (actor as SchoolActor).schoolId, guardianId: actor.userId, status: "PENDING" },
+    orderBy: { createdAt: "desc" },
+    include: {
+      student: { select: { displayName: true } },
+      event: { select: { title: true, startsAt: true, club: { select: { name: true } } } },
+    },
+  });
+}
+
+export async function setClubMemberRole(
+  actor: AuthorizationContext,
+  input: Readonly<{ clubId: string; userId: string; role: "LEADER" | "MEMBER" }>,
+) {
+  requireClubActor(actor, permissions.clubMembershipManage);
+  await requireClubManager(actor as SchoolActor, input.clubId);
+  const membership = await db.clubMembership.findFirst({
+    where: { clubId: input.clubId, userId: input.userId, status: "ACTIVE" },
+    select: { id: true },
+  });
+  if (!membership) throw new ClubValidationError("Không tìm thấy thành viên đang hoạt động.");
+  const updated = await db.clubMembership.update({
+    where: { id: membership.id },
+    data: { role: input.role },
+  });
+  await auditClub(actor as SchoolActor, "club.member.role", "ClubMembership", membership.id, { role: input.role });
+  return updated;
+}
+
+export async function createClubAnnouncement(
+  actor: AuthorizationContext,
+  input: Readonly<{ clubId: string; title: string; body: string }>,
+) {
+  requireClubActor(actor, permissions.clubAnnouncementCreate);
+  await requireClubManager(actor as SchoolActor, input.clubId);
+  const title = input.title.trim();
+  const body = input.body.trim();
+  if (title.length < 2 || title.length > 160) {
+    throw new ClubValidationError("Tiêu đề thông báo phải dài 2–160 ký tự.");
+  }
+  if (body.length < 2 || body.length > 4_000) {
+    throw new ClubValidationError("Nội dung thông báo phải dài 2–4000 ký tự.");
+  }
+  const announcement = await db.clubAnnouncement.create({
+    data: {
+      schoolId: (actor as SchoolActor).schoolId,
+      clubId: input.clubId,
+      authorUserId: actor.userId,
+      title,
+      body,
+      publishedAt: new Date(),
+    },
+  });
+  await auditClub(actor as SchoolActor, "club.announcement.create", "ClubAnnouncement", announcement.id, { title });
+  return announcement;
+}
+
+export async function createClubTask(
+  actor: AuthorizationContext,
+  input: Readonly<{ clubId: string; title: string; description?: string; assigneeUserId?: string; dueAt?: Date }>,
+) {
+  requireClubActor(actor, permissions.clubRead);
+  await requireClubManager(actor as SchoolActor, input.clubId);
+  const title = input.title.trim();
+  if (title.length < 2 || title.length > 160) {
+    throw new ClubValidationError("Tên công việc phải dài 2–160 ký tự.");
+  }
+  if (input.assigneeUserId) {
+    const member = await db.clubMembership.findFirst({
+      where: { clubId: input.clubId, userId: input.assigneeUserId, status: "ACTIVE" },
+      select: { id: true },
+    });
+    if (!member) throw new ClubValidationError("Người được giao phải là thành viên câu lạc bộ.");
+  }
+  return db.clubTask.create({
+    data: {
+      schoolId: (actor as SchoolActor).schoolId,
+      clubId: input.clubId,
+      createdById: actor.userId,
+      assigneeUserId: input.assigneeUserId,
+      title,
+      description: input.description?.trim() || undefined,
+      dueAt: input.dueAt,
+    },
+  });
+}
+
+export async function updateClubTaskStatus(
+  actor: AuthorizationContext,
+  input: Readonly<{ taskId: string; status: "TODO" | "IN_PROGRESS" | "DONE" | "CANCELLED" }>,
+) {
+  requireClubActor(actor, permissions.clubRead);
+  const task = await db.clubTask.findFirst({
+    where: { id: input.taskId, schoolId: (actor as SchoolActor).schoolId },
+    select: { id: true, clubId: true, assigneeUserId: true },
+  });
+  if (!task) throw new ClubValidationError("Không tìm thấy công việc.");
+  const isManager = await isClubManager(actor as SchoolActor, task.clubId);
+  if (!isManager && task.assigneeUserId !== actor.userId) {
+    throw new ClubAuthorizationError("Bạn không thể cập nhật công việc này.");
+  }
+  const current = await db.clubTask.findUniqueOrThrow({ where: { id: task.id }, select: { status: true } });
+  if (!canTransitionClubTask(current.status, input.status)) {
+    throw new ClubValidationError("Chuyển trạng thái công việc không hợp lệ.");
+  }
+  return db.clubTask.update({ where: { id: task.id }, data: { status: input.status } });
+}
+
+export async function createClubBudget(
+  actor: AuthorizationContext,
+  input: Readonly<{ clubId: string; name: string; amount: number }>,
+) {
+  requireClubActor(actor, permissions.clubBudgetSubmit);
+  await requireClubManager(actor as SchoolActor, input.clubId);
+  const name = input.name.trim();
+  if (name.length < 2 || name.length > 160) {
+    throw new ClubValidationError("Tên ngân sách phải dài 2–160 ký tự.");
+  }
+  if (!Number.isFinite(input.amount) || input.amount < 0 || input.amount > 1_000_000_000) {
+    throw new ClubValidationError("Số tiền ngân sách không hợp lệ.");
+  }
+  const budget = await db.clubBudget.create({
+    data: {
+      schoolId: (actor as SchoolActor).schoolId,
+      clubId: input.clubId,
+      name,
+      amount: input.amount,
+      status: "SUBMITTED",
+    },
+  });
+  await auditClub(actor as SchoolActor, "club.budget.submit", "ClubBudget", budget.id, { name, amount: input.amount });
+  return budget;
+}
+
+export async function addClubExpense(
+  actor: AuthorizationContext,
+  input: Readonly<{ budgetId: string; description: string; amount: number; spentAt: Date }>,
+) {
+  requireClubActor(actor, permissions.clubBudgetSubmit);
+  const description = input.description.trim();
+  if (description.length < 2 || description.length > 240) {
+    throw new ClubValidationError("Mô tả chi tiêu phải dài 2–240 ký tự.");
+  }
+  if (!Number.isFinite(input.amount) || input.amount <= 0 || input.amount > 1_000_000_000) {
+    throw new ClubValidationError("Số tiền chi tiêu không hợp lệ.");
+  }
+  return db.$transaction(async (transaction) => {
+    const budget = await transaction.clubBudget.findFirst({
+      where: { id: input.budgetId, schoolId: (actor as SchoolActor).schoolId },
+      select: { id: true, clubId: true, amount: true, spent: true },
+    });
+    if (!budget) throw new ClubValidationError("Không tìm thấy ngân sách.");
+    if (!(await isClubManager(actor as SchoolActor, budget.clubId))) {
+      throw new ClubAuthorizationError("Bạn không phụ trách ngân sách này.");
+    }
+    assertExpenseWithinBudget(input.amount, Number(budget.spent), Number(budget.amount));
+    const nextSpent = Number(budget.spent) + input.amount;
+    const expense = await transaction.clubExpense.create({
+      data: { budgetId: budget.id, description, amount: input.amount, spentAt: input.spentAt },
+    });
+    await transaction.clubBudget.update({ where: { id: budget.id }, data: { spent: nextSpent } });
+    return expense;
+  });
+}
+
+export async function saveClubSafetyPlan(
+  actor: AuthorizationContext,
+  input: Readonly<{ eventId: string; details: string }>,
+) {
+  requireClubActor(actor, permissions.clubEventCreate);
+  const event = await db.clubEvent.findFirst({
+    where: { id: input.eventId, schoolId: (actor as SchoolActor).schoolId },
+    select: { id: true, clubId: true },
+  });
+  if (!event) throw new ClubValidationError("Không tìm thấy sự kiện.");
+  await requireClubManager(actor as SchoolActor, event.clubId);
+  const details = input.details.trim();
+  if (details.length < 10 || details.length > 4_000) {
+    throw new ClubValidationError("Kế hoạch an toàn phải dài 10–4000 ký tự.");
+  }
+  return db.clubSafetyPlan.upsert({
+    where: { eventId: event.id },
+    create: { eventId: event.id, details },
+    update: { details },
+  });
+}
+
+export async function submitClubPostEventReport(
+  actor: AuthorizationContext,
+  input: Readonly<{ eventId: string; summary: string }>,
+) {
+  requireClubActor(actor, permissions.clubReportSubmit);
+  const event = await db.clubEvent.findFirst({
+    where: { id: input.eventId, schoolId: (actor as SchoolActor).schoolId },
+    select: { id: true, clubId: true },
+  });
+  if (!event) throw new ClubValidationError("Không tìm thấy sự kiện.");
+  await requireClubManager(actor as SchoolActor, event.clubId);
+  const summary = input.summary.trim();
+  if (summary.length < 10 || summary.length > 4_000) {
+    throw new ClubValidationError("Báo cáo sau sự kiện phải dài 10–4000 ký tự.");
+  }
+  const report = await db.clubPostEventReport.upsert({
+    where: { eventId: event.id },
+    create: { eventId: event.id, submittedById: actor.userId, summary },
+    update: { summary },
+  });
+  await auditClub(actor as SchoolActor, "club.report.submit", "ClubPostEventReport", report.id, {});
+  return report;
 }

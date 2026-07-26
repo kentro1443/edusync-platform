@@ -55,3 +55,27 @@ export function canApproveClubConsent(
   return consent.guardianId === actorUserId && linkedStudentIds.includes(consent.studentId);
 }
 
+/** Validate a club expense against the approved budget. Throws on invalid/over-budget. */
+export function assertExpenseWithinBudget(amount: number, spent: number, budget: number): void {
+  if (!Number.isFinite(amount) || amount <= 0) {
+    throw new ClubValidationError("Số tiền chi tiêu không hợp lệ.");
+  }
+  if (spent + amount > budget) {
+    throw new ClubValidationError("Chi tiêu vượt quá ngân sách được duyệt.");
+  }
+}
+
+export type ClubTaskStatus = "TODO" | "IN_PROGRESS" | "DONE" | "CANCELLED";
+
+const clubTaskTransitions: Record<ClubTaskStatus, readonly ClubTaskStatus[]> = {
+  TODO: ["IN_PROGRESS", "DONE", "CANCELLED"],
+  IN_PROGRESS: ["DONE", "CANCELLED", "TODO"],
+  DONE: ["IN_PROGRESS"],
+  CANCELLED: ["TODO"],
+};
+
+/** Whether a club task may move from one status to another. */
+export function canTransitionClubTask(from: ClubTaskStatus, to: ClubTaskStatus): boolean {
+  return from === to || clubTaskTransitions[from].includes(to);
+}
+
