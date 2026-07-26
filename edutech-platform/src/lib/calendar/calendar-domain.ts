@@ -59,3 +59,23 @@ export function hasTimeConflict(left: Range, right: Range): boolean {
 export function nextWaitlistPosition(positions: readonly number[]): number {
   return Math.max(0, ...positions) + 1;
 }
+
+export const MIN_REMINDER_MINUTES = 5;
+export const MAX_REMINDER_MINUTES = 10_080; // 7 days
+
+export function isValidReminderMinutes(minutesBefore: number): boolean {
+  return (
+    Number.isInteger(minutesBefore) &&
+    minutesBefore >= MIN_REMINDER_MINUTES &&
+    minutesBefore <= MAX_REMINDER_MINUTES
+  );
+}
+
+/** When a reminder should fire, given the event start and lead time. */
+export function computeReminderDueAt(eventStartsAt: Date, minutesBefore: number): Date {
+  return new Date(eventStartsAt.getTime() - minutesBefore * 60_000);
+}
+
+export function isReminderDue(dueAt: Date, now: Date): boolean {
+  return dueAt.getTime() <= now.getTime();
+}

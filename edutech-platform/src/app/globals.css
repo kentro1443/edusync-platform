@@ -23,12 +23,12 @@
 
   /* Semantic */
   --color-success-700: #11643b;
-  --color-success-600: #1a7f4e;
+  --color-success-600: #0f7a45;
   --color-success-200: #b7e8ce;
   --color-success-100: #e2f6ec;
   --color-success-50: #f2fbf6;
   --color-warning-700: #8a5905;
-  --color-warning-600: #b3760a;
+  --color-warning-600: #8a5c08;
   --color-warning-200: #f3d69a;
   --color-warning-100: #fdf1dc;
   --color-warning-50: #fff9eb;
@@ -43,8 +43,8 @@
   --color-ink-800: #1c2530;
   --color-ink-700: #2b3644;
   --color-ink-600: #465364;
-  --color-ink-500: #64758a;
-  --color-ink-400: #8b98a9;
+  --color-ink-500: #566173;
+  --color-ink-400: #5b6b80;
   --color-ink-300: #b6c0cc;
   --color-ink-200: #dbe2e9;
   --color-ink-100: #eef1f5;

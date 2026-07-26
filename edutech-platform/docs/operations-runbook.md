@@ -34,6 +34,22 @@ npm run outbox:process
 
 The command claims bounded batches, retries with backoff, recovers expired leases, and is safe to invoke again. Unknown event types remain pending for a compatible consumer.
 
+Send due calendar reminders (recommended every 5 minutes):
+
+```bash
+npm run calendar:remind
+```
+
+Idempotent per (event, lead time); a reminder cannot be sent twice.
+
+Escalate overdue workflow approval steps (recommended hourly):
+
+```bash
+npm run workflows:escalate
+```
+
+Idempotent: a step already marked overdue is not re-escalated or double-notified. Emits one `workflow.step.overdue` outbox event per newly overdue step.
+
 Preview retention daily:
 
 ```bash
@@ -86,6 +102,21 @@ Restore the matching file-storage snapshot, point a non-production app instance 
 - Storage: `LocalFileStorage` writes opaque keys beneath `FILE_STORAGE_ROOT`, rejects traversal, and streams only after domain authorization.
 - Email: `LocalEmailDelivery` writes rendered messages beneath `EMAIL_OUTBOX_ROOT`; replace it with a provider adapter before live email.
 - Realtime: authenticated SSE plus polling fallback invalidates durable queries. Multi-region deployments should add a shared pub/sub adapter.
+
+## Accessibility and performance audit (2026-07-26)
+
+Automated WCAG 2.2 A/AA scan (`npx playwright test e2e/accessibility.spec.ts`, axe-core) across the marketing homepage, login, dashboard overview, peer-mentor marketplace, and workflow builder found four real color-contrast defects, all now fixed in `src/app/globals.css`:
+
+| Token | Before | After | Context |
+| --- | --- | --- | --- |
+| `--color-ink-500` | `#64758a` (4.44–4.46:1 on tinted surfaces) | `#566173` (≥5.1:1) | secondary/muted body text |
+| `--color-ink-400` | `#8b98a9` (2.77–2.93:1) | `#5b6b80` (≥5.1:1) | eyebrow/label text |
+| `--color-success-600` | `#1a7f4e` (4.44:1 on success-100) | `#0f7a45` (4.79:1) | success badge text |
+| `--color-warning-600` | `#b3760a` (3.41:1 on warning-100) | `#8a5c08` (5.20:1) | warning badge text |
+
+All five scanned pages now report zero serious/critical axe violations. Re-run the scan after any token or Badge/Alert change.
+
+Production build (Turbopack, Next 16): total client JS across `.next/static/chunks` is ~876 KB, largest single chunk 224 KB (framework runtime) — no route ships an unusually large bundle. One evidence-based query fix landed this pass: club-event registration created one `ClubConsent` row per linked guardian in a sequential loop; replaced with a single batched `createMany({ skipDuplicates: true })` (`src/lib/clubs/club-service.ts`).
 
 ## Known non-critical limitations
 

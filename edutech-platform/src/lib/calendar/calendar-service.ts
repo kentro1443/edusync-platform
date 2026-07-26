@@ -1,9 +1,17 @@
 import "server-only";
 
+import { randomUUID } from "node:crypto";
+
 import type { AuthorizationContext } from "@/lib/auth/policies";
 import { hasPermission, getSchoolPermissions, permissions } from "@/lib/auth/permissions";
 import { db } from "@/lib/db";
-import { expandRecurringEvent, nextWaitlistPosition } from "@/lib/calendar/calendar-domain";
+import {
+  computeReminderDueAt,
+  expandRecurringEvent,
+  isReminderDue,
+  isValidReminderMinutes,
+  nextWaitlistPosition,
+} from "@/lib/calendar/calendar-domain";
 
 export class CalendarAuthorizationError extends Error {
   readonly code = "CALENDAR_FORBIDDEN";
@@ -402,6 +410,150 @@ export async function bookCalendarEvent(actor: AuthorizationContext, eventId: st
   });
 }
 
+/**
+ * Cancel the actor's own booking or waitlist entry. Freeing a BOOKED slot
+ * promotes the earliest-joined WAITLISTED entry (transactional, advisory
+ * lock) and notifies the promoted user through the durable notification
+ * center (in-app row now, SSE push if connected, poll fallback otherwise).
+ */
+export async function cancelCalendarBooking(actor: AuthorizationContext, eventId: string) {
+  requireCalendarActor(actor, permissions.calendarEventCancel);
+  return db.$transaction(async (transaction) => {
+    await transaction.$queryRaw<Array<{ locked: string }>>`SELECT pg_advisory_xact_lock(hashtextextended(${`booking:${eventId}`}, 0))::text AS locked`;
+    const booking = await transaction.calendarBooking.findFirst({
+      where: {
+        eventId,
+        userId: actor.userId,
+        schoolId: actor.schoolId,
+        status: { in: ["BOOKED", "WAITLISTED"] },
+      },
+    });
+    if (!booking) throw new CalendarValidationError("Không tìm thấy đăng ký để hủy.");
+
+    await transaction.calendarBooking.update({
+      where: { id: booking.id },
+      data: { status: "CANCELLED", position: null },
+    });
+
+    let promotedUserId: string | null = null;
+    if (booking.status === "BOOKED") {
+      const next = await transaction.calendarBooking.findFirst({
+        where: { eventId, status: "WAITLISTED" },
+        orderBy: { position: "asc" },
+      });
+      if (next) {
+        await transaction.calendarBooking.update({
+          where: { id: next.id },
+          data: { status: "BOOKED", position: null },
+        });
+        promotedUserId = next.userId;
+        const event = await transaction.calendarEvent.findUnique({
+          where: { id: eventId },
+          select: { title: true },
+        });
+        await transaction.notification.create({
+          data: {
+            schoolId: actor.schoolId,
+            userId: next.userId,
+            type: "CALENDAR_WAITLIST_PROMOTED",
+            title: `Bạn đã được chuyển từ danh sách chờ sang tham gia "${event?.title ?? "sự kiện"}"`,
+            href: `/dashboard/calendar/${eventId}`,
+            dedupeKey: `calendar.booking.promoted:${eventId}:${next.userId}`,
+          },
+        });
+      }
+    }
+
+    await transaction.auditEvent.create({
+      data: {
+        schoolId: actor.schoolId,
+        actorUserId: actor.userId,
+        actorType: "USER",
+        action: "calendar.booking.cancel",
+        entityType: "CalendarBooking",
+        entityId: booking.id,
+        afterJson: { promotedUserId },
+        requestId: randomUUID(),
+      },
+    });
+
+    return { cancelled: true, promotedUserId };
+  });
+}
+
+/** Configure a reminder lead time (in minutes) for an event. Idempotent per (event, lead time). */
+export async function scheduleEventReminder(
+  actor: AuthorizationContext,
+  eventId: string,
+  minutesBefore: number,
+) {
+  requireCalendarActor(actor, permissions.calendarEventUpdate);
+  if (!isValidReminderMinutes(minutesBefore)) {
+    throw new CalendarValidationError("Thời gian nhắc việc không hợp lệ.");
+  }
+  const event = await db.calendarEvent.findFirst({
+    where: { id: eventId, schoolId: actor.schoolId },
+    select: { id: true },
+  });
+  if (!event) throw new CalendarValidationError("Không tìm thấy sự kiện.");
+  return db.calendarReminder.upsert({
+    where: { eventId_minutesBefore: { eventId, minutesBefore } },
+    create: { schoolId: actor.schoolId, eventId, minutesBefore },
+    update: {},
+  });
+}
+
+/**
+ * System job: notify every booked user for each reminder whose due time has
+ * passed and that has not yet been sent. Idempotent — a reminder cannot be
+ * sent twice. Returns the number of reminders sent.
+ */
+export async function sendDueCalendarReminders(now: Date = new Date()): Promise<number> {
+  const pending = await db.calendarReminder.findMany({
+    where: { sentAt: null },
+    include: {
+      event: {
+        select: {
+          id: true,
+          schoolId: true,
+          title: true,
+          startsAt: true,
+          bookings: { where: { status: "BOOKED" }, select: { userId: true } },
+        },
+      },
+    },
+    take: 200,
+  });
+  let sent = 0;
+  for (const reminder of pending) {
+    if (!isReminderDue(computeReminderDueAt(reminder.event.startsAt, reminder.minutesBefore), now)) {
+      continue;
+    }
+    await db.$transaction(async (transaction) => {
+      const marked = await transaction.calendarReminder.updateMany({
+        where: { id: reminder.id, sentAt: null },
+        data: { sentAt: now },
+      });
+      if (marked.count !== 1) return;
+      if (reminder.event.bookings.length > 0) {
+        await transaction.notification.createMany({
+          data: reminder.event.bookings.map((booking) => ({
+            schoolId: reminder.event.schoolId,
+            userId: booking.userId,
+            type: "CALENDAR_REMINDER",
+            title: `Sắp diễn ra: "${reminder.event.title}"`,
+            href: `/dashboard/calendar/${reminder.event.id}`,
+            dedupeKey: `calendar.reminder:${reminder.id}:${booking.userId}`,
+          })),
+          skipDuplicates: true,
+        });
+      }
+    });
+    sent += 1;
+  }
+  return sent;
+}
+
 export async function recordCalendarAttendance(
   actor: AuthorizationContext,
   input: Readonly<{ eventId: string; userId: string; status: "PRESENT" | "ABSENT" | "EXCUSED"; note?: string }>,
@@ -444,6 +596,7 @@ export async function getCalendarEvent(actor: AuthorizationContext, eventId: str
       resource: { select: { name: true, capacity: true } },
       bookings: { where: { status: { in: ["BOOKED", "WAITLISTED"] } }, include: { user: { select: { id: true, displayName: true } } }, orderBy: { position: "asc" } },
       attendance: { include: { user: { select: { id: true, displayName: true } } } },
+      reminders: { orderBy: { minutesBefore: "asc" } },
     },
   });
 }

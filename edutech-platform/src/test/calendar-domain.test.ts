@@ -1,8 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  computeReminderDueAt,
   expandRecurringEvent,
   hasTimeConflict,
+  isReminderDue,
+  isValidReminderMinutes,
   nextWaitlistPosition,
 } from "@/lib/calendar/calendar-domain";
 
@@ -46,5 +49,21 @@ describe("calendar domain", () => {
   it("chooses deterministic waitlist positions", () => {
     expect(nextWaitlistPosition([3, 1, 2])).toBe(4);
     expect(nextWaitlistPosition([])).toBe(1);
+  });
+
+  it("validates reminder lead time", () => {
+    expect(isValidReminderMinutes(60)).toBe(true);
+    expect(isValidReminderMinutes(0)).toBe(false);
+    expect(isValidReminderMinutes(-5)).toBe(false);
+    expect(isValidReminderMinutes(20_000)).toBe(false);
+    expect(isValidReminderMinutes(1.5)).toBe(false);
+  });
+
+  it("computes reminder due time and checks due status", () => {
+    const start = new Date("2026-08-03T10:00:00.000Z");
+    const dueAt = computeReminderDueAt(start, 60);
+    expect(dueAt.toISOString()).toBe("2026-08-03T09:00:00.000Z");
+    expect(isReminderDue(dueAt, new Date("2026-08-03T09:00:01.000Z"))).toBe(true);
+    expect(isReminderDue(dueAt, new Date("2026-08-03T08:59:00.000Z"))).toBe(false);
   });
 });

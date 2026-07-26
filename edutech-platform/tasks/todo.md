@@ -396,9 +396,9 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 - [x] Transactional reservation.
 - [x] Deterministic waitlist promotion.
 - [x] Attendance service.
-- [ ] Reminder scheduling/outbox.
+- [x] Reminder scheduling/outbox.
 - [x] Authorized iCalendar export.
-- [ ] Real-time invalidation với durable fallback.
+- [x] Real-time invalidation với durable fallback.
 - [x] Audit events.
 
 ### UI và luồng
@@ -413,17 +413,17 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 - [x] Room/resource management.
 - [x] Recurrence/exception editor.
 - [x] Attendance check-in.
-- [ ] Reminder settings.
+- [x] Reminder settings.
 - [x] iCal export.
 - [x] Loading/empty/error/offline states.
 
 ### Gate Phase 5
 
 - [x] Unit tests recurrence/conflict/waitlist.
-- [ ] Integration concurrent reservation.
+- [x] Integration concurrent reservation.
 - [x] Integration recurrence exceptions.
-- [ ] Export authorization tests.
-- [ ] E2E booking/conflict/waitlist/promotion.
+- [x] Export authorization tests.
+- [x] E2E booking/conflict/waitlist/promotion.
 - [x] E2E recurrence exception.
 - [x] Responsive/keyboard/a11y checks.
 - [x] Lint, typecheck, tests, E2E và build xanh.
@@ -663,10 +663,10 @@ Budget, safety-plan, post-event report and parent-consent UI remain follow-up ta
 - [x] Quick actions theo quyền.
 - [x] Audit explorer/filter/detail/export.
 - [x] Usage counters.
-- [ ] Quota enforcement và UI.
+- [x] Quota enforcement và UI.
 - [x] Retention/cleanup jobs.
 - [x] Health/readiness endpoints.
-- [ ] Structured logging.
+- [x] Structured logging.
 - [x] Backup/restore runbook.
 
 ### Security hardening
@@ -696,9 +696,9 @@ Budget, safety-plan, post-event report and parent-consent UI remain follow-up ta
 - [x] Rà soát semantics/labels/live regions.
 - [x] Rà soát contrast và color-only state.
 - [x] Rà soát reduced motion.
-- [ ] Accessibility automated audit.
-- [ ] Performance audit production build.
-- [ ] Tối ưu Core Web Vitals/bundle/query bottleneck có bằng chứng.
+- [x] Accessibility automated audit.
+- [x] Performance audit production build.
+- [x] Tối ưu Core Web Vitals/bundle/query bottleneck có bằng chứng.
 - [x] Không console/network error trong happy paths.
 
 ### Final test matrix

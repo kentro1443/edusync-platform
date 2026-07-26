@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { writeAuditEvent } from "@/lib/audit";
 import { authenticateCredentials } from "@/lib/auth/credentials";
 import { normalizeEmail } from "@/lib/auth/password";
+import { logEvent } from "@/lib/observability/logger";
 import {
   authRateLimits,
   checkAuthRateLimit,
@@ -46,6 +47,7 @@ export async function loginAction(formData: FormData): Promise<never> {
     authRateLimits.login,
   );
   if (!rateLimit.allowed) {
+    logEvent("warn", "auth.login.rate_limited", { ipHash: metadata.ipHash ?? "unknown" });
     redirect("/login?error=rate-limited");
   }
 

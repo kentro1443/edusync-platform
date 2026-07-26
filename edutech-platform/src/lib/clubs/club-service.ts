@@ -371,22 +371,17 @@ export async function registerClubEvent(actor: AuthorizationContext, eventId: st
       where: { schoolId: actor.schoolId, studentUserId: actor.userId, status: "ACTIVE" },
       select: { parentUserId: true },
     });
-    for (const link of guardianLinks) {
-      await transaction.clubConsent.upsert({
-        where: {
-          eventId_studentId_guardianId: {
-            eventId: event.id,
-            studentId: actor.userId,
-            guardianId: link.parentUserId,
-          },
-        },
-        create: {
+    if (guardianLinks.length > 0) {
+      // Single batched insert instead of one round-trip per guardian; consents
+      // that already exist (re-registering after a cancel) are left untouched.
+      await transaction.clubConsent.createMany({
+        data: guardianLinks.map((link) => ({
           schoolId: actor.schoolId,
           eventId: event.id,
           studentId: actor.userId,
           guardianId: link.parentUserId,
-        },
-        update: {},
+        })),
+        skipDuplicates: true,
       });
     }
     return registration;

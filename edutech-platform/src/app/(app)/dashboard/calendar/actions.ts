@@ -6,6 +6,7 @@ import { requireSchoolContext } from "@/lib/auth/guards";
 import { permissions } from "@/lib/auth/permissions";
 import {
   bookCalendarEvent,
+  cancelCalendarBooking,
   CalendarConflictError,
   CalendarValidationError,
   createBlockedPeriod,
@@ -13,6 +14,7 @@ import {
   createCalendarEvent,
   deleteBlockedPeriod,
   recordCalendarAttendance,
+  scheduleEventReminder,
   setRecurrenceException,
   updateBookableResource,
 } from "@/lib/calendar/calendar-service";
@@ -143,6 +145,28 @@ export async function bookCalendarEventAction(formData: FormData): Promise<never
     redirect("/dashboard/calendar?error=booking");
   }
   redirect("/dashboard/calendar?result=booked");
+}
+
+export async function cancelCalendarBookingAction(formData: FormData): Promise<never> {
+  const eventId = value(formData, "eventId");
+  const { actor } = await requireSchoolContext(permissions.calendarEventCancel);
+  try {
+    await cancelCalendarBooking(actor, eventId);
+  } catch {
+    redirect(`/dashboard/calendar/${eventId}?error=cancel`);
+  }
+  redirect(`/dashboard/calendar/${eventId}?result=cancelled`);
+}
+
+export async function scheduleEventReminderAction(formData: FormData): Promise<never> {
+  const eventId = value(formData, "eventId");
+  const { actor } = await requireSchoolContext(permissions.calendarEventUpdate);
+  try {
+    await scheduleEventReminder(actor, eventId, Number(value(formData, "minutesBefore") || 0));
+  } catch {
+    redirect(`/dashboard/calendar/${eventId}?error=reminder`);
+  }
+  redirect(`/dashboard/calendar/${eventId}?result=reminder`);
 }
 
 export async function setRecurrenceExceptionAction(formData: FormData): Promise<never> {
