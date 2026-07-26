@@ -10,3 +10,6 @@
 
 # local files
 *.log
+.playwright-mcp/
+test-results/
+*.jpeg
