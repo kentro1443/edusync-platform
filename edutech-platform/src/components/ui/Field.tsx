@@ -34,6 +34,7 @@ export function Label({
 }
 
 type DescribedControlProps = {
+  id?: string;
   "aria-describedby"?: string;
   "aria-invalid"?: boolean;
 };
@@ -63,6 +64,7 @@ export function Field({
     .join(" ");
   const control = isValidElement(children)
     ? cloneElement(children, {
+        id: children.props.id ?? id,
         "aria-describedby": describedBy || undefined,
         "aria-invalid": error ? true : undefined,
       })

@@ -30,7 +30,6 @@ describe.sequential("Phase 5 calendar booking, waitlist promotion, and export sc
   const adminActor: AuthorizationContext = { userId: adminId, schoolId, membershipId: adminMembershipId, schoolRoles: ["SCHOOL_ADMIN"], platformRoles: [] };
   const studentAActor: AuthorizationContext = { userId: studentAId, schoolId, membershipId: studentAMembershipId, schoolRoles: ["STUDENT"], platformRoles: [] };
   const studentBActor: AuthorizationContext = { userId: studentBId, schoolId, membershipId: studentBMembershipId, schoolRoles: ["STUDENT"], platformRoles: [] };
-  const outsiderActor: AuthorizationContext = { userId: outsiderId, schoolId: otherSchoolId, membershipId: outsiderMembershipId, schoolRoles: ["STUDENT"], platformRoles: [] };
 
   beforeAll(async () => {
     await db.school.createMany({

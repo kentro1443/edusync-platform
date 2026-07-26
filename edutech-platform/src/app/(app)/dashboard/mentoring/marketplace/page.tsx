@@ -141,8 +141,9 @@ export default async function MarketplacePage({
                   const status = translateRequestStatus(request.status);
                   const pendingOffers = request.offers.filter((o) => o.status === "PENDING");
                   return (
-                    <Reveal key={request.id} delay={index * 40}>
-                      <Card className="space-y-4">
+                    <li key={request.id}>
+                      <Reveal delay={index * 40}>
+                        <Card className="space-y-4">
                         <div className="flex flex-wrap items-start justify-between gap-3">
                           <div>
                             <h3 className="text-base font-bold text-[var(--color-ink-900)]">
@@ -235,8 +236,9 @@ export default async function MarketplacePage({
                             )}
                           </div>
                         ) : null}
-                      </Card>
-                    </Reveal>
+                        </Card>
+                      </Reveal>
+                    </li>
                   );
                 })}
               </ul>
@@ -307,8 +309,9 @@ export default async function MarketplacePage({
           ) : (
             <ul className="grid gap-4 lg:grid-cols-2">
               {openRequests.map((request, index) => (
-                <Reveal key={request.id} delay={index * 40}>
-                  <Card className="flex h-full flex-col gap-4">
+                <li key={request.id}>
+                  <Reveal delay={index * 40} className="h-full">
+                    <Card className="flex h-full flex-col gap-4">
                     <div>
                       <div className="flex items-start justify-between gap-3">
                         <h3 className="text-base font-bold text-[var(--color-ink-900)]">{request.title}</h3>
@@ -353,8 +356,9 @@ export default async function MarketplacePage({
                         </form>
                       </details>
                     ) : null}
-                  </Card>
-                </Reveal>
+                    </Card>
+                  </Reveal>
+                </li>
               ))}
             </ul>
           )}

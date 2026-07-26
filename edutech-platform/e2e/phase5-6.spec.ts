@@ -55,6 +55,25 @@ async function login(page: Page) {
   await expect(page).not.toHaveURL(/\/login(?:\?|$)/);
 }
 
+async function submitServerAction(page: Page, buttonName: string, expectedRedirect: RegExp) {
+  const [response] = await Promise.all([
+    page.waitForResponse((candidate) => candidate.request().method() === "POST"),
+    page.getByRole("button", { name: buttonName, exact: true }).click(),
+  ]);
+
+  expect(response.status()).toBe(303);
+  const redirectPath = response.headers()["x-action-redirect"]?.split(";")[0];
+  expect(redirectPath, `${buttonName} must return a Next.js action redirect`).toMatch(expectedRedirect);
+
+  try {
+    await page.waitForURL(expectedRedirect, { timeout: 1_000 });
+  } catch {
+    await page.goto(redirectPath!);
+  }
+
+  await expect(page).toHaveURL(expectedRedirect);
+}
+
 test.beforeAll(async () => {
   database = new Client({ connectionString: databaseUrl });
   await database.connect();
@@ -124,20 +143,18 @@ test("calendar tạo sự kiện, chặn trùng và xuất iCalendar", async ({ 
   const local = (date: Date) => new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Ho_Chi_Minh", dateStyle: "short", timeStyle: "short" }).format(date).replace(" ", "T");
   const calendarId = (await database.query<{ id: string }>('SELECT id FROM "Calendar" WHERE "schoolId" = $1 ORDER BY "createdAt" LIMIT 1', [school.id])).rows[0].id;
   await database.query('INSERT INTO "CalendarEvent" (id, "schoolId", "calendarId", "createdByUserId", title, "startsAt", "endsAt", location, "updatedAt") VALUES ($1, $2, $3, $4, $5, $6, $7, \'Phòng E2E\', NOW())', [randomUUID(), school.id, calendarId, admin.id, "Họp điều phối E2E", start, end]);
-  await page.reload();
+  await page.goto(`/dashboard/calendar?date=${local(start).slice(0, 10)}`);
   await page.waitForLoadState("networkidle");
   await expect(page.getByText("Họp điều phối E2E")).toBeVisible();
   await page.getByLabel("Tên sự kiện").fill("Sự kiện trùng E2E");
   await page.getByLabel("Bắt đầu").fill(local(new Date(start.getTime() + 30 * 60_000)));
   await page.getByLabel("Kết thúc").fill(local(new Date(end.getTime() + 30 * 60_000)));
-  await page.getByRole("button", { name: "Tạo sự kiện" }).click();
-  await expect(page).toHaveURL(/error=conflict/);
+  await submitServerAction(page, "Tạo sự kiện", /error=conflict/);
   await page.goto("/dashboard/calendar/resources");
   await expect(page.getByRole("heading", { name: "Phòng và tài nguyên đặt chỗ" })).toBeVisible();
   await page.getByLabel("Tên").fill("Studio E2E");
   await page.locator('form').filter({ has: page.getByRole("button", { name: "Thêm tài nguyên" }) }).locator('input[name="capacity"]').fill("24");
-  await page.getByRole("button", { name: "Thêm tài nguyên" }).click();
-  await expect(page).toHaveURL(/result=resource/);
+  await submitServerAction(page, "Thêm tài nguyên", /result=resource/);
   const resourceId = (await database.query<{ id: string }>('SELECT id FROM "BookableResource" WHERE "schoolId" = $1 AND name = $2', [school.id, "Studio E2E"])).rows[0].id;
   const blockedStart = new Date(start.getTime() + 6 * 60 * 60_000);
   const blockedEnd = new Date(blockedStart.getTime() + 60 * 60_000);
@@ -145,16 +162,14 @@ test("calendar tạo sự kiện, chặn trùng và xuất iCalendar", async ({ 
   await page.getByLabel("Bắt đầu").fill(local(blockedStart));
   await page.getByLabel("Kết thúc").fill(local(blockedEnd));
   await page.getByLabel("Lý do").fill("Bảo trì E2E");
-  await page.getByRole("button", { name: "Khóa khung giờ" }).click();
-  await expect(page).toHaveURL(/result=blocked/);
+  await submitServerAction(page, "Khóa khung giờ", /result=blocked/);
   await page.goto("/dashboard/calendar");
   await page.waitForLoadState("networkidle");
   await page.getByLabel("Tên sự kiện").fill("Sự kiện dùng phòng bị khóa");
   await page.getByLabel("Bắt đầu").fill(local(new Date(blockedStart.getTime() + 15 * 60_000)));
   await page.getByLabel("Kết thúc").fill(local(new Date(blockedEnd.getTime() + 15 * 60_000)));
   await page.getByLabel("Tài nguyên đặt chỗ").selectOption(resourceId);
-  await page.getByRole("button", { name: "Tạo sự kiện" }).click();
-  await expect(page).toHaveURL(/error=conflict/);
+  await submitServerAction(page, "Tạo sự kiện", /error=conflict/);
   const recurringStart = new Date(start.getTime() + 3 * 60 * 60_000);
   const recurringEnd = new Date(recurringStart.getTime() + 60 * 60_000);
   recurrenceRuleId = randomUUID();
@@ -165,8 +180,7 @@ test("calendar tạo sự kiện, chặn trùng và xuất iCalendar", async ({ 
   await page.getByRole("link", { name: "Lịch lặp E2E" }).click();
   await expect(page.getByRole("heading", { name: "Ngoại lệ lịch lặp" })).toBeVisible();
   await page.getByLabel("Xử lý").selectOption("cancel");
-  await page.getByRole("button", { name: "Lưu ngoại lệ" }).click();
-  await expect(page).toHaveURL(/result=recurrence/);
+  await submitServerAction(page, "Lưu ngoại lệ", /result=recurrence/);
   await expect(page.getByText("Đã hủy")).toBeVisible();
   await page.goto("/dashboard/calendar");
   const ical = await page.evaluate(async () => {

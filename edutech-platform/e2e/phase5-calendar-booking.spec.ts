@@ -123,6 +123,7 @@ test.describe("Phase 5 calendar booking, waitlist and promotion", () => {
       await database.query('DELETE FROM "Calendar" WHERE id = $1', [calendarId]);
       await database.query('DELETE FROM "SchoolRoleAssignment" WHERE "membershipId" IN ($1,$2,$3)', [adminMembershipId, studentAMembershipId, studentBMembershipId]);
       await database.query('DELETE FROM "SchoolMembership" WHERE "schoolId" = $1', [schoolId]);
+      await database.query('DELETE FROM "Session" WHERE "userId" IN ($1,$2,$3)', [adminId, studentAId, studentBId]);
       await database.query('DELETE FROM "User" WHERE id IN ($1,$2,$3)', [adminId, studentAId, studentBId]);
       await database.query('DELETE FROM "School" WHERE id = $1', [schoolId]);
       await database.end();
