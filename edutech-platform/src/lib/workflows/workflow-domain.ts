@@ -91,3 +91,17 @@ export function getNextWorkflowStepIds(steps: readonly WorkflowStep[]): string[]
     .sort((left, right) => left.position - right.position)
     .map((step) => step.id);
 }
+
+/** Deadline for a step given its SLA in hours, measured from when it goes active. */
+export function computeStepDueAt(deadlineHours: number | null | undefined, from: Date): Date | null {
+  if (!deadlineHours || deadlineHours <= 0) return null;
+  return new Date(from.getTime() + deadlineHours * 60 * 60 * 1000);
+}
+
+/** A step is escalatable when active, past its due date, and not yet escalated. */
+export function isStepEscalatable(
+  step: { status: string; dueAt: Date | null; escalatedAt: Date | null },
+  now: Date,
+): boolean {
+  return step.status === "ACTIVE" && step.dueAt !== null && step.dueAt < now && step.escalatedAt === null;
+}

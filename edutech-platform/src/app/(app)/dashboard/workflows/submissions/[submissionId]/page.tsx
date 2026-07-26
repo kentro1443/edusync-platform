@@ -3,6 +3,7 @@ import {
   addWorkflowSubmissionCommentAction,
   delegateWorkflowSubmissionStepAction,
   decideWorkflowSubmissionAction,
+  saveWorkflowDraftAction,
   submitWorkflowSubmissionAction,
 } from "@/app/(app)/dashboard/workflows/actions";
 import { notFound } from "next/navigation";
@@ -120,6 +121,15 @@ export default async function WorkflowSubmissionPage({
           {editable ? (
             <form action={submitWorkflowSubmissionAction} className="mt-5 space-y-4">
               <input type="hidden" name="submissionId" value={submission.id} />
+              {query.error === "invalid" ? (
+                <Alert tone="danger" title="Chưa thể gửi hồ sơ">
+                  Vui lòng điền đầy đủ các trường bắt buộc:{" "}
+                  {submission.version.fields.filter((f) => f.required).map((f) => f.label).join(", ")}.
+                </Alert>
+              ) : null}
+              {query.result === "draft-saved" ? (
+                <Alert tone="success" title="Đã lưu nháp">Bạn có thể tiếp tục chỉnh sửa và gửi sau.</Alert>
+              ) : null}
               {submission.version.fields.map((field) => (
                 <Field
                   key={field.id}
@@ -151,7 +161,13 @@ export default async function WorkflowSubmissionPage({
                   )}
                 </Field>
               ))}
-              <Button type="submit">Gửi hồ sơ</Button>
+              <p className="rounded-[var(--radius-md)] bg-[var(--color-ink-50)] p-3 text-sm text-[var(--color-ink-600)]">
+                Kiểm tra lại thông tin trước khi gửi. Sau khi gửi, hồ sơ sẽ chuyển sang bước duyệt và không thể chỉnh sửa cho tới khi được yêu cầu bổ sung.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Button type="submit">Gửi hồ sơ</Button>
+                <Button type="submit" variant="outline" formAction={saveWorkflowDraftAction}>Lưu nháp</Button>
+              </div>
             </form>
           ) : (
             <dl className="mt-5 space-y-4">

@@ -8,6 +8,7 @@ import { validateUploadContent, validateUploadMetadata } from "@/lib/resources/r
 import { LocalFileStorage } from "@/lib/storage/file-storage";
 import { assertSchoolStorageQuota } from "@/lib/storage/storage-quota";
 import {
+  computeStepDueAt,
   getNextWorkflowStepIds,
   resolveWorkflowRouting,
   validateWorkflowValues,
@@ -142,10 +143,14 @@ export async function addWorkflowStep(
     role: "SCHOOL_ADMIN" | "TEACHER_STAFF" | "MENTOR_COUNSELOR" | "APPROVER_REVIEWER";
     condition?: WorkflowCondition;
     parallelGroup?: number;
+    deadlineHours?: number;
   }>,
 ) {
   requireWorkflowActor(actor, permissions.workflowTemplateUpdateDraft);
   if (!input.name.trim()) throw new WorkflowValidationError("Bước duyệt cần có tên.");
+  if (input.deadlineHours !== undefined && (!Number.isInteger(input.deadlineHours) || input.deadlineHours < 0 || input.deadlineHours > 8760)) {
+    throw new WorkflowValidationError("Hạn xử lý không hợp lệ.");
+  }
   if (!["SCHOOL_ADMIN", "TEACHER_STAFF", "MENTOR_COUNSELOR", "APPROVER_REVIEWER"].includes(input.role)) {
     throw new WorkflowValidationError("Vai trò duyệt không hợp lệ.");
   }
@@ -174,6 +179,7 @@ export async function addWorkflowStep(
         position: draft.steps.length,
         conditionJson: (condition ?? {}) as Prisma.InputJsonValue,
         parallelGroup: input.parallelGroup && input.parallelGroup > 0 ? input.parallelGroup : undefined,
+        deadlineHours: input.deadlineHours && input.deadlineHours > 0 ? input.deadlineHours : undefined,
       },
     });
   });
@@ -260,9 +266,16 @@ export async function submitWorkflowSubmission(actor: AuthorizationContext, subm
       })),
       values,
     );
+    const now = new Date();
+    const deadlineByStepId = new Map(
+      submission.version.steps.map((step) => [step.id, step.deadlineHours]),
+    );
     await Promise.all(routing.map((step) => transaction.workflowSubmissionStep.updateMany({
       where: { submissionId, stepId: step.id },
-      data: { status: step.status },
+      data: {
+        status: step.status,
+        dueAt: step.status === "ACTIVE" ? computeStepDueAt(deadlineByStepId.get(step.id), now) : null,
+      },
     })));
     const nextStatus = routing.some((step) => step.status === "ACTIVE") ? "IN_REVIEW" : "APPROVED";
     return transaction.workflowSubmission.update({
@@ -678,7 +691,17 @@ export async function decideWorkflowSubmission(
         parallelGroup: step.step.parallelGroup,
       })));
       if (nextIds.length) {
-        await transaction.workflowSubmissionStep.updateMany({ where: { id: { in: nextIds }, status: "PENDING" }, data: { status: "ACTIVE" } });
+        const now = new Date();
+        await Promise.all(
+          currentSteps
+            .filter((step) => nextIds.includes(step.id))
+            .map((step) =>
+              transaction.workflowSubmissionStep.updateMany({
+                where: { id: step.id, status: "PENDING" },
+                data: { status: "ACTIVE", dueAt: computeStepDueAt(step.step.deadlineHours, now) },
+              }),
+            ),
+        );
       }
       nextStatus = currentSteps.some((step) => step.status === "ACTIVE") || nextIds.length ? "IN_REVIEW" : "APPROVED";
     } else {
@@ -689,4 +712,76 @@ export async function decideWorkflowSubmission(
       data: { status: nextStatus, history: { create: { actorUserId: actor.userId, action: input.type, fromStatus: "IN_REVIEW", toStatus: nextStatus, metadataJson: { reason: input.reason } } }, decisions: { create: { actorUserId: actor.userId, stepId: active.stepId, type: input.type, reason: input.reason } } },
     });
   });
+}
+
+/**
+ * System job: flag active approval steps that are past their deadline. Sets
+ * escalatedAt (idempotent) and emits a durable outbox event per overdue step.
+ * Returns the number of steps escalated.
+ */
+export async function escalateOverdueWorkflowSteps(now: Date = new Date()): Promise<number> {
+  const overdue = await db.workflowSubmissionStep.findMany({
+    where: { status: "ACTIVE", escalatedAt: null, dueAt: { not: null, lt: now } },
+    select: {
+      id: true,
+      submissionId: true,
+      submission: { select: { schoolId: true, templateId: true } },
+      step: { select: { name: true, role: true } },
+    },
+    take: 200,
+  });
+  let escalated = 0;
+  for (const item of overdue) {
+    await db.$transaction(async (transaction) => {
+      const marked = await transaction.workflowSubmissionStep.updateMany({
+        where: { id: item.id, escalatedAt: null },
+        data: { escalatedAt: now },
+      });
+      if (marked.count !== 1) return;
+      await transaction.domainOutboxEvent.create({
+        data: {
+          schoolId: item.submission.schoolId,
+          eventType: "workflow.step.overdue",
+          aggregateType: "WorkflowSubmission",
+          aggregateId: item.submissionId,
+          payloadJson: {
+            submissionStepId: item.id,
+            stepName: item.step.name,
+            role: item.step.role,
+          },
+        },
+      });
+      escalated += 1;
+    });
+  }
+  return escalated;
+}
+
+/** Save submission field values without submitting (draft autosave). */
+export async function saveWorkflowDraft(
+  actor: AuthorizationContext,
+  submissionId: string,
+  values: Record<string, unknown>,
+) {
+  requireWorkflowActor(actor, permissions.workflowSubmissionUpdate);
+  const submission = await db.workflowSubmission.findFirst({
+    where: {
+      id: submissionId,
+      schoolId: actor.schoolId,
+      ownerUserId: actor.userId,
+      status: { in: ["DRAFT", "CHANGES_REQUESTED"] },
+    },
+    select: { id: true },
+  });
+  if (!submission) throw new WorkflowValidationError("Không tìm thấy bản nháp được phép sửa.");
+  await Promise.all(
+    Object.entries(values).map(([fieldKey, value]) =>
+      db.workflowSubmissionValue.upsert({
+        where: { submissionId_fieldKey: { submissionId, fieldKey } },
+        create: { submissionId, fieldKey, valueJson: value as never },
+        update: { valueJson: value as never },
+      }),
+    ),
+  );
+  return { saved: true };
 }

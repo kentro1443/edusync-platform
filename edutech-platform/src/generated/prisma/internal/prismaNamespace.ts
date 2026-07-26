@@ -8204,7 +8204,8 @@ export const WorkflowSubmissionStepScalarFieldEnum = {
   status: 'status',
   assignedUserId: 'assignedUserId',
   dueAt: 'dueAt',
-  actedAt: 'actedAt'
+  actedAt: 'actedAt',
+  escalatedAt: 'escalatedAt'
 } as const
 
 export type WorkflowSubmissionStepScalarFieldEnum = (typeof WorkflowSubmissionStepScalarFieldEnum)[keyof typeof WorkflowSubmissionStepScalarFieldEnum]

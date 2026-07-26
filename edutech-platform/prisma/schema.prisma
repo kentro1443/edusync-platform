@@ -1729,6 +1729,7 @@ model WorkflowSubmissionStep {
   assignedUserId String?            @db.Uuid
   dueAt          DateTime?          @db.Timestamptz(6)
   actedAt        DateTime?          @db.Timestamptz(6)
+  escalatedAt    DateTime?          @db.Timestamptz(6)
 
   submission   WorkflowSubmission   @relation(fields: [submissionId], references: [id], onDelete: Cascade)
   step         WorkflowApprovalStep @relation(fields: [stepId], references: [id], onDelete: Restrict)

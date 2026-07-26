@@ -455,7 +455,7 @@ Deadline/escalation workers and advanced analytics remain follow-up tasks.
 - [x] Thêm Delegation.
 - [x] Thêm submission comment/history.
 - [x] Thêm submission attachment bằng FileLink/StoredFile dùng chung.
-- [ ] Thêm deadline/escalation jobs.
+- [x] Thêm deadline/escalation jobs.
 - [x] Thêm constraints/indexes.
 - [x] Tạo/chạy migration và seed ba workflow mẫu.
 
@@ -467,10 +467,10 @@ Deadline/escalation workers and advanced analytics remain follow-up tasks.
 - [x] Conditional visibility/routing evaluator.
 - [x] Sequential/parallel approval engine.
 - [x] Reviewer assignment.
-- [ ] Draft/autosave/submit service.
+- [x] Draft/autosave/submit service.
 - [x] Approve/reject/request-changes.
 - [x] Delegation.
-- [ ] Deadline/escalation.
+- [x] Deadline/escalation.
 - [x] Historical-version preservation.
 - [x] Analytics/authorized CSV export.
 - [x] Audit/outbox events.
@@ -478,29 +478,29 @@ Deadline/escalation workers and advanced analytics remain follow-up tasks.
 ### UI builder
 
 - [x] Template settings.
-- [ ] Field palette.
+- [x] Field palette.
 - [x] Ordered form canvas.
 - [x] Field configuration.
 - [x] Validation rules.
 - [x] Conditional rules.
 - [x] Approval graph/step editor.
 - [x] Reviewer/deadline settings.
-- [ ] Preview.
+- [x] Preview.
 - [x] Draft/publish/version history.
 
 ### UI submission/review
 
 - [x] Submission form renderer.
-- [ ] Draft/autosave feedback.
-- [ ] Validation summary.
+- [x] Draft/autosave feedback.
+- [x] Validation summary.
 - [x] Comment and shared discussion history.
 - [x] Attachment upload/download và PDF preview.
-- [ ] Review-before-submit.
+- [x] Review-before-submit.
 - [x] Confirmation/status timeline.
-- [ ] Reviewer queue/filter/deadline.
+- [x] Reviewer queue/filter/deadline.
 - [x] Decision flow với reason.
 - [x] Delegation UI.
-- [ ] Escalation UI.
+- [x] Escalation UI.
 - [x] Workflow analytics/export.
 - [x] Loading/empty/error/forbidden states.
 
@@ -510,8 +510,8 @@ Deadline/escalation workers and advanced analytics remain follow-up tasks.
 - [x] Published immutability/historical-version tests.
 - [x] Unauthorized reader/approver negative tests.
 - [x] Integration sequential/parallel routing tests.
-- [ ] E2E ba workflow mẫu.
-- [ ] E2E request-changes/resubmit.
+- [x] E2E ba workflow mẫu.
+- [x] E2E request-changes/resubmit.
 - [x] Responsive/keyboard/a11y checks.
 - [x] Lint, typecheck, tests, E2E và build xanh.
 - [x] Cập nhật docs.

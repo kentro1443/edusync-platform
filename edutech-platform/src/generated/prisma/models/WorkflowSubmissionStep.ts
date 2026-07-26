@@ -32,6 +32,7 @@ export type WorkflowSubmissionStepMinAggregateOutputType = {
   assignedUserId: string | null
   dueAt: Date | null
   actedAt: Date | null
+  escalatedAt: Date | null
 }
 
 export type WorkflowSubmissionStepMaxAggregateOutputType = {
@@ -42,6 +43,7 @@ export type WorkflowSubmissionStepMaxAggregateOutputType = {
   assignedUserId: string | null
   dueAt: Date | null
   actedAt: Date | null
+  escalatedAt: Date | null
 }
 
 export type WorkflowSubmissionStepCountAggregateOutputType = {
@@ -52,6 +54,7 @@ export type WorkflowSubmissionStepCountAggregateOutputType = {
   assignedUserId: number
   dueAt: number
   actedAt: number
+  escalatedAt: number
   _all: number
 }
 
@@ -64,6 +67,7 @@ export type WorkflowSubmissionStepMinAggregateInputType = {
   assignedUserId?: true
   dueAt?: true
   actedAt?: true
+  escalatedAt?: true
 }
 
 export type WorkflowSubmissionStepMaxAggregateInputType = {
@@ -74,6 +78,7 @@ export type WorkflowSubmissionStepMaxAggregateInputType = {
   assignedUserId?: true
   dueAt?: true
   actedAt?: true
+  escalatedAt?: true
 }
 
 export type WorkflowSubmissionStepCountAggregateInputType = {
@@ -84,6 +89,7 @@ export type WorkflowSubmissionStepCountAggregateInputType = {
   assignedUserId?: true
   dueAt?: true
   actedAt?: true
+  escalatedAt?: true
   _all?: true
 }
 
@@ -167,6 +173,7 @@ export type WorkflowSubmissionStepGroupByOutputType = {
   assignedUserId: string | null
   dueAt: Date | null
   actedAt: Date | null
+  escalatedAt: Date | null
   _count: WorkflowSubmissionStepCountAggregateOutputType | null
   _min: WorkflowSubmissionStepMinAggregateOutputType | null
   _max: WorkflowSubmissionStepMaxAggregateOutputType | null
@@ -198,6 +205,7 @@ export type WorkflowSubmissionStepWhereInput = {
   assignedUserId?: Prisma.UuidNullableFilter<"WorkflowSubmissionStep"> | string | null
   dueAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
   actedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
+  escalatedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
   submission?: Prisma.XOR<Prisma.WorkflowSubmissionScalarRelationFilter, Prisma.WorkflowSubmissionWhereInput>
   step?: Prisma.XOR<Prisma.WorkflowApprovalStepScalarRelationFilter, Prisma.WorkflowApprovalStepWhereInput>
   assignedUser?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
@@ -212,6 +220,7 @@ export type WorkflowSubmissionStepOrderByWithRelationInput = {
   assignedUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   dueAt?: Prisma.SortOrderInput | Prisma.SortOrder
   actedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  escalatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   submission?: Prisma.WorkflowSubmissionOrderByWithRelationInput
   step?: Prisma.WorkflowApprovalStepOrderByWithRelationInput
   assignedUser?: Prisma.UserOrderByWithRelationInput
@@ -230,6 +239,7 @@ export type WorkflowSubmissionStepWhereUniqueInput = Prisma.AtLeast<{
   assignedUserId?: Prisma.UuidNullableFilter<"WorkflowSubmissionStep"> | string | null
   dueAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
   actedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
+  escalatedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
   submission?: Prisma.XOR<Prisma.WorkflowSubmissionScalarRelationFilter, Prisma.WorkflowSubmissionWhereInput>
   step?: Prisma.XOR<Prisma.WorkflowApprovalStepScalarRelationFilter, Prisma.WorkflowApprovalStepWhereInput>
   assignedUser?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
@@ -244,6 +254,7 @@ export type WorkflowSubmissionStepOrderByWithAggregationInput = {
   assignedUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   dueAt?: Prisma.SortOrderInput | Prisma.SortOrder
   actedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  escalatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.WorkflowSubmissionStepCountOrderByAggregateInput
   _max?: Prisma.WorkflowSubmissionStepMaxOrderByAggregateInput
   _min?: Prisma.WorkflowSubmissionStepMinOrderByAggregateInput
@@ -260,6 +271,7 @@ export type WorkflowSubmissionStepScalarWhereWithAggregatesInput = {
   assignedUserId?: Prisma.UuidNullableWithAggregatesFilter<"WorkflowSubmissionStep"> | string | null
   dueAt?: Prisma.DateTimeNullableWithAggregatesFilter<"WorkflowSubmissionStep"> | Date | string | null
   actedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"WorkflowSubmissionStep"> | Date | string | null
+  escalatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"WorkflowSubmissionStep"> | Date | string | null
 }
 
 export type WorkflowSubmissionStepCreateInput = {
@@ -267,6 +279,7 @@ export type WorkflowSubmissionStepCreateInput = {
   status?: $Enums.WorkflowStepStatus
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
   submission: Prisma.WorkflowSubmissionCreateNestedOneWithoutStepsInput
   step: Prisma.WorkflowApprovalStepCreateNestedOneWithoutSubmissionsInput
   assignedUser?: Prisma.UserCreateNestedOneWithoutWorkflowStepsAssignedInput
@@ -281,6 +294,7 @@ export type WorkflowSubmissionStepUncheckedCreateInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
   delegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSubmissionStepInput
 }
 
@@ -289,6 +303,7 @@ export type WorkflowSubmissionStepUpdateInput = {
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submission?: Prisma.WorkflowSubmissionUpdateOneRequiredWithoutStepsNestedInput
   step?: Prisma.WorkflowApprovalStepUpdateOneRequiredWithoutSubmissionsNestedInput
   assignedUser?: Prisma.UserUpdateOneWithoutWorkflowStepsAssignedNestedInput
@@ -303,6 +318,7 @@ export type WorkflowSubmissionStepUncheckedUpdateInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   delegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSubmissionStepNestedInput
 }
 
@@ -314,6 +330,7 @@ export type WorkflowSubmissionStepCreateManyInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
 }
 
 export type WorkflowSubmissionStepUpdateManyMutationInput = {
@@ -321,6 +338,7 @@ export type WorkflowSubmissionStepUpdateManyMutationInput = {
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type WorkflowSubmissionStepUncheckedUpdateManyInput = {
@@ -331,6 +349,7 @@ export type WorkflowSubmissionStepUncheckedUpdateManyInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type WorkflowSubmissionStepListRelationFilter = {
@@ -356,6 +375,7 @@ export type WorkflowSubmissionStepCountOrderByAggregateInput = {
   assignedUserId?: Prisma.SortOrder
   dueAt?: Prisma.SortOrder
   actedAt?: Prisma.SortOrder
+  escalatedAt?: Prisma.SortOrder
 }
 
 export type WorkflowSubmissionStepMaxOrderByAggregateInput = {
@@ -366,6 +386,7 @@ export type WorkflowSubmissionStepMaxOrderByAggregateInput = {
   assignedUserId?: Prisma.SortOrder
   dueAt?: Prisma.SortOrder
   actedAt?: Prisma.SortOrder
+  escalatedAt?: Prisma.SortOrder
 }
 
 export type WorkflowSubmissionStepMinOrderByAggregateInput = {
@@ -376,6 +397,7 @@ export type WorkflowSubmissionStepMinOrderByAggregateInput = {
   assignedUserId?: Prisma.SortOrder
   dueAt?: Prisma.SortOrder
   actedAt?: Prisma.SortOrder
+  escalatedAt?: Prisma.SortOrder
 }
 
 export type WorkflowSubmissionStepScalarRelationFilter = {
@@ -532,6 +554,7 @@ export type WorkflowSubmissionStepCreateWithoutAssignedUserInput = {
   status?: $Enums.WorkflowStepStatus
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
   submission: Prisma.WorkflowSubmissionCreateNestedOneWithoutStepsInput
   step: Prisma.WorkflowApprovalStepCreateNestedOneWithoutSubmissionsInput
   delegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSubmissionStepInput
@@ -544,6 +567,7 @@ export type WorkflowSubmissionStepUncheckedCreateWithoutAssignedUserInput = {
   status?: $Enums.WorkflowStepStatus
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
   delegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSubmissionStepInput
 }
 
@@ -584,6 +608,7 @@ export type WorkflowSubmissionStepScalarWhereInput = {
   assignedUserId?: Prisma.UuidNullableFilter<"WorkflowSubmissionStep"> | string | null
   dueAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
   actedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
+  escalatedAt?: Prisma.DateTimeNullableFilter<"WorkflowSubmissionStep"> | Date | string | null
 }
 
 export type WorkflowSubmissionStepCreateWithoutStepInput = {
@@ -591,6 +616,7 @@ export type WorkflowSubmissionStepCreateWithoutStepInput = {
   status?: $Enums.WorkflowStepStatus
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
   submission: Prisma.WorkflowSubmissionCreateNestedOneWithoutStepsInput
   assignedUser?: Prisma.UserCreateNestedOneWithoutWorkflowStepsAssignedInput
   delegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSubmissionStepInput
@@ -603,6 +629,7 @@ export type WorkflowSubmissionStepUncheckedCreateWithoutStepInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
   delegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSubmissionStepInput
 }
 
@@ -637,6 +664,7 @@ export type WorkflowSubmissionStepCreateWithoutSubmissionInput = {
   status?: $Enums.WorkflowStepStatus
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
   step: Prisma.WorkflowApprovalStepCreateNestedOneWithoutSubmissionsInput
   assignedUser?: Prisma.UserCreateNestedOneWithoutWorkflowStepsAssignedInput
   delegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutSubmissionStepInput
@@ -649,6 +677,7 @@ export type WorkflowSubmissionStepUncheckedCreateWithoutSubmissionInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
   delegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutSubmissionStepInput
 }
 
@@ -683,6 +712,7 @@ export type WorkflowSubmissionStepCreateWithoutDelegationsInput = {
   status?: $Enums.WorkflowStepStatus
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
   submission: Prisma.WorkflowSubmissionCreateNestedOneWithoutStepsInput
   step: Prisma.WorkflowApprovalStepCreateNestedOneWithoutSubmissionsInput
   assignedUser?: Prisma.UserCreateNestedOneWithoutWorkflowStepsAssignedInput
@@ -696,6 +726,7 @@ export type WorkflowSubmissionStepUncheckedCreateWithoutDelegationsInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
 }
 
 export type WorkflowSubmissionStepCreateOrConnectWithoutDelegationsInput = {
@@ -719,6 +750,7 @@ export type WorkflowSubmissionStepUpdateWithoutDelegationsInput = {
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submission?: Prisma.WorkflowSubmissionUpdateOneRequiredWithoutStepsNestedInput
   step?: Prisma.WorkflowApprovalStepUpdateOneRequiredWithoutSubmissionsNestedInput
   assignedUser?: Prisma.UserUpdateOneWithoutWorkflowStepsAssignedNestedInput
@@ -732,6 +764,7 @@ export type WorkflowSubmissionStepUncheckedUpdateWithoutDelegationsInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type WorkflowSubmissionStepCreateManyAssignedUserInput = {
@@ -741,6 +774,7 @@ export type WorkflowSubmissionStepCreateManyAssignedUserInput = {
   status?: $Enums.WorkflowStepStatus
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
 }
 
 export type WorkflowSubmissionStepUpdateWithoutAssignedUserInput = {
@@ -748,6 +782,7 @@ export type WorkflowSubmissionStepUpdateWithoutAssignedUserInput = {
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submission?: Prisma.WorkflowSubmissionUpdateOneRequiredWithoutStepsNestedInput
   step?: Prisma.WorkflowApprovalStepUpdateOneRequiredWithoutSubmissionsNestedInput
   delegations?: Prisma.WorkflowDelegationUpdateManyWithoutSubmissionStepNestedInput
@@ -760,6 +795,7 @@ export type WorkflowSubmissionStepUncheckedUpdateWithoutAssignedUserInput = {
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   delegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSubmissionStepNestedInput
 }
 
@@ -770,6 +806,7 @@ export type WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserInput = 
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type WorkflowSubmissionStepCreateManyStepInput = {
@@ -779,6 +816,7 @@ export type WorkflowSubmissionStepCreateManyStepInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
 }
 
 export type WorkflowSubmissionStepUpdateWithoutStepInput = {
@@ -786,6 +824,7 @@ export type WorkflowSubmissionStepUpdateWithoutStepInput = {
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submission?: Prisma.WorkflowSubmissionUpdateOneRequiredWithoutStepsNestedInput
   assignedUser?: Prisma.UserUpdateOneWithoutWorkflowStepsAssignedNestedInput
   delegations?: Prisma.WorkflowDelegationUpdateManyWithoutSubmissionStepNestedInput
@@ -798,6 +837,7 @@ export type WorkflowSubmissionStepUncheckedUpdateWithoutStepInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   delegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSubmissionStepNestedInput
 }
 
@@ -808,6 +848,7 @@ export type WorkflowSubmissionStepUncheckedUpdateManyWithoutStepInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type WorkflowSubmissionStepCreateManySubmissionInput = {
@@ -817,6 +858,7 @@ export type WorkflowSubmissionStepCreateManySubmissionInput = {
   assignedUserId?: string | null
   dueAt?: Date | string | null
   actedAt?: Date | string | null
+  escalatedAt?: Date | string | null
 }
 
 export type WorkflowSubmissionStepUpdateWithoutSubmissionInput = {
@@ -824,6 +866,7 @@ export type WorkflowSubmissionStepUpdateWithoutSubmissionInput = {
   status?: Prisma.EnumWorkflowStepStatusFieldUpdateOperationsInput | $Enums.WorkflowStepStatus
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   step?: Prisma.WorkflowApprovalStepUpdateOneRequiredWithoutSubmissionsNestedInput
   assignedUser?: Prisma.UserUpdateOneWithoutWorkflowStepsAssignedNestedInput
   delegations?: Prisma.WorkflowDelegationUpdateManyWithoutSubmissionStepNestedInput
@@ -836,6 +879,7 @@ export type WorkflowSubmissionStepUncheckedUpdateWithoutSubmissionInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   delegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutSubmissionStepNestedInput
 }
 
@@ -846,6 +890,7 @@ export type WorkflowSubmissionStepUncheckedUpdateManyWithoutSubmissionInput = {
   assignedUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dueAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  escalatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -887,6 +932,7 @@ export type WorkflowSubmissionStepSelect<ExtArgs extends runtime.Types.Extension
   assignedUserId?: boolean
   dueAt?: boolean
   actedAt?: boolean
+  escalatedAt?: boolean
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
   assignedUser?: boolean | Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>
@@ -902,6 +948,7 @@ export type WorkflowSubmissionStepSelectCreateManyAndReturn<ExtArgs extends runt
   assignedUserId?: boolean
   dueAt?: boolean
   actedAt?: boolean
+  escalatedAt?: boolean
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
   assignedUser?: boolean | Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>
@@ -915,6 +962,7 @@ export type WorkflowSubmissionStepSelectUpdateManyAndReturn<ExtArgs extends runt
   assignedUserId?: boolean
   dueAt?: boolean
   actedAt?: boolean
+  escalatedAt?: boolean
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
   assignedUser?: boolean | Prisma.WorkflowSubmissionStep$assignedUserArgs<ExtArgs>
@@ -928,9 +976,10 @@ export type WorkflowSubmissionStepSelectScalar = {
   assignedUserId?: boolean
   dueAt?: boolean
   actedAt?: boolean
+  escalatedAt?: boolean
 }
 
-export type WorkflowSubmissionStepOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "submissionId" | "stepId" | "status" | "assignedUserId" | "dueAt" | "actedAt", ExtArgs["result"]["workflowSubmissionStep"]>
+export type WorkflowSubmissionStepOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "submissionId" | "stepId" | "status" | "assignedUserId" | "dueAt" | "actedAt" | "escalatedAt", ExtArgs["result"]["workflowSubmissionStep"]>
 export type WorkflowSubmissionStepInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   submission?: boolean | Prisma.WorkflowSubmissionDefaultArgs<ExtArgs>
   step?: boolean | Prisma.WorkflowApprovalStepDefaultArgs<ExtArgs>
@@ -965,6 +1014,7 @@ export type $WorkflowSubmissionStepPayload<ExtArgs extends runtime.Types.Extensi
     assignedUserId: string | null
     dueAt: Date | null
     actedAt: Date | null
+    escalatedAt: Date | null
   }, ExtArgs["result"]["workflowSubmissionStep"]>
   composites: {}
 }
@@ -1399,6 +1449,7 @@ export interface WorkflowSubmissionStepFieldRefs {
   readonly assignedUserId: Prisma.FieldRef<"WorkflowSubmissionStep", 'String'>
   readonly dueAt: Prisma.FieldRef<"WorkflowSubmissionStep", 'DateTime'>
   readonly actedAt: Prisma.FieldRef<"WorkflowSubmissionStep", 'DateTime'>
+  readonly escalatedAt: Prisma.FieldRef<"WorkflowSubmissionStep", 'DateTime'>
 }
     
 

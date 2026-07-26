@@ -1,9 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  computeStepDueAt,
   evaluateWorkflowCondition,
   getNextWorkflowStep,
   getNextWorkflowStepIds,
+  isStepEscalatable,
   resolveWorkflowRouting,
   validateWorkflowValues,
   type WorkflowField,
@@ -71,5 +73,21 @@ describe("workflow domain", () => {
       { id: "three", position: 2, status: "PENDING" },
     ];
     expect(getNextWorkflowStep(steps)?.id).toBe("two");
+  });
+
+  it("computes step deadlines from SLA hours", () => {
+    const from = new Date("2026-01-01T00:00:00.000Z");
+    expect(computeStepDueAt(24, from)?.toISOString()).toBe("2026-01-02T00:00:00.000Z");
+    expect(computeStepDueAt(0, from)).toBeNull();
+    expect(computeStepDueAt(null, from)).toBeNull();
+  });
+
+  it("flags only overdue, active, not-yet-escalated steps", () => {
+    const now = new Date("2026-01-02T00:00:00.000Z");
+    const due = new Date("2026-01-01T00:00:00.000Z");
+    expect(isStepEscalatable({ status: "ACTIVE", dueAt: due, escalatedAt: null }, now)).toBe(true);
+    expect(isStepEscalatable({ status: "PENDING", dueAt: due, escalatedAt: null }, now)).toBe(false);
+    expect(isStepEscalatable({ status: "ACTIVE", dueAt: due, escalatedAt: now }, now)).toBe(false);
+    expect(isStepEscalatable({ status: "ACTIVE", dueAt: null, escalatedAt: null }, now)).toBe(false);
   });
 });
