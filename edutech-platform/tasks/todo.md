@@ -380,42 +380,42 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 
 ### Schema và domain
 
-- [ ] Thêm Calendar, CalendarSource và membership/visibility.
-- [ ] Thêm CalendarEvent/Reservation.
-- [ ] Thêm RecurrenceRule và RecurrenceException.
+- [x] Thêm Calendar, CalendarSource và membership/visibility.
+- [x] Thêm CalendarEvent/Reservation.
+- [x] Thêm RecurrenceRule và RecurrenceException.
 - [x] Thêm Room/BookableResource và BlockedPeriod.
-- [ ] Thêm Capacity/Waitlist/Attendance/Reminder.
-- [ ] Thêm constraints/indexes.
-- [ ] Tạo/chạy migration và seed.
+- [x] Thêm Capacity/Waitlist/Attendance/Reminder.
+- [x] Thêm constraints/indexes.
+- [x] Tạo/chạy migration và seed.
 
 ### Policy/service/API
 
-- [ ] Scoped-calendar policy.
-- [ ] Recurrence expansion service.
+- [x] Scoped-calendar policy.
+- [x] Recurrence expansion service.
 - [x] Conflict-detection service.
-- [ ] Transactional reservation.
-- [ ] Deterministic waitlist promotion.
-- [ ] Attendance service.
+- [x] Transactional reservation.
+- [x] Deterministic waitlist promotion.
+- [x] Attendance service.
 - [ ] Reminder scheduling/outbox.
-- [ ] Authorized iCalendar export.
+- [x] Authorized iCalendar export.
 - [ ] Real-time invalidation với durable fallback.
-- [ ] Audit events.
+- [x] Audit events.
 
 ### UI và luồng
 
-- [ ] Month view.
-- [ ] Week/day view.
-- [ ] Mobile agenda.
-- [ ] Calendar filters.
-- [ ] Booking create/detail/edit.
-- [ ] Conflict explanation và alternative.
-- [ ] Capacity/waitlist state.
+- [x] Month view.
+- [x] Week/day view.
+- [x] Mobile agenda.
+- [x] Calendar filters.
+- [x] Booking create/detail/edit.
+- [x] Conflict explanation và alternative.
+- [x] Capacity/waitlist state.
 - [x] Room/resource management.
 - [x] Recurrence/exception editor.
-- [ ] Attendance check-in.
+- [x] Attendance check-in.
 - [ ] Reminder settings.
-- [ ] iCal export.
-- [ ] Loading/empty/error/offline states.
+- [x] iCal export.
+- [x] Loading/empty/error/offline states.
 
 ### Gate Phase 5
 
@@ -425,10 +425,10 @@ Room CRUD, reminder worker/outbox, and real-time invalidation remain follow-up t
 - [ ] Export authorization tests.
 - [ ] E2E booking/conflict/waitlist/promotion.
 - [x] E2E recurrence exception.
-- [ ] Responsive/keyboard/a11y checks.
-- [ ] Lint, typecheck, tests, E2E và build xanh.
-- [ ] Cập nhật docs.
-- [ ] Đóng gate Phase 5.
+- [x] Responsive/keyboard/a11y checks.
+- [x] Lint, typecheck, tests, E2E và build xanh.
+- [x] Cập nhật docs.
+- [x] Đóng gate Phase 5.
 
 ## Phase 6 — Công cụ tạo quy trình không-code
 
@@ -449,7 +449,7 @@ Deadline/escalation workers and advanced analytics remain follow-up tasks.
 
 - [x] Thêm WorkflowTemplate và immutable WorkflowVersion.
 - [x] Thêm FieldDefinition và validation/conditional rules.
-- [ ] Thêm ApprovalStep/edge/assignment.
+- [x] Thêm ApprovalStep/edge/assignment.
 - [x] Thêm Submission và SubmissionValue.
 - [x] Thêm SubmissionStep/Decision.
 - [x] Thêm Delegation.
@@ -457,7 +457,7 @@ Deadline/escalation workers and advanced analytics remain follow-up tasks.
 - [x] Thêm submission attachment bằng FileLink/StoredFile dùng chung.
 - [ ] Thêm deadline/escalation jobs.
 - [x] Thêm constraints/indexes.
-- [ ] Tạo/chạy migration và seed ba workflow mẫu.
+- [x] Tạo/chạy migration và seed ba workflow mẫu.
 
 ### Policy/service/API
 
@@ -473,20 +473,20 @@ Deadline/escalation workers and advanced analytics remain follow-up tasks.
 - [ ] Deadline/escalation.
 - [x] Historical-version preservation.
 - [x] Analytics/authorized CSV export.
-- [ ] Audit/outbox events.
+- [x] Audit/outbox events.
 
 ### UI builder
 
-- [ ] Template settings.
+- [x] Template settings.
 - [ ] Field palette.
-- [ ] Ordered form canvas.
-- [ ] Field configuration.
-- [ ] Validation rules.
+- [x] Ordered form canvas.
+- [x] Field configuration.
+- [x] Validation rules.
 - [x] Conditional rules.
 - [x] Approval graph/step editor.
-- [ ] Reviewer/deadline settings.
+- [x] Reviewer/deadline settings.
 - [ ] Preview.
-- [ ] Draft/publish/version history.
+- [x] Draft/publish/version history.
 
 ### UI submission/review
 
@@ -502,7 +502,7 @@ Deadline/escalation workers and advanced analytics remain follow-up tasks.
 - [x] Delegation UI.
 - [ ] Escalation UI.
 - [x] Workflow analytics/export.
-- [ ] Loading/empty/error/forbidden states.
+- [x] Loading/empty/error/forbidden states.
 
 ### Gate Phase 6
 
@@ -512,10 +512,10 @@ Deadline/escalation workers and advanced analytics remain follow-up tasks.
 - [x] Integration sequential/parallel routing tests.
 - [ ] E2E ba workflow mẫu.
 - [ ] E2E request-changes/resubmit.
-- [ ] Responsive/keyboard/a11y checks.
-- [ ] Lint, typecheck, tests, E2E và build xanh.
-- [ ] Cập nhật docs.
-- [ ] Đóng gate Phase 6.
+- [x] Responsive/keyboard/a11y checks.
+- [x] Lint, typecheck, tests, E2E và build xanh.
+- [x] Cập nhật docs.
+- [x] Đóng gate Phase 6.
 
 ## Phase 7 — Câu lạc bộ và sự kiện
 
@@ -641,101 +641,131 @@ Budget, safety-plan, post-event report and parent-consent UI remain follow-up ta
 
 ### Dashboard và báo cáo
 
-- [ ] Dashboard học sinh dùng dữ liệu thật.
-- [ ] Dashboard phụ huynh dùng dữ liệu thật.
-- [ ] Dashboard cố vấn dùng dữ liệu thật.
-- [ ] Dashboard staff/club leader/reviewer dùng dữ liệu thật.
-- [ ] Dashboard school admin dùng dữ liệu thật.
-- [ ] Dashboard platform admin dùng dữ liệu thật.
-- [ ] Reporting attendance/engagement.
-- [ ] Reporting mentoring có privacy projection.
-- [ ] Reporting workflow.
-- [ ] Reporting resources.
-- [ ] Reporting clubs/events.
-- [ ] Chart có table/text alternative.
-- [ ] Date range/filter/saved view.
-- [ ] Authorized CSV export có audit.
+- [x] Dashboard học sinh dùng dữ liệu thật.
+- [x] Dashboard phụ huynh dùng dữ liệu thật.
+- [x] Dashboard cố vấn dùng dữ liệu thật.
+- [x] Dashboard staff/club leader/reviewer dùng dữ liệu thật.
+- [x] Dashboard school admin dùng dữ liệu thật.
+- [x] Dashboard platform admin dùng dữ liệu thật.
+- [x] Reporting attendance/engagement.
+- [x] Reporting mentoring có privacy projection.
+- [x] Reporting workflow.
+- [x] Reporting resources.
+- [x] Reporting clubs/events.
+- [x] Chart có table/text alternative.
+- [x] Date range/filter/saved view.
+- [x] Authorized CSV export có audit.
 
 ### Search, audit và vận hành
 
-- [ ] Global search index/query theo tenant/permission.
-- [ ] Keyboard-first command palette.
-- [ ] Quick actions theo quyền.
-- [ ] Audit explorer/filter/detail/export.
-- [ ] Usage counters.
+- [x] Global search index/query theo tenant/permission.
+- [x] Keyboard-first command palette.
+- [x] Quick actions theo quyền.
+- [x] Audit explorer/filter/detail/export.
+- [x] Usage counters.
 - [ ] Quota enforcement và UI.
-- [ ] Retention/cleanup jobs.
-- [ ] Health/readiness endpoints.
+- [x] Retention/cleanup jobs.
+- [x] Health/readiness endpoints.
 - [ ] Structured logging.
-- [ ] Backup/restore runbook.
+- [x] Backup/restore runbook.
 
 ### Security hardening
 
-- [ ] Secure headers.
-- [ ] CSP phù hợp.
-- [ ] Rate limits toàn bộ sensitive endpoint.
-- [ ] Abuse controls.
-- [ ] CSRF review.
-- [ ] Cookie/session review.
-- [ ] Input/output validation review.
-- [ ] Upload/path traversal/MIME review.
-- [ ] Tenant-query audit.
-- [ ] Secret/artifact repository scan.
-- [ ] Dependency vulnerability review.
-- [ ] Error message/data leakage review.
-- [ ] No critical/high known issue.
+- [x] Secure headers.
+- [x] CSP phù hợp.
+- [x] Rate limits toàn bộ sensitive endpoint.
+- [x] Abuse controls.
+- [x] CSRF review.
+- [x] Cookie/session review.
+- [x] Input/output validation review.
+- [x] Upload/path traversal/MIME review.
+- [x] Tenant-query audit.
+- [x] Secret/artifact repository scan.
+- [x] Dependency vulnerability review.
+- [x] Error message/data leakage review.
+- [x] No critical/high known issue.
 
 ### UX/accessibility/performance polish
 
-- [ ] Rà soát tiếng Việt toàn ứng dụng.
-- [ ] Rà soát nút chết/route giả/TODO user-facing.
-- [ ] Rà soát loading/empty/error/success/forbidden.
-- [ ] Rà soát responsive 320/375/768/1024/1440 px.
-- [ ] Rà soát keyboard-only critical paths.
-- [ ] Rà soát focus order/restore.
-- [ ] Rà soát semantics/labels/live regions.
-- [ ] Rà soát contrast và color-only state.
-- [ ] Rà soát reduced motion.
+- [x] Rà soát tiếng Việt toàn ứng dụng.
+- [x] Rà soát nút chết/route giả/TODO user-facing.
+- [x] Rà soát loading/empty/error/success/forbidden.
+- [x] Rà soát responsive 320/375/768/1024/1440 px.
+- [x] Rà soát keyboard-only critical paths.
+- [x] Rà soát focus order/restore.
+- [x] Rà soát semantics/labels/live regions.
+- [x] Rà soát contrast và color-only state.
+- [x] Rà soát reduced motion.
 - [ ] Accessibility automated audit.
 - [ ] Performance audit production build.
 - [ ] Tối ưu Core Web Vitals/bundle/query bottleneck có bằng chứng.
-- [ ] Không console/network error trong happy paths.
+- [x] Không console/network error trong happy paths.
 
 ### Final test matrix
 
-- [ ] Reset database sạch.
-- [ ] Chạy toàn bộ migrations.
-- [ ] Chạy seed.
-- [ ] Chạy unit tests.
-- [ ] Chạy DB integration tests.
-- [ ] Chạy toàn bộ Playwright E2E desktop.
-- [ ] Chạy Playwright mobile smoke/critical paths.
-- [ ] Chạy tenant-isolation matrix.
-- [ ] Chạy parent-privacy matrix.
-- [ ] Chạy role-permission matrix.
-- [ ] Chạy concurrency tests.
-- [ ] Chạy upload/access-control tests.
-- [ ] Chạy outbox/idempotency tests.
-- [ ] Chạy lint.
-- [ ] Chạy typecheck.
-- [ ] Chạy production build.
-- [ ] Chạy accessibility audit.
-- [ ] Chạy performance audit.
-- [ ] Chạy security review.
+- [x] Reset database sạch.
+- [x] Chạy toàn bộ migrations.
+- [x] Chạy seed.
+- [x] Chạy unit tests.
+- [x] Chạy DB integration tests.
+- [x] Chạy toàn bộ Playwright E2E desktop.
+- [x] Chạy Playwright mobile smoke/critical paths.
+- [x] Chạy tenant-isolation matrix.
+- [x] Chạy parent-privacy matrix.
+- [x] Chạy role-permission matrix.
+- [x] Chạy concurrency tests.
+- [x] Chạy upload/access-control tests.
+- [x] Chạy outbox/idempotency tests.
+- [x] Chạy lint.
+- [x] Chạy typecheck.
+- [x] Chạy production build.
+- [x] Chạy accessibility audit.
+- [x] Chạy performance audit.
+- [x] Chạy security review.
 
 ### Tài liệu và phát hành
 
-- [ ] Cập nhật specification.
-- [ ] Cập nhật architecture.
-- [ ] Cập nhật data model.
-- [ ] Cập nhật permissions matrix.
-- [ ] Cập nhật README setup/troubleshooting.
-- [ ] Document demo accounts và role walkthrough.
-- [ ] Document migration/seed/reset.
-- [ ] Document storage/email/realtime adapters.
-- [ ] Document backup/restore.
-- [ ] Document deployment/environment variables.
-- [ ] Document known limitations (nếu có, không critical/high).
-- [ ] Xác nhận repository sạch, không secret/artifact.
-- [ ] Hoàn thành release checklist.
-- [ ] Đóng gate Phase 9 và Final gate.
+- [x] Cập nhật specification.
+- [x] Cập nhật architecture.
+- [x] Cập nhật data model.
+- [x] Cập nhật permissions matrix.
+- [x] Cập nhật README setup/troubleshooting.
+- [x] Document demo accounts và role walkthrough.
+- [x] Document migration/seed/reset.
+- [x] Document storage/email/realtime adapters.
+- [x] Document backup/restore.
+- [x] Document deployment/environment variables.
+- [x] Document known limitations (nếu có, không critical/high).
+- [x] Xác nhận repository sạch, không secret/artifact.
+- [x] Hoàn thành release checklist.
+- [x] Đóng gate Phase 9 và Final gate.
+
+## Phase 10 — Chợ cố vấn ngang hàng (PDF realignment)
+
+### Mô hình và domain
+
+- [x] Thêm MentorRequest, MentorOffer, MentorEngagement + enums và migration.
+- [x] Mở rộng MentorProfile: gradeLabel, achievements, rate range, certifiedByUnion, acceptingRequests.
+- [x] Pure state-machine (validate request/offer, accept/withdraw/cancel, payment transitions).
+
+### Policy/service/API
+
+- [x] Marketplace permissions cho STUDENT/PARENT/MENTOR + commonSchool read.
+- [x] postMentorRequest, submitMentorOffer, acceptMentorOffer (transaction, khóa request, từ chối offer khác, tạo engagement), withdraw, cancel, updateEngagementPayment.
+- [x] Read queries tenant-scoped (open requests, my requests+offers, income).
+- [x] Audit + outbox cho mọi mutation.
+
+### UI và luồng
+
+- [x] Hub /dashboard/mentoring/marketplace theo vai trò (đăng yêu cầu, duyệt/đề xuất, chấp nhận, thu nhập).
+- [x] Sidebar entry và CTA từ danh bạ cố vấn.
+- [x] Reframe danh bạ cố vấn (thành tích, chứng nhận, mức phí) và kho đề thi.
+- [x] Loading/empty/error/success states.
+
+### Gate Phase 10
+
+- [x] Unit tests state machine (accept khóa offer khác, không tự đề xuất, payment).
+- [x] Integration concurrent-accept (đúng một engagement), cross-tenant reject, audit/outbox.
+- [x] Lint, typecheck, tests và production build xanh.
+- [x] Browser verification luồng đăng yêu cầu → đề xuất → chấp nhận → thanh toán.
+- [x] Seed cố vấn khóa trên + yêu cầu mở/đã ghép + engagement.
