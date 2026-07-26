@@ -1,0 +1,271 @@
+- generic [active] [ref=f13e1]:
+  - link "Chuyển đến nội dung chính" [ref=f13e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=f13e3]:
+    - banner [ref=f13e4]:
+      - generic [ref=f13e5]:
+        - link "EduTech - Trang chủ" [ref=f13e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f13e7]: ET
+          - generic [ref=f13e10]:
+            - generic [ref=f13e11]: EduTech
+            - generic [ref=f13e12]: Trường học kết nối
+        - navigation "Điều hướng chính" [ref=f13e13]:
+          - group [ref=f13e14]:
+            - generic "Sản phẩm" [ref=f13e15] [cursor=pointer]
+          - link "Giải pháp" [ref=f13e18] [cursor=pointer]:
+            - /url: /solutions
+          - link "Bảo mật & An toàn" [ref=f13e19] [cursor=pointer]:
+            - /url: /security
+          - link "Bảng giá" [ref=f13e20] [cursor=pointer]:
+            - /url: /pricing
+          - link "Câu chuyện khách hàng" [ref=f13e21] [cursor=pointer]:
+            - /url: /case-studies
+          - link "Trợ giúp" [ref=f13e22] [cursor=pointer]:
+            - /url: /help
+        - generic [ref=f13e23]:
+          - link "Đăng nhập" [ref=f13e24] [cursor=pointer]:
+            - /url: /login
+          - link "Đăng ký tư vấn" [ref=f13e25] [cursor=pointer]:
+            - /url: /demo
+    - main [ref=f13e26]:
+      - generic [ref=f13e28]:
+        - generic [ref=f13e29]:
+          - generic [ref=f13e30]: Nền tảng vận hành trường học kết nối
+          - heading "Mọi kết nối trong trường, vận hành trên một nền tảng đáng tin cậy." [level=1] [ref=f13e32]
+          - paragraph [ref=f13e33]: EduTech hợp nhất cố vấn, học liệu, lịch hẹn và quy trình hành chính; giúp nhà trường nhìn rõ trách nhiệm, bảo vệ dữ liệu học sinh và đưa quyết định đi đúng người, đúng thời điểm.
+          - generic [ref=f13e34]:
+            - link "Đăng ký tư vấn triển khai" [ref=f13e35] [cursor=pointer]:
+              - /url: /demo
+            - link "Xem trường hợp triển khai" [ref=f13e38] [cursor=pointer]:
+              - /url: /case-studies
+          - generic [ref=f13e39]:
+            - generic [ref=f13e40]:
+              - term [ref=f13e41]: "0"
+              - definition [ref=f13e42]: Vai trò được phân quyền rõ
+            - generic [ref=f13e43]:
+              - term [ref=f13e44]: "0"
+              - definition [ref=f13e45]: Trường demo cô lập dữ liệu
+            - generic [ref=f13e46]:
+              - term [ref=f13e47]: "0"
+              - definition [ref=f13e48]: Mô-đun vận hành hợp nhất
+            - generic [ref=f13e49]:
+              - term [ref=f13e50]: "0"
+              - definition [ref=f13e51]: Bảng điều khiển xuyên suốt
+        - generic "Xem trước không gian vận hành EduTech" [ref=f13e54]:
+          - generic [ref=f13e56]:
+            - generic [ref=f13e57]: Không gian trường Minh Khai
+            - generic [ref=f13e64]:
+              - complementary [ref=f13e65]:
+                - generic [ref=f13e69]: Tổng quan
+                - generic [ref=f13e70]: Thành viên
+                - generic [ref=f13e71]: Lịch hẹn
+                - generic [ref=f13e72]: Học liệu
+                - generic [ref=f13e73]: Quy trình
+              - generic [ref=f13e74]:
+                - generic [ref=f13e75]:
+                  - generic [ref=f13e76]:
+                    - paragraph [ref=f13e77]: Thứ Năm, 23 tháng 7
+                    - paragraph [ref=f13e78]: Chào buổi sáng, cô Lan
+                  - generic [ref=f13e79]: Tạo nhanh +
+                - generic [ref=f13e80]:
+                  - generic [ref=f13e81]:
+                    - paragraph [ref=f13e86]: Lịch tư vấn
+                    - paragraph [ref=f13e87]: 08:30
+                    - paragraph [ref=f13e88]: Cô Minh · Phòng 204
+                  - generic [ref=f13e89]:
+                    - paragraph [ref=f13e94]: Học liệu mới
+                    - paragraph [ref=f13e95]: "12"
+                    - paragraph [ref=f13e96]: Đang chờ kiểm duyệt
+                  - generic [ref=f13e97]:
+                    - paragraph [ref=f13e104]: Hồ sơ
+                    - paragraph [ref=f13e105]: "06"
+                    - paragraph [ref=f13e106]: Cần xử lý hôm nay
+                - generic [ref=f13e107]:
+                  - generic [ref=f13e109]:
+                    - paragraph [ref=f13e110]: Hoạt động trong tuần
+                    - generic [ref=f13e111]: +18%
+                  - generic [ref=f13e120]:
+                    - paragraph [ref=f13e121]: Cần chú ý
+                    - generic [ref=f13e122]:
+                      - generic [ref=f13e123]: 2 hồ sơ quá hạn
+                      - generic [ref=f13e125]: 5 lời mời sắp hết hạn
+                      - generic [ref=f13e127]: 3 phiên đăng nhập mới
+      - region [ref=f13e129]:
+        - generic [ref=f13e130]:
+          - generic [ref=f13e131]:
+            - heading "Những vấn đề nhà trường đang đối mặt mỗi ngày" [level=2] [ref=f13e132]
+            - paragraph [ref=f13e133]: Được xây dựng dựa trên khảo sát thực tế đời sống học đường — nơi các kết nối, tài liệu và quy trình quan trọng nhất vẫn đang vận hành ngoài tầm kiểm soát của nhà trường.
+          - generic [ref=f13e134]:
+            - generic [ref=f13e136]:
+              - heading "Cố vấn học tập thiếu kiểm soát" [level=3] [ref=f13e137]
+              - paragraph [ref=f13e138]: Học sinh tự tìm mentor qua mạng xã hội, không có xác minh, phụ huynh không nắm được, thanh toán và lịch sử không minh bạch.
+            - generic [ref=f13e140]:
+              - heading "Tài liệu ôn tập trôi nổi" [level=3] [ref=f13e141]
+              - paragraph [ref=f13e142]: Đề thi, tài liệu chia sẻ rời rạc qua nhóm chat, không rõ nguồn gốc, dễ sai lệch và khó tìm kiếm theo môn/khối lớp.
+            - generic [ref=f13e144]:
+              - heading "Đặt lịch hẹn thủ công" [level=3] [ref=f13e145]
+              - paragraph [ref=f13e146]: Học sinh phải xin gặp giáo viên qua tin nhắn cá nhân hoặc xếp hàng chờ, không có hệ thống theo dõi trạng thái.
+            - generic [ref=f13e148]:
+              - heading "Quy trình xin phép rườm rà" [level=3] [ref=f13e149]
+              - paragraph [ref=f13e150]: Đơn xin mượn phòng, tổ chức sự kiện CLB phải qua chữ ký giấy nhiều cấp, mất nhiều ngày và không thể tra cứu lại.
+      - region [ref=f13e151]:
+        - generic [ref=f13e152]:
+          - generic [ref=f13e153]:
+            - heading "Năm mô-đun, một nền tảng duy nhất" [level=2] [ref=f13e154]
+            - paragraph [ref=f13e155]: Mỗi mô-đun giải quyết trực tiếp một điểm nghẽn cụ thể, được thiết kế để triển khai độc lập hoặc theo bộ trọn gói.
+          - generic [ref=f13e156]:
+            - generic [ref=f13e158]:
+              - heading "Cố vấn & Gia sư" [level=3] [ref=f13e165]
+              - paragraph [ref=f13e166]: "Một thị trường cố vấn có kiểm soát: học sinh đăng yêu cầu, anh chị khóa trên đã xác minh (SAT, IELTS, du học…) gửi đề xuất kèm mức phí, hai bên chốt thỏa thuận minh bạch — nhà trường duyệt mentor, mọi bước được ghi nhận."
+              - list [ref=f13e167]:
+                - listitem [ref=f13e168]: Mentor được xác minh thành tích (SAT/IELTS/du học) bởi nhà trường
+                - listitem [ref=f13e171]: Học sinh đăng nhu cầu, mentor đấu giá bằng đề xuất mức phí
+                - listitem [ref=f13e174]: Thỏa thuận và trạng thái thanh toán minh bạch trong hệ thống
+                - listitem [ref=f13e177]: Chứng nhận đóng góp cộng đồng từ Ban Liên chi Đoàn cho mentor
+              - link "Tìm hiểu chi tiết" [ref=f13e180] [cursor=pointer]:
+                - /url: /modules/mentoring
+            - generic [ref=f13e184]:
+              - heading "Kho tài liệu" [level=3] [ref=f13e191]
+              - paragraph [ref=f13e192]: Kho tài liệu tập trung theo môn học, khối lớp và năm học, có quy trình kiểm duyệt và huy hiệu nguồn xác thực để học sinh yên tâm sử dụng.
+              - list [ref=f13e193]:
+                - listitem [ref=f13e194]: Tìm kiếm theo môn, khối, kỳ thi và năm học
+                - listitem [ref=f13e197]: Huy hiệu 'nguồn xác thực' sau khi được duyệt
+                - listitem [ref=f13e200]: Báo cáo tài liệu lỗi thời hoặc sai sót
+                - listitem [ref=f13e203]: Phân quyền truy cập theo trường hoặc khối lớp
+              - link "Tìm hiểu chi tiết" [ref=f13e206] [cursor=pointer]:
+                - /url: /modules/resources
+            - generic [ref=f13e210]:
+              - heading "Lịch hẹn & Đơn từ" [level=3] [ref=f13e217]
+              - paragraph [ref=f13e218]: Học sinh chủ động đặt lịch tư vấn theo giờ trống của giáo viên và nộp các loại đơn cá nhân với luồng phê duyệt rõ ràng, có thời hạn xử lý.
+              - list [ref=f13e219]:
+                - listitem [ref=f13e220]: Xem giờ trống và đặt lịch hẹn theo thời gian thực
+                - listitem [ref=f13e223]: Biểu mẫu đơn từ tùy biến theo từng trường
+                - listitem [ref=f13e226]: Theo dõi trạng thái phê duyệt theo thời gian thực
+                - listitem [ref=f13e229]: Nhắc lịch tự động qua email và thông báo đẩy
+              - link "Tìm hiểu chi tiết" [ref=f13e232] [cursor=pointer]:
+                - /url: /modules/appointments
+            - generic [ref=f13e236]:
+              - heading "Quy trình số" [level=3] [ref=f13e245]
+              - paragraph [ref=f13e246]: Chuẩn hóa đơn từ nội bộ bằng biểu mẫu có điều kiện, thời hạn xử lý và luồng phê duyệt nhiều cấp được cấu hình theo từng trường.
+              - list [ref=f13e247]:
+                - listitem [ref=f13e248]: Tạo biểu mẫu từ thư viện trường dữ liệu kiểm soát
+                - listitem [ref=f13e251]: Phê duyệt tuần tự hoặc song song theo vai trò
+                - listitem [ref=f13e254]: Theo dõi thời hạn, nhắc việc và lý do quyết định
+                - listitem [ref=f13e257]: Lưu vết đầy đủ mọi phiên bản và thao tác
+              - link "Tìm hiểu chi tiết" [ref=f13e260] [cursor=pointer]:
+                - /url: /modules/workflows
+            - generic [ref=f13e264]:
+              - heading "CLB, Sự kiện & Cơ sở vật chất" [level=3] [ref=f13e270]
+              - paragraph [ref=f13e271]: Thay thế quy trình xin chữ ký 4 cấp bằng luồng phê duyệt cấu hình được, đặt phòng theo thời gian thực và toàn bộ lịch sử minh bạch.
+              - list [ref=f13e272]:
+                - listitem [ref=f13e273]: Luồng phê duyệt nhiều cấp có thể tùy chỉnh theo trường
+                - listitem [ref=f13e276]: Đặt phòng, hội trường theo thời gian thực, tránh trùng lịch
+                - listitem [ref=f13e279]: Rút ngắn thời gian duyệt đơn xuống còn 24–48 giờ
+                - listitem [ref=f13e282]: Toàn bộ lịch sử duyệt đơn được lưu vết đầy đủ
+              - link "Tìm hiểu chi tiết" [ref=f13e285] [cursor=pointer]:
+                - /url: /modules/clubs-events
+      - region [ref=f13e288]:
+        - generic [ref=f13e289]:
+          - heading "Giá trị cho từng vai trò trong nhà trường" [level=2] [ref=f13e291]
+          - generic [ref=f13e292]:
+            - generic [ref=f13e294]:
+              - heading "Học sinh" [level=3] [ref=f13e295]
+              - paragraph [ref=f13e296]: Tiếp cận mentor, tài liệu và đặt lịch hẹn minh bạch, mọi lúc.
+            - generic [ref=f13e298]:
+              - heading "Phụ huynh" [level=3] [ref=f13e299]
+              - paragraph [ref=f13e300]: Xác nhận đồng ý và theo dõi hoạt động cố vấn của con em.
+            - generic [ref=f13e302]:
+              - heading "Anh chị Mentor" [level=3] [ref=f13e303]
+              - paragraph [ref=f13e304]: Thu nhập minh bạch và chứng nhận đóng góp cộng đồng.
+            - generic [ref=f13e306]:
+              - heading "Giáo viên" [level=3] [ref=f13e307]
+              - paragraph [ref=f13e308]: Quản lý lịch hẹn và duyệt đơn nhanh chóng trên di động.
+            - generic [ref=f13e310]:
+              - heading "Ban chủ nhiệm CLB" [level=3] [ref=f13e311]
+              - paragraph [ref=f13e312]: Số hóa 100% quy trình xin phê duyệt sự kiện và cơ sở vật chất.
+            - generic [ref=f13e314]:
+              - heading "Phòng hành chính & Ban giám hiệu" [level=3] [ref=f13e315]
+              - paragraph [ref=f13e316]: Một dashboard tập trung, minh bạch và có thể kiểm toán.
+      - region [ref=f13e317]:
+        - generic [ref=f13e318]:
+          - generic [ref=f13e319]:
+            - heading "An toàn cho học sinh là ưu tiên số một" [level=2] [ref=f13e324]
+            - paragraph [ref=f13e325]: Mọi tính năng đều được thiết kế với sự giám sát của nhà trường và phụ huynh làm trọng tâm — không phải tùy chọn thêm vào sau.
+            - link "Xem chi tiết bảo mật & an toàn" [ref=f13e326] [cursor=pointer]:
+              - /url: /security
+          - list [ref=f13e327]:
+            - listitem [ref=f13e328]:
+              - generic [ref=f13e329]: Xác minh danh tính hai lớp cho Mentor và Giáo viên
+            - listitem [ref=f13e334]:
+              - generic [ref=f13e335]: Đồng ý của phụ huynh bắt buộc trước mọi buổi cố vấn
+            - listitem [ref=f13e340]:
+              - generic [ref=f13e341]: Toàn bộ giao dịch được ghi log và có thể kiểm toán
+            - listitem [ref=f13e346]:
+              - generic [ref=f13e347]: Tuân thủ nguyên tắc bảo vệ dữ liệu trẻ em & học sinh
+      - region [ref=f13e352]:
+        - generic [ref=f13e354]:
+          - heading "Sẵn sàng triển khai cho trường của bạn?" [level=2] [ref=f13e355]
+          - paragraph [ref=f13e356]: Đặt lịch demo 30 phút với đội ngũ của chúng tôi để xem cách EduTech phù hợp với quy trình vận hành hiện tại của trường.
+          - generic [ref=f13e357]:
+            - link "Yêu cầu demo" [ref=f13e358] [cursor=pointer]:
+              - /url: /demo
+            - link "Xem bảng giá" [ref=f13e359] [cursor=pointer]:
+              - /url: /pricing
+    - contentinfo [ref=f13e360]:
+      - generic [ref=f13e361]:
+        - generic [ref=f13e362]:
+          - link "EduTech - Trang chủ" [ref=f13e363] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f13e364]: ET
+            - generic [ref=f13e367]:
+              - generic [ref=f13e368]: EduTech
+              - generic [ref=f13e369]: Trường học kết nối
+          - paragraph [ref=f13e370]: Nền tảng vận hành trường học hợp nhất cố vấn, học liệu, lịch hẹn và số hóa quy trình hành chính cho các trường phổ thông tại Việt Nam.
+        - navigation "Sản phẩm" [ref=f13e371]:
+          - heading "Sản phẩm" [level=3] [ref=f13e372]
+          - list [ref=f13e373]:
+            - listitem [ref=f13e374]:
+              - link "Cố vấn & Gia sư" [ref=f13e375] [cursor=pointer]:
+                - /url: /modules/mentoring
+            - listitem [ref=f13e376]:
+              - link "Kho tài liệu" [ref=f13e377] [cursor=pointer]:
+                - /url: /modules/resources
+            - listitem [ref=f13e378]:
+              - link "Lịch hẹn & Đơn từ" [ref=f13e379] [cursor=pointer]:
+                - /url: /modules/appointments
+            - listitem [ref=f13e380]:
+              - link "Quy trình số" [ref=f13e381] [cursor=pointer]:
+                - /url: /modules/workflows
+            - listitem [ref=f13e382]:
+              - link "CLB & Sự kiện" [ref=f13e383] [cursor=pointer]:
+                - /url: /modules/clubs-events
+        - navigation "Công ty" [ref=f13e384]:
+          - heading "Công ty" [level=3] [ref=f13e385]
+          - list [ref=f13e386]:
+            - listitem [ref=f13e387]:
+              - link "Trường hợp triển khai" [ref=f13e388] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=f13e389]:
+              - link "Bảng giá" [ref=f13e390] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=f13e391]:
+              - link "Bảo mật & An toàn" [ref=f13e392] [cursor=pointer]:
+                - /url: /security
+        - navigation "Hỗ trợ" [ref=f13e393]:
+          - heading "Hỗ trợ" [level=3] [ref=f13e394]
+          - list [ref=f13e395]:
+            - listitem [ref=f13e396]:
+              - link "Trung tâm trợ giúp" [ref=f13e397] [cursor=pointer]:
+                - /url: /help
+            - listitem [ref=f13e398]:
+              - link "Yêu cầu demo" [ref=f13e399] [cursor=pointer]:
+                - /url: /demo
+            - listitem [ref=f13e400]:
+              - link "Đăng nhập" [ref=f13e401] [cursor=pointer]:
+                - /url: /login
+      - generic [ref=f13e403]:
+        - paragraph [ref=f13e404]: © 2026 EduTech. Bảo lưu mọi quyền.
+        - paragraph [ref=f13e405]: Xây dựng cho các trường THPT tư thục & liên cấp tại Việt Nam.
+  - button "Open Next.js Dev Tools" [ref=f13e411] [cursor=pointer]
+  - alert [ref=f13e415]

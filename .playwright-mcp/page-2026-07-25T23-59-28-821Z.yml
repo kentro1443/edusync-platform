@@ -1,0 +1,149 @@
+- generic [active] [ref=f10e1]:
+  - link "Chuyển đến nội dung chính" [ref=f10e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=f10e3]:
+    - complementary [ref=f10e4]:
+      - link "EduTech - Trang chủ" [ref=f10e6] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=f10e7]: ET
+        - generic [ref=f10e10]:
+          - generic [ref=f10e11]: EduTech
+          - generic [ref=f10e12]: Trường học kết nối
+      - generic [ref=f10e13]:
+        - paragraph [ref=f10e14]: Không gian làm việc
+        - navigation "Điều hướng ứng dụng" [ref=f10e15]:
+          - link "Tổng quan" [ref=f10e16] [cursor=pointer]:
+            - /url: /dashboard
+          - link "Hồ sơ cá nhân" [ref=f10e21] [cursor=pointer]:
+            - /url: /dashboard/profile
+          - link "Bảo mật" [ref=f10e26] [cursor=pointer]:
+            - /url: /dashboard/security
+          - link "Cố vấn & Gia sư" [ref=f10e31] [cursor=pointer]:
+            - /url: /dashboard/mentoring
+          - link "Chợ cố vấn" [ref=f10e37] [cursor=pointer]:
+            - /url: /dashboard/mentoring/marketplace
+          - link "Kho tài liệu" [ref=f10e43] [cursor=pointer]:
+            - /url: /dashboard/resources
+          - link "Lịch trường" [ref=f10e49] [cursor=pointer]:
+            - /url: /dashboard/calendar
+          - link "Quy trình" [ref=f10e55] [cursor=pointer]:
+            - /url: /dashboard/workflows
+          - link "Lịch hẹn & Đơn từ" [ref=f10e60] [cursor=pointer]:
+            - /url: /dashboard/appointments
+          - link "CLB & Sự kiện" [ref=f10e66] [cursor=pointer]:
+            - /url: /dashboard/clubs-events
+          - link "Tin nhắn" [ref=f10e71] [cursor=pointer]:
+            - /url: /dashboard/messages
+          - link "Thông báo" [ref=f10e76] [cursor=pointer]:
+            - /url: /dashboard/notifications
+      - generic [ref=f10e80]:
+        - button "Thu gọn thanh bên" [expanded] [ref=f10e81] [cursor=pointer]
+        - generic [ref=f10e85]:
+          - generic [ref=f10e86]: GH
+          - generic [ref=f10e87]:
+            - paragraph [ref=f10e88]: Phạm Gia Huy
+            - paragraph [ref=f10e89]: Học sinh
+    - generic [ref=f10e90]:
+      - banner [ref=f10e91]:
+        - generic [ref=f10e92]:
+          - generic [ref=f10e93]:
+            - paragraph [ref=f10e94]: Trường Trung học Minh Khai
+            - navigation "Đường dẫn trang" [ref=f10e95]:
+              - list [ref=f10e96]:
+                - listitem [ref=f10e97]:
+                  - link "Tổng quan" [ref=f10e98] [cursor=pointer]:
+                    - /url: /dashboard
+                - listitem [ref=f10e99]: /
+                - listitem [ref=f10e100]: Chợ cố vấn
+          - button "Tìm kiếm trong ứng dụng" [ref=f10e101] [cursor=pointer]:
+            - generic [ref=f10e105]: Tìm kiếm
+            - generic [ref=f10e106]: ⌘ K
+          - group [ref=f10e107]:
+            - generic "Mở thông báo, 0 chưa đọc" [ref=f10e108] [cursor=pointer]
+          - group [ref=f10e112]:
+            - generic "Mở menu tài khoản GH" [ref=f10e113] [cursor=pointer]:
+              - generic [ref=f10e114]: Mở menu tài khoản
+              - text: GH
+      - main [ref=f10e115]:
+        - generic [ref=f10e137]:
+          - generic [ref=f10e138]:
+            - generic [ref=f10e139]:
+              - paragraph [ref=f10e140]: Chợ cố vấn ngang hàng
+              - heading "Kết nối anh chị khóa trên" [level=1] [ref=f10e141]
+              - paragraph [ref=f10e142]: Học sinh đăng nhu cầu, anh chị khóa trên đề xuất mức phí phù hợp, hai bên chốt thỏa thuận minh bạch — mọi bước đều được ghi nhận.
+            - generic "Tác vụ trang" [ref=f10e143]:
+              - link [ref=f10e144] [cursor=pointer]:
+                - /url: /dashboard/mentoring/mentors
+                - button "Danh bạ cố vấn" [ref=f10e145]
+          - status [ref=f10e218]:
+            - paragraph [ref=f10e219]:
+              - generic [ref=f10e220]: "Thành công:"
+              - text: Đã chọn cố vấn và tạo thỏa thuận.
+          - generic [ref=f10e146]:
+            - region [ref=f10e147]:
+              - heading "Yêu cầu của tôi" [level=2] [ref=f10e148]
+              - list [ref=f10e149]:
+                - generic [ref=f10e151]:
+                  - generic [ref=f10e152]:
+                    - generic [ref=f10e153]:
+                      - heading "Hỗ trợ vòng loại Business Case toàn trường" [level=3] [ref=f10e154]
+                      - paragraph [ref=f10e155]: 3 buổi · Business Case & Hackathon · Ngân sách tham khảo 180.000 ₫
+                    - generic [ref=f10e156]: Đã ghép cố vấn
+                  - paragraph [ref=f10e158]: Nhóm em cần mentor từng đoạt giải kèm 3 buổi xây khung phân tích và luyện phản biện trước vòng loại.
+                  - generic [ref=f10e160]:
+                    - generic [ref=f10e161]:
+                      - paragraph [ref=f10e162]: Đã ghép với Lê Quốc Bảo
+                      - paragraph [ref=f10e163]: 3 buổi · Tổng 540.000 ₫
+                    - generic [ref=f10e164]:
+                      - generic [ref=f10e165]: Chờ thanh toán
+                      - button "Đánh dấu đã trả" [ref=f10e168] [cursor=pointer]
+                - generic [ref=f10e170]:
+                  - generic [ref=f10e171]:
+                    - generic [ref=f10e172]:
+                      - heading "Luyện SAT Math 5 buổi trước kỳ thi tháng 12" [level=3] [ref=f10e173]
+                      - paragraph [ref=f10e174]: 5 buổi · Luyện thi SAT · Ngân sách tham khảo 150.000 ₫
+                    - generic [ref=f10e175]: Đã ghép cố vấn
+                  - paragraph [ref=f10e177]: Em đang ở mức SAT Math 680, muốn anh chị đã đạt 750+ kèm 5 buổi tập trung vào phần Đại số và Data Analysis.
+                  - generic [ref=f10e179]:
+                    - generic [ref=f10e221]:
+                      - paragraph [ref=f10e222]: Đã ghép với Lê Quốc Bảo
+                      - paragraph [ref=f10e223]: 5 buổi · Tổng 700.000 ₫
+                    - generic [ref=f10e224]:
+                      - generic [ref=f10e225]: Chờ thanh toán
+                      - button "Đánh dấu đã trả" [ref=f10e228] [cursor=pointer]
+            - complementary [ref=f10e191]:
+              - generic [ref=f10e192]:
+                - generic [ref=f10e193]:
+                  - heading "Đăng yêu cầu tìm cố vấn" [level=2] [ref=f10e194]
+                  - paragraph [ref=f10e195]: Mô tả nhu cầu; anh chị khóa trên sẽ gửi đề xuất kèm mức phí.
+                - generic [ref=f10e196]:
+                  - generic [ref=f10e197]:
+                    - generic [ref=f10e198]:
+                      - text: Tiêu đề
+                      - generic [ref=f10e199]: (bắt buộc)
+                      - text: "*"
+                    - 'textbox "Ví dụ: Luyện SAT Math 5 buổi" [ref=f10e200]'
+                  - generic [ref=f10e201]:
+                    - generic [ref=f10e202]:
+                      - text: Mô tả nhu cầu
+                      - generic [ref=f10e203]: (bắt buộc)
+                      - text: "*"
+                    - textbox "Bạn cần hỗ trợ gì, mục tiêu, thời gian mong muốn…" [ref=f10e204]
+                  - generic [ref=f10e205]:
+                    - generic [ref=f10e206]:
+                      - generic [ref=f10e207]: Số buổi
+                      - spinbutton [ref=f10e208]: "1"
+                    - generic [ref=f10e209]:
+                      - generic [ref=f10e210]: Ngân sách/buổi (đ)
+                      - textbox "Tùy chọn" [ref=f10e211]
+                  - generic [ref=f10e212]:
+                    - generic [ref=f10e213]: Chuyên môn
+                    - combobox [ref=f10e214]:
+                      - option "Không chọn" [selected]
+                      - option "Business Case & Hackathon"
+                      - option "Luyện thi SAT"
+                      - option "Định hướng du học Mỹ"
+                    - paragraph [ref=f10e215]: Tùy chọn — giúp đúng người đề xuất.
+                  - button "Đăng yêu cầu" [ref=f10e216] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=f10e133] [cursor=pointer]
+  - alert [ref=f10e217]

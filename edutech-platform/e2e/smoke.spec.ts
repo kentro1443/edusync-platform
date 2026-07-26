@@ -14,19 +14,16 @@ test.describe("Kiểm tra khói ứng dụng", () => {
     expect(response?.ok()).toBeTruthy();
   });
 
-  test("tài khoản mới được chuyển đến trang đổi mật khẩu", async ({ page }) => {
+  test("tài khoản học sinh demo đăng nhập vào bảng điều khiển", async ({ page }) => {
+    // Demo fixtures ship with mustChangePassword=false, so they land straight on
+    // the dashboard. The forced first-login change flow is covered by the Phase 2
+    // identity E2E suite. See README "Demo accounts".
     await page.goto("/login");
     await page.locator("#email").fill("student.minhkhai@edutech.local");
     await page.locator("#password").fill("EduTech-Demo-2026!");
     await page.getByRole("button", { name: "Đăng nhập" }).click();
 
-    await expect(page).toHaveURL(/\/doi-mat-khau$/);
-    await expect(
-      page.getByRole("heading", { name: "Thiết lập mật khẩu mới" }),
-    ).toBeVisible();
-    await expect(page.locator("#currentPassword")).toBeVisible();
-    await expect(page.locator("#newPassword")).toBeVisible();
-    await expect(page.locator("#confirmPassword")).toBeVisible();
+    await expect(page).toHaveURL(/\/dashboard$/);
   });
 
   test("credential demo của quản trị nền tảng đăng nhập được", async ({ page }) => {
@@ -35,10 +32,7 @@ test.describe("Kiểm tra khói ứng dụng", () => {
     await page.locator("#password").fill("EduTech-Demo-2026!");
     await page.getByRole("button", { name: "Đăng nhập" }).click();
 
-    await expect(page).toHaveURL(/\/doi-mat-khau$/);
-    await expect(
-      page.getByRole("heading", { name: "Thiết lập mật khẩu mới" }),
-    ).toBeVisible();
+    await expect(page).toHaveURL(/\/dashboard$/);
   });
 
   test("hero dùng font và line-height an toàn cho dấu tiếng Việt", async ({ page }) => {

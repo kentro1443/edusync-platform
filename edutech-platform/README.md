@@ -1,6 +1,6 @@
 # EduTech Platform
 
-EduTech is a multi-tenant school operations platform built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. It combines identity and school administration, mentoring, private learning resources, scheduling, no-code workflows, clubs/events, collaboration, notifications, reporting, search, and audit in one permission-aware product.
+EduTech is a multi-tenant school platform for Vietnamese specialised high schools, built with Next.js, TypeScript, Prisma, PostgreSQL, and Redis. Its core is a **peer-mentor marketplace** where junior students post learning needs and verified senior-student mentors (SAT/IELTS/du học specialties) bid with a price, plus a shared **past-exam/resource library** and **no-code approval workflows** that digitise the paper CLB/event/facility forms (4 signatures, 1–2 weeks → 24–48h). It also includes identity and school administration, staff mentoring/counseling, scheduling, clubs/events, collaboration, notifications, reporting, search, and audit — all permission-aware and tenant-isolated.
 
 ## Prerequisites
 
@@ -191,7 +191,8 @@ The unit/integration suite covers permission evaluation, tenant isolation, paren
 | Route | Purpose | Required scope |
 | --- | --- | --- |
 | `/dashboard/mentoring` | Role-aware mentoring dashboard and agenda | Active school member |
-| `/dashboard/mentoring/mentors` | Search verified mentors and specialties | Directory permission |
+| `/dashboard/mentoring/marketplace` | Peer-mentor bidding: post requests, submit priced offers, accept, and track income/payment | Marketplace read (offer/request per role) |
+| `/dashboard/mentoring/mentors` | Search verified senior-student mentors, specialties, achievements and rates | Directory permission |
 | `/dashboard/mentoring/mentors/[mentorProfileId]` | Mentor profile, slots, booking/waitlist | Appointment create |
 | `/dashboard/appointments` | Day/14-day appointment agenda | Appointment read |
 | `/dashboard/appointments/[appointmentId]` | Approval, reschedule, cancel, complete, attendance | Appointment transition |

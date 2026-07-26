@@ -1,0 +1,84 @@
+- generic [active] [ref=f12e1]:
+  - link "Chuyển đến nội dung chính" [ref=f12e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=f12e3]:
+    - complementary [ref=f12e4]:
+      - link "EduTech - Trang chủ" [ref=f12e6] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=f12e7]: ET
+        - generic [ref=f12e10]:
+          - generic [ref=f12e11]: EduTech
+          - generic [ref=f12e12]: Trường học kết nối
+      - generic [ref=f12e13]:
+        - paragraph [ref=f12e14]: Không gian làm việc
+        - navigation "Điều hướng ứng dụng" [ref=f12e15]:
+          - link "Tổng quan" [ref=f12e16] [cursor=pointer]:
+            - /url: /dashboard
+          - link "Hồ sơ cá nhân" [ref=f12e21] [cursor=pointer]:
+            - /url: /dashboard/profile
+          - link "Bảo mật" [ref=f12e26] [cursor=pointer]:
+            - /url: /dashboard/security
+          - link "Cố vấn & Gia sư" [ref=f12e31] [cursor=pointer]:
+            - /url: /dashboard/mentoring
+          - link "Chợ cố vấn" [ref=f12e37] [cursor=pointer]:
+            - /url: /dashboard/mentoring/marketplace
+          - link "Kho tài liệu" [ref=f12e43] [cursor=pointer]:
+            - /url: /dashboard/resources
+          - link "Lịch trường" [ref=f12e49] [cursor=pointer]:
+            - /url: /dashboard/calendar
+          - link "Quy trình" [ref=f12e55] [cursor=pointer]:
+            - /url: /dashboard/workflows
+          - link "Lịch hẹn & Đơn từ" [ref=f12e60] [cursor=pointer]:
+            - /url: /dashboard/appointments
+          - link "CLB & Sự kiện" [ref=f12e66] [cursor=pointer]:
+            - /url: /dashboard/clubs-events
+          - link "Tin nhắn" [ref=f12e71] [cursor=pointer]:
+            - /url: /dashboard/messages
+          - link "Thông báo" [ref=f12e76] [cursor=pointer]:
+            - /url: /dashboard/notifications
+      - generic [ref=f12e80]:
+        - button "Thu gọn thanh bên" [expanded] [ref=f12e81] [cursor=pointer]
+        - generic [ref=f12e85]:
+          - generic [ref=f12e86]: GH
+          - generic [ref=f12e87]:
+            - paragraph [ref=f12e88]: Phạm Gia Huy
+            - paragraph [ref=f12e89]: Học sinh
+    - generic [ref=f12e90]:
+      - banner [ref=f12e91]:
+        - generic [ref=f12e92]:
+          - generic [ref=f12e93]:
+            - paragraph [ref=f12e94]: Trường Trung học Minh Khai
+            - navigation "Đường dẫn trang" [ref=f12e95]:
+              - list [ref=f12e96]:
+                - listitem [ref=f12e97]:
+                  - link "Tổng quan" [ref=f12e98] [cursor=pointer]:
+                    - /url: /dashboard
+                - listitem [ref=f12e99]: /
+                - listitem [ref=f12e100]:
+                  - link "Quy trình" [ref=f12e101] [cursor=pointer]:
+                    - /url: /dashboard/workflows
+                - listitem [ref=f12e102]: /
+                - listitem [ref=f12e103]: Chi tiết
+          - button "Tìm kiếm trong ứng dụng" [ref=f12e104] [cursor=pointer]:
+            - generic [ref=f12e108]: Tìm kiếm
+            - generic [ref=f12e109]: ⌘ K
+          - group [ref=f12e110]:
+            - generic "Mở thông báo, 0 chưa đọc" [ref=f12e111] [cursor=pointer]
+          - group [ref=f12e115]:
+            - generic "Mở menu tài khoản GH" [ref=f12e116] [cursor=pointer]:
+              - generic [ref=f12e117]: Mở menu tài khoản
+              - text: GH
+      - main [ref=f12e118]:
+        - generic "Đang tải trang" [ref=f12e120]:
+          - generic [ref=f12e121]:
+            - status "Đang tải nội dung" [ref=f12e122]
+            - status "Đang tải nội dung" [ref=f12e123]
+            - status "Đang tải nội dung" [ref=f12e124]
+          - generic [ref=f12e125]:
+            - status "Đang tải nội dung" [ref=f12e126]
+            - status "Đang tải nội dung" [ref=f12e127]
+            - status "Đang tải nội dung" [ref=f12e128]
+            - status "Đang tải nội dung" [ref=f12e129]
+          - status "Đang tải nội dung" [ref=f12e130]
+  - button "Open Next.js Dev Tools" [ref=f12e136] [cursor=pointer]
+  - alert [ref=f12e140]

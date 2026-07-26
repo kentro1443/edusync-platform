@@ -1,0 +1,79 @@
+- generic [active] [ref=f10e1]:
+  - link "Chuyển đến nội dung chính" [ref=f10e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=f10e3]:
+    - complementary [ref=f10e4]:
+      - link "EduTech - Trang chủ" [ref=f10e6] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=f10e7]: ET
+        - generic [ref=f10e10]:
+          - generic [ref=f10e11]: EduTech
+          - generic [ref=f10e12]: Trường học kết nối
+      - generic [ref=f10e13]:
+        - paragraph [ref=f10e14]: Không gian làm việc
+        - navigation "Điều hướng ứng dụng" [ref=f10e15]:
+          - link "Tổng quan" [ref=f10e16] [cursor=pointer]:
+            - /url: /dashboard
+          - link "Hồ sơ cá nhân" [ref=f10e21] [cursor=pointer]:
+            - /url: /dashboard/profile
+          - link "Bảo mật" [ref=f10e26] [cursor=pointer]:
+            - /url: /dashboard/security
+          - link "Cố vấn & Gia sư" [ref=f10e31] [cursor=pointer]:
+            - /url: /dashboard/mentoring
+          - link "Chợ cố vấn" [ref=f10e37] [cursor=pointer]:
+            - /url: /dashboard/mentoring/marketplace
+          - link "Kho tài liệu" [ref=f10e43] [cursor=pointer]:
+            - /url: /dashboard/resources
+          - link "Lịch trường" [ref=f10e49] [cursor=pointer]:
+            - /url: /dashboard/calendar
+          - link "Quy trình" [ref=f10e55] [cursor=pointer]:
+            - /url: /dashboard/workflows
+          - link "Lịch hẹn & Đơn từ" [ref=f10e60] [cursor=pointer]:
+            - /url: /dashboard/appointments
+          - link "CLB & Sự kiện" [ref=f10e66] [cursor=pointer]:
+            - /url: /dashboard/clubs-events
+          - link "Tin nhắn" [ref=f10e71] [cursor=pointer]:
+            - /url: /dashboard/messages
+          - link "Thông báo" [ref=f10e76] [cursor=pointer]:
+            - /url: /dashboard/notifications
+      - generic [ref=f10e80]:
+        - button "Thu gọn thanh bên" [expanded] [ref=f10e81] [cursor=pointer]
+        - generic [ref=f10e85]:
+          - generic [ref=f10e86]: GH
+          - generic [ref=f10e87]:
+            - paragraph [ref=f10e88]: Phạm Gia Huy
+            - paragraph [ref=f10e89]: Học sinh
+    - generic [ref=f10e90]:
+      - banner [ref=f10e91]:
+        - generic [ref=f10e92]:
+          - generic [ref=f10e93]:
+            - paragraph [ref=f10e94]: Trường Trung học Minh Khai
+            - navigation "Đường dẫn trang" [ref=f10e95]:
+              - list [ref=f10e96]:
+                - listitem [ref=f10e97]:
+                  - link "Tổng quan" [ref=f10e98] [cursor=pointer]:
+                    - /url: /dashboard
+                - listitem [ref=f10e99]: /
+                - listitem [ref=f10e100]: Chợ cố vấn
+          - button "Tìm kiếm trong ứng dụng" [ref=f10e101] [cursor=pointer]:
+            - generic [ref=f10e105]: Tìm kiếm
+            - generic [ref=f10e106]: ⌘ K
+          - group [ref=f10e107]:
+            - generic "Mở thông báo, 0 chưa đọc" [ref=f10e108] [cursor=pointer]
+          - group [ref=f10e112]:
+            - generic "Mở menu tài khoản GH" [ref=f10e113] [cursor=pointer]:
+              - generic [ref=f10e114]: Mở menu tài khoản
+              - text: GH
+      - main [ref=f10e115]:
+        - generic "Đang tải trang" [ref=f10e117]:
+          - generic [ref=f10e118]:
+            - status "Đang tải nội dung" [ref=f10e119]
+            - status "Đang tải nội dung" [ref=f10e120]
+            - status "Đang tải nội dung" [ref=f10e121]
+          - generic [ref=f10e122]:
+            - status "Đang tải nội dung" [ref=f10e123]
+            - status "Đang tải nội dung" [ref=f10e124]
+            - status "Đang tải nội dung" [ref=f10e125]
+            - status "Đang tải nội dung" [ref=f10e126]
+          - status "Đang tải nội dung" [ref=f10e127]
+  - button "Open Next.js Dev Tools" [ref=f10e133] [cursor=pointer]
