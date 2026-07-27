@@ -14,6 +14,7 @@ import {
   createMentoringCase,
   getMentoringCase,
 } from "@/lib/mentoring/case-service";
+import { getMentoringDashboard } from "@/lib/mentoring/directory-service";
 
 describe.sequential("Phase 3 case privacy integration", () => {
   const suffix = randomUUID().slice(0, 8);
@@ -57,6 +58,9 @@ describe.sequential("Phase 3 case privacy integration", () => {
     "PARENT_GUARDIAN",
   ]);
   const adminActor = actor(adminId, membershipIds.admin, ["SCHOOL_ADMIN"]);
+  const approverActor = actor(adminId, membershipIds.admin, [
+    "APPROVER_REVIEWER",
+  ]);
   const otherMentorActor = actor(
     otherMentorId,
     membershipIds.otherMentor,
@@ -324,5 +328,11 @@ describe.sequential("Phase 3 case privacy integration", () => {
     await expect(
       getMentoringCase(otherMentorActor, caseId),
     ).rejects.toBeInstanceOf(CaseAuthorizationError);
+  });
+
+  it("trả dashboard rỗng cho approver không có quyền xem case", async () => {
+    const dashboard = await getMentoringDashboard(approverActor);
+
+    expect(dashboard.openCases).toBe(0);
   });
 });

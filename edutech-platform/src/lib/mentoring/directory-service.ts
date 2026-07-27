@@ -71,7 +71,7 @@ function scopedCaseWhere(
   if (actor.schoolRoles.includes("PARENT_GUARDIAN")) {
     return { studentUserId: { in: [...linkedStudentIds] } };
   }
-  return { id: "__no_case_access__" };
+  return { id: { in: [] as string[] } };
 }
 
 export async function listMentorProfiles(
