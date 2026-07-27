@@ -1,1 +1,0 @@
-export const activeSchoolCookieName = "edutech.active-school";

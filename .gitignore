@@ -13,3 +13,7 @@
 .playwright-mcp/
 test-results/
 *.jpeg
+.vercel
+.env*
+!.env.example
+!**/.env.example
