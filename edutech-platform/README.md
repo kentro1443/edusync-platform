@@ -63,8 +63,12 @@ They are not durable on Vercel. Before enabling file uploads or transactional
 email in production, replace them with managed object storage and an email
 provider, then run scheduled workers through authenticated HTTP endpoints.
 
-The `dev@edutech.local` account is intentionally restricted to development and
-test environments. It cannot sign in on Vercel Preview or Production.
+The `dev@edutech.local` account is restricted to development and test by
+default. Production access requires the explicit
+`ENABLE_PRODUCTION_DEV_MODE=true` environment variable and a separately
+rotated production password. The rotation command revokes existing developer
+and impersonated sessions and stores the generated credential in macOS
+Keychain. Never use the shared demo password for this production account.
 
 ## Demo accounts
 
@@ -94,16 +98,37 @@ Demo users enter the dashboard directly; the seed does not force a first-login p
 | Nguyễn Du | Club leader | `club.nguyendu@edutech.local` |
 | Nguyễn Du | Approver/reviewer | `approver.nguyendu@edutech.local` |
 | Minh Khai + Nguyễn Du | Multi-school admin (school switching) | `admin.multischool@edutech.local` |
-| Development only | Demo account switcher | `dev@edutech.local` |
+| Developer operator | Demo account switcher | `dev@edutech.local` |
 
-These credentials are development fixtures only and must not be used in production.
+The shared password above is a development fixture and must not be used in
+production.
 
 The development account lands on `/dev/switch`. Choose a school, then any
 school-scoped demo account to test its real permissions without signing in
 again. A persistent amber banner identifies impersonation and provides
 controls to change account or return to the development account. Developer
 authentication and impersonated sessions are rejected when the application
-runs with `NODE_ENV=production`.
+runs with `NODE_ENV=production`, unless production dev mode has been
+explicitly enabled.
+
+To rotate the production developer password after pulling the Vercel
+production environment into `.env.production.local`, run:
+
+```bash
+node --env-file=.env.production.local \
+  --conditions=react-server \
+  --import tsx \
+  scripts/rotate-production-dev-password.ts
+```
+
+Retrieve the generated password from macOS Keychain when signing in:
+
+```bash
+security find-generic-password \
+  -a dev@edutech.local \
+  -s edutech-platform-production-dev \
+  -w
+```
 
 ## Database commands
 
