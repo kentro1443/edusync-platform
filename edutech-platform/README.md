@@ -51,6 +51,21 @@ Stop local services when they are no longer needed:
 npm run services:down
 ```
 
+## Production deployment prerequisites
+
+Vercel deployments require explicit production values for `APP_URL`,
+`AUTH_SECRET`, `DATABASE_URL`, `REDIS_URL`, `FILE_STORAGE_ROOT`, and
+`EMAIL_OUTBOX_ROOT`. Managed Redis URLs may use either `redis://` or the TLS
+form `rediss://`.
+
+`FILE_STORAGE_ROOT` and `EMAIL_OUTBOX_ROOT` are local-development adapters.
+They are not durable on Vercel. Before enabling file uploads or transactional
+email in production, replace them with managed object storage and an email
+provider, then run scheduled workers through authenticated HTTP endpoints.
+
+The `dev@edutech.local` account is intentionally restricted to development and
+test environments. It cannot sign in on Vercel Preview or Production.
+
 ## Demo accounts
 
 The seed creates two schools (`Minh Khai` and `Nguyễn Du`) and every foundation role. All demo users share this local-development password:

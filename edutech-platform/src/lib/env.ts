@@ -21,9 +21,14 @@ const envSchema = z.object({
   DATABASE_URL: z.url().refine((value) => value.startsWith("postgresql://"), {
     message: "DATABASE_URL must use the postgresql:// protocol",
   }),
-  REDIS_URL: z.url().refine((value) => value.startsWith("redis://"), {
-    message: "REDIS_URL must use the redis:// protocol",
-  }),
+  REDIS_URL: z
+    .url()
+    .refine(
+      (value) => value.startsWith("redis://") || value.startsWith("rediss://"),
+      {
+        message: "REDIS_URL must use the redis:// or rediss:// protocol",
+      },
+    ),
   FILE_STORAGE_ROOT: z.string().min(1),
   EMAIL_OUTBOX_ROOT: z.string().min(1),
 });
