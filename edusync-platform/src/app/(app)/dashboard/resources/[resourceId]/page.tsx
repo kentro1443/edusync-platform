@@ -9,6 +9,7 @@ import {
   resourceReportAction,
   transitionResourceAction,
 } from "@/app/(app)/dashboard/resources/actions";
+import { DeleteResourceButton } from "@/app/(app)/dashboard/resources/[resourceId]/DeleteResourceButton";
 import { PageHeader } from "@/components/app/PageHeader";
 import { Badge } from "@/components/ui/Badge";
 import { Button, LinkButton } from "@/components/ui/Button";
@@ -17,7 +18,7 @@ import { Alert, EmptyState } from "@/components/ui/Feedback";
 import { Field, Input, Textarea } from "@/components/ui/Field";
 import { requireSchoolContext } from "@/lib/auth/guards";
 import { permissions } from "@/lib/auth/permissions";
-import { getResource, listResourceCollections, recordResourceEvent } from "@/lib/resources/resource-service";
+import { canDeleteResource, getResource, listResourceCollections, recordResourceEvent } from "@/lib/resources/resource-service";
 
 const statusLabels = {
   DRAFT: "Bản nháp",
@@ -43,6 +44,7 @@ export default async function ResourceDetailPage({
   await recordResourceEvent(actor, resourceId, "VIEW");
   const canEdit = resource.createdBy.id === actor.userId || actor.schoolRoles.some((role) => ["SCHOOL_ADMIN", "TEACHER_STAFF", "APPROVER_REVIEWER"].includes(role));
   const canModerate = actor.schoolRoles.some((role) => ["SCHOOL_ADMIN", "TEACHER_STAFF", "APPROVER_REVIEWER"].includes(role));
+  const canDelete = canDeleteResource(actor, { createdByUserId: resource.createdBy.id });
   const status = resource.status as keyof typeof statusLabels;
   const currentFile = resource.currentVersion
     ? resource.fileLinks.find((fileLink) => fileLink.entityId === resource.currentVersion?.id)?.file
@@ -113,6 +115,7 @@ export default async function ResourceDetailPage({
           <Card>
             <h2 className="text-lg font-bold text-[var(--color-ink-900)]">Quy trình</h2>
             <p className="mt-2 text-sm leading-6 text-[var(--color-ink-500)]">Bản nháp cần gửi duyệt. Phiên bản đã xuất bản không bị sửa trực tiếp; rollback luôn tạo phiên bản mới.</p>
+            {status !== "PUBLISHED" ? <Alert className="mt-4" tone="warning" title="Học sinh chưa thấy tài liệu này">{status === "PENDING_REVIEW" ? "Tài liệu đang chờ duyệt trước khi xuất hiện trong thư viện học sinh." : status === "ARCHIVED" ? "Hãy khôi phục, gửi duyệt và xuất bản lại tài liệu." : "Hãy gửi duyệt và xuất bản để tài liệu xuất hiện trong thư viện của học sinh."}</Alert> : null}
             {canEdit || canModerate ? (
               <div className="mt-5 space-y-2">
                 {status === "DRAFT" || status === "REJECTED" ? <form action={transitionResourceAction}><input type="hidden" name="resourceId" value={resource.id} /><input type="hidden" name="action" value="SUBMIT_REVIEW" /><Button type="submit" size="sm" className="w-full">Gửi duyệt</Button></form> : null}
@@ -121,6 +124,7 @@ export default async function ResourceDetailPage({
                 {status === "ARCHIVED" && canEdit ? <form action={transitionResourceAction}><input type="hidden" name="resourceId" value={resource.id} /><input type="hidden" name="action" value="RESTORE" /><Button type="submit" variant="outline" size="sm" className="w-full">Khôi phục bản nháp</Button></form> : null}
               </div>
             ) : null}
+            {canDelete ? <div className="mt-5 border-t border-[var(--color-ink-100)] pt-5"><DeleteResourceButton resourceId={resource.id} resourceTitle={resource.title} /></div> : null}
           </Card>
           {canEdit ? <Card><h2 className="text-lg font-bold text-[var(--color-ink-900)]">Tạo phiên bản mới</h2><form action={createResourceVersionAction} className="mt-4 grid gap-4"><input type="hidden" name="resourceId" value={resource.id} /><Field id="version-title" label="Tiêu đề phiên bản" required><Input id="version-title" name="title" defaultValue={resource.currentVersion?.title ?? resource.title} required /></Field><Field id="version-summary" label="Mô tả"><Textarea id="version-summary" name="summary" defaultValue={resource.currentVersion?.summary ?? ""} /></Field><Field id="version-body" label="Nội dung"><Textarea id="version-body" name="body" rows={8} defaultValue={resource.currentVersion?.body ?? ""} /></Field><Field id="file" label="File đính kèm"><Input id="file" name="file" type="file" accept=".pdf,.txt,.md,.jpg,.jpeg,.png,.webp,.docx,.pptx,.xlsx" /></Field><Button type="submit" size="sm">Lưu phiên bản mới</Button><p className="text-xs leading-5 text-[var(--color-ink-500)]">PDF, ảnh, Office; tối đa 25 MB. Phiên bản cũ không bị ghi đè.</p></form></Card> : null}
           <Card><h2 className="text-lg font-bold text-[var(--color-ink-900)]">Lịch sử phiên bản</h2><ol className="mt-4 space-y-3">{resource.versions.map((version) => <li key={version.id} className="rounded-[var(--radius-md)] border border-[var(--color-ink-100)] p-3"><p className="text-sm font-semibold text-[var(--color-ink-800)]">Phiên bản {version.versionNumber}{resource.currentVersionId === version.id ? " · hiện tại" : ""}</p><p className="mt-1 text-xs text-[var(--color-ink-500)]">{version.createdBy.displayName}</p><div className="mt-2 flex flex-wrap gap-3">{resource.fileLinks.some((fileLink) => fileLink.entityId === version.id) ? <Link href={`/dashboard/resources/${resource.id}/download?versionId=${version.id}`} className="text-xs font-semibold text-[var(--color-brand-700)] hover:underline">Tải phiên bản</Link> : null}{canEdit && resource.currentVersionId !== version.id ? <form action={rollbackResourceVersionAction}><input type="hidden" name="resourceId" value={resource.id} /><input type="hidden" name="versionId" value={version.id} /><button type="submit" className="text-xs font-semibold text-[var(--color-brand-700)] hover:underline">Khôi phục thành phiên bản mới</button></form> : null}</div></li>)}</ol></Card>

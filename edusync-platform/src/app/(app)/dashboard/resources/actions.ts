@@ -8,6 +8,7 @@ import {
   addResourceComment,
   createResource,
   createResourceVersion,
+  deleteResource,
   addResourceToCollection,
   createResourceCollection,
   rollbackResourceVersion,
@@ -66,6 +67,17 @@ export async function transitionResourceAction(formData: FormData): Promise<neve
       value(formData, "reason"),
     );
     redirect(`/dashboard/resources/${resourceId}?result=transitioned`);
+  } catch (error) {
+    withError(`/dashboard/resources/${resourceId}`, error);
+  }
+}
+
+export async function deleteResourceAction(formData: FormData): Promise<never> {
+  const resourceId = value(formData, "resourceId");
+  try {
+    const { actor } = await requireSchoolContext(permissions.resourceDelete);
+    await deleteResource(actor, resourceId);
+    redirect("/dashboard/resources?result=deleted");
   } catch (error) {
     withError(`/dashboard/resources/${resourceId}`, error);
   }

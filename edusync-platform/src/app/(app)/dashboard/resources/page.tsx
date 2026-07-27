@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/app/PageHeader";
 import { Badge } from "@/components/ui/Badge";
 import { Button, LinkButton } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { EmptyState } from "@/components/ui/Feedback";
+import { Alert, EmptyState } from "@/components/ui/Feedback";
 import { Input, Select } from "@/components/ui/Field";
 import { requireSchoolContext } from "@/lib/auth/guards";
 import { permissions } from "@/lib/auth/permissions";
@@ -25,7 +25,7 @@ function tone(status: keyof typeof statusLabels) {
 export default async function ResourcesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ query?: string; status?: keyof typeof statusLabels; error?: string }>;
+  searchParams: Promise<{ query?: string; status?: keyof typeof statusLabels; error?: string; result?: string }>;
 }) {
   const [{ actor }, params] = await Promise.all([
     requireSchoolContext(permissions.resourceRead),
@@ -61,6 +61,7 @@ export default async function ResourcesPage({
       </Card>
 
       {params.error ? <p role="alert" className="rounded-[var(--radius-md)] border border-[var(--color-danger-200)] bg-[var(--color-danger-50)] px-4 py-3 text-sm text-[var(--color-danger-700)]">Không thể thực hiện thao tác tài nguyên.</p> : null}
+      {params.result === "deleted" ? <Alert tone="success" title="Đã xoá bài đăng">Tài liệu và các file riêng của bài đã được xoá.</Alert> : null}
 
       {resources.length === 0 ? (
         <Card><EmptyState title="Chưa có tài nguyên phù hợp" description="Thử đổi từ khóa hoặc tạo tài nguyên đầu tiên cho trường." action={canCreate ? <LinkButton href="/dashboard/resources/new" size="sm">Tạo tài nguyên</LinkButton> : undefined} /></Card>

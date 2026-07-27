@@ -63,6 +63,14 @@ function canEditResource(actor: SchoolActor, resource: { createdByUserId: string
   return resource.createdByUserId === actor.userId || canModerate(actor);
 }
 
+export function canDeleteResource(actor: AuthorizationContext, resource: { createdByUserId: string }): boolean {
+  return (
+    isActiveSchoolContext(actor) &&
+    (actor.schoolRoles.includes("SCHOOL_ADMIN") ||
+      (actor.schoolRoles.includes("TEACHER_STAFF") && resource.createdByUserId === actor.userId))
+  );
+}
+
 function canReadResource(actor: SchoolActor, resource: {
   schoolId: string;
   createdByUserId: string;
@@ -169,6 +177,70 @@ export async function createResource(actor: AuthorizationContext, input: Resourc
     });
     return resource.id;
   });
+}
+
+export async function deleteResource(actor: AuthorizationContext, resourceId: string): Promise<void> {
+  requireSchoolActor(actor, permissions.resourceDelete);
+  const resource = await db.resource.findFirst({
+    where: { id: resourceId, schoolId: actor.schoolId },
+    include: {
+      fileLinks: {
+        include: {
+          file: { include: { versions: { select: { storageKey: true } } } },
+        },
+      },
+    },
+  });
+  if (!resource || !canDeleteResource(actor, resource)) {
+    throw new ResourceNotFoundError("Không tìm thấy tài nguyên.");
+  }
+
+  const fileIds = new Set<string>();
+  const fileStorageKeys = new Map<string, Set<string>>();
+  for (const link of resource.fileLinks) {
+    fileIds.add(link.fileId);
+    const keys = fileStorageKeys.get(link.fileId) ?? new Set<string>();
+    keys.add(link.file.storageKey);
+    for (const version of link.file.versions) keys.add(version.storageKey);
+    fileStorageKeys.set(link.fileId, keys);
+  }
+
+  const deletedStorageKeys = await db.$transaction(async (transaction) => {
+    const keysToRemove = new Set<string>();
+    await writeResourceRecords(transaction, {
+      schoolId: actor.schoolId,
+      actorUserId: actor.userId,
+      resourceId: resource.id,
+      action: "RESOURCE_DELETE",
+      eventType: "resource.deleted",
+      before: { title: resource.title, status: resource.status },
+      payload: { title: resource.title },
+    });
+    await transaction.resource.update({
+      where: { id: resource.id },
+      data: { currentVersionId: null },
+    });
+    await transaction.fileLink.deleteMany({ where: { resourceId: resource.id } });
+    await transaction.resourceComment.deleteMany({ where: { resourceId: resource.id } });
+    await transaction.resourceReport.deleteMany({ where: { resourceId: resource.id } });
+    await transaction.resourceTransition.deleteMany({ where: { resourceId: resource.id } });
+    await transaction.resourceVersion.deleteMany({ where: { resourceId: resource.id } });
+    await transaction.resource.delete({ where: { id: resource.id } });
+
+    for (const fileId of fileIds) {
+      const remainingLinks = await transaction.fileLink.count({ where: { fileId } });
+      if (remainingLinks === 0) {
+        await transaction.fileVersion.deleteMany({ where: { fileId } });
+        await transaction.storedFile.delete({ where: { id: fileId } });
+        for (const storageKey of fileStorageKeys.get(fileId) ?? []) keysToRemove.add(storageKey);
+      }
+    }
+    return [...keysToRemove];
+  });
+
+  await Promise.all(
+    deletedStorageKeys.map((storageKey) => fileStorage.remove(storageKey).catch(() => undefined)),
+  );
 }
 
 export async function listResources(

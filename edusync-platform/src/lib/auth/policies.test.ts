@@ -69,6 +69,15 @@ describe("school permissions", () => {
       }),
     ).toBe(true);
   });
+
+  it("grants resource deletion only to teachers and school admins", () => {
+    for (const role of ["TEACHER_STAFF", "SCHOOL_ADMIN"] as const) {
+      expect(can({ ...schoolActor, schoolRoles: [role] }, permissions.resourceDelete)).toBe(true);
+    }
+    for (const role of ["STUDENT", "MENTOR_COUNSELOR", "APPROVER_REVIEWER"] as const) {
+      expect(can({ ...schoolActor, schoolRoles: [role] }, permissions.resourceDelete)).toBe(false);
+    }
+  });
 });
 
 describe("parent-linked student fields", () => {

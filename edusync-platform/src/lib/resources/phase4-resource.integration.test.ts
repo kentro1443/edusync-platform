@@ -8,6 +8,7 @@ import {
   addResourceComment,
   createResource,
   createResourceVersion,
+  deleteResource,
   getAuthorizedFile,
   getResource,
   reportResource,
@@ -145,5 +146,15 @@ describe.sequential("Phase 4 resource integration", () => {
     await expect(toggleResourceBookmark(studentActor, resourceId)).resolves.toBe(false);
     await expect(addResourceComment(studentActor, resourceId, "Tài liệu dễ dùng.")).resolves.toBeTypeOf("string");
     await expect(reportResource(studentActor, resourceId, "Cần kiểm tra nội dung.")).resolves.toBeTypeOf("string");
+  });
+
+  it("lets the teacher author delete their post and removes its private file", async () => {
+    await expect(deleteResource(studentActor, resourceId)).rejects.toThrow();
+
+    await deleteResource(authorActor, resourceId);
+
+    expect(await db.resource.findUnique({ where: { id: resourceId } })).toBeNull();
+    expect(await db.storedFile.findFirst({ where: { storageKey } })).toBeNull();
+    expect(await new LocalFileStorage().exists(storageKey)).toBe(false);
   });
 });
