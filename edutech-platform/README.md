@@ -103,6 +103,9 @@ Demo users enter the dashboard directly; the seed does not force a first-login p
 The shared password above is a development fixture and must not be used in
 production.
 
+Never run `npm run db:seed` against the production Neon database after this
+rotation: the deterministic seed restores the shared development password.
+
 The development account lands on `/dev/switch`. Choose a school, then any
 school-scoped demo account to test its real permissions without signing in
 again. A persistent amber banner identifies impersonation and provides
