@@ -18,6 +18,7 @@ describe("buildDemoUserUpsertData", () => {
       passwordHash: "new-demo-password-hash",
       mustChangePassword: false,
       status: "ACTIVE",
+      accountKind: "DEMO",
     });
     expect(result.create).toMatchObject({
       ...user,
@@ -25,6 +26,7 @@ describe("buildDemoUserUpsertData", () => {
       passwordHash: "new-demo-password-hash",
       mustChangePassword: false,
       status: "ACTIVE",
+      accountKind: "DEMO",
     });
   });
 });

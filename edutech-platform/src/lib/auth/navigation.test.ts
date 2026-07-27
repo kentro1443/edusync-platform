@@ -16,7 +16,9 @@ function createSession(
       email: "hoc-sinh@demo.edu.vn",
       displayName: "Nguyễn Minh An",
       mustChangePassword: false,
+      accountKind: "STANDARD",
     },
+    operatorUser: null,
     expires: new Date("2027-01-01T00:00:00.000Z"),
     platformRoles: [],
     schoolContexts: [],
@@ -32,6 +34,7 @@ describe("điều hướng sau xác thực", () => {
         email: "hoc-sinh@demo.edu.vn",
         displayName: "Nguyễn Minh An",
         mustChangePassword: true,
+        accountKind: "STANDARD",
       },
     });
 
@@ -84,6 +87,20 @@ describe("điều hướng sau xác thực", () => {
     });
 
     expect(getAuthenticatedLandingPath(session)).toBe("/dashboard");
+  });
+
+  it("đưa tài khoản phát triển vào bộ chọn tài khoản", () => {
+    const session = createSession({
+      user: {
+        id: "dev-user",
+        email: "dev@edutech.local",
+        displayName: "Nhà phát triển EduTech",
+        mustChangePassword: false,
+        accountKind: "DEV_OPERATOR",
+      },
+    });
+
+    expect(getAuthenticatedLandingPath(session)).toBe("/dev/switch");
   });
 });
 

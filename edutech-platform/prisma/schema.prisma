@@ -13,6 +13,12 @@ enum UserStatus {
   ARCHIVED
 }
 
+enum UserAccountKind {
+  STANDARD
+  DEMO
+  DEV_OPERATOR
+}
+
 enum SchoolStatus {
   ACTIVE
   SUSPENDED
@@ -321,6 +327,7 @@ model User {
   timezone           String     @default("Asia/Ho_Chi_Minh")
   mustChangePassword Boolean    @default(true)
   status             UserStatus @default(ACTIVE)
+  accountKind        UserAccountKind @default(STANDARD)
   lastLoginAt        DateTime?  @db.Timestamptz(6)
   createdAt          DateTime   @default(now()) @db.Timestamptz(6)
   updatedAt          DateTime   @updatedAt @db.Timestamptz(6)
@@ -332,7 +339,8 @@ model User {
   parentLinks                 ParentStudentLink[]         @relation("ParentLinks")
   studentLinks                ParentStudentLink[]         @relation("StudentLinks")
   invitationsCreated          Invitation[]                @relation("InvitationCreator")
-  sessions                    Session[]
+  sessions                    Session[]                 @relation("SessionUser")
+  operatedSessions            Session[]                 @relation("SessionOperator")
   passwordResetTokens         PasswordResetToken[]
   filesCreated                StoredFile[]                @relation("StoredFileCreator")
   fileVersionsCreated         FileVersion[]               @relation("FileVersionCreator")
@@ -597,6 +605,7 @@ model Session {
   id               String    @unique @default(uuid()) @db.Uuid
   sessionTokenHash String    @id
   userId           String    @db.Uuid
+  operatorUserId   String?   @db.Uuid
   expires          DateTime  @db.Timestamptz(6)
   revokedAt        DateTime? @db.Timestamptz(6)
   revokeReason     String?
@@ -606,9 +615,11 @@ model Session {
   createdAt        DateTime  @default(now()) @db.Timestamptz(6)
   updatedAt        DateTime  @updatedAt @db.Timestamptz(6)
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User  @relation("SessionUser", fields: [userId], references: [id], onDelete: Cascade)
+  operatorUser User? @relation("SessionOperator", fields: [operatorUserId], references: [id], onDelete: Restrict)
 
   @@index([userId, revokedAt, expires])
+  @@index([operatorUserId, revokedAt, expires])
   @@index([expires, revokedAt])
 }
 

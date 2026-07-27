@@ -276,12 +276,12 @@ test("workflow builder publish, submit và approve giữ version lịch sử", a
   expect((await database.query<{ count: string }>('SELECT COUNT(*)::text AS count FROM "WorkflowSubmissionStep" WHERE "submissionId" = $1 AND status = \'ACTIVE\'', [submissionId])).rows[0].count).toBe("2");
   await page.reload();
   await page.waitForLoadState("networkidle");
-  await page.getByRole("button", { name: "Duyệt", exact: true }).click();
-  await expect.poll(async () => (await database.query<{ count: string }>('SELECT COUNT(*)::text AS count FROM "WorkflowSubmissionStep" WHERE "submissionId" = $1 AND status = \'ACTIVE\'', [submissionId])).rows[0].count).toBe("1");
+  await submitServerAction(page, "Duyệt", /result=decision/);
+  expect((await database.query<{ count: string }>('SELECT COUNT(*)::text AS count FROM "WorkflowSubmissionStep" WHERE "submissionId" = $1 AND status = \'ACTIVE\'', [submissionId])).rows[0].count).toBe("1");
   await page.reload();
   await page.waitForLoadState("networkidle");
-  await page.getByRole("button", { name: "Duyệt", exact: true }).click();
-  await expect.poll(async () => (await database.query<{ status: string }>('SELECT status::text FROM "WorkflowSubmission" WHERE id = $1', [submissionId])).rows[0].status).toBe("APPROVED");
+  await submitServerAction(page, "Duyệt", /result=decision/);
+  expect((await database.query<{ status: string }>('SELECT status::text FROM "WorkflowSubmission" WHERE id = $1', [submissionId])).rows[0].status).toBe("APPROVED");
   await page.reload();
   await expect(page.getByText("APPROVED", { exact: true })).toBeVisible();
   expect((await database.query<{ count: string }>('SELECT COUNT(*)::text AS count FROM "WorkflowVersion" WHERE "templateId" = (SELECT "templateId" FROM "WorkflowSubmission" WHERE id = $1)', [submissionId])).rows[0].count).toBe("2");

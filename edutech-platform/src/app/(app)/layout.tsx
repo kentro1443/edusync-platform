@@ -5,6 +5,7 @@ import { AppShell, type AppNavItem } from "@/components/app/AppShell";
 import { translateRole } from "@/components/app/shell-utils";
 import { activeSchoolCookieName } from "@/lib/auth/cookies";
 import { getCurrentSession } from "@/lib/auth/current-session";
+import { isDevOperatorAccount } from "@/lib/auth/dev-mode";
 import {
   getSchoolPermissions,
   getPlatformPermissions,
@@ -170,6 +171,10 @@ export default async function AppLayout({
     redirect("/doi-mat-khau");
   }
 
+  if (isDevOperatorAccount(session.user.accountKind)) {
+    redirect("/dev/switch");
+  }
+
   const cookieStore = await cookies();
   const requestedSchoolSlug = cookieStore.get(activeSchoolCookieName)?.value;
   const activeSchool =
@@ -226,6 +231,15 @@ export default async function AppLayout({
       }
       canSwitchSchool={session.schoolContexts.length > 1}
       schoolSearchEnabled={Boolean(activeSchool)}
+      devMode={
+        session.operatorUser
+          ? {
+              operatorName: session.operatorUser.displayName,
+              targetName: session.user.displayName,
+              schoolName: activeSchool?.schoolName ?? "Chưa chọn trường",
+            }
+          : undefined
+      }
       navItems={visibleNavItems}
       notificationSummary={
         notificationSummary

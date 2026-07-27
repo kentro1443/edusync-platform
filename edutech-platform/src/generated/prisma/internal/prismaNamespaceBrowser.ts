@@ -170,6 +170,7 @@ export const UserScalarFieldEnum = {
   timezone: 'timezone',
   mustChangePassword: 'mustChangePassword',
   status: 'status',
+  accountKind: 'accountKind',
   lastLoginAt: 'lastLoginAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -289,6 +290,7 @@ export const SessionScalarFieldEnum = {
   id: 'id',
   sessionTokenHash: 'sessionTokenHash',
   userId: 'userId',
+  operatorUserId: 'operatorUserId',
   expires: 'expires',
   revokedAt: 'revokedAt',
   revokeReason: 'revokeReason',

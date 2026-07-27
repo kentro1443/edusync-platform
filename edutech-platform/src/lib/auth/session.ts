@@ -6,7 +6,9 @@ import {
   MembershipStatus,
   SchoolStatus,
   UserStatus,
+  type UserAccountKind,
 } from "@/generated/prisma/enums";
+import { isDevModeEnabled } from "@/lib/auth/dev-mode";
 import { db } from "@/lib/db";
 import type { AuthorizationContext } from "@/lib/auth/policies";
 
@@ -18,6 +20,7 @@ export type AuthenticatedUser = Readonly<{
   email: string;
   displayName: string;
   mustChangePassword: boolean;
+  accountKind: UserAccountKind;
 }>;
 
 export type SchoolContextOption = Readonly<{
@@ -31,6 +34,7 @@ export type SchoolContextOption = Readonly<{
 export type AuthenticatedSession = Readonly<{
   sessionId: string;
   user: AuthenticatedUser;
+  operatorUser: AuthenticatedUser | null;
   expires: Date;
   platformRoles: AuthorizationContext["platformRoles"];
   schoolContexts: readonly SchoolContextOption[];
@@ -159,6 +163,7 @@ export async function getDatabaseSession(
           displayName: true,
           mustChangePassword: true,
           status: true,
+          accountKind: true,
           platformRoleAssignments: {
             select: {
               role: true,
@@ -189,6 +194,16 @@ export async function getDatabaseSession(
           },
         },
       },
+      operatorUser: {
+        select: {
+          id: true,
+          email: true,
+          displayName: true,
+          mustChangePassword: true,
+          status: true,
+          accountKind: true,
+        },
+      },
     },
   });
 
@@ -196,10 +211,19 @@ export async function getDatabaseSession(
     return null;
   }
 
+  const devModeInvalid =
+    (session.user.accountKind === "DEV_OPERATOR" && !isDevModeEnabled()) ||
+    (session.operatorUser !== null &&
+      (!isDevModeEnabled() ||
+        session.operatorUser.status !== UserStatus.ACTIVE ||
+        session.operatorUser.accountKind !== "DEV_OPERATOR" ||
+        session.user.accountKind !== "DEMO"));
+
   if (
     session.revokedAt !== null ||
     session.expires.getTime() <= now.getTime() ||
-    session.user.status !== UserStatus.ACTIVE
+    session.user.status !== UserStatus.ACTIVE ||
+    devModeInvalid
   ) {
     await db.session.updateMany({
       where: {
@@ -208,7 +232,9 @@ export async function getDatabaseSession(
       data: {
         revokedAt: session.revokedAt ?? now,
         revokeReason:
-          session.user.status !== UserStatus.ACTIVE
+          devModeInvalid
+            ? "DEV_MODE_INVALID"
+            : session.user.status !== UserStatus.ACTIVE
             ? "USER_INACTIVE"
             : "EXPIRED",
       },
@@ -231,7 +257,17 @@ export async function getDatabaseSession(
       email: session.user.email,
       displayName: session.user.displayName,
       mustChangePassword: session.user.mustChangePassword,
+      accountKind: session.user.accountKind,
     },
+    operatorUser: session.operatorUser
+      ? {
+          id: session.operatorUser.id,
+          email: session.operatorUser.email,
+          displayName: session.operatorUser.displayName,
+          mustChangePassword: session.operatorUser.mustChangePassword,
+          accountKind: session.operatorUser.accountKind,
+        }
+      : null,
     expires: session.expires,
     platformRoles: session.user.platformRoleAssignments.map(
       ({ role }) => role,

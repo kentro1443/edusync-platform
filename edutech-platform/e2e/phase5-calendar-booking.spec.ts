@@ -44,11 +44,16 @@ test.describe("Phase 5 calendar booking, waitlist and promotion", () => {
       await database.query('INSERT INTO "SchoolRoleAssignment" (id, "membershipId", role) VALUES ($1,$2,\'STUDENT\')', [randomUUID(), studentBMembershipId]);
       await database.query('INSERT INTO "Calendar" (id, "schoolId", name, visibility, "updatedAt") VALUES ($1,$2,$3,\'SCHOOL\',NOW())', [calendarId, schoolId, `Lịch E2E ${suffix}`]);
 
-      // Anchor the event to "today" so it always falls inside the agenda's default
-      // week view regardless of which weekday the suite runs on.
+      // The offset can cross midnight late on Sunday, so navigate both users to
+      // the event's local calendar date instead of relying on the default week.
       const start = new Date();
       start.setUTCHours(start.getUTCHours() + 2, 0, 0, 0);
       const end = new Date(start.getTime() + 3_600_000);
+      const eventDate = [
+        start.getFullYear(),
+        String(start.getMonth() + 1).padStart(2, "0"),
+        String(start.getDate()).padStart(2, "0"),
+      ].join("-");
       await database.query(
         'INSERT INTO "CalendarEvent" (id, "schoolId", "calendarId", "createdByUserId", title, "startsAt", "endsAt", capacity, status, "updatedAt") VALUES ($1,$2,$3,$4,$5,$6,$7,1,\'CONFIRMED\',NOW())',
         [eventId, schoolId, calendarId, adminId, "Hội thảo sức chứa 1", start, end],
@@ -70,11 +75,15 @@ test.describe("Phase 5 calendar booking, waitlist and promotion", () => {
       await pageB.getByRole("button", { name: "Đăng nhập" }).click();
       await expect(pageB).toHaveURL(/\/dashboard$/);
 
-      await pageA.goto(`/dashboard/calendar?calendarId=${calendarId}`);
+      await pageA.goto(
+        `/dashboard/calendar?calendarId=${calendarId}&date=${eventDate}`,
+      );
       await expect(pageA.getByRole("heading", { name: "Hội thảo sức chứa 1" })).toBeVisible();
       await submitServerAction(pageA, "Giữ chỗ", /result=booked/);
 
-      await pageB.goto(`/dashboard/calendar?calendarId=${calendarId}`);
+      await pageB.goto(
+        `/dashboard/calendar?calendarId=${calendarId}&date=${eventDate}`,
+      );
       await expect(pageB.getByRole("heading", { name: "Hội thảo sức chứa 1" })).toBeVisible();
       await submitServerAction(pageB, "Giữ chỗ", /result=booked/);
 

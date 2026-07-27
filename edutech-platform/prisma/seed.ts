@@ -119,6 +119,12 @@ const users = [
     email: "admin.multischool@edutech.local",
     displayName: "Nguyễn Hoài An",
   },
+  {
+    id: "20000000-0000-4000-8000-000000000017",
+    email: "dev@edutech.local",
+    displayName: "Nhà phát triển EduTech",
+    accountKind: "DEV_OPERATOR" as const,
+  },
 ] as const;
 
 const memberships = [
@@ -1351,7 +1357,7 @@ async function main() {
   });
 
   console.info(
-    `Seeded ${schools.length} schools, ${users.length} demo users and ${mentorProfiles.length} mentor profiles. Shared password: ${demoPassword}`,
+    `Seeded ${schools.length} schools, ${users.length} development users and ${mentorProfiles.length} mentor profiles. Shared password: ${demoPassword}`,
   );
 }
 

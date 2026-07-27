@@ -79,8 +79,16 @@ Demo users enter the dashboard directly; the seed does not force a first-login p
 | Nguyễn Du | Club leader | `club.nguyendu@edutech.local` |
 | Nguyễn Du | Approver/reviewer | `approver.nguyendu@edutech.local` |
 | Minh Khai + Nguyễn Du | Multi-school admin (school switching) | `admin.multischool@edutech.local` |
+| Development only | Demo account switcher | `dev@edutech.local` |
 
 These credentials are development fixtures only and must not be used in production.
+
+The development account lands on `/dev/switch`. Choose a school, then any
+school-scoped demo account to test its real permissions without signing in
+again. A persistent amber banner identifies impersonation and provides
+controls to change account or return to the development account. Developer
+authentication and impersonated sessions are rejected when the application
+runs with `NODE_ENV=production`.
 
 ## Database commands
 

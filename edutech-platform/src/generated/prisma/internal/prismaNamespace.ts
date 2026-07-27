@@ -7216,6 +7216,7 @@ export const UserScalarFieldEnum = {
   timezone: 'timezone',
   mustChangePassword: 'mustChangePassword',
   status: 'status',
+  accountKind: 'accountKind',
   lastLoginAt: 'lastLoginAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -7335,6 +7336,7 @@ export const SessionScalarFieldEnum = {
   id: 'id',
   sessionTokenHash: 'sessionTokenHash',
   userId: 'userId',
+  operatorUserId: 'operatorUserId',
   expires: 'expires',
   revokedAt: 'revokedAt',
   revokeReason: 'revokeReason',
@@ -8638,6 +8640,20 @@ export type EnumUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$Prism
  * Reference to a field of type 'UserStatus[]'
  */
 export type ListEnumUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'UserAccountKind'
+ */
+export type EnumUserAccountKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserAccountKind'>
+    
+
+
+/**
+ * Reference to a field of type 'UserAccountKind[]'
+ */
+export type ListEnumUserAccountKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserAccountKind[]'>
     
 
 

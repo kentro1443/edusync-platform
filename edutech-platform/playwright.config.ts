@@ -2,6 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./e2e",
+  testIgnore: ["dev-switching.spec.ts"],
   globalSetup: "./e2e/global-setup.ts",
   // These tests intentionally exercise one shared local PostgreSQL database,
   // seeded demo accounts, and durable login rate limits. Running files in

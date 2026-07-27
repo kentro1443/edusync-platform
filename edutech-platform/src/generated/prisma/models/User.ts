@@ -35,6 +35,7 @@ export type UserMinAggregateOutputType = {
   timezone: string | null
   mustChangePassword: boolean | null
   status: $Enums.UserStatus | null
+  accountKind: $Enums.UserAccountKind | null
   lastLoginAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -51,6 +52,7 @@ export type UserMaxAggregateOutputType = {
   timezone: string | null
   mustChangePassword: boolean | null
   status: $Enums.UserStatus | null
+  accountKind: $Enums.UserAccountKind | null
   lastLoginAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -67,6 +69,7 @@ export type UserCountAggregateOutputType = {
   timezone: number
   mustChangePassword: number
   status: number
+  accountKind: number
   lastLoginAt: number
   createdAt: number
   updatedAt: number
@@ -85,6 +88,7 @@ export type UserMinAggregateInputType = {
   timezone?: true
   mustChangePassword?: true
   status?: true
+  accountKind?: true
   lastLoginAt?: true
   createdAt?: true
   updatedAt?: true
@@ -101,6 +105,7 @@ export type UserMaxAggregateInputType = {
   timezone?: true
   mustChangePassword?: true
   status?: true
+  accountKind?: true
   lastLoginAt?: true
   createdAt?: true
   updatedAt?: true
@@ -117,6 +122,7 @@ export type UserCountAggregateInputType = {
   timezone?: true
   mustChangePassword?: true
   status?: true
+  accountKind?: true
   lastLoginAt?: true
   createdAt?: true
   updatedAt?: true
@@ -206,6 +212,7 @@ export type UserGroupByOutputType = {
   timezone: string
   mustChangePassword: boolean
   status: $Enums.UserStatus
+  accountKind: $Enums.UserAccountKind
   lastLoginAt: Date | null
   createdAt: Date
   updatedAt: Date
@@ -243,6 +250,7 @@ export type UserWhereInput = {
   timezone?: Prisma.StringFilter<"User"> | string
   mustChangePassword?: Prisma.BoolFilter<"User"> | boolean
   status?: Prisma.EnumUserStatusFilter<"User"> | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFilter<"User"> | $Enums.UserAccountKind
   lastLoginAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -254,6 +262,7 @@ export type UserWhereInput = {
   studentLinks?: Prisma.ParentStudentLinkListRelationFilter
   invitationsCreated?: Prisma.InvitationListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
+  operatedSessions?: Prisma.SessionListRelationFilter
   passwordResetTokens?: Prisma.PasswordResetTokenListRelationFilter
   filesCreated?: Prisma.StoredFileListRelationFilter
   fileVersionsCreated?: Prisma.FileVersionListRelationFilter
@@ -343,6 +352,7 @@ export type UserOrderByWithRelationInput = {
   timezone?: Prisma.SortOrder
   mustChangePassword?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  accountKind?: Prisma.SortOrder
   lastLoginAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -354,6 +364,7 @@ export type UserOrderByWithRelationInput = {
   studentLinks?: Prisma.ParentStudentLinkOrderByRelationAggregateInput
   invitationsCreated?: Prisma.InvitationOrderByRelationAggregateInput
   sessions?: Prisma.SessionOrderByRelationAggregateInput
+  operatedSessions?: Prisma.SessionOrderByRelationAggregateInput
   passwordResetTokens?: Prisma.PasswordResetTokenOrderByRelationAggregateInput
   filesCreated?: Prisma.StoredFileOrderByRelationAggregateInput
   fileVersionsCreated?: Prisma.FileVersionOrderByRelationAggregateInput
@@ -446,6 +457,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   timezone?: Prisma.StringFilter<"User"> | string
   mustChangePassword?: Prisma.BoolFilter<"User"> | boolean
   status?: Prisma.EnumUserStatusFilter<"User"> | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFilter<"User"> | $Enums.UserAccountKind
   lastLoginAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -457,6 +469,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   studentLinks?: Prisma.ParentStudentLinkListRelationFilter
   invitationsCreated?: Prisma.InvitationListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
+  operatedSessions?: Prisma.SessionListRelationFilter
   passwordResetTokens?: Prisma.PasswordResetTokenListRelationFilter
   filesCreated?: Prisma.StoredFileListRelationFilter
   fileVersionsCreated?: Prisma.FileVersionListRelationFilter
@@ -546,6 +559,7 @@ export type UserOrderByWithAggregationInput = {
   timezone?: Prisma.SortOrder
   mustChangePassword?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  accountKind?: Prisma.SortOrder
   lastLoginAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -568,6 +582,7 @@ export type UserScalarWhereWithAggregatesInput = {
   timezone?: Prisma.StringWithAggregatesFilter<"User"> | string
   mustChangePassword?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   status?: Prisma.EnumUserStatusWithAggregatesFilter<"User"> | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindWithAggregatesFilter<"User"> | $Enums.UserAccountKind
   lastLoginAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -584,6 +599,7 @@ export type UserCreateInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -595,6 +611,7 @@ export type UserCreateInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -684,6 +701,7 @@ export type UserUncheckedCreateInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -695,6 +713,7 @@ export type UserUncheckedCreateInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -784,6 +803,7 @@ export type UserUpdateInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -795,6 +815,7 @@ export type UserUpdateInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -884,6 +905,7 @@ export type UserUncheckedUpdateInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -895,6 +917,7 @@ export type UserUncheckedUpdateInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -984,6 +1007,7 @@ export type UserCreateManyInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1000,6 +1024,7 @@ export type UserUpdateManyMutationInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1016,6 +1041,7 @@ export type UserUncheckedUpdateManyInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1032,6 +1058,7 @@ export type UserCountOrderByAggregateInput = {
   timezone?: Prisma.SortOrder
   mustChangePassword?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  accountKind?: Prisma.SortOrder
   lastLoginAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -1048,6 +1075,7 @@ export type UserMaxOrderByAggregateInput = {
   timezone?: Prisma.SortOrder
   mustChangePassword?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  accountKind?: Prisma.SortOrder
   lastLoginAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -1064,6 +1092,7 @@ export type UserMinOrderByAggregateInput = {
   timezone?: Prisma.SortOrder
   mustChangePassword?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  accountKind?: Prisma.SortOrder
   lastLoginAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -1093,6 +1122,10 @@ export type BoolFieldUpdateOperationsInput = {
 
 export type EnumUserStatusFieldUpdateOperationsInput = {
   set?: $Enums.UserStatus
+}
+
+export type EnumUserAccountKindFieldUpdateOperationsInput = {
+  set?: $Enums.UserAccountKind
 }
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -1211,12 +1244,28 @@ export type UserCreateNestedOneWithoutSessionsInput = {
   connect?: Prisma.UserWhereUniqueInput
 }
 
+export type UserCreateNestedOneWithoutOperatedSessionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutOperatedSessionsInput, Prisma.UserUncheckedCreateWithoutOperatedSessionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOperatedSessionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
 export type UserUpdateOneRequiredWithoutSessionsNestedInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutSessionsInput, Prisma.UserUncheckedCreateWithoutSessionsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutSessionsInput
   upsert?: Prisma.UserUpsertWithoutSessionsInput
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSessionsInput, Prisma.UserUpdateWithoutSessionsInput>, Prisma.UserUncheckedUpdateWithoutSessionsInput>
+}
+
+export type UserUpdateOneWithoutOperatedSessionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutOperatedSessionsInput, Prisma.UserUncheckedCreateWithoutOperatedSessionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOperatedSessionsInput
+  upsert?: Prisma.UserUpsertWithoutOperatedSessionsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutOperatedSessionsInput, Prisma.UserUpdateWithoutOperatedSessionsInput>, Prisma.UserUncheckedUpdateWithoutOperatedSessionsInput>
 }
 
 export type UserCreateNestedOneWithoutPasswordResetTokensInput = {
@@ -2320,6 +2369,7 @@ export type UserCreateWithoutPlatformRoleAssignmentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -2330,6 +2380,7 @@ export type UserCreateWithoutPlatformRoleAssignmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -2419,6 +2470,7 @@ export type UserUncheckedCreateWithoutPlatformRoleAssignmentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -2429,6 +2481,7 @@ export type UserUncheckedCreateWithoutPlatformRoleAssignmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -2523,6 +2576,7 @@ export type UserCreateWithoutPlatformRolesAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -2533,6 +2587,7 @@ export type UserCreateWithoutPlatformRolesAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -2622,6 +2677,7 @@ export type UserUncheckedCreateWithoutPlatformRolesAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -2632,6 +2688,7 @@ export type UserUncheckedCreateWithoutPlatformRolesAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -2737,6 +2794,7 @@ export type UserUpdateWithoutPlatformRoleAssignmentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2747,6 +2805,7 @@ export type UserUpdateWithoutPlatformRoleAssignmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -2836,6 +2895,7 @@ export type UserUncheckedUpdateWithoutPlatformRoleAssignmentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2846,6 +2906,7 @@ export type UserUncheckedUpdateWithoutPlatformRoleAssignmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -2946,6 +3007,7 @@ export type UserUpdateWithoutPlatformRolesAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2956,6 +3018,7 @@ export type UserUpdateWithoutPlatformRolesAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -3045,6 +3108,7 @@ export type UserUncheckedUpdateWithoutPlatformRolesAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3055,6 +3119,7 @@ export type UserUncheckedUpdateWithoutPlatformRolesAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -3144,6 +3209,7 @@ export type UserCreateWithoutMembershipsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -3154,6 +3220,7 @@ export type UserCreateWithoutMembershipsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -3243,6 +3310,7 @@ export type UserUncheckedCreateWithoutMembershipsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -3253,6 +3321,7 @@ export type UserUncheckedCreateWithoutMembershipsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -3358,6 +3427,7 @@ export type UserUpdateWithoutMembershipsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3368,6 +3438,7 @@ export type UserUpdateWithoutMembershipsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -3457,6 +3528,7 @@ export type UserUncheckedUpdateWithoutMembershipsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3467,6 +3539,7 @@ export type UserUncheckedUpdateWithoutMembershipsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -3556,6 +3629,7 @@ export type UserCreateWithoutSchoolRolesAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -3566,6 +3640,7 @@ export type UserCreateWithoutSchoolRolesAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -3655,6 +3730,7 @@ export type UserUncheckedCreateWithoutSchoolRolesAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -3665,6 +3741,7 @@ export type UserUncheckedCreateWithoutSchoolRolesAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -3770,6 +3847,7 @@ export type UserUpdateWithoutSchoolRolesAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3780,6 +3858,7 @@ export type UserUpdateWithoutSchoolRolesAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -3869,6 +3948,7 @@ export type UserUncheckedUpdateWithoutSchoolRolesAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3879,6 +3959,7 @@ export type UserUncheckedUpdateWithoutSchoolRolesAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -3968,6 +4049,7 @@ export type UserCreateWithoutParentLinksInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -3978,6 +4060,7 @@ export type UserCreateWithoutParentLinksInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -4067,6 +4150,7 @@ export type UserUncheckedCreateWithoutParentLinksInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -4077,6 +4161,7 @@ export type UserUncheckedCreateWithoutParentLinksInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -4171,6 +4256,7 @@ export type UserCreateWithoutStudentLinksInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -4181,6 +4267,7 @@ export type UserCreateWithoutStudentLinksInput = {
   parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -4270,6 +4357,7 @@ export type UserUncheckedCreateWithoutStudentLinksInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -4280,6 +4368,7 @@ export type UserUncheckedCreateWithoutStudentLinksInput = {
   parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -4385,6 +4474,7 @@ export type UserUpdateWithoutParentLinksInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -4395,6 +4485,7 @@ export type UserUpdateWithoutParentLinksInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -4484,6 +4575,7 @@ export type UserUncheckedUpdateWithoutParentLinksInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -4494,6 +4586,7 @@ export type UserUncheckedUpdateWithoutParentLinksInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -4594,6 +4687,7 @@ export type UserUpdateWithoutStudentLinksInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -4604,6 +4698,7 @@ export type UserUpdateWithoutStudentLinksInput = {
   parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -4693,6 +4788,7 @@ export type UserUncheckedUpdateWithoutStudentLinksInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -4703,6 +4799,7 @@ export type UserUncheckedUpdateWithoutStudentLinksInput = {
   parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -4792,6 +4889,7 @@ export type UserCreateWithoutInvitationsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -4802,6 +4900,7 @@ export type UserCreateWithoutInvitationsCreatedInput = {
   parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -4891,6 +4990,7 @@ export type UserUncheckedCreateWithoutInvitationsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -4901,6 +5001,7 @@ export type UserUncheckedCreateWithoutInvitationsCreatedInput = {
   parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -5006,6 +5107,7 @@ export type UserUpdateWithoutInvitationsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -5016,6 +5118,7 @@ export type UserUpdateWithoutInvitationsCreatedInput = {
   parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -5105,6 +5208,7 @@ export type UserUncheckedUpdateWithoutInvitationsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -5115,6 +5219,7 @@ export type UserUncheckedUpdateWithoutInvitationsCreatedInput = {
   parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -5204,6 +5309,7 @@ export type UserCreateWithoutSessionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -5214,6 +5320,7 @@ export type UserCreateWithoutSessionsInput = {
   parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -5303,6 +5410,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -5313,6 +5421,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -5396,6 +5505,213 @@ export type UserCreateOrConnectWithoutSessionsInput = {
   create: Prisma.XOR<Prisma.UserCreateWithoutSessionsInput, Prisma.UserUncheckedCreateWithoutSessionsInput>
 }
 
+export type UserCreateWithoutOperatedSessionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementCreateNestedManyWithoutStudentInput
+}
+
+export type UserUncheckedCreateWithoutOperatedSessionsInput = {
+  id?: string
+  email: string
+  normalizedEmail: string
+  passwordHash: string
+  displayName: string
+  avatarFileId?: string | null
+  locale?: string
+  timezone?: string
+  mustChangePassword?: boolean
+  status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
+  lastLoginAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutUserInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  memberships?: Prisma.SchoolMembershipUncheckedCreateNestedManyWithoutUserInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutParentInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
+  invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
+  resourcesCreated?: Prisma.ResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedCreateNestedManyWithoutActorInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedCreateNestedManyWithoutCreatedByInput
+  tagsCreated?: Prisma.ResourceTagUncheckedCreateNestedManyWithoutCreatedByInput
+  resourceComments?: Prisma.ResourceCommentUncheckedCreateNestedManyWithoutAuthorInput
+  resourceReports?: Prisma.ResourceReportUncheckedCreateNestedManyWithoutReporterInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedCreateNestedManyWithoutUserInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedCreateNestedManyWithoutOwnerInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedCreateNestedManyWithoutActorInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedCreateNestedManyWithoutRecipientUserInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutUserInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedCreateNestedManyWithoutVerifiedByInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutAssignedByInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedCreateNestedManyWithoutStudentInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedCreateNestedManyWithoutOrganizerInput
+  studentAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutStudentInput
+  mentorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutMentorInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedCreateNestedManyWithoutActorInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutUserInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutStudentInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutStudentInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedCreateNestedManyWithoutCreatedByInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedCreateNestedManyWithoutAuthorInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedCreateNestedManyWithoutCompletedByInput
+  calendarsOwned?: Prisma.CalendarUncheckedCreateNestedManyWithoutOwnerInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedCreateNestedManyWithoutCreatedByInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutUserInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedCreateNestedManyWithoutCreatedByInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedCreateNestedManyWithoutOwnerInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedCreateNestedManyWithoutActorInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedCreateNestedManyWithoutActorInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedCreateNestedManyWithoutAuthorInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedCreateNestedManyWithoutAssignedUserInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedByInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutDelegatedToInput
+  conversationsCreated?: Prisma.ConversationUncheckedCreateNestedManyWithoutCreatedByInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedCreateNestedManyWithoutUserInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  messageMentions?: Prisma.MessageMentionUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedCreateNestedManyWithoutUserInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutUserInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedCreateNestedManyWithoutActorInput
+  clubsCreated?: Prisma.ClubUncheckedCreateNestedManyWithoutCreatedByInput
+  clubApplications?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutApplicantInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedCreateNestedManyWithoutReviewerInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedCreateNestedManyWithoutUserInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedCreateNestedManyWithoutAuthorInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedCreateNestedManyWithoutAssigneeInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedCreateNestedManyWithoutCreatedByInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedCreateNestedManyWithoutUserInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutStudentInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedCreateNestedManyWithoutGuardianInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutUserInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedCreateNestedManyWithoutRecordedByInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedCreateNestedManyWithoutSubmittedByInput
+  mentorRequests?: Prisma.MentorRequestUncheckedCreateNestedManyWithoutStudentInput
+  mentorOffers?: Prisma.MentorOfferUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutMentorInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedCreateNestedManyWithoutStudentInput
+}
+
+export type UserCreateOrConnectWithoutOperatedSessionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutOperatedSessionsInput, Prisma.UserUncheckedCreateWithoutOperatedSessionsInput>
+}
+
 export type UserUpsertWithoutSessionsInput = {
   update: Prisma.XOR<Prisma.UserUpdateWithoutSessionsInput, Prisma.UserUncheckedUpdateWithoutSessionsInput>
   create: Prisma.XOR<Prisma.UserCreateWithoutSessionsInput, Prisma.UserUncheckedCreateWithoutSessionsInput>
@@ -5418,6 +5734,7 @@ export type UserUpdateWithoutSessionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -5428,6 +5745,7 @@ export type UserUpdateWithoutSessionsInput = {
   parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -5517,6 +5835,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -5527,6 +5846,220 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUncheckedUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUncheckedUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUncheckedUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUncheckedUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUncheckedUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUncheckedUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUncheckedUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUncheckedUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUncheckedUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUncheckedUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUncheckedUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUncheckedUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUncheckedUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUncheckedUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUncheckedUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUncheckedUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUncheckedUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUncheckedUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUncheckedUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUncheckedUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUncheckedUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUncheckedUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUncheckedUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUncheckedUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUncheckedUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUncheckedUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUncheckedUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUncheckedUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUncheckedUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUncheckedUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUncheckedUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUncheckedUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUncheckedUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUncheckedUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUncheckedUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUncheckedUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUncheckedUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUncheckedUpdateManyWithoutStudentNestedInput
+}
+
+export type UserUpsertWithoutOperatedSessionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutOperatedSessionsInput, Prisma.UserUncheckedUpdateWithoutOperatedSessionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutOperatedSessionsInput, Prisma.UserUncheckedCreateWithoutOperatedSessionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutOperatedSessionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutOperatedSessionsInput, Prisma.UserUncheckedUpdateWithoutOperatedSessionsInput>
+}
+
+export type UserUpdateWithoutOperatedSessionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
+  fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
+  fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
+  resourcesCreated?: Prisma.ResourceUpdateManyWithoutCreatedByNestedInput
+  resourceVersionsCreated?: Prisma.ResourceVersionUpdateManyWithoutCreatedByNestedInput
+  resourceTransitions?: Prisma.ResourceTransitionUpdateManyWithoutActorNestedInput
+  categoriesCreated?: Prisma.ResourceCategoryUpdateManyWithoutCreatedByNestedInput
+  tagsCreated?: Prisma.ResourceTagUpdateManyWithoutCreatedByNestedInput
+  resourceComments?: Prisma.ResourceCommentUpdateManyWithoutAuthorNestedInput
+  resourceReports?: Prisma.ResourceReportUpdateManyWithoutReporterNestedInput
+  resourceBookmarks?: Prisma.ResourceBookmarkUpdateManyWithoutUserNestedInput
+  resourceCollections?: Prisma.ResourceCollectionUpdateManyWithoutOwnerNestedInput
+  resourceAnalyticsEvents?: Prisma.ResourceAnalyticsEventUpdateManyWithoutActorNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutActorNestedInput
+  emailOutboxItems?: Prisma.EmailOutboxUpdateManyWithoutRecipientUserNestedInput
+  mentorProfiles?: Prisma.MentorProfileUpdateManyWithoutUserNestedInput
+  mentorProfilesVerified?: Prisma.MentorProfileUpdateManyWithoutVerifiedByNestedInput
+  mentorAssignmentsCreated?: Prisma.MentorStudentAssignmentUpdateManyWithoutAssignedByNestedInput
+  mentorAssignments?: Prisma.MentorStudentAssignmentUpdateManyWithoutStudentNestedInput
+  appointmentsOrganized?: Prisma.AppointmentUpdateManyWithoutOrganizerNestedInput
+  studentAppointments?: Prisma.AppointmentUpdateManyWithoutStudentNestedInput
+  mentorAppointments?: Prisma.AppointmentUpdateManyWithoutMentorNestedInput
+  appointmentTransitions?: Prisma.AppointmentTransitionUpdateManyWithoutActorNestedInput
+  appointmentWaitlist?: Prisma.AppointmentWaitlistEntryUpdateManyWithoutUserNestedInput
+  attendanceRecords?: Prisma.AppointmentAttendanceUpdateManyWithoutUserNestedInput
+  attendanceRecorded?: Prisma.AppointmentAttendanceUpdateManyWithoutRecordedByNestedInput
+  mentoringCases?: Prisma.MentoringCaseUpdateManyWithoutStudentNestedInput
+  mentoringCasesCreated?: Prisma.MentoringCaseUpdateManyWithoutCreatedByNestedInput
+  mentoringGoalsCreated?: Prisma.MentoringGoalUpdateManyWithoutCreatedByNestedInput
+  mentoringTasksAssigned?: Prisma.MentoringTaskUpdateManyWithoutAssigneeNestedInput
+  mentoringTasksCreated?: Prisma.MentoringTaskUpdateManyWithoutCreatedByNestedInput
+  mentoringReferrals?: Prisma.MentoringReferralUpdateManyWithoutStudentNestedInput
+  mentoringReferralsCreated?: Prisma.MentoringReferralUpdateManyWithoutCreatedByNestedInput
+  mentoringNotes?: Prisma.MentoringNoteUpdateManyWithoutAuthorNestedInput
+  sessionOutcomesCompleted?: Prisma.MentoringSessionOutcomeUpdateManyWithoutCompletedByNestedInput
+  calendarsOwned?: Prisma.CalendarUpdateManyWithoutOwnerNestedInput
+  calendarEventsCreated?: Prisma.CalendarEventUpdateManyWithoutCreatedByNestedInput
+  calendarBookings?: Prisma.CalendarBookingUpdateManyWithoutUserNestedInput
+  calendarAttendance?: Prisma.CalendarAttendanceUpdateManyWithoutUserNestedInput
+  calendarAttendanceRecorded?: Prisma.CalendarAttendanceUpdateManyWithoutRecordedByNestedInput
+  bookableResourcesCreated?: Prisma.BookableResourceUpdateManyWithoutCreatedByNestedInput
+  workflowTemplatesCreated?: Prisma.WorkflowTemplateUpdateManyWithoutCreatedByNestedInput
+  workflowSubmissions?: Prisma.WorkflowSubmissionUpdateManyWithoutOwnerNestedInput
+  workflowDecisions?: Prisma.WorkflowDecisionUpdateManyWithoutActorNestedInput
+  workflowHistory?: Prisma.WorkflowSubmissionHistoryUpdateManyWithoutActorNestedInput
+  workflowComments?: Prisma.WorkflowSubmissionCommentUpdateManyWithoutAuthorNestedInput
+  workflowStepsAssigned?: Prisma.WorkflowSubmissionStepUpdateManyWithoutAssignedUserNestedInput
+  workflowDelegationsCreated?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedByNestedInput
+  workflowDelegationsReceived?: Prisma.WorkflowDelegationUpdateManyWithoutDelegatedToNestedInput
+  conversationsCreated?: Prisma.ConversationUpdateManyWithoutCreatedByNestedInput
+  conversationParticipants?: Prisma.ConversationParticipantUpdateManyWithoutUserNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  messageMentions?: Prisma.MessageMentionUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationPreferences?: Prisma.NotificationPreferenceUpdateManyWithoutUserNestedInput
+  activityFeedEvents?: Prisma.ActivityFeedProjectionUpdateManyWithoutUserNestedInput
+  activityFeedActions?: Prisma.ActivityFeedProjectionUpdateManyWithoutActorNestedInput
+  clubsCreated?: Prisma.ClubUpdateManyWithoutCreatedByNestedInput
+  clubApplications?: Prisma.ClubApplicationUpdateManyWithoutApplicantNestedInput
+  clubApplicationsReviewed?: Prisma.ClubApplicationUpdateManyWithoutReviewerNestedInput
+  clubMemberships?: Prisma.ClubMembershipUpdateManyWithoutUserNestedInput
+  clubAnnouncements?: Prisma.ClubAnnouncementUpdateManyWithoutAuthorNestedInput
+  clubTasksCreated?: Prisma.ClubTaskUpdateManyWithoutCreatedByNestedInput
+  clubTasksAssigned?: Prisma.ClubTaskUpdateManyWithoutAssigneeNestedInput
+  clubEventsCreated?: Prisma.ClubEventUpdateManyWithoutCreatedByNestedInput
+  clubRegistrations?: Prisma.ClubRegistrationUpdateManyWithoutUserNestedInput
+  clubConsentsForStudent?: Prisma.ClubConsentUpdateManyWithoutStudentNestedInput
+  clubConsentsForGuardian?: Prisma.ClubConsentUpdateManyWithoutGuardianNestedInput
+  clubAttendance?: Prisma.ClubAttendanceUpdateManyWithoutUserNestedInput
+  clubAttendanceRecorded?: Prisma.ClubAttendanceUpdateManyWithoutRecordedByNestedInput
+  clubPostEventReports?: Prisma.ClubPostEventReportUpdateManyWithoutSubmittedByNestedInput
+  mentorRequests?: Prisma.MentorRequestUpdateManyWithoutStudentNestedInput
+  mentorOffers?: Prisma.MentorOfferUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsMentor?: Prisma.MentorEngagementUpdateManyWithoutMentorNestedInput
+  mentorEngagementsAsStudent?: Prisma.MentorEngagementUpdateManyWithoutStudentNestedInput
+}
+
+export type UserUncheckedUpdateWithoutOperatedSessionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  normalizedEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarFileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
+  lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  platformRoleAssignments?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutUserNestedInput
+  platformRolesAssigned?: Prisma.PlatformRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  memberships?: Prisma.SchoolMembershipUncheckedUpdateManyWithoutUserNestedInput
+  schoolRolesAssigned?: Prisma.SchoolRoleAssignmentUncheckedUpdateManyWithoutAssignedByNestedInput
+  parentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutParentNestedInput
+  studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
+  invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -5616,6 +6149,7 @@ export type UserCreateWithoutPasswordResetTokensInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -5627,6 +6161,7 @@ export type UserCreateWithoutPasswordResetTokensInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
@@ -5715,6 +6250,7 @@ export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -5726,6 +6262,7 @@ export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
@@ -5830,6 +6367,7 @@ export type UserUpdateWithoutPasswordResetTokensInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -5841,6 +6379,7 @@ export type UserUpdateWithoutPasswordResetTokensInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
@@ -5929,6 +6468,7 @@ export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -5940,6 +6480,7 @@ export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -6028,6 +6569,7 @@ export type UserCreateWithoutFilesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -6039,6 +6581,7 @@ export type UserCreateWithoutFilesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
@@ -6127,6 +6670,7 @@ export type UserUncheckedCreateWithoutFilesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -6138,6 +6682,7 @@ export type UserUncheckedCreateWithoutFilesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
@@ -6242,6 +6787,7 @@ export type UserUpdateWithoutFilesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -6253,6 +6799,7 @@ export type UserUpdateWithoutFilesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
@@ -6341,6 +6888,7 @@ export type UserUncheckedUpdateWithoutFilesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -6352,6 +6900,7 @@ export type UserUncheckedUpdateWithoutFilesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -6440,6 +6989,7 @@ export type UserCreateWithoutFileVersionsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -6451,6 +7001,7 @@ export type UserCreateWithoutFileVersionsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkCreateNestedManyWithoutCreatedByInput
@@ -6539,6 +7090,7 @@ export type UserUncheckedCreateWithoutFileVersionsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -6550,6 +7102,7 @@ export type UserUncheckedCreateWithoutFileVersionsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileLinksCreated?: Prisma.FileLinkUncheckedCreateNestedManyWithoutCreatedByInput
@@ -6654,6 +7207,7 @@ export type UserUpdateWithoutFileVersionsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -6665,6 +7219,7 @@ export type UserUpdateWithoutFileVersionsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUpdateManyWithoutCreatedByNestedInput
@@ -6753,6 +7308,7 @@ export type UserUncheckedUpdateWithoutFileVersionsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -6764,6 +7320,7 @@ export type UserUncheckedUpdateWithoutFileVersionsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileLinksCreated?: Prisma.FileLinkUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -6852,6 +7409,7 @@ export type UserCreateWithoutFileLinksCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -6863,6 +7421,7 @@ export type UserCreateWithoutFileLinksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -6951,6 +7510,7 @@ export type UserUncheckedCreateWithoutFileLinksCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -6962,6 +7522,7 @@ export type UserUncheckedCreateWithoutFileLinksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -7066,6 +7627,7 @@ export type UserUpdateWithoutFileLinksCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -7077,6 +7639,7 @@ export type UserUpdateWithoutFileLinksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -7165,6 +7728,7 @@ export type UserUncheckedUpdateWithoutFileLinksCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -7176,6 +7740,7 @@ export type UserUncheckedUpdateWithoutFileLinksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -7264,6 +7829,7 @@ export type UserCreateWithoutResourcesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -7275,6 +7841,7 @@ export type UserCreateWithoutResourcesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -7363,6 +7930,7 @@ export type UserUncheckedCreateWithoutResourcesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -7374,6 +7942,7 @@ export type UserUncheckedCreateWithoutResourcesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -7478,6 +8047,7 @@ export type UserUpdateWithoutResourcesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -7489,6 +8059,7 @@ export type UserUpdateWithoutResourcesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -7577,6 +8148,7 @@ export type UserUncheckedUpdateWithoutResourcesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -7588,6 +8160,7 @@ export type UserUncheckedUpdateWithoutResourcesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -7676,6 +8249,7 @@ export type UserCreateWithoutResourceVersionsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -7687,6 +8261,7 @@ export type UserCreateWithoutResourceVersionsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -7775,6 +8350,7 @@ export type UserUncheckedCreateWithoutResourceVersionsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -7786,6 +8362,7 @@ export type UserUncheckedCreateWithoutResourceVersionsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -7890,6 +8467,7 @@ export type UserUpdateWithoutResourceVersionsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -7901,6 +8479,7 @@ export type UserUpdateWithoutResourceVersionsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -7989,6 +8568,7 @@ export type UserUncheckedUpdateWithoutResourceVersionsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -8000,6 +8580,7 @@ export type UserUncheckedUpdateWithoutResourceVersionsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -8088,6 +8669,7 @@ export type UserCreateWithoutCategoriesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -8099,6 +8681,7 @@ export type UserCreateWithoutCategoriesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -8187,6 +8770,7 @@ export type UserUncheckedCreateWithoutCategoriesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -8198,6 +8782,7 @@ export type UserUncheckedCreateWithoutCategoriesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -8302,6 +8887,7 @@ export type UserUpdateWithoutCategoriesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -8313,6 +8899,7 @@ export type UserUpdateWithoutCategoriesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -8401,6 +8988,7 @@ export type UserUncheckedUpdateWithoutCategoriesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -8412,6 +9000,7 @@ export type UserUncheckedUpdateWithoutCategoriesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -8500,6 +9089,7 @@ export type UserCreateWithoutTagsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -8511,6 +9101,7 @@ export type UserCreateWithoutTagsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -8599,6 +9190,7 @@ export type UserUncheckedCreateWithoutTagsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -8610,6 +9202,7 @@ export type UserUncheckedCreateWithoutTagsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -8714,6 +9307,7 @@ export type UserUpdateWithoutTagsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -8725,6 +9319,7 @@ export type UserUpdateWithoutTagsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -8813,6 +9408,7 @@ export type UserUncheckedUpdateWithoutTagsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -8824,6 +9420,7 @@ export type UserUncheckedUpdateWithoutTagsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -8912,6 +9509,7 @@ export type UserCreateWithoutResourceTransitionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -8923,6 +9521,7 @@ export type UserCreateWithoutResourceTransitionsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -9011,6 +9610,7 @@ export type UserUncheckedCreateWithoutResourceTransitionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -9022,6 +9622,7 @@ export type UserUncheckedCreateWithoutResourceTransitionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -9126,6 +9727,7 @@ export type UserUpdateWithoutResourceTransitionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -9137,6 +9739,7 @@ export type UserUpdateWithoutResourceTransitionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -9225,6 +9828,7 @@ export type UserUncheckedUpdateWithoutResourceTransitionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -9236,6 +9840,7 @@ export type UserUncheckedUpdateWithoutResourceTransitionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -9324,6 +9929,7 @@ export type UserCreateWithoutResourceCommentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -9335,6 +9941,7 @@ export type UserCreateWithoutResourceCommentsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -9423,6 +10030,7 @@ export type UserUncheckedCreateWithoutResourceCommentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -9434,6 +10042,7 @@ export type UserUncheckedCreateWithoutResourceCommentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -9538,6 +10147,7 @@ export type UserUpdateWithoutResourceCommentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -9549,6 +10159,7 @@ export type UserUpdateWithoutResourceCommentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -9637,6 +10248,7 @@ export type UserUncheckedUpdateWithoutResourceCommentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -9648,6 +10260,7 @@ export type UserUncheckedUpdateWithoutResourceCommentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -9736,6 +10349,7 @@ export type UserCreateWithoutResourceReportsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -9747,6 +10361,7 @@ export type UserCreateWithoutResourceReportsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -9835,6 +10450,7 @@ export type UserUncheckedCreateWithoutResourceReportsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -9846,6 +10462,7 @@ export type UserUncheckedCreateWithoutResourceReportsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -9950,6 +10567,7 @@ export type UserUpdateWithoutResourceReportsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -9961,6 +10579,7 @@ export type UserUpdateWithoutResourceReportsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -10049,6 +10668,7 @@ export type UserUncheckedUpdateWithoutResourceReportsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -10060,6 +10680,7 @@ export type UserUncheckedUpdateWithoutResourceReportsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -10148,6 +10769,7 @@ export type UserCreateWithoutResourceBookmarksInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -10159,6 +10781,7 @@ export type UserCreateWithoutResourceBookmarksInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -10247,6 +10870,7 @@ export type UserUncheckedCreateWithoutResourceBookmarksInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -10258,6 +10882,7 @@ export type UserUncheckedCreateWithoutResourceBookmarksInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -10362,6 +10987,7 @@ export type UserUpdateWithoutResourceBookmarksInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -10373,6 +10999,7 @@ export type UserUpdateWithoutResourceBookmarksInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -10461,6 +11088,7 @@ export type UserUncheckedUpdateWithoutResourceBookmarksInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -10472,6 +11100,7 @@ export type UserUncheckedUpdateWithoutResourceBookmarksInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -10560,6 +11189,7 @@ export type UserCreateWithoutResourceCollectionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -10571,6 +11201,7 @@ export type UserCreateWithoutResourceCollectionsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -10659,6 +11290,7 @@ export type UserUncheckedCreateWithoutResourceCollectionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -10670,6 +11302,7 @@ export type UserUncheckedCreateWithoutResourceCollectionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -10774,6 +11407,7 @@ export type UserUpdateWithoutResourceCollectionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -10785,6 +11419,7 @@ export type UserUpdateWithoutResourceCollectionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -10873,6 +11508,7 @@ export type UserUncheckedUpdateWithoutResourceCollectionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -10884,6 +11520,7 @@ export type UserUncheckedUpdateWithoutResourceCollectionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -10972,6 +11609,7 @@ export type UserCreateWithoutResourceAnalyticsEventsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -10983,6 +11621,7 @@ export type UserCreateWithoutResourceAnalyticsEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -11071,6 +11710,7 @@ export type UserUncheckedCreateWithoutResourceAnalyticsEventsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -11082,6 +11722,7 @@ export type UserUncheckedCreateWithoutResourceAnalyticsEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -11186,6 +11827,7 @@ export type UserUpdateWithoutResourceAnalyticsEventsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -11197,6 +11839,7 @@ export type UserUpdateWithoutResourceAnalyticsEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -11285,6 +11928,7 @@ export type UserUncheckedUpdateWithoutResourceAnalyticsEventsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -11296,6 +11940,7 @@ export type UserUncheckedUpdateWithoutResourceAnalyticsEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -11384,6 +12029,7 @@ export type UserCreateWithoutAuditEventsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -11395,6 +12041,7 @@ export type UserCreateWithoutAuditEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -11483,6 +12130,7 @@ export type UserUncheckedCreateWithoutAuditEventsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -11494,6 +12142,7 @@ export type UserUncheckedCreateWithoutAuditEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -11598,6 +12247,7 @@ export type UserUpdateWithoutAuditEventsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -11609,6 +12259,7 @@ export type UserUpdateWithoutAuditEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -11697,6 +12348,7 @@ export type UserUncheckedUpdateWithoutAuditEventsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -11708,6 +12360,7 @@ export type UserUncheckedUpdateWithoutAuditEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -11796,6 +12449,7 @@ export type UserCreateWithoutEmailOutboxItemsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -11807,6 +12461,7 @@ export type UserCreateWithoutEmailOutboxItemsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -11895,6 +12550,7 @@ export type UserUncheckedCreateWithoutEmailOutboxItemsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -11906,6 +12562,7 @@ export type UserUncheckedCreateWithoutEmailOutboxItemsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -12010,6 +12667,7 @@ export type UserUpdateWithoutEmailOutboxItemsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -12021,6 +12679,7 @@ export type UserUpdateWithoutEmailOutboxItemsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -12109,6 +12768,7 @@ export type UserUncheckedUpdateWithoutEmailOutboxItemsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -12120,6 +12780,7 @@ export type UserUncheckedUpdateWithoutEmailOutboxItemsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -12208,6 +12869,7 @@ export type UserCreateWithoutMentorProfilesInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -12219,6 +12881,7 @@ export type UserCreateWithoutMentorProfilesInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -12307,6 +12970,7 @@ export type UserUncheckedCreateWithoutMentorProfilesInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -12318,6 +12982,7 @@ export type UserUncheckedCreateWithoutMentorProfilesInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -12411,6 +13076,7 @@ export type UserCreateWithoutMentorProfilesVerifiedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -12422,6 +13088,7 @@ export type UserCreateWithoutMentorProfilesVerifiedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -12510,6 +13177,7 @@ export type UserUncheckedCreateWithoutMentorProfilesVerifiedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -12521,6 +13189,7 @@ export type UserUncheckedCreateWithoutMentorProfilesVerifiedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -12625,6 +13294,7 @@ export type UserUpdateWithoutMentorProfilesInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -12636,6 +13306,7 @@ export type UserUpdateWithoutMentorProfilesInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -12724,6 +13395,7 @@ export type UserUncheckedUpdateWithoutMentorProfilesInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -12735,6 +13407,7 @@ export type UserUncheckedUpdateWithoutMentorProfilesInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -12834,6 +13507,7 @@ export type UserUpdateWithoutMentorProfilesVerifiedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -12845,6 +13519,7 @@ export type UserUpdateWithoutMentorProfilesVerifiedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -12933,6 +13608,7 @@ export type UserUncheckedUpdateWithoutMentorProfilesVerifiedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -12944,6 +13620,7 @@ export type UserUncheckedUpdateWithoutMentorProfilesVerifiedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -13032,6 +13709,7 @@ export type UserCreateWithoutMentorAssignmentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -13043,6 +13721,7 @@ export type UserCreateWithoutMentorAssignmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -13131,6 +13810,7 @@ export type UserUncheckedCreateWithoutMentorAssignmentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -13142,6 +13822,7 @@ export type UserUncheckedCreateWithoutMentorAssignmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -13235,6 +13916,7 @@ export type UserCreateWithoutMentorAssignmentsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -13246,6 +13928,7 @@ export type UserCreateWithoutMentorAssignmentsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -13334,6 +14017,7 @@ export type UserUncheckedCreateWithoutMentorAssignmentsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -13345,6 +14029,7 @@ export type UserUncheckedCreateWithoutMentorAssignmentsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -13449,6 +14134,7 @@ export type UserUpdateWithoutMentorAssignmentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -13460,6 +14146,7 @@ export type UserUpdateWithoutMentorAssignmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -13548,6 +14235,7 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -13559,6 +14247,7 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -13658,6 +14347,7 @@ export type UserUpdateWithoutMentorAssignmentsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -13669,6 +14359,7 @@ export type UserUpdateWithoutMentorAssignmentsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -13757,6 +14448,7 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -13768,6 +14460,7 @@ export type UserUncheckedUpdateWithoutMentorAssignmentsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -13856,6 +14549,7 @@ export type UserCreateWithoutMentorRequestsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -13867,6 +14561,7 @@ export type UserCreateWithoutMentorRequestsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -13955,6 +14650,7 @@ export type UserUncheckedCreateWithoutMentorRequestsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -13966,6 +14662,7 @@ export type UserUncheckedCreateWithoutMentorRequestsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -14070,6 +14767,7 @@ export type UserUpdateWithoutMentorRequestsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -14081,6 +14779,7 @@ export type UserUpdateWithoutMentorRequestsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -14169,6 +14868,7 @@ export type UserUncheckedUpdateWithoutMentorRequestsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -14180,6 +14880,7 @@ export type UserUncheckedUpdateWithoutMentorRequestsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -14268,6 +14969,7 @@ export type UserCreateWithoutMentorOffersInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -14279,6 +14981,7 @@ export type UserCreateWithoutMentorOffersInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -14367,6 +15070,7 @@ export type UserUncheckedCreateWithoutMentorOffersInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -14378,6 +15082,7 @@ export type UserUncheckedCreateWithoutMentorOffersInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -14482,6 +15187,7 @@ export type UserUpdateWithoutMentorOffersInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -14493,6 +15199,7 @@ export type UserUpdateWithoutMentorOffersInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -14581,6 +15288,7 @@ export type UserUncheckedUpdateWithoutMentorOffersInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -14592,6 +15300,7 @@ export type UserUncheckedUpdateWithoutMentorOffersInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -14680,6 +15389,7 @@ export type UserCreateWithoutMentorEngagementsAsMentorInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -14691,6 +15401,7 @@ export type UserCreateWithoutMentorEngagementsAsMentorInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -14779,6 +15490,7 @@ export type UserUncheckedCreateWithoutMentorEngagementsAsMentorInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -14790,6 +15502,7 @@ export type UserUncheckedCreateWithoutMentorEngagementsAsMentorInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -14883,6 +15596,7 @@ export type UserCreateWithoutMentorEngagementsAsStudentInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -14894,6 +15608,7 @@ export type UserCreateWithoutMentorEngagementsAsStudentInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -14982,6 +15697,7 @@ export type UserUncheckedCreateWithoutMentorEngagementsAsStudentInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -14993,6 +15709,7 @@ export type UserUncheckedCreateWithoutMentorEngagementsAsStudentInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -15097,6 +15814,7 @@ export type UserUpdateWithoutMentorEngagementsAsMentorInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -15108,6 +15826,7 @@ export type UserUpdateWithoutMentorEngagementsAsMentorInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -15196,6 +15915,7 @@ export type UserUncheckedUpdateWithoutMentorEngagementsAsMentorInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -15207,6 +15927,7 @@ export type UserUncheckedUpdateWithoutMentorEngagementsAsMentorInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -15306,6 +16027,7 @@ export type UserUpdateWithoutMentorEngagementsAsStudentInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -15317,6 +16039,7 @@ export type UserUpdateWithoutMentorEngagementsAsStudentInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -15405,6 +16128,7 @@ export type UserUncheckedUpdateWithoutMentorEngagementsAsStudentInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -15416,6 +16140,7 @@ export type UserUncheckedUpdateWithoutMentorEngagementsAsStudentInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -15504,6 +16229,7 @@ export type UserCreateWithoutAppointmentsOrganizedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -15515,6 +16241,7 @@ export type UserCreateWithoutAppointmentsOrganizedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -15603,6 +16330,7 @@ export type UserUncheckedCreateWithoutAppointmentsOrganizedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -15614,6 +16342,7 @@ export type UserUncheckedCreateWithoutAppointmentsOrganizedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -15707,6 +16436,7 @@ export type UserCreateWithoutStudentAppointmentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -15718,6 +16448,7 @@ export type UserCreateWithoutStudentAppointmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -15806,6 +16537,7 @@ export type UserUncheckedCreateWithoutStudentAppointmentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -15817,6 +16549,7 @@ export type UserUncheckedCreateWithoutStudentAppointmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -15910,6 +16643,7 @@ export type UserCreateWithoutMentorAppointmentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -15921,6 +16655,7 @@ export type UserCreateWithoutMentorAppointmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -16009,6 +16744,7 @@ export type UserUncheckedCreateWithoutMentorAppointmentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -16020,6 +16756,7 @@ export type UserUncheckedCreateWithoutMentorAppointmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -16124,6 +16861,7 @@ export type UserUpdateWithoutAppointmentsOrganizedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -16135,6 +16873,7 @@ export type UserUpdateWithoutAppointmentsOrganizedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -16223,6 +16962,7 @@ export type UserUncheckedUpdateWithoutAppointmentsOrganizedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -16234,6 +16974,7 @@ export type UserUncheckedUpdateWithoutAppointmentsOrganizedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -16333,6 +17074,7 @@ export type UserUpdateWithoutStudentAppointmentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -16344,6 +17086,7 @@ export type UserUpdateWithoutStudentAppointmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -16432,6 +17175,7 @@ export type UserUncheckedUpdateWithoutStudentAppointmentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -16443,6 +17187,7 @@ export type UserUncheckedUpdateWithoutStudentAppointmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -16542,6 +17287,7 @@ export type UserUpdateWithoutMentorAppointmentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -16553,6 +17299,7 @@ export type UserUpdateWithoutMentorAppointmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -16641,6 +17388,7 @@ export type UserUncheckedUpdateWithoutMentorAppointmentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -16652,6 +17400,7 @@ export type UserUncheckedUpdateWithoutMentorAppointmentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -16740,6 +17489,7 @@ export type UserCreateWithoutAppointmentTransitionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -16751,6 +17501,7 @@ export type UserCreateWithoutAppointmentTransitionsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -16839,6 +17590,7 @@ export type UserUncheckedCreateWithoutAppointmentTransitionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -16850,6 +17602,7 @@ export type UserUncheckedCreateWithoutAppointmentTransitionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -16954,6 +17707,7 @@ export type UserUpdateWithoutAppointmentTransitionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -16965,6 +17719,7 @@ export type UserUpdateWithoutAppointmentTransitionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -17053,6 +17808,7 @@ export type UserUncheckedUpdateWithoutAppointmentTransitionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -17064,6 +17820,7 @@ export type UserUncheckedUpdateWithoutAppointmentTransitionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -17152,6 +17909,7 @@ export type UserCreateWithoutAppointmentWaitlistInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -17163,6 +17921,7 @@ export type UserCreateWithoutAppointmentWaitlistInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -17251,6 +18010,7 @@ export type UserUncheckedCreateWithoutAppointmentWaitlistInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -17262,6 +18022,7 @@ export type UserUncheckedCreateWithoutAppointmentWaitlistInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -17366,6 +18127,7 @@ export type UserUpdateWithoutAppointmentWaitlistInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -17377,6 +18139,7 @@ export type UserUpdateWithoutAppointmentWaitlistInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -17465,6 +18228,7 @@ export type UserUncheckedUpdateWithoutAppointmentWaitlistInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -17476,6 +18240,7 @@ export type UserUncheckedUpdateWithoutAppointmentWaitlistInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -17564,6 +18329,7 @@ export type UserCreateWithoutAttendanceRecordsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -17575,6 +18341,7 @@ export type UserCreateWithoutAttendanceRecordsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -17663,6 +18430,7 @@ export type UserUncheckedCreateWithoutAttendanceRecordsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -17674,6 +18442,7 @@ export type UserUncheckedCreateWithoutAttendanceRecordsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -17767,6 +18536,7 @@ export type UserCreateWithoutAttendanceRecordedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -17778,6 +18548,7 @@ export type UserCreateWithoutAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -17866,6 +18637,7 @@ export type UserUncheckedCreateWithoutAttendanceRecordedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -17877,6 +18649,7 @@ export type UserUncheckedCreateWithoutAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -17981,6 +18754,7 @@ export type UserUpdateWithoutAttendanceRecordsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -17992,6 +18766,7 @@ export type UserUpdateWithoutAttendanceRecordsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -18080,6 +18855,7 @@ export type UserUncheckedUpdateWithoutAttendanceRecordsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -18091,6 +18867,7 @@ export type UserUncheckedUpdateWithoutAttendanceRecordsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -18190,6 +18967,7 @@ export type UserUpdateWithoutAttendanceRecordedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -18201,6 +18979,7 @@ export type UserUpdateWithoutAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -18289,6 +19068,7 @@ export type UserUncheckedUpdateWithoutAttendanceRecordedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -18300,6 +19080,7 @@ export type UserUncheckedUpdateWithoutAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -18388,6 +19169,7 @@ export type UserCreateWithoutMentoringCasesInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -18399,6 +19181,7 @@ export type UserCreateWithoutMentoringCasesInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -18487,6 +19270,7 @@ export type UserUncheckedCreateWithoutMentoringCasesInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -18498,6 +19282,7 @@ export type UserUncheckedCreateWithoutMentoringCasesInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -18591,6 +19376,7 @@ export type UserCreateWithoutMentoringCasesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -18602,6 +19388,7 @@ export type UserCreateWithoutMentoringCasesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -18690,6 +19477,7 @@ export type UserUncheckedCreateWithoutMentoringCasesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -18701,6 +19489,7 @@ export type UserUncheckedCreateWithoutMentoringCasesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -18805,6 +19594,7 @@ export type UserUpdateWithoutMentoringCasesInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -18816,6 +19606,7 @@ export type UserUpdateWithoutMentoringCasesInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -18904,6 +19695,7 @@ export type UserUncheckedUpdateWithoutMentoringCasesInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -18915,6 +19707,7 @@ export type UserUncheckedUpdateWithoutMentoringCasesInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -19014,6 +19807,7 @@ export type UserUpdateWithoutMentoringCasesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -19025,6 +19819,7 @@ export type UserUpdateWithoutMentoringCasesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -19113,6 +19908,7 @@ export type UserUncheckedUpdateWithoutMentoringCasesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -19124,6 +19920,7 @@ export type UserUncheckedUpdateWithoutMentoringCasesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -19212,6 +20009,7 @@ export type UserCreateWithoutMentoringGoalsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -19223,6 +20021,7 @@ export type UserCreateWithoutMentoringGoalsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -19311,6 +20110,7 @@ export type UserUncheckedCreateWithoutMentoringGoalsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -19322,6 +20122,7 @@ export type UserUncheckedCreateWithoutMentoringGoalsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -19426,6 +20227,7 @@ export type UserUpdateWithoutMentoringGoalsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -19437,6 +20239,7 @@ export type UserUpdateWithoutMentoringGoalsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -19525,6 +20328,7 @@ export type UserUncheckedUpdateWithoutMentoringGoalsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -19536,6 +20340,7 @@ export type UserUncheckedUpdateWithoutMentoringGoalsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -19624,6 +20429,7 @@ export type UserCreateWithoutSessionOutcomesCompletedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -19635,6 +20441,7 @@ export type UserCreateWithoutSessionOutcomesCompletedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -19723,6 +20530,7 @@ export type UserUncheckedCreateWithoutSessionOutcomesCompletedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -19734,6 +20542,7 @@ export type UserUncheckedCreateWithoutSessionOutcomesCompletedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -19838,6 +20647,7 @@ export type UserUpdateWithoutSessionOutcomesCompletedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -19849,6 +20659,7 @@ export type UserUpdateWithoutSessionOutcomesCompletedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -19937,6 +20748,7 @@ export type UserUncheckedUpdateWithoutSessionOutcomesCompletedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -19948,6 +20760,7 @@ export type UserUncheckedUpdateWithoutSessionOutcomesCompletedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -20036,6 +20849,7 @@ export type UserCreateWithoutMentoringTasksAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -20047,6 +20861,7 @@ export type UserCreateWithoutMentoringTasksAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -20135,6 +20950,7 @@ export type UserUncheckedCreateWithoutMentoringTasksAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -20146,6 +20962,7 @@ export type UserUncheckedCreateWithoutMentoringTasksAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -20239,6 +21056,7 @@ export type UserCreateWithoutMentoringTasksCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -20250,6 +21068,7 @@ export type UserCreateWithoutMentoringTasksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -20338,6 +21157,7 @@ export type UserUncheckedCreateWithoutMentoringTasksCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -20349,6 +21169,7 @@ export type UserUncheckedCreateWithoutMentoringTasksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -20453,6 +21274,7 @@ export type UserUpdateWithoutMentoringTasksAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -20464,6 +21286,7 @@ export type UserUpdateWithoutMentoringTasksAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -20552,6 +21375,7 @@ export type UserUncheckedUpdateWithoutMentoringTasksAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -20563,6 +21387,7 @@ export type UserUncheckedUpdateWithoutMentoringTasksAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -20662,6 +21487,7 @@ export type UserUpdateWithoutMentoringTasksCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -20673,6 +21499,7 @@ export type UserUpdateWithoutMentoringTasksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -20761,6 +21588,7 @@ export type UserUncheckedUpdateWithoutMentoringTasksCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -20772,6 +21600,7 @@ export type UserUncheckedUpdateWithoutMentoringTasksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -20860,6 +21689,7 @@ export type UserCreateWithoutMentoringReferralsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -20871,6 +21701,7 @@ export type UserCreateWithoutMentoringReferralsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -20959,6 +21790,7 @@ export type UserUncheckedCreateWithoutMentoringReferralsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -20970,6 +21802,7 @@ export type UserUncheckedCreateWithoutMentoringReferralsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -21063,6 +21896,7 @@ export type UserCreateWithoutMentoringReferralsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -21074,6 +21908,7 @@ export type UserCreateWithoutMentoringReferralsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -21162,6 +21997,7 @@ export type UserUncheckedCreateWithoutMentoringReferralsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -21173,6 +22009,7 @@ export type UserUncheckedCreateWithoutMentoringReferralsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -21277,6 +22114,7 @@ export type UserUpdateWithoutMentoringReferralsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -21288,6 +22126,7 @@ export type UserUpdateWithoutMentoringReferralsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -21376,6 +22215,7 @@ export type UserUncheckedUpdateWithoutMentoringReferralsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -21387,6 +22227,7 @@ export type UserUncheckedUpdateWithoutMentoringReferralsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -21486,6 +22327,7 @@ export type UserUpdateWithoutMentoringReferralsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -21497,6 +22339,7 @@ export type UserUpdateWithoutMentoringReferralsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -21585,6 +22428,7 @@ export type UserUncheckedUpdateWithoutMentoringReferralsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -21596,6 +22440,7 @@ export type UserUncheckedUpdateWithoutMentoringReferralsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -21684,6 +22529,7 @@ export type UserCreateWithoutMentoringNotesInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -21695,6 +22541,7 @@ export type UserCreateWithoutMentoringNotesInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -21783,6 +22630,7 @@ export type UserUncheckedCreateWithoutMentoringNotesInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -21794,6 +22642,7 @@ export type UserUncheckedCreateWithoutMentoringNotesInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -21898,6 +22747,7 @@ export type UserUpdateWithoutMentoringNotesInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -21909,6 +22759,7 @@ export type UserUpdateWithoutMentoringNotesInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -21997,6 +22848,7 @@ export type UserUncheckedUpdateWithoutMentoringNotesInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -22008,6 +22860,7 @@ export type UserUncheckedUpdateWithoutMentoringNotesInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -22096,6 +22949,7 @@ export type UserCreateWithoutCalendarsOwnedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -22107,6 +22961,7 @@ export type UserCreateWithoutCalendarsOwnedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -22195,6 +23050,7 @@ export type UserUncheckedCreateWithoutCalendarsOwnedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -22206,6 +23062,7 @@ export type UserUncheckedCreateWithoutCalendarsOwnedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -22310,6 +23167,7 @@ export type UserUpdateWithoutCalendarsOwnedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -22321,6 +23179,7 @@ export type UserUpdateWithoutCalendarsOwnedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -22409,6 +23268,7 @@ export type UserUncheckedUpdateWithoutCalendarsOwnedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -22420,6 +23280,7 @@ export type UserUncheckedUpdateWithoutCalendarsOwnedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -22508,6 +23369,7 @@ export type UserCreateWithoutBookableResourcesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -22519,6 +23381,7 @@ export type UserCreateWithoutBookableResourcesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -22607,6 +23470,7 @@ export type UserUncheckedCreateWithoutBookableResourcesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -22618,6 +23482,7 @@ export type UserUncheckedCreateWithoutBookableResourcesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -22722,6 +23587,7 @@ export type UserUpdateWithoutBookableResourcesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -22733,6 +23599,7 @@ export type UserUpdateWithoutBookableResourcesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -22821,6 +23688,7 @@ export type UserUncheckedUpdateWithoutBookableResourcesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -22832,6 +23700,7 @@ export type UserUncheckedUpdateWithoutBookableResourcesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -22920,6 +23789,7 @@ export type UserCreateWithoutCalendarEventsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -22931,6 +23801,7 @@ export type UserCreateWithoutCalendarEventsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -23019,6 +23890,7 @@ export type UserUncheckedCreateWithoutCalendarEventsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -23030,6 +23902,7 @@ export type UserUncheckedCreateWithoutCalendarEventsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -23134,6 +24007,7 @@ export type UserUpdateWithoutCalendarEventsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -23145,6 +24019,7 @@ export type UserUpdateWithoutCalendarEventsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -23233,6 +24108,7 @@ export type UserUncheckedUpdateWithoutCalendarEventsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -23244,6 +24120,7 @@ export type UserUncheckedUpdateWithoutCalendarEventsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -23332,6 +24209,7 @@ export type UserCreateWithoutCalendarBookingsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -23343,6 +24221,7 @@ export type UserCreateWithoutCalendarBookingsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -23431,6 +24310,7 @@ export type UserUncheckedCreateWithoutCalendarBookingsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -23442,6 +24322,7 @@ export type UserUncheckedCreateWithoutCalendarBookingsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -23546,6 +24427,7 @@ export type UserUpdateWithoutCalendarBookingsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -23557,6 +24439,7 @@ export type UserUpdateWithoutCalendarBookingsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -23645,6 +24528,7 @@ export type UserUncheckedUpdateWithoutCalendarBookingsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -23656,6 +24540,7 @@ export type UserUncheckedUpdateWithoutCalendarBookingsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -23744,6 +24629,7 @@ export type UserCreateWithoutCalendarAttendanceInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -23755,6 +24641,7 @@ export type UserCreateWithoutCalendarAttendanceInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -23843,6 +24730,7 @@ export type UserUncheckedCreateWithoutCalendarAttendanceInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -23854,6 +24742,7 @@ export type UserUncheckedCreateWithoutCalendarAttendanceInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -23947,6 +24836,7 @@ export type UserCreateWithoutCalendarAttendanceRecordedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -23958,6 +24848,7 @@ export type UserCreateWithoutCalendarAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -24046,6 +24937,7 @@ export type UserUncheckedCreateWithoutCalendarAttendanceRecordedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -24057,6 +24949,7 @@ export type UserUncheckedCreateWithoutCalendarAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -24161,6 +25054,7 @@ export type UserUpdateWithoutCalendarAttendanceInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -24172,6 +25066,7 @@ export type UserUpdateWithoutCalendarAttendanceInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -24260,6 +25155,7 @@ export type UserUncheckedUpdateWithoutCalendarAttendanceInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -24271,6 +25167,7 @@ export type UserUncheckedUpdateWithoutCalendarAttendanceInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -24370,6 +25267,7 @@ export type UserUpdateWithoutCalendarAttendanceRecordedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -24381,6 +25279,7 @@ export type UserUpdateWithoutCalendarAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -24469,6 +25368,7 @@ export type UserUncheckedUpdateWithoutCalendarAttendanceRecordedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -24480,6 +25380,7 @@ export type UserUncheckedUpdateWithoutCalendarAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -24568,6 +25469,7 @@ export type UserCreateWithoutWorkflowTemplatesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -24579,6 +25481,7 @@ export type UserCreateWithoutWorkflowTemplatesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -24667,6 +25570,7 @@ export type UserUncheckedCreateWithoutWorkflowTemplatesCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -24678,6 +25582,7 @@ export type UserUncheckedCreateWithoutWorkflowTemplatesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -24782,6 +25687,7 @@ export type UserUpdateWithoutWorkflowTemplatesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -24793,6 +25699,7 @@ export type UserUpdateWithoutWorkflowTemplatesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -24881,6 +25788,7 @@ export type UserUncheckedUpdateWithoutWorkflowTemplatesCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -24892,6 +25800,7 @@ export type UserUncheckedUpdateWithoutWorkflowTemplatesCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -24980,6 +25889,7 @@ export type UserCreateWithoutWorkflowSubmissionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -24991,6 +25901,7 @@ export type UserCreateWithoutWorkflowSubmissionsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -25079,6 +25990,7 @@ export type UserUncheckedCreateWithoutWorkflowSubmissionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -25090,6 +26002,7 @@ export type UserUncheckedCreateWithoutWorkflowSubmissionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -25194,6 +26107,7 @@ export type UserUpdateWithoutWorkflowSubmissionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -25205,6 +26119,7 @@ export type UserUpdateWithoutWorkflowSubmissionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -25293,6 +26208,7 @@ export type UserUncheckedUpdateWithoutWorkflowSubmissionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -25304,6 +26220,7 @@ export type UserUncheckedUpdateWithoutWorkflowSubmissionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -25392,6 +26309,7 @@ export type UserCreateWithoutWorkflowStepsAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -25403,6 +26321,7 @@ export type UserCreateWithoutWorkflowStepsAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -25491,6 +26410,7 @@ export type UserUncheckedCreateWithoutWorkflowStepsAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -25502,6 +26422,7 @@ export type UserUncheckedCreateWithoutWorkflowStepsAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -25606,6 +26527,7 @@ export type UserUpdateWithoutWorkflowStepsAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -25617,6 +26539,7 @@ export type UserUpdateWithoutWorkflowStepsAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -25705,6 +26628,7 @@ export type UserUncheckedUpdateWithoutWorkflowStepsAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -25716,6 +26640,7 @@ export type UserUncheckedUpdateWithoutWorkflowStepsAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -25804,6 +26729,7 @@ export type UserCreateWithoutWorkflowDelegationsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -25815,6 +26741,7 @@ export type UserCreateWithoutWorkflowDelegationsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -25903,6 +26830,7 @@ export type UserUncheckedCreateWithoutWorkflowDelegationsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -25914,6 +26842,7 @@ export type UserUncheckedCreateWithoutWorkflowDelegationsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -26007,6 +26936,7 @@ export type UserCreateWithoutWorkflowDelegationsReceivedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -26018,6 +26948,7 @@ export type UserCreateWithoutWorkflowDelegationsReceivedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -26106,6 +27037,7 @@ export type UserUncheckedCreateWithoutWorkflowDelegationsReceivedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -26117,6 +27049,7 @@ export type UserUncheckedCreateWithoutWorkflowDelegationsReceivedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -26221,6 +27154,7 @@ export type UserUpdateWithoutWorkflowDelegationsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -26232,6 +27166,7 @@ export type UserUpdateWithoutWorkflowDelegationsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -26320,6 +27255,7 @@ export type UserUncheckedUpdateWithoutWorkflowDelegationsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -26331,6 +27267,7 @@ export type UserUncheckedUpdateWithoutWorkflowDelegationsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -26430,6 +27367,7 @@ export type UserUpdateWithoutWorkflowDelegationsReceivedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -26441,6 +27379,7 @@ export type UserUpdateWithoutWorkflowDelegationsReceivedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -26529,6 +27468,7 @@ export type UserUncheckedUpdateWithoutWorkflowDelegationsReceivedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -26540,6 +27480,7 @@ export type UserUncheckedUpdateWithoutWorkflowDelegationsReceivedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -26628,6 +27569,7 @@ export type UserCreateWithoutWorkflowDecisionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -26639,6 +27581,7 @@ export type UserCreateWithoutWorkflowDecisionsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -26727,6 +27670,7 @@ export type UserUncheckedCreateWithoutWorkflowDecisionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -26738,6 +27682,7 @@ export type UserUncheckedCreateWithoutWorkflowDecisionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -26842,6 +27787,7 @@ export type UserUpdateWithoutWorkflowDecisionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -26853,6 +27799,7 @@ export type UserUpdateWithoutWorkflowDecisionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -26941,6 +27888,7 @@ export type UserUncheckedUpdateWithoutWorkflowDecisionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -26952,6 +27900,7 @@ export type UserUncheckedUpdateWithoutWorkflowDecisionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -27040,6 +27989,7 @@ export type UserCreateWithoutWorkflowHistoryInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -27051,6 +28001,7 @@ export type UserCreateWithoutWorkflowHistoryInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -27139,6 +28090,7 @@ export type UserUncheckedCreateWithoutWorkflowHistoryInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -27150,6 +28102,7 @@ export type UserUncheckedCreateWithoutWorkflowHistoryInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -27254,6 +28207,7 @@ export type UserUpdateWithoutWorkflowHistoryInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -27265,6 +28219,7 @@ export type UserUpdateWithoutWorkflowHistoryInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -27353,6 +28308,7 @@ export type UserUncheckedUpdateWithoutWorkflowHistoryInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -27364,6 +28320,7 @@ export type UserUncheckedUpdateWithoutWorkflowHistoryInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -27452,6 +28409,7 @@ export type UserCreateWithoutWorkflowCommentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -27463,6 +28421,7 @@ export type UserCreateWithoutWorkflowCommentsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -27551,6 +28510,7 @@ export type UserUncheckedCreateWithoutWorkflowCommentsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -27562,6 +28522,7 @@ export type UserUncheckedCreateWithoutWorkflowCommentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -27666,6 +28627,7 @@ export type UserUpdateWithoutWorkflowCommentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -27677,6 +28639,7 @@ export type UserUpdateWithoutWorkflowCommentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -27765,6 +28728,7 @@ export type UserUncheckedUpdateWithoutWorkflowCommentsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -27776,6 +28740,7 @@ export type UserUncheckedUpdateWithoutWorkflowCommentsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -27864,6 +28829,7 @@ export type UserCreateWithoutClubsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -27875,6 +28841,7 @@ export type UserCreateWithoutClubsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -27963,6 +28930,7 @@ export type UserUncheckedCreateWithoutClubsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -27974,6 +28942,7 @@ export type UserUncheckedCreateWithoutClubsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -28078,6 +29047,7 @@ export type UserUpdateWithoutClubsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -28089,6 +29059,7 @@ export type UserUpdateWithoutClubsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -28177,6 +29148,7 @@ export type UserUncheckedUpdateWithoutClubsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -28188,6 +29160,7 @@ export type UserUncheckedUpdateWithoutClubsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -28276,6 +29249,7 @@ export type UserCreateWithoutClubApplicationsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -28287,6 +29261,7 @@ export type UserCreateWithoutClubApplicationsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -28375,6 +29350,7 @@ export type UserUncheckedCreateWithoutClubApplicationsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -28386,6 +29362,7 @@ export type UserUncheckedCreateWithoutClubApplicationsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -28479,6 +29456,7 @@ export type UserCreateWithoutClubApplicationsReviewedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -28490,6 +29468,7 @@ export type UserCreateWithoutClubApplicationsReviewedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -28578,6 +29557,7 @@ export type UserUncheckedCreateWithoutClubApplicationsReviewedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -28589,6 +29569,7 @@ export type UserUncheckedCreateWithoutClubApplicationsReviewedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -28693,6 +29674,7 @@ export type UserUpdateWithoutClubApplicationsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -28704,6 +29686,7 @@ export type UserUpdateWithoutClubApplicationsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -28792,6 +29775,7 @@ export type UserUncheckedUpdateWithoutClubApplicationsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -28803,6 +29787,7 @@ export type UserUncheckedUpdateWithoutClubApplicationsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -28902,6 +29887,7 @@ export type UserUpdateWithoutClubApplicationsReviewedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -28913,6 +29899,7 @@ export type UserUpdateWithoutClubApplicationsReviewedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -29001,6 +29988,7 @@ export type UserUncheckedUpdateWithoutClubApplicationsReviewedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -29012,6 +30000,7 @@ export type UserUncheckedUpdateWithoutClubApplicationsReviewedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -29100,6 +30089,7 @@ export type UserCreateWithoutClubMembershipsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -29111,6 +30101,7 @@ export type UserCreateWithoutClubMembershipsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -29199,6 +30190,7 @@ export type UserUncheckedCreateWithoutClubMembershipsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -29210,6 +30202,7 @@ export type UserUncheckedCreateWithoutClubMembershipsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -29314,6 +30307,7 @@ export type UserUpdateWithoutClubMembershipsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -29325,6 +30319,7 @@ export type UserUpdateWithoutClubMembershipsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -29413,6 +30408,7 @@ export type UserUncheckedUpdateWithoutClubMembershipsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -29424,6 +30420,7 @@ export type UserUncheckedUpdateWithoutClubMembershipsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -29512,6 +30509,7 @@ export type UserCreateWithoutClubAnnouncementsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -29523,6 +30521,7 @@ export type UserCreateWithoutClubAnnouncementsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -29611,6 +30610,7 @@ export type UserUncheckedCreateWithoutClubAnnouncementsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -29622,6 +30622,7 @@ export type UserUncheckedCreateWithoutClubAnnouncementsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -29726,6 +30727,7 @@ export type UserUpdateWithoutClubAnnouncementsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -29737,6 +30739,7 @@ export type UserUpdateWithoutClubAnnouncementsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -29825,6 +30828,7 @@ export type UserUncheckedUpdateWithoutClubAnnouncementsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -29836,6 +30840,7 @@ export type UserUncheckedUpdateWithoutClubAnnouncementsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -29924,6 +30929,7 @@ export type UserCreateWithoutClubTasksCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -29935,6 +30941,7 @@ export type UserCreateWithoutClubTasksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -30023,6 +31030,7 @@ export type UserUncheckedCreateWithoutClubTasksCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -30034,6 +31042,7 @@ export type UserUncheckedCreateWithoutClubTasksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -30127,6 +31136,7 @@ export type UserCreateWithoutClubTasksAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -30138,6 +31148,7 @@ export type UserCreateWithoutClubTasksAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -30226,6 +31237,7 @@ export type UserUncheckedCreateWithoutClubTasksAssignedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -30237,6 +31249,7 @@ export type UserUncheckedCreateWithoutClubTasksAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -30341,6 +31354,7 @@ export type UserUpdateWithoutClubTasksCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -30352,6 +31366,7 @@ export type UserUpdateWithoutClubTasksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -30440,6 +31455,7 @@ export type UserUncheckedUpdateWithoutClubTasksCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -30451,6 +31467,7 @@ export type UserUncheckedUpdateWithoutClubTasksCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -30550,6 +31567,7 @@ export type UserUpdateWithoutClubTasksAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -30561,6 +31579,7 @@ export type UserUpdateWithoutClubTasksAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -30649,6 +31668,7 @@ export type UserUncheckedUpdateWithoutClubTasksAssignedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -30660,6 +31680,7 @@ export type UserUncheckedUpdateWithoutClubTasksAssignedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -30748,6 +31769,7 @@ export type UserCreateWithoutClubEventsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -30759,6 +31781,7 @@ export type UserCreateWithoutClubEventsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -30847,6 +31870,7 @@ export type UserUncheckedCreateWithoutClubEventsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -30858,6 +31882,7 @@ export type UserUncheckedCreateWithoutClubEventsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -30962,6 +31987,7 @@ export type UserUpdateWithoutClubEventsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -30973,6 +31999,7 @@ export type UserUpdateWithoutClubEventsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -31061,6 +32088,7 @@ export type UserUncheckedUpdateWithoutClubEventsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -31072,6 +32100,7 @@ export type UserUncheckedUpdateWithoutClubEventsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -31160,6 +32189,7 @@ export type UserCreateWithoutClubRegistrationsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -31171,6 +32201,7 @@ export type UserCreateWithoutClubRegistrationsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -31259,6 +32290,7 @@ export type UserUncheckedCreateWithoutClubRegistrationsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -31270,6 +32302,7 @@ export type UserUncheckedCreateWithoutClubRegistrationsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -31374,6 +32407,7 @@ export type UserUpdateWithoutClubRegistrationsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -31385,6 +32419,7 @@ export type UserUpdateWithoutClubRegistrationsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -31473,6 +32508,7 @@ export type UserUncheckedUpdateWithoutClubRegistrationsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -31484,6 +32520,7 @@ export type UserUncheckedUpdateWithoutClubRegistrationsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -31572,6 +32609,7 @@ export type UserCreateWithoutClubConsentsForStudentInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -31583,6 +32621,7 @@ export type UserCreateWithoutClubConsentsForStudentInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -31671,6 +32710,7 @@ export type UserUncheckedCreateWithoutClubConsentsForStudentInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -31682,6 +32722,7 @@ export type UserUncheckedCreateWithoutClubConsentsForStudentInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -31775,6 +32816,7 @@ export type UserCreateWithoutClubConsentsForGuardianInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -31786,6 +32828,7 @@ export type UserCreateWithoutClubConsentsForGuardianInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -31874,6 +32917,7 @@ export type UserUncheckedCreateWithoutClubConsentsForGuardianInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -31885,6 +32929,7 @@ export type UserUncheckedCreateWithoutClubConsentsForGuardianInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -31989,6 +33034,7 @@ export type UserUpdateWithoutClubConsentsForStudentInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -32000,6 +33046,7 @@ export type UserUpdateWithoutClubConsentsForStudentInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -32088,6 +33135,7 @@ export type UserUncheckedUpdateWithoutClubConsentsForStudentInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -32099,6 +33147,7 @@ export type UserUncheckedUpdateWithoutClubConsentsForStudentInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -32198,6 +33247,7 @@ export type UserUpdateWithoutClubConsentsForGuardianInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -32209,6 +33259,7 @@ export type UserUpdateWithoutClubConsentsForGuardianInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -32297,6 +33348,7 @@ export type UserUncheckedUpdateWithoutClubConsentsForGuardianInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -32308,6 +33360,7 @@ export type UserUncheckedUpdateWithoutClubConsentsForGuardianInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -32396,6 +33449,7 @@ export type UserCreateWithoutClubAttendanceInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -32407,6 +33461,7 @@ export type UserCreateWithoutClubAttendanceInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -32495,6 +33550,7 @@ export type UserUncheckedCreateWithoutClubAttendanceInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -32506,6 +33562,7 @@ export type UserUncheckedCreateWithoutClubAttendanceInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -32599,6 +33656,7 @@ export type UserCreateWithoutClubAttendanceRecordedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -32610,6 +33668,7 @@ export type UserCreateWithoutClubAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -32698,6 +33757,7 @@ export type UserUncheckedCreateWithoutClubAttendanceRecordedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -32709,6 +33769,7 @@ export type UserUncheckedCreateWithoutClubAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -32813,6 +33874,7 @@ export type UserUpdateWithoutClubAttendanceInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -32824,6 +33886,7 @@ export type UserUpdateWithoutClubAttendanceInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -32912,6 +33975,7 @@ export type UserUncheckedUpdateWithoutClubAttendanceInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -32923,6 +33987,7 @@ export type UserUncheckedUpdateWithoutClubAttendanceInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -33022,6 +34087,7 @@ export type UserUpdateWithoutClubAttendanceRecordedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -33033,6 +34099,7 @@ export type UserUpdateWithoutClubAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -33121,6 +34188,7 @@ export type UserUncheckedUpdateWithoutClubAttendanceRecordedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -33132,6 +34200,7 @@ export type UserUncheckedUpdateWithoutClubAttendanceRecordedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -33220,6 +34289,7 @@ export type UserCreateWithoutClubPostEventReportsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -33231,6 +34301,7 @@ export type UserCreateWithoutClubPostEventReportsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -33319,6 +34390,7 @@ export type UserUncheckedCreateWithoutClubPostEventReportsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -33330,6 +34402,7 @@ export type UserUncheckedCreateWithoutClubPostEventReportsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -33434,6 +34507,7 @@ export type UserUpdateWithoutClubPostEventReportsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -33445,6 +34519,7 @@ export type UserUpdateWithoutClubPostEventReportsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -33533,6 +34608,7 @@ export type UserUncheckedUpdateWithoutClubPostEventReportsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -33544,6 +34620,7 @@ export type UserUncheckedUpdateWithoutClubPostEventReportsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -33632,6 +34709,7 @@ export type UserCreateWithoutConversationsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -33643,6 +34721,7 @@ export type UserCreateWithoutConversationsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -33731,6 +34810,7 @@ export type UserUncheckedCreateWithoutConversationsCreatedInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -33742,6 +34822,7 @@ export type UserUncheckedCreateWithoutConversationsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -33846,6 +34927,7 @@ export type UserUpdateWithoutConversationsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -33857,6 +34939,7 @@ export type UserUpdateWithoutConversationsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -33945,6 +35028,7 @@ export type UserUncheckedUpdateWithoutConversationsCreatedInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -33956,6 +35040,7 @@ export type UserUncheckedUpdateWithoutConversationsCreatedInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -34044,6 +35129,7 @@ export type UserCreateWithoutConversationParticipantsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -34055,6 +35141,7 @@ export type UserCreateWithoutConversationParticipantsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -34143,6 +35230,7 @@ export type UserUncheckedCreateWithoutConversationParticipantsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -34154,6 +35242,7 @@ export type UserUncheckedCreateWithoutConversationParticipantsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -34258,6 +35347,7 @@ export type UserUpdateWithoutConversationParticipantsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -34269,6 +35359,7 @@ export type UserUpdateWithoutConversationParticipantsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -34357,6 +35448,7 @@ export type UserUncheckedUpdateWithoutConversationParticipantsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -34368,6 +35460,7 @@ export type UserUncheckedUpdateWithoutConversationParticipantsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -34456,6 +35549,7 @@ export type UserCreateWithoutMessagesSentInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -34467,6 +35561,7 @@ export type UserCreateWithoutMessagesSentInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -34555,6 +35650,7 @@ export type UserUncheckedCreateWithoutMessagesSentInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -34566,6 +35662,7 @@ export type UserUncheckedCreateWithoutMessagesSentInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -34670,6 +35767,7 @@ export type UserUpdateWithoutMessagesSentInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -34681,6 +35779,7 @@ export type UserUpdateWithoutMessagesSentInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -34769,6 +35868,7 @@ export type UserUncheckedUpdateWithoutMessagesSentInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -34780,6 +35880,7 @@ export type UserUncheckedUpdateWithoutMessagesSentInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -34868,6 +35969,7 @@ export type UserCreateWithoutMessageMentionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -34879,6 +35981,7 @@ export type UserCreateWithoutMessageMentionsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -34967,6 +36070,7 @@ export type UserUncheckedCreateWithoutMessageMentionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -34978,6 +36082,7 @@ export type UserUncheckedCreateWithoutMessageMentionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -35082,6 +36187,7 @@ export type UserUpdateWithoutMessageMentionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -35093,6 +36199,7 @@ export type UserUpdateWithoutMessageMentionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -35181,6 +36288,7 @@ export type UserUncheckedUpdateWithoutMessageMentionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -35192,6 +36300,7 @@ export type UserUncheckedUpdateWithoutMessageMentionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -35280,6 +36389,7 @@ export type UserCreateWithoutNotificationsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -35291,6 +36401,7 @@ export type UserCreateWithoutNotificationsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -35379,6 +36490,7 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -35390,6 +36502,7 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -35494,6 +36607,7 @@ export type UserUpdateWithoutNotificationsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -35505,6 +36619,7 @@ export type UserUpdateWithoutNotificationsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -35593,6 +36708,7 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -35604,6 +36720,7 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -35692,6 +36809,7 @@ export type UserCreateWithoutNotificationPreferencesInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -35703,6 +36821,7 @@ export type UserCreateWithoutNotificationPreferencesInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -35791,6 +36910,7 @@ export type UserUncheckedCreateWithoutNotificationPreferencesInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -35802,6 +36922,7 @@ export type UserUncheckedCreateWithoutNotificationPreferencesInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -35906,6 +37027,7 @@ export type UserUpdateWithoutNotificationPreferencesInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -35917,6 +37039,7 @@ export type UserUpdateWithoutNotificationPreferencesInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -36005,6 +37128,7 @@ export type UserUncheckedUpdateWithoutNotificationPreferencesInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -36016,6 +37140,7 @@ export type UserUncheckedUpdateWithoutNotificationPreferencesInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -36104,6 +37229,7 @@ export type UserCreateWithoutActivityFeedEventsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -36115,6 +37241,7 @@ export type UserCreateWithoutActivityFeedEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -36203,6 +37330,7 @@ export type UserUncheckedCreateWithoutActivityFeedEventsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -36214,6 +37342,7 @@ export type UserUncheckedCreateWithoutActivityFeedEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -36307,6 +37436,7 @@ export type UserCreateWithoutActivityFeedActionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -36318,6 +37448,7 @@ export type UserCreateWithoutActivityFeedActionsInput = {
   studentLinks?: Prisma.ParentStudentLinkCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionCreateNestedManyWithoutCreatedByInput
@@ -36406,6 +37537,7 @@ export type UserUncheckedCreateWithoutActivityFeedActionsInput = {
   timezone?: string
   mustChangePassword?: boolean
   status?: $Enums.UserStatus
+  accountKind?: $Enums.UserAccountKind
   lastLoginAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -36417,6 +37549,7 @@ export type UserUncheckedCreateWithoutActivityFeedActionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedCreateNestedManyWithoutStudentInput
   invitationsCreated?: Prisma.InvitationUncheckedCreateNestedManyWithoutCreatedByInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  operatedSessions?: Prisma.SessionUncheckedCreateNestedManyWithoutOperatorUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
   filesCreated?: Prisma.StoredFileUncheckedCreateNestedManyWithoutCreatedByInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedCreateNestedManyWithoutCreatedByInput
@@ -36521,6 +37654,7 @@ export type UserUpdateWithoutActivityFeedEventsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -36532,6 +37666,7 @@ export type UserUpdateWithoutActivityFeedEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -36620,6 +37755,7 @@ export type UserUncheckedUpdateWithoutActivityFeedEventsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -36631,6 +37767,7 @@ export type UserUncheckedUpdateWithoutActivityFeedEventsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -36730,6 +37867,7 @@ export type UserUpdateWithoutActivityFeedActionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -36741,6 +37879,7 @@ export type UserUpdateWithoutActivityFeedActionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUpdateManyWithoutCreatedByNestedInput
@@ -36829,6 +37968,7 @@ export type UserUncheckedUpdateWithoutActivityFeedActionsInput = {
   timezone?: Prisma.StringFieldUpdateOperationsInput | string
   mustChangePassword?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  accountKind?: Prisma.EnumUserAccountKindFieldUpdateOperationsInput | $Enums.UserAccountKind
   lastLoginAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -36840,6 +37980,7 @@ export type UserUncheckedUpdateWithoutActivityFeedActionsInput = {
   studentLinks?: Prisma.ParentStudentLinkUncheckedUpdateManyWithoutStudentNestedInput
   invitationsCreated?: Prisma.InvitationUncheckedUpdateManyWithoutCreatedByNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  operatedSessions?: Prisma.SessionUncheckedUpdateManyWithoutOperatorUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   filesCreated?: Prisma.StoredFileUncheckedUpdateManyWithoutCreatedByNestedInput
   fileVersionsCreated?: Prisma.FileVersionUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -36931,6 +38072,7 @@ export type UserCountOutputType = {
   studentLinks: number
   invitationsCreated: number
   sessions: number
+  operatedSessions: number
   passwordResetTokens: number
   filesCreated: number
   fileVersionsCreated: number
@@ -37018,6 +38160,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   studentLinks?: boolean | UserCountOutputTypeCountStudentLinksArgs
   invitationsCreated?: boolean | UserCountOutputTypeCountInvitationsCreatedArgs
   sessions?: boolean | UserCountOutputTypeCountSessionsArgs
+  operatedSessions?: boolean | UserCountOutputTypeCountOperatedSessionsArgs
   passwordResetTokens?: boolean | UserCountOutputTypeCountPasswordResetTokensArgs
   filesCreated?: boolean | UserCountOutputTypeCountFilesCreatedArgs
   fileVersionsCreated?: boolean | UserCountOutputTypeCountFileVersionsCreatedArgs
@@ -37159,6 +38302,13 @@ export type UserCountOutputTypeCountInvitationsCreatedArgs<ExtArgs extends runti
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SessionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountOperatedSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.SessionWhereInput
 }
 
@@ -37706,6 +38856,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   timezone?: boolean
   mustChangePassword?: boolean
   status?: boolean
+  accountKind?: boolean
   lastLoginAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -37717,6 +38868,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   studentLinks?: boolean | Prisma.User$studentLinksArgs<ExtArgs>
   invitationsCreated?: boolean | Prisma.User$invitationsCreatedArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
+  operatedSessions?: boolean | Prisma.User$operatedSessionsArgs<ExtArgs>
   passwordResetTokens?: boolean | Prisma.User$passwordResetTokensArgs<ExtArgs>
   filesCreated?: boolean | Prisma.User$filesCreatedArgs<ExtArgs>
   fileVersionsCreated?: boolean | Prisma.User$fileVersionsCreatedArgs<ExtArgs>
@@ -37807,6 +38959,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   timezone?: boolean
   mustChangePassword?: boolean
   status?: boolean
+  accountKind?: boolean
   lastLoginAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -37823,6 +38976,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   timezone?: boolean
   mustChangePassword?: boolean
   status?: boolean
+  accountKind?: boolean
   lastLoginAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -37839,12 +38993,13 @@ export type UserSelectScalar = {
   timezone?: boolean
   mustChangePassword?: boolean
   status?: boolean
+  accountKind?: boolean
   lastLoginAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "normalizedEmail" | "passwordHash" | "displayName" | "avatarFileId" | "locale" | "timezone" | "mustChangePassword" | "status" | "lastLoginAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "normalizedEmail" | "passwordHash" | "displayName" | "avatarFileId" | "locale" | "timezone" | "mustChangePassword" | "status" | "accountKind" | "lastLoginAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   platformRoleAssignments?: boolean | Prisma.User$platformRoleAssignmentsArgs<ExtArgs>
   platformRolesAssigned?: boolean | Prisma.User$platformRolesAssignedArgs<ExtArgs>
@@ -37854,6 +39009,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   studentLinks?: boolean | Prisma.User$studentLinksArgs<ExtArgs>
   invitationsCreated?: boolean | Prisma.User$invitationsCreatedArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
+  operatedSessions?: boolean | Prisma.User$operatedSessionsArgs<ExtArgs>
   passwordResetTokens?: boolean | Prisma.User$passwordResetTokensArgs<ExtArgs>
   filesCreated?: boolean | Prisma.User$filesCreatedArgs<ExtArgs>
   fileVersionsCreated?: boolean | Prisma.User$fileVersionsCreatedArgs<ExtArgs>
@@ -37946,6 +39102,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     studentLinks: Prisma.$ParentStudentLinkPayload<ExtArgs>[]
     invitationsCreated: Prisma.$InvitationPayload<ExtArgs>[]
     sessions: Prisma.$SessionPayload<ExtArgs>[]
+    operatedSessions: Prisma.$SessionPayload<ExtArgs>[]
     passwordResetTokens: Prisma.$PasswordResetTokenPayload<ExtArgs>[]
     filesCreated: Prisma.$StoredFilePayload<ExtArgs>[]
     fileVersionsCreated: Prisma.$FileVersionPayload<ExtArgs>[]
@@ -38034,6 +39191,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     timezone: string
     mustChangePassword: boolean
     status: $Enums.UserStatus
+    accountKind: $Enums.UserAccountKind
     lastLoginAt: Date | null
     createdAt: Date
     updatedAt: Date
@@ -38439,6 +39597,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   studentLinks<T extends Prisma.User$studentLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$studentLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ParentStudentLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invitationsCreated<T extends Prisma.User$invitationsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$invitationsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sessions<T extends Prisma.User$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  operatedSessions<T extends Prisma.User$operatedSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$operatedSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   passwordResetTokens<T extends Prisma.User$passwordResetTokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$passwordResetTokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   filesCreated<T extends Prisma.User$filesCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$filesCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StoredFilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   fileVersionsCreated<T extends Prisma.User$fileVersionsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$fileVersionsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FileVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -38554,6 +39713,7 @@ export interface UserFieldRefs {
   readonly timezone: Prisma.FieldRef<"User", 'String'>
   readonly mustChangePassword: Prisma.FieldRef<"User", 'Boolean'>
   readonly status: Prisma.FieldRef<"User", 'UserStatus'>
+  readonly accountKind: Prisma.FieldRef<"User", 'UserAccountKind'>
   readonly lastLoginAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
@@ -39121,6 +40281,30 @@ export type User$invitationsCreatedArgs<ExtArgs extends runtime.Types.Extensions
  * User.sessions
  */
 export type User$sessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Session
+   */
+  select?: Prisma.SessionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Session
+   */
+  omit?: Prisma.SessionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SessionInclude<ExtArgs> | null
+  where?: Prisma.SessionWhereInput
+  orderBy?: Prisma.SessionOrderByWithRelationInput | Prisma.SessionOrderByWithRelationInput[]
+  cursor?: Prisma.SessionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SessionScalarFieldEnum | Prisma.SessionScalarFieldEnum[]
+}
+
+/**
+ * User.operatedSessions
+ */
+export type User$operatedSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the Session
    */

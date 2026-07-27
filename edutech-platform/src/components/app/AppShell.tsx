@@ -12,6 +12,7 @@ import {
 } from "react";
 
 import { logoutAction } from "@/app/(app)/actions";
+import { DevModeBanner } from "@/components/app/DevModeBanner";
 import { Brand } from "@/components/layout/Brand";
 import type { AppNavItem, NavIcon } from "@/components/app/shell-utils";
 import { buildBreadcrumbs } from "@/components/app/shell-utils";
@@ -47,6 +48,11 @@ interface AppShellProps {
   activeSchoolName?: string;
   canSwitchSchool: boolean;
   schoolSearchEnabled: boolean;
+  devMode?: {
+    operatorName: string;
+    targetName: string;
+    schoolName: string;
+  };
   navItems: AppNavItem[];
   notificationSummary?: {
     unreadCount: number;
@@ -165,6 +171,7 @@ export function AppShell({
   activeSchoolName,
   canSwitchSchool,
   schoolSearchEnabled,
+  devMode,
   navItems,
   notificationSummary,
 }: AppShellProps) {
@@ -322,7 +329,9 @@ export function AppShell({
       ) : null}
 
       <div className="min-w-0 lg:col-start-2">
-        <header className="sticky top-0 z-20 border-b border-[var(--color-ink-200)] bg-[var(--color-surface)]/95 backdrop-blur">
+        <div className="sticky top-0 z-20">
+          {devMode ? <DevModeBanner {...devMode} /> : null}
+        <header className="border-b border-[var(--color-ink-200)] bg-[var(--color-surface)]/95 backdrop-blur">
           <div className="flex min-h-16 items-center gap-2 px-4 sm:gap-3 sm:px-6 lg:px-8">
             <button
               ref={menuTriggerRef}
@@ -456,6 +465,11 @@ export function AppShell({
                   <p className="truncate text-sm font-semibold text-[var(--color-ink-900)]">{displayName}</p>
                   <p className="truncate text-xs text-[var(--color-ink-500)]">{scopeDescription}</p>
                 </div>
+                {devMode ? (
+                  <Link href="/dev/switch" className="mt-1 block rounded-[var(--radius-sm)] px-2 py-2 text-sm font-semibold text-[var(--color-warning-700)] hover:bg-[var(--color-warning-50)]">
+                    Chuyển tài khoản demo
+                  </Link>
+                ) : null}
                 {canSwitchSchool ? (
                   <Link href="/chon-truong" className="mt-1 block rounded-[var(--radius-sm)] px-2 py-2 text-sm text-[var(--color-ink-700)] hover:bg-[var(--color-ink-100)]">
                     Đổi trường
@@ -476,6 +490,7 @@ export function AppShell({
             </details>
           </div>
         </header>
+        </div>
 
         <main id="main-content" className="px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
           <div className="mx-auto w-full max-w-[90rem]">{children}</div>

@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright test && playwright test --config=playwright.dev-mode.config.ts",
     "verify": "node scripts/verify.mjs",
     "services:up": "docker compose up -d",
     "services:down": "docker compose down",

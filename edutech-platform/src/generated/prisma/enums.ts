@@ -18,6 +18,15 @@ export const UserStatus = {
 export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus]
 
 
+export const UserAccountKind = {
+  STANDARD: 'STANDARD',
+  DEMO: 'DEMO',
+  DEV_OPERATOR: 'DEV_OPERATOR'
+} as const
+
+export type UserAccountKind = (typeof UserAccountKind)[keyof typeof UserAccountKind]
+
+
 export const SchoolStatus = {
   ACTIVE: 'ACTIVE',
   SUSPENDED: 'SUSPENDED',

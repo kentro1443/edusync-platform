@@ -1,6 +1,7 @@
 import "server-only";
 
 import { UserStatus } from "@/generated/prisma/enums";
+import { isDevOperatorAccount } from "@/lib/auth/dev-mode";
 import {
   hashPassword,
   normalizeEmail,
@@ -50,6 +51,7 @@ export async function authenticateCredentials(
       passwordHash: true,
       mustChangePassword: true,
       status: true,
+      accountKind: true,
     },
   });
 
@@ -63,7 +65,12 @@ export async function authenticateCredentials(
     parsed.data.password,
   );
 
-  if (!passwordIsValid || user.status !== UserStatus.ACTIVE) {
+  if (
+    !passwordIsValid ||
+    user.status !== UserStatus.ACTIVE ||
+    (user.accountKind === "DEV_OPERATOR" &&
+      !isDevOperatorAccount(user.accountKind))
+  ) {
     return null;
   }
 
