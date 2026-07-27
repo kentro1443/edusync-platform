@@ -3,9 +3,15 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
+import {
+  MembershipStatus,
+  SchoolStatus,
+} from "@/generated/prisma/enums";
 import { writeAuditEvent } from "@/lib/audit";
 import { authenticateCredentials } from "@/lib/auth/credentials";
+import { isDevOperatorAccount } from "@/lib/auth/dev-mode";
 import { normalizeEmail } from "@/lib/auth/password";
+import { db } from "@/lib/db";
 import { logEvent } from "@/lib/observability/logger";
 import {
   authRateLimits,
@@ -14,13 +20,9 @@ import {
   recordAuthAttempt,
 } from "@/lib/auth/rate-limit";
 import { getRequestMetadata } from "@/lib/auth/request-metadata";
-import {
-  getAuthenticatedLandingPath,
-  sanitizeReturnPath,
-} from "@/lib/auth/navigation";
+import { sanitizeReturnPath } from "@/lib/auth/navigation";
 import {
   createDatabaseSession,
-  getDatabaseSession,
   sessionCookieName,
   sessionMaxAgeSeconds,
 } from "@/lib/auth/session";
@@ -85,13 +87,6 @@ export async function loginAction(formData: FormData): Promise<never> {
     expires: createdSession.expires,
   });
 
-  const session = await getDatabaseSession(createdSession.token);
-
-  if (!session) {
-    cookieStore.delete(sessionCookieName);
-    redirect("/login?error=invalid");
-  }
-
   await writeAuditEvent({
     actorUserId: user.id,
     action: "AUTH_LOGIN_SUCCEEDED",
@@ -99,5 +94,25 @@ export async function loginAction(formData: FormData): Promise<never> {
     entityId: createdSession.id,
   });
 
-  redirect(returnTo ?? getAuthenticatedLandingPath(session));
+  if (returnTo) {
+    redirect(returnTo);
+  }
+
+  if (user.mustChangePassword) {
+    redirect("/doi-mat-khau");
+  }
+
+  if (isDevOperatorAccount(user.accountKind)) {
+    redirect("/dev/switch");
+  }
+
+  const activeSchoolCount = await db.schoolMembership.count({
+    where: {
+      userId: user.id,
+      status: MembershipStatus.ACTIVE,
+      school: { status: SchoolStatus.ACTIVE },
+    },
+  });
+
+  redirect(activeSchoolCount > 1 ? "/chon-truong" : "/dashboard");
 }

@@ -1,6 +1,9 @@
 import "server-only";
 
-import { UserStatus } from "@/generated/prisma/enums";
+import {
+  UserStatus,
+  type UserAccountKind,
+} from "@/generated/prisma/enums";
 import { isDevOperatorAccount } from "@/lib/auth/dev-mode";
 import {
   hashPassword,
@@ -30,6 +33,7 @@ export type CredentialUser = Readonly<{
   email: string;
   name: string;
   mustChangePassword: boolean;
+  accountKind: UserAccountKind;
 }>;
 
 export async function authenticateCredentials(
@@ -95,5 +99,6 @@ export async function authenticateCredentials(
     email: user.email,
     name: user.displayName,
     mustChangePassword: user.mustChangePassword,
+    accountKind: user.accountKind,
   };
 }
