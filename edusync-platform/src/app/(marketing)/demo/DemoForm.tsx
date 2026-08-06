@@ -90,7 +90,7 @@ export function DemoForm() {
             <Input id="school" name="school" autoComplete="organization" placeholder="THPT Minh Khai" />
           </Field>
           <Field id="email" label="Email công vụ" required error={state.fieldErrors?.email}>
-            <Input id="email" name="email" type="email" autoComplete="email" placeholder="ban@truong.edu.vn" />
+            <Input id="email" name="email" type="email" autoComplete="email" placeholder="Enter your email" />
           </Field>
         </div>
 

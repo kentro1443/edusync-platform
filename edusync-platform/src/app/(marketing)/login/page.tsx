@@ -106,7 +106,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
                 type="email"
                 autoComplete="username"
                 required
-                placeholder="ban@truong.edu.vn"
+                placeholder="Enter your email"
               />
             </div>
             <div>

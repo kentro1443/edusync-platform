@@ -32,7 +32,7 @@ export default async function ForgotPasswordPage({
           ) : (
             <form action={forgotPasswordAction} className="mt-6 space-y-5">
               <Field id="email" label="Email" required description="Dùng email đã đăng ký với nhà trường.">
-                <Input id="email" name="email" type="email" autoComplete="email" required placeholder="ban@truong.edu.vn" />
+                <Input id="email" name="email" type="email" autoComplete="email" required placeholder="Enter your email" />
               </Field>
               <Button type="submit" size="lg" className="w-full">Gửi hướng dẫn đặt lại</Button>
             </form>
